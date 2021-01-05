@@ -12398,6 +12398,7 @@ void clif_parse_ChangeCart(int fd,struct map_session_data *sd)
 
 	if(
 #ifdef NEW_CARTS
+		(type == 10 && sd->status.base_level > 140) ||
 		(type == 9 && sd->status.base_level > 130) ||
 		(type == 8 && sd->status.base_level > 120) ||
 		(type == 7 && sd->status.base_level > 110) ||
