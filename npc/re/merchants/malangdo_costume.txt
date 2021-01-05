@@ -59,6 +59,8 @@ mal_in01,20,124,5	script	Designer Heidam#eventhat	4_CAT_SAILOR5,{
 		20146,		// C_Angel_Spirit
 		20147,		// C_Bell_Pigeon
 		20746;		// C_Rudra_Wing
+		19963;		// C_Driver_Band_R
+		19968;		// C_Magic_Stone_Hat
 	// ===================================================================
 	// =================== Costume Enchant Stone Box 5 ===================
 	// ===================================================================
@@ -100,6 +102,8 @@ mal_in01,20,124,5	script	Designer Heidam#eventhat	4_CAT_SAILOR5,{
 		20242,		// C_Snownow_Hat
 		20273,		// C_Soft_Sheep_Hat
 		20762;		// C_GreatDevilWing
+		19969;		// C_Blazing_Soul
+		19974;		// C_Camouflage_RabbitHood
 	// ===================================================================
 	// =================== Costume Enchant Stone Box 7 ===================
 	// ===================================================================
