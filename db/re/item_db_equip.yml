@@ -99681,7 +99681,7 @@ Body:
       Both_Accessory: true
     EquipLevelMin: 80
     Script: |
-      bonus bDelayrate,-10; bonus2 bAddClass,Class_Boss,5; bonus2 bIgnoreDefRaceRate,RC_All,50;
+      bonus bDelayrate,-10; bonus2 bAddClass,Class_Boss,5; bonus2 bIgnoreDefRaceRate,RC_All,20; bonus2 bonus2 bIgnoreDefRaceRate,RC_Player_human,-20;
   - Id: 28533
     AegisName: Chemical_Glove
     Name: Chemical Glove
@@ -99804,7 +99804,7 @@ Body:
       Left_Accessory: true
     EquipLevelMin: 80
     Script: |
-      .@s = readparam(bStr); .@a = readparam(bAgi); .@d = readparam(bDex); .@v = readparam(bvit); .@l = readparam(bLuk); .@i = readparam(bInt); bonus bStr,3*(.@i/18); bonus bAgi,3*(.@l/18); bonus bVit,3*(.@d/18); bonus bInt,3*(.@s/18); bonus bDex,3*(.@v/18); bonus bLuk,3*(.@a/18); bonus bMaxHPrate,(.@d/18); bonus bFlee2,(.@a/18); bonus bMaxHPrate,(.@d/18); bonus bVariableCastrate,-(.@v/18); bonus bDelayrate,-(.@i/18); bonus2 bIgnoreDefClassRate,Class_All,15*(.@l/18); bonus2 bIgnoreMdefClassRate,Class_All,15*(.@s/18);
+      .@s = readparam(bStr); .@a = readparam(bAgi); .@d = readparam(bDex); .@v = readparam(bvit); .@l = readparam(bLuk); .@i = readparam(bInt); bonus bStr,3*(.@i/18); bonus bAgi,3*(.@l/18); bonus bVit,3*(.@d/18); bonus bInt,3*(.@s/18); bonus bDex,3*(.@v/18); bonus bLuk,3*(.@a/18); bonus bMaxHPrate,(.@d/18); bonus bFlee2,(.@a/18); bonus bMaxHPrate,(.@d/18); bonus bVariableCastrate,-(.@v/18); bonus bDelayrate,-(.@i/18); if (BaseLevel>=100) { bonus2 bIgnoreMdefClassRate,Class_All,8*(.@s/18); bonus2 bIgnoreMdefRaceRate,RC_Player_Human,-8*(.@s/18); } if (BaseLevel>=100) { bonus2 bIgnoreDefClassRate,Class_All,5*(.@i/18); bonus2 bIgnoreDefClassRate,RC_Player_Human,-5*(.@i/18); };
   - Id: 28566
     AegisName: Beginner's_Ring
     Name: Beginner's Ring
