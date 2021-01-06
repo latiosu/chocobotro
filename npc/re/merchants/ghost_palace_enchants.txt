@@ -215,16 +215,16 @@ OnInit:
 	.cost = 35;
 	.itemId = 6672;
 																				// Melee First enchant
-setarray .RandOpt1_MeleeWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_WATER_TARGET,			// Increase Physical Damage to Water Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	12 ~ 20
+setarray .RandOpt1_MeleeWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_WATER_TARGET,			// Increase Physical Damage to Water Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	10 ~ 20
 								RDMOPT_DAMAGE_SIZE_PERFECT,						// No Weapon Penalty
 								RDMOPT_VAR_PLUSASPD,							// Flat ASPD		1
 								RDMOPT_VAR_PLUSASPDPERCENT,						// ASPD				5 ~ 10
@@ -236,73 +236,73 @@ setarray .RandOpt1_MeleeWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Inc
 								RDMOPT_WEAPON_ATTR_GROUND;						// Earth Property
 
 																				// Second melee enchant
-setarray .RandOpt2_MeleeWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	12 ~ 20
-								RDMOPT_RACE_DAMAGE_UNDEAD,						// Increase Physical Damage to Undead Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_ANIMAL,						// Increase Physical Damage to Brute Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_PLANT,						// Increase Physical Damage to Plant Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_INSECT,						// Increase Physical Damage to Insect Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_FISHS,						// Increase Physical Damage to Fish Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_ANGEL,						// Increase Physical Damage to Angel Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_DEVIL,						// Increase Physical Damage to Demon Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_DRAGON,						// Increase Physical Damage to Dragon Race		12 ~ 20
-								RDMOPT_RACE_DAMAGE_HUMAN,						// Increase Physical Damage to Demi-human Race	12 ~ 20
-								RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,				// Increase Physical Damage to Normal Class		7 ~ 10
-								RDMOPT_CLASS_DAMAGE_BOSS_TARGET,				// Increase Physical Damage to Boss Class		7 ~ 10
+setarray .RandOpt2_MeleeWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	10 ~ 20
+								RDMOPT_RACE_DAMAGE_UNDEAD,						// Increase Physical Damage to Undead Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_ANIMAL,						// Increase Physical Damage to Brute Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_PLANT,						// Increase Physical Damage to Plant Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_INSECT,						// Increase Physical Damage to Insect Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_FISHS,						// Increase Physical Damage to Fish Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_ANGEL,						// Increase Physical Damage to Angel Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_DEVIL,						// Increase Physical Damage to Demon Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_DRAGON,						// Increase Physical Damage to Dragon Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_HUMAN,						// Increase Physical Damage to Demi-human Race	10 ~ 20
+								RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,				// Increase Physical Damage to Normal Class		5 ~ 10
+								RDMOPT_CLASS_DAMAGE_BOSS_TARGET,				// Increase Physical Damage to Boss Class		5 ~ 10
 								RDMOPT_VAR_ATKPERCENT,							// Attack				3 ~ 5
-								RDMOPT_DAMAGE_CRI_TARGET,						// Critical Damage		12 ~ 20
+								RDMOPT_DAMAGE_CRI_TARGET,						// Critical Damage		10 ~ 20
 								RDMOPT_WEAPON_INDESTRUCTIBLE;					// Indestructible
-setarray .RandOpt1_MeleeWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,1,5,1,1,1,1,1,1;
+setarray .RandOpt1_MeleeWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,1,5,1,1,1,1,1,1;
 setarray .RandOpt1_MeleeWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,1,10,1,1,1,1,1,1;
-setarray .RandOpt2_MeleeWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,7,7,3,12,1;
+setarray .RandOpt2_MeleeWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,10,1;
 setarray .RandOpt2_MeleeWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,5,20,1;
 
 																				// First magic enchant
-setarray .RandOpt1_MagicWeapon[0],RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Magic Damage to Neutral Property	12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,			// Increase Magic Damage to Water Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,			// Increase Magic Damage to Fire Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,			// Increase Magic Damage to Earth Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,			// Increase Magic Damage to Wind Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,			// Increase Magic Damage to Poison Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,			// Increase Magic Damage to Holy Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_DARKNESS_TARGET,		// Increase Magic Damage to Dark Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Magic Damage to Ghost Property		12 ~ 20
-								RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Magic Damage to Undead Property		12 ~ 20
+setarray .RandOpt1_MagicWeapon[0],RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Magic Damage to Neutral Property	10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,			// Increase Magic Damage to Water Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,			// Increase Magic Damage to Fire Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,			// Increase Magic Damage to Earth Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,			// Increase Magic Damage to Wind Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,			// Increase Magic Damage to Poison Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,			// Increase Magic Damage to Holy Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_DARKNESS_TARGET,		// Increase Magic Damage to Dark Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Magic Damage to Ghost Property		10 ~ 20
+								RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Magic Damage to Undead Property		10 ~ 20
 								RDMOPT_DEC_SPELL_CAST_TIME,						// Variable Cast Reduction - to be tested		5 ~ 10
 								RDMOPT_HEAL_MODIFY_PERCENT,						// Increase Healing Bonus						5 ~ 10
 								RDMOPT_DEC_SP_CONSUMPTION,						// Reduce SP Consumption						5 ~ 10
 								RDMOPT_DEC_SPELL_DELAY_TIME;					// Skill Reuse Delay Reduction - to be tested	3 ~ 5
 
 																				// Second magic enchant
-setarray .RandOpt2_MagicWeapon[0],RDMOPT_RACE_MDAMAGE_NOTHING,					// Increase Magic Damage to Formless Race		12 ~ 20
-							RDMOPT_RACE_MDAMAGE_UNDEAD,							// Increase Magic Damage to Undead Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_ANIMAL,							// Increase Magic Damage to Brute Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_PLANT,							// Increase Magic Damage to Plant Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_INSECT,							// Increase Magic Damage to Insect Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_FISHS,							// Increase Magic Damage to Fish Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_ANGEL,							// Increase Magic Damage to Angel Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_DEVIL,							// Increase Magic Damage to Demon Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_DRAGON,							// Increase Magic Damage to Dragon Race			12 ~ 20
-							RDMOPT_RACE_MDAMAGE_HUMAN,							// Increase Magic Damage to Demi-human Race		12 ~ 20
-							RDMOPT_CLASS_MDAMAGE_NORMAL,						// Increase Magic Damage to Normal Class		7 ~ 10
-							RDMOPT_CLASS_MDAMAGE_BOSS,							// Increase Magic Damage to Boss Class			7 ~ 10
+setarray .RandOpt2_MagicWeapon[0],RDMOPT_RACE_MDAMAGE_NOTHING,					// Increase Magic Damage to Formless Race		10 ~ 20
+							RDMOPT_RACE_MDAMAGE_UNDEAD,							// Increase Magic Damage to Undead Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_ANIMAL,							// Increase Magic Damage to Brute Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_PLANT,							// Increase Magic Damage to Plant Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_INSECT,							// Increase Magic Damage to Insect Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_FISHS,							// Increase Magic Damage to Fish Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_ANGEL,							// Increase Magic Damage to Angel Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_DEVIL,							// Increase Magic Damage to Demon Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_DRAGON,							// Increase Magic Damage to Dragon Race			10 ~ 20
+							RDMOPT_RACE_MDAMAGE_HUMAN,							// Increase Magic Damage to Demi-human Race		10 ~ 20
+							RDMOPT_CLASS_MDAMAGE_NORMAL,						// Increase Magic Damage to Normal Class		5 ~ 10
+							RDMOPT_CLASS_MDAMAGE_BOSS,							// Increase Magic Damage to Boss Class			5 ~ 10
 							RDMOPT_VAR_MAGICATKPERCENT,							// Magic Attack									3 ~ 7
 							RDMOPT_DEC_SPELL_CAST_TIME;							// Variable Cast Reduction - to be tested		5 ~ 10
-setarray .RandOpt1_MagicWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,5,5,5,3;
+setarray .RandOpt1_MagicWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,5,3;
 setarray .RandOpt1_MagicWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,10,5;
-setarray .RandOpt2_MagicWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,7,7,3,5;
+setarray .RandOpt2_MagicWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,5;
 setarray .RandOpt2_MagicWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,7,10;
 
 																				// First ranged enchant
-setarray .RandOpt1_RangedWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_WATER_TARGET, 			// Increase Physical Damage to Water Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	12 ~ 20
-								RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	12 ~ 20
+setarray .RandOpt1_RangedWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_WATER_TARGET, 			// Increase Physical Damage to Water Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	10 ~ 20
+								RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	10 ~ 20
 								RDMOPT_DAMAGE_SIZE_PERFECT,						// No Weapon Penalty
 								RDMOPT_VAR_PLUSASPD,							// Flat ASPD			1
 								RDMOPT_VAR_PLUSASPDPERCENT,						// ASPD					5 ~ 10
@@ -310,23 +310,23 @@ setarray .RandOpt1_RangedWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// In
 								RDMOPT_WEAPON_INDESTRUCTIBLE;					// Indestructible
 
 																				// Second ranged enchant
-setarray .RandOpt2_RangedWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	12 ~ 20
-							RDMOPT_RACE_DAMAGE_UNDEAD,							// Increase Physical Damage to Undead Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_ANIMAL,							// Increase Physical Damage to Brute Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_PLANT,							// Increase Physical Damage to Plant Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_INSECT,							// Increase Physical Damage to Insect Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_FISHS,							// Increase Physical Damage to Fish Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_ANGEL,							// Increase Physical Damage to Angel Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_DEVIL,							// Increase Physical Damage to Demon Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_DRAGON,							// Increase Physical Damage to Dragon Race		12 ~ 20
-							RDMOPT_RACE_DAMAGE_HUMAN,							// Increase Physical Damage to Demi-human Race	12 ~ 20
-							RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,					// Increase Physical Damage to Normal Class		7 ~ 10
-							RDMOPT_CLASS_DAMAGE_BOSS_TARGET,					// Increase Physical Damage to Boss Class		7 ~ 10
+setarray .RandOpt2_RangedWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	10 ~ 20
+							RDMOPT_RACE_DAMAGE_UNDEAD,							// Increase Physical Damage to Undead Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_ANIMAL,							// Increase Physical Damage to Brute Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_PLANT,							// Increase Physical Damage to Plant Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_INSECT,							// Increase Physical Damage to Insect Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_FISHS,							// Increase Physical Damage to Fish Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_ANGEL,							// Increase Physical Damage to Angel Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_DEVIL,							// Increase Physical Damage to Demon Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_DRAGON,							// Increase Physical Damage to Dragon Race		10 ~ 20
+							RDMOPT_RACE_DAMAGE_HUMAN,							// Increase Physical Damage to Demi-human Race	10 ~ 20
+							RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,					// Increase Physical Damage to Normal Class		5 ~ 10
+							RDMOPT_CLASS_DAMAGE_BOSS_TARGET,					// Increase Physical Damage to Boss Class		5 ~ 10
 							RDMOPT_VAR_ATKPERCENT,								// Attack				3 ~ 7
-							RDMOPT_DAMAGE_CRI_TARGET;							// Critical Damage		12 ~ 20
-setarray .RandOpt1_RangedWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,1,1,5,3,1;
+							RDMOPT_DAMAGE_CRI_TARGET;							// Critical Damage		10 ~ 20
+setarray .RandOpt1_RangedWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,1,1,5,3,1;
 setarray .RandOpt1_RangedWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,1,1,10,5,1;
-setarray .RandOpt2_RangedWeapon_minV[0],12,12,12,12,12,12,12,12,12,12,7,7,3,12;
+setarray .RandOpt2_RangedWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,10;
 setarray .RandOpt2_RangedWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,7,20;
 end;
 }
