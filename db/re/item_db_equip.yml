@@ -40735,6 +40735,8 @@ Body:
       Head_Top: true
     Refineable: true
     View: 434
+        Script: |
+      bonus2 bExpAddClass,Class_All,4; .@r = getrefine(); if (.@r>=5) bonus2 bExpAddClass,Class_All,2; if (.@r>=7) bonus2 bExpAddClass,Class_All,2; if (.@r>=8) bonus2 bExpAddClass,Class_All,2;
   - Id: 5434
     AegisName: Cola_Can
     Name: Cola Can
@@ -65094,7 +65096,7 @@ Body:
     EquipLevelMin: 50
     View: 807
     Script: |
-      bonus bAgi,2;
+      bonus bAgi,2; bonus3 bAutoSpell,"TF_STEAL",1,70;
   - Id: 18656
     AegisName: Wit_Pumpkin_Hat
     Name: Witch's Pumpkin Hat
