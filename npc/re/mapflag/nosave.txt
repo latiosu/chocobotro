@@ -53,6 +53,7 @@ te_aldecas2	mapflag	nosave	SavePoint
 te_aldecas3	mapflag	nosave	SavePoint
 te_aldecas4	mapflag	nosave	SavePoint
 te_aldecas5	mapflag	nosave	SavePoint
+gefg_cas02  mapflag nosave  SavePoint
 
 // Misty Forest Labyrinth =========
 1@mist	mapflag	nosave	SavePoint

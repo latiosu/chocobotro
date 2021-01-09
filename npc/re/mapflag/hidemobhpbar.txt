@@ -24,6 +24,7 @@ te_aldecas2	mapflag	hidemobhpbar
 te_aldecas3	mapflag	hidemobhpbar
 te_aldecas4	mapflag	hidemobhpbar
 te_aldecas5	mapflag	hidemobhpbar
+gefg_cas02  mapflag hidemobhpbar
 
 // Guild Dungeons =========
 gld2_ald	mapflag	hidemobhpbar

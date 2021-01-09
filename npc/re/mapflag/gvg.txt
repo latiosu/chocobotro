@@ -38,3 +38,4 @@ te_aldecas2	mapflag	gvg_te_castle
 te_aldecas3	mapflag	gvg_te_castle
 te_aldecas4	mapflag	gvg_te_castle
 te_aldecas5	mapflag	gvg_te_castle
+gefg_cas02  mapflag gvg_te_castle
