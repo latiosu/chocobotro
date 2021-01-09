@@ -40736,7 +40736,7 @@ Body:
     Refineable: true
     View: 434
         Script: |
-      bonus2 bExpAddClass,Class_All,4; .@r = getrefine(); if (.@r>=5) bonus2 bExpAddClass,Class_All,2; if (.@r>=7) bonus2 bExpAddClass,Class_All,2; if (.@r>=8) bonus2 bExpAddClass,Class_All,2;
+      .@r = getrefine(); .@val = 4; if (.@r>=5) .@val +=2; if (.@r>=7) .@val +=2; if (.@r>=8) .@val +=2; bonus2 bExpAddClass,Class_All,.@val;
   - Id: 5434
     AegisName: Cola_Can
     Name: Cola Can
