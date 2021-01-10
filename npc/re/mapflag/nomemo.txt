@@ -181,7 +181,7 @@ te_aldecas4	mapflag	nomemo
 te_aldecas5	mapflag	nomemo
 teg_dun01	mapflag	nomemo
 teg_dun02	mapflag	nomemo
-gefg_cas02  mapflag nomemo
+gefg_cas02	mapflag	nomemo
 
 // Novice training
 int_land	mapflag	nomemo

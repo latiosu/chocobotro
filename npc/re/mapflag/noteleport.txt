@@ -178,7 +178,7 @@ te_aldecas2	mapflag	monster_noteleport
 te_aldecas3	mapflag	monster_noteleport
 te_aldecas4	mapflag	monster_noteleport
 te_aldecas5	mapflag	monster_noteleport
-gefg_cas02  mapflag monster_noteleport
+gefg_cas02	mapflag	monster_noteleport
 
 // Ep 16
 prt_cas	mapflag	noteleport
