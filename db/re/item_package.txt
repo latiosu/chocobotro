@@ -4675,3 +4675,245 @@ IG_Santa_Gift,14586,500,5,1,0,0,0	// 5x Spark_Candy
 IG_Santa_Gift,12350,500,5,1,0,0,0	// 5x Angeling_Potion
 IG_Santa_Gift,12710,500,5,1,0,0,0	// 5x Guyak_Pudding
 IG_Santa_Gift,12259,500,2,1,0,0,0	// 2x Miracle_Medicine
+
+// OCP Custom Bundles for ChocobotRO
+// Bundle 1
+IG_Choco_Bundle1,28411,1,1,1,0,0,0		// Emerald Earring [1]
+IG_Choco_Bundle1,28564,1,1,1,0,0,0		// Valkyrie Drop [1]
+IG_Choco_Bundle1,15205,1,1,1,0,0,0		// Medical Scrubs [1]
+IG_Choco_Bundle1,20859,1,1,1,0,0,0		// Phreeoni Wings [1]
+IG_Choco_Bundle1,19102,1,1,1,0,0,0		// Pale Moon Hat [1]
+IG_Choco_Bundle1,5978,1,1,1,0,0,0		// Toy Syringe
+IG_Choco_Bundle1,5973,1,1,1,0,0,0		// Ancient Elven Ear
+IG_Choco_Bundle1,19495,1,1,1,0,0,0		// Diabolus Wing [1]
+IG_Choco_Bundle1,20837,1,1,1,0,0,0		// Skin of Gwiber [1]
+IG_Choco_Bundle1,1837,1,1,1,0,0,0		// Iron Nail
+
+// Bundle 2
+IG_Choco_Bundle2,28507,1,1,1,0,0,0		// Magician's Gloves [1]
+IG_Choco_Bundle2,28394,1,1,1,0,0,0		// Spirit King's Ring [1]
+IG_Choco_Bundle2,28342,1,1,1,0,0,0		// Critical Anklet [1]
+IG_Choco_Bundle2,15249,1,1,1,0,0,0		// Antonio's Coat [1]
+IG_Choco_Bundle2,23266,1,1,1,0,0,0		// Etran Bundle A
+IG_Choco_Bundle2,20952,1,1,1,0,0,0		// Mysterious Muffler [1]
+IG_Choco_Bundle2,18746,1,1,1,0,0,0		// Chilly Breath
+IG_Choco_Bundle2,19082,1,1,1,0,0,0		// Bio Protector
+IG_Choco_Bundle2,2196,1,1,1,0,0,0		// White Gold Shield [1]
+IG_Choco_Bundle2,22189,1,1,1,0,0,0		// Pilgrim Shoes
+
+// Bundle 3
+IG_Choco_Bundle3,32242,1,1,1,0,0,0		// Old Detachment Ring
+IG_Choco_Bundle3,32222,1,1,1,0,0,0		// Brooch of Hero [1]
+IG_Choco_Bundle3,15419,1,1,1,0,0,0		// Armor of White Thread [1]
+IG_Choco_Bundle3,23294,1,1,1,0,0,0		// Pororoca Shoes Bundle A
+IG_Choco_Bundle3,20932,1,1,1,0,0,0		// Old Morroc Shawl [1]
+IG_Choco_Bundle3,19141,1,1,1,0,0,0		// Maero Mask
+IG_Choco_Bundle3,19116,1,1,1,0,0,0		// Red Baby Dragon Hat [1]
+IG_Choco_Bundle3,5945,1,1,1,0,0,0		// Well-Chewed Pencil (Red)
+IG_Choco_Bundle3,28951,1,1,1,0,0,0		// Nero Shield [1]
+IG_Choco_Bundle3,16051,1,1,1,0,0,0		// Valkyrie Hammer [4]
+
+// Bundle 4
+IG_Choco_Bundle4,2864,1,1,1,0,0,0		// Light Of Cure
+IG_Choco_Bundle4,28485,1,1,1,0,0,0		// Shinobi Sash H [1]
+IG_Choco_Bundle4,28484,1,1,1,0,0,0		// Rebellion's Scarf [1]
+IG_Choco_Bundle4,2589,1,1,1,0,0,0		// Fallen Angel Wing [1]
+IG_Choco_Bundle4,18543,1,1,1,0,0,0		// Witch Hat
+IG_Choco_Bundle4,19156,1,1,1,0,0,0		// Lunar Rainbow [1]
+IG_Choco_Bundle4,19299,1,1,1,0,0,0		// Tree Sprout
+IG_Choco_Bundle4,5924,1,1,1,0,0,0		// Dragon Knight Eye Patch
+IG_Choco_Bundle4,22210,1,1,1,0,0,0		// Fluffy Fish Shoes
+IG_Choco_Bundle4,1835,1,1,1,0,0,0		// Spartacus [2]
+
+// Bundle 5
+IG_Choco_Bundle5,28594,1,1,1,0,0,0		// Temporal Ring [1]
+IG_Choco_Bundle5,28520,1,1,1,0,0,0		// Egir Ring [1]
+IG_Choco_Bundle5,15405,1,1,1,0,0,0		// Fafnir Scale
+IG_Choco_Bundle5,20836,1,1,1,0,0,0		// Skin of Lindwyrm [1]
+IG_Choco_Bundle5,20962,1,1,1,0,0,0		// Skin of Typhon [1]
+IG_Choco_Bundle5,18823,1,1,1,0,0,0		// Imperial Feather
+IG_Choco_Bundle5,18933,1,1,1,0,0,0		// Mechanical Plant Hat [1]
+IG_Choco_Bundle5,19326,1,1,1,0,0,0		// Book of Soyga [1]
+IG_Choco_Bundle5,19246,1,1,1,0,0,0		// Royal Guard Necklace
+IG_Choco_Bundle5,28903,1,1,1,0,0,0		// Scutum [1]
+
+// Bundle 6
+IG_Choco_Bundle6,28433,1,1,1,0,0,0		// Luminous Blue Stone [1]
+IG_Choco_Bundle6,32203,1,1,1,0,0,0		// Accelerator Chip [1]
+IG_Choco_Bundle6,15384,1,1,1,0,0,0		// Ritual Robe [1]
+IG_Choco_Bundle6,20814,1,1,1,0,0,0		// Wakwak Manteau [1]
+IG_Choco_Bundle6,5500,1,1,1,0,0,0		// Ice Cream Hat
+IG_Choco_Bundle6,5918,1,1,1,0,0,0		// Gambler's Seal
+IG_Choco_Bundle6,15165,1,1,1,0,0,0		// Pure White Marching Hat [1]
+IG_Choco_Bundle6,5938,1,1,1,0,0,0		// Octopus Hat [1]
+IG_Choco_Bundle6,22198,1,1,1,0,0,0		// Traveler Shoes
+IG_Choco_Bundle6,28618,1,1,1,0,0,0		// Book of the Sun God [4]
+
+// Bundle 7
+IG_Choco_Bundle7,28565,1,1,1,0,0,0		// Perverse Demon Mask [1]
+IG_Choco_Bundle7,2984,1,1,1,0,0,0		// Saehrimnir Gloves [1]
+IG_Choco_Bundle7,23253,1,1,1,0,0,0		// Black Shiba Bundle A
+IG_Choco_Bundle7,20922,1,1,1,0,0,0		// Leviathan Muffler [1]
+IG_Choco_Bundle7,20941,1,1,1,0,0,0		// Phoenix Muffler [1]
+IG_Choco_Bundle7,5975,1,1,1,0,0,0		// Zealotus Doll [1]
+IG_Choco_Bundle7,19387,1,1,1,0,0,0		// Experimental Goat Cap [1]
+IG_Choco_Bundle7,5531,1,1,1,0,0,0		// Baby Dragon Hat [1]
+IG_Choco_Bundle7,19343,1,1,1,0,0,0		// Circlet of Phoenix
+IG_Choco_Bundle7,28717,1,1,1,0,0,0		// Valkyrie Knife [4]
+
+// Bundle 8
+IG_Choco_Bundle8,28573,1,1,1,0,0,0		// Emerald Ring [1]
+IG_Choco_Bundle8,28438,1,1,1,0,0,0		// Fairy Leaf Powder [1]
+IG_Choco_Bundle8,15352,1,1,1,0,0,0		// Nature Dress
+IG_Choco_Bundle8,20831,1,1,1,0,0,0		// Adventurer's Spirit [1]
+IG_Choco_Bundle8,19327,1,1,1,0,0,0		// Seraphim Feather
+IG_Choco_Bundle8,5972,1,1,1,0,0,0		// Chatty Parrot
+IG_Choco_Bundle8,5916,1,1,1,0,0,0		// Exorcist Glasses
+IG_Choco_Bundle8,19024,1,1,1,0,0,0		// Feathers of Protection
+IG_Choco_Bundle8,28941,1,1,1,0,0,0		// Excelion Shield [1]
+IG_Choco_Bundle8,22145,1,1,1,0,0,0		// Tengu Shoes [1]
+
+// Bundle 9
+IG_Choco_Bundle9,28430,1,1,1,0,0,0		// Arch Bishop Ring [1]
+IG_Choco_Bundle9,28379,1,1,1,0,0,0		// Shadow Ring [1]
+IG_Choco_Bundle9,23251,1,1,1,0,0,0		// Rose Bundle A
+IG_Choco_Bundle9,20813,1,1,1,0,0,0		// Cloak of Survival [1]
+IG_Choco_Bundle9,19020,1,1,1,0,0,0		// Survival Circlet [1]
+IG_Choco_Bundle9,19137,1,1,1,0,0,0		// Strawberry Mouth Guard
+IG_Choco_Bundle9,19083,1,1,1,0,0,0		// Mask of Hero
+IG_Choco_Bundle9,19139,1,1,1,0,0,0		// Survivor's Orb
+IG_Choco_Bundle9,22170,1,1,1,0,0,0		// Survivor's Shoes
+IG_Choco_Bundle9,18129,1,1,1,0,0,0		// Ixion Wing [3]
+
+// Bundle 10
+IG_Choco_Bundle10,28513,1,1,1,0,0,0		// Celine's Brooch [1]
+IG_Choco_Bundle10,28503,1,1,1,0,0,0		// Keraunos [1]
+IG_Choco_Bundle10,28491,1,1,1,0,0,0		// Hunting Knife [1]
+IG_Choco_Bundle10,2936,1,1,1,0,0,0		// Recovery Ring [1]
+IG_Choco_Bundle10,20863,1,1,1,0,0,0		// Menblatt Wing Manteau [1]
+IG_Choco_Bundle10,19337,1,1,1,0,0,0		// Safety Glasses [1]
+IG_Choco_Bundle10,19138,1,1,1,0,0,0		// Seraphim Coronet
+IG_Choco_Bundle10,2202,1,1,1,0,0,0		// Sunglasses [1]
+IG_Choco_Bundle10,5921,1,1,1,0,0,0		// Monster Fish Gills
+IG_Choco_Bundle10,2191,1,1,1,0,0,0		// Solomon's Key [1]
+
+// Bundle 11
+IG_Choco_Bundle11,28377,1,1,1,0,0,0		// Magical Ring [1]
+IG_Choco_Bundle11,28386,1,1,1,0,0,0		// Fallen Monk Rosary [1]
+IG_Choco_Bundle11,28533,1,1,1,0,0,0		// Chemical Glove
+IG_Choco_Bundle11,20799,1,1,1,0,0,0		// Elemental Towel [1]
+IG_Choco_Bundle11,19269,1,1,1,0,0,0		// Happy Flapping Angel Wings [1]
+IG_Choco_Bundle11,19306,1,1,1,0,0,0		// Heart Card in Mouth
+IG_Choco_Bundle11,19125,1,1,1,0,0,0		// Cylinder Hairband [1]
+IG_Choco_Bundle11,2204,1,1,1,0,0,0		// Glasses [1]
+IG_Choco_Bundle11,28910,1,1,1,0,0,0		// Imuke Upper Shield [1]
+IG_Choco_Bundle11,2000000,1,1,1,0,0,0		// Twin Edge of Naught Sieger BUNDLE
+
+
+// Bundle 12
+IG_Choco_Bundle12,28501,1,1,1,0,0,0		// Kirin Horn [1]
+IG_Choco_Bundle12,2985,1,1,1,0,0,0		// Gyges Ring [1]
+IG_Choco_Bundle12,15283,1,1,1,0,0,0		// Mighty Black Threaded Armor [1]
+IG_Choco_Bundle12,20931,1,1,1,0,0,0		// Prism Ranger Scarf
+IG_Choco_Bundle12,19342,1,1,1,0,0,0		// Bull Hat [1]
+IG_Choco_Bundle12,5967,1,1,1,0,0,0		// Flying Galapago
+IG_Choco_Bundle12,19095,1,1,1,0,0,0		// Happy Balloon
+IG_Choco_Bundle12,18720,1,1,1,0,0,0		// Magical Booster
+IG_Choco_Bundle12,28916,1,1,1,0,0,0		// Gaia Shield [1]
+IG_Choco_Bundle12,1665,1,1,1,0,0,0		// Piercing Staff [2]
+
+// Bundle 13
+IG_Choco_Bundle13,32258,1,1,1,0,0,0		// Ring of Jupiter [1]
+IG_Choco_Bundle13,28575,1,1,1,0,0,0		// Verus Core [1]
+IG_Choco_Bundle13,20846,1,1,1,0,0,0		// Temporal Manteau [1]
+IG_Choco_Bundle13,20949,1,1,1,0,0,0		// Skin of Ladon [1]
+IG_Choco_Bundle13,18813,1,1,1,0,0,0		// New Wave Sunglasses
+IG_Choco_Bundle13,15166,1,1,1,0,0,0		// Rosary's Necklace
+IG_Choco_Bundle13,5968,1,1,1,0,0,0		// Clergy Nurse Cap [1]
+IG_Choco_Bundle13,18670,1,1,1,0,0,0		// Handkerchief In Mouth
+IG_Choco_Bundle13,22120,1,1,1,0,0,0		// Shoes of Punishment
+IG_Choco_Bundle13,16024,1,1,1,0,0,0		// Quadrille [2]
+
+// Bundle 14
+IG_Choco_Bundle14,28492,1,1,1,0,0,0		// Thieves' Guide Vol. 1 [1]
+IG_Choco_Bundle14,28429,1,1,1,0,0,0		// Arquien's Necklace [1]
+IG_Choco_Bundle14,15204,1,1,1,0,0,0		// Abyss Dress
+IG_Choco_Bundle14,20783,1,1,1,0,0,0		// Hero Manteau [1]
+IG_Choco_Bundle14,19171,1,1,1,0,0,0		// Magician Knit Hat [1]
+IG_Choco_Bundle14,18591,1,1,1,0,0,0		// Mini Glasses [1]
+IG_Choco_Bundle14,18611,1,1,1,0,0,0		// Black Frame Glasses [1]
+IG_Choco_Bundle14,19391,1,1,1,0,0,0		// Eyes of Illusion
+IG_Choco_Bundle14,19409,1,1,1,0,0,0		// Black Feather
+IG_Choco_Bundle14,16022,1,1,1,0,0,0		// Nemesis [2]
+
+// Bundle 15
+IG_Choco_Bundle15,28560,1,1,1,0,0,0		// Yin Yang Talisman [1]
+IG_Choco_Bundle15,28437,1,1,1,0,0,0		// Hibram's Gloves [1]
+IG_Choco_Bundle15,23252,1,1,1,0,0,0		// Orleans Bundle A
+IG_Choco_Bundle15,20714,1,1,1,0,0,0		// Assassin's Muffler [1]
+IG_Choco_Bundle15,19469,1,1,1,0,0,0		// Sacred Crown
+IG_Choco_Bundle15,19426,1,1,1,0,0,0		// King of Spirit Circlet
+IG_Choco_Bundle15,5933,1,1,1,0,0,0		// Crow Tengu Mask
+IG_Choco_Bundle15,19112,1,1,1,0,0,0		// Tengu Scroll
+IG_Choco_Bundle15,28921,1,1,1,0,0,0		// Anemos Shield [1]
+IG_Choco_Bundle15,13017,1,1,1,0,0,0		// Ice Pick [1]
+
+// Bundle 16
+IG_Choco_Bundle16,28305,1,1,1,0,0,0		// Vesper Core 04 [1]
+IG_Choco_Bundle16,28353,1,1,1,0,0,0		// Vesper Gear 02 [1]
+IG_Choco_Bundle16,15145,1,1,1,0,0,0		// Evil Dragon Armor [1]
+IG_Choco_Bundle16,20800,1,1,1,0,0,0		// Enforcer Cape [1]
+IG_Choco_Bundle16,5971,1,1,1,0,0,0		// Moon Eyepatch [1]
+IG_Choco_Bundle16,19081,1,1,1,0,0,0		// Faceworm Egg Shell [1]
+IG_Choco_Bundle16,19170,1,1,1,0,0,0		// Guardian Processor
+IG_Choco_Bundle16,18959,1,1,1,0,0,0		// Old Pink Poo Hat [1]
+IG_Choco_Bundle16,2184,1,1,1,0,0,0		// Bunker Shield
+IG_Choco_Bundle16,22134,1,1,1,0,0,0		// Enforcer Shoes
+
+// Bundle 17
+IG_Choco_Bundle17,32204,1,1,1,0,0,0		// Immortal Dog Tag [1]
+IG_Choco_Bundle17,28598,1,1,1,0,0,0		// Supplemental Chip [1]
+IG_Choco_Bundle17,28521,1,1,1,0,0,0		// Giant's Protection [1]
+IG_Choco_Bundle17,20845,1,1,1,0,0,0		// Malach's Skin [1]
+IG_Choco_Bundle17,19163,1,1,1,0,0,0		// Catherina Von Blood [1]
+IG_Choco_Bundle17,19329,1,1,1,0,0,0		// Devil's Hand
+IG_Choco_Bundle17,5878,1,1,1,0,0,0		// Miracle Blue Rose
+IG_Choco_Bundle17,19285,1,1,1,0,0,0		// Siegfried's Helmet [1]
+IG_Choco_Bundle17,18877,1,1,1,0,0,0		// Baron Evil Eye
+IG_Choco_Bundle17,22172,1,1,1,0,0,0		// Gray Wing Boots
+
+// Bundle 18
+IG_Choco_Bundle18,28506,1,1,1,0,0,0		// Storm Stone [1]
+IG_Choco_Bundle18,28372,1,1,1,0,0,0		// Imperial Ring [1]
+IG_Choco_Bundle18,28551,1,1,1,0,0,0		// Imperial Glove [1]
+IG_Choco_Bundle18,20860,1,1,1,0,0,0		// Battle Surcoat [1]
+IG_Choco_Bundle18,18564,1,1,1,0,0,0		// Love Piece
+IG_Choco_Bundle18,18616,1,1,1,0,0,0		// Long Tongue
+IG_Choco_Bundle18,18937,1,1,1,0,0,0		// Memory of Lovers
+IG_Choco_Bundle18,28918,1,1,1,0,0,0		// Shield of Chaos [1]
+IG_Choco_Bundle18,22207,1,1,1,0,0,0		// Imperial Boots
+IG_Choco_Bundle18,1449,1,1,1,0,0,0		// Gelerdria [3]
+
+// Bundle 19
+IG_Choco_Bundle19,28410,1,1,1,0,0,0		// Sapphire Wrist [1]
+IG_Choco_Bundle19,32262,1,1,1,0,0,0		// Rasen Fuma's Orb [1]
+IG_Choco_Bundle19,32227,1,1,1,0,0,0		// Fenrir Chain [1]
+IG_Choco_Bundle19,23255,1,1,1,0,0,0		// Kardui Bundle A ENSURE LAPHINE SHIELD IS ADDED TO THIS BUNDLE ************************************************
+IG_Choco_Bundle19,20942,1,1,1,0,0,0		// Manteau of Guardsman [1]
+IG_Choco_Bundle19,18887,1,1,1,0,0,0		// Aqua Bunny Band
+IG_Choco_Bundle19,19460,1,1,1,0,0,0		// Black Veil [1]
+IG_Choco_Bundle19,19114,1,1,1,0,0,0		// Sting Silk Ribbon
+IG_Choco_Bundle19,28502,1,1,1,0,0,0		// Mob Scarf
+IG_Choco_Bundle19,28929,1,1,1,0,0,0		// Happy Shield [1]
+
+// Bundle 20
+IG_Choco_Bundle20,28531,1,1,1,0,0,0		// Blacksmith's Gloves [1]
+IG_Choco_Bundle20,28320,1,1,1,0,0,0		// Assassin's Despair [1]
+IG_Choco_Bundle20,15417,1,1,1,0,0,0		// Armor of Purple Thread [1]
+IG_Choco_Bundle20,19048,1,1,1,0,0,0		// Elemental Tights [1]
+IG_Choco_Bundle20,20969,1,1,1,0,0,0		// Rainbow Muffler [1]
+IG_Choco_Bundle20,20730,1,1,1,0,0,0		// Loyalists Hood [1]
+IG_Choco_Bundle20,5937,1,1,1,0,0,0		// Flying Helmet [1]
+IG_Choco_Bundle20,5924,1,1,1,0,0,0		// Dragon Knight Eye Patch
+IG_Choco_Bundle20,19079,1,1,1,0,0,0		// Celestial Woman's Flower [1]
+IG_Choco_Bundle20,19407,1,1,1,0,0,0		// Work Cap
