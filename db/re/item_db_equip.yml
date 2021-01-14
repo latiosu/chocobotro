@@ -111321,7 +111321,7 @@ Body:
       bonus2 bMagicAtkEle,Ele_Wind,5;
       bonus2 bMagicAtkEle,Ele_Fire,5;
       bonus2 bMagicAtkEle,Ele_Ghost,5;
-      bonus2 bIgnoreMdefRaceRate,RC_All,50;
+      bonus2 bIgnoreMdefRaceRate,RC_All,25;
   - Id: 28508
     AegisName: Illusion_Skull_Ring
     Name: Illusion Skull Ring
@@ -111482,7 +111482,8 @@ Body:
     Script: |
       bonus bDelayrate,-10;
       bonus2 bAddClass,Class_Boss,5;
-      bonus2 bIgnoreDefRaceRate,RC_All,50;
+      bonus2 bIgnoreDefRaceRate,RC_All,20;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,-20;
   - Id: 28533
     AegisName: Chemical_Glove
     Name: Chemical Glove
@@ -111656,8 +111657,12 @@ Body:
       bonus bMaxHPrate,(.@d/18);
       bonus bVariableCastrate,-(.@v/18);
       bonus bDelayrate,-(.@i/18);
-      bonus2 bIgnoreDefClassRate,Class_All,15*(.@l/18);
-      bonus2 bIgnoreMdefClassRate,Class_All,15*(.@s/18);
+      if (BaseLevel>=100) {
+        bonus2 bIgnoreMdefRaceRate,RC_All,8*(.@s/18);
+        bonus2 bIgnoreMdefRaceRate,RC_Player_Human,-8*(.@s/18);
+        bonus2 bIgnoreDefRaceRate,RC_All,5*(.@i/18);
+        bonus2 bIgnoreDefRaceRate,RC_Player_Human,-5*(.@i/18);
+      }
   - Id: 28566
     AegisName: Beginner's_Ring
     Name: Beginner's Ring
