@@ -1175,10 +1175,10 @@
 20925:22035,{ bonus bAgi,10; bonus bInt,10; bonus bVariableCastrate,-10; bonus2 bSubRace,RC_Player_Human,5; }
 20925:22036,{ bonus bStr,10; bonus bDex,10; bonus bDelayrate,-20; bonus2 bSubRace,RC_Player_Human,5; }
 20925:22037,{ bonus bVit,10; bonus bLuk,10; bonus bHealPower,20; bonus2 bSubRace,RC_Player_Human,5; bonus bUseSPrate,-10; }
-20931:1752,{ bonus2 bSubEle,Ele_Fire,50; } // original 75
-20931:1754,{ bonus2 bSubEle,Ele_Water,50; } // original 75
-20931:1755,{ bonus2 bSubEle,Ele_Wind,50; } // original 75
-20931:1756,{ bonus2 bSubEle,Ele_Earth,50; } // original 75
+20931:1752,{ bonus2 bSubEle,Ele_Fire,50; }
+20931:1754,{ bonus2 bSubEle,Ele_Water,50; }
+20931:1755,{ bonus2 bSubEle,Ele_Wind,50; }
+20931:1756,{ bonus2 bSubEle,Ele_Earth,50; }
 20933:22196,{ bonus bCritAtkRate,10; }
 20933:22197,{ bonus bVariableCastrate,-10; }
 20934:22196,{ bonus bLongAtkRate,10; }
