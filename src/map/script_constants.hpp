@@ -5162,6 +5162,26 @@
 	export_constant(IG_ENCHANT_STONE_BOX13);
 	export_constant(IG_ENCHANT_STONE_BOX14);
 	export_constant(IG_ENCHANT_STONE_BOX15);
+    export_constant(IG_CHOCO_BUNDLE1);
+	export_constant(IG_CHOCO_BUNDLE2);
+	export_constant(IG_CHOCO_BUNDLE3);
+	export_constant(IG_CHOCO_BUNDLE4);
+	export_constant(IG_CHOCO_BUNDLE5);
+	export_constant(IG_CHOCO_BUNDLE6);
+	export_constant(IG_CHOCO_BUNDLE7);
+	export_constant(IG_CHOCO_BUNDLE8);
+	export_constant(IG_CHOCO_BUNDLE9);
+	export_constant(IG_CHOCO_BUNDLE10);
+	export_constant(IG_CHOCO_BUNDLE11);
+	export_constant(IG_CHOCO_BUNDLE12);
+	export_constant(IG_CHOCO_BUNDLE13);
+	export_constant(IG_CHOCO_BUNDLE14);
+	export_constant(IG_CHOCO_BUNDLE15);
+	export_constant(IG_CHOCO_BUNDLE16);
+	export_constant(IG_CHOCO_BUNDLE17);
+	export_constant(IG_CHOCO_BUNDLE18);
+	export_constant(IG_CHOCO_BUNDLE19);
+	export_constant(IG_CHOCO_BUNDLE20);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
