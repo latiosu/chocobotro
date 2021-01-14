@@ -99532,7 +99532,7 @@ Body:
       Both_Accessory: true
     EquipLevelMin: 80
     Script: |
-      bonus bVariableCastrate,-10; bonus2 bMagicAtkEle,Ele_Earth,5; bonus2 bMagicAtkEle,Ele_Water,5; bonus2 bMagicAtkEle,Ele_Wind,5; bonus2 bMagicAtkEle,Ele_Fire,5; bonus2 bMagicAtkEle,Ele_Ghost,5; bonus2 bIgnoreMdefRaceRate,RC_All,50;
+      bonus bVariableCastrate,-10; bonus2 bMagicAtkEle,Ele_Earth,5; bonus2 bMagicAtkEle,Ele_Water,5; bonus2 bMagicAtkEle,Ele_Wind,5; bonus2 bMagicAtkEle,Ele_Fire,5; bonus2 bMagicAtkEle,Ele_Ghost,5; bonus2 bIgnoreMdefRaceRate,RC_All,25;
   - Id: 28508
     AegisName: Illusion_Skull_Ring
     Name: Illusion Skull Ring
