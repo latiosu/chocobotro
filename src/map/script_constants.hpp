@@ -5162,7 +5162,7 @@
 	export_constant(IG_ENCHANT_STONE_BOX13);
 	export_constant(IG_ENCHANT_STONE_BOX14);
 	export_constant(IG_ENCHANT_STONE_BOX15);
-    export_constant(IG_CHOCO_BUNDLE1);
+	export_constant(IG_CHOCO_BUNDLE1);
 	export_constant(IG_CHOCO_BUNDLE2);
 	export_constant(IG_CHOCO_BUNDLE3);
 	export_constant(IG_CHOCO_BUNDLE4);
