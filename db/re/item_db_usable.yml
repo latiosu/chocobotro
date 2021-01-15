@@ -49104,7 +49104,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_13)
+      getgroupitem(IG_Choco_Bundle_13);
   - Id: 2000014
     AegisName: Choco_Bundle_14
     Name: Choco Bundle XIV
@@ -49122,7 +49122,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_14)
+      getgroupitem(IG_Choco_Bundle_14);
   - Id: 2000015
     AegisName: Choco_Bundle_15
     Name: Choco Bundle XV
@@ -49140,7 +49140,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_15)
+      getgroupitem(IG_Choco_Bundle_15);
   - Id: 2000016
     AegisName: Choco_Bundle_16
     Name: Choco Bundle XVI
@@ -49158,7 +49158,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_16)
+      getgroupitem(IG_Choco_Bundle_16);
   - Id: 2000017
     AegisName: Choco_Bundle_17
     Name: Choco Bundle XVII
@@ -49176,7 +49176,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_17)
+      getgroupitem(IG_Choco_Bundle_17);
   - Id: 2000018
     AegisName: Choco_Bundle_18
     Name: Choco Bundle XVIII
@@ -49194,7 +49194,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_18)
+      getgroupitem(IG_Choco_Bundle_18);
   - Id: 2000019
     AegisName: Choco_Bundle_19
     Name: Choco Bundle XIX
@@ -49212,7 +49212,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_19)
+      getgroupitem(IG_Choco_Bundle_19);
   - Id: 2000020
     AegisName: Choco_Bundle_20
     Name: Choco Bundle XX
@@ -49230,4 +49230,4 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      getgroupitem(IG_Choco_Bundle_20)
+      getgroupitem(IG_Choco_Bundle_20);
