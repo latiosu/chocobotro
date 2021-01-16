@@ -45,7 +45,7 @@ Body:
         Amount: 2
       - Day: 3
         ItemId: 671
-        Amount: 15
+        Amount: 20
       - Day: 4
         ItemId: 14533
         Amount: 1
@@ -60,7 +60,7 @@ Body:
         Amount: 1
       - Day: 8
         ItemId: 671
-        Amount: 30
+        Amount: 40
       - Day: 9
         ItemId: 23307
         Amount: 3
@@ -75,7 +75,7 @@ Body:
         Amount: 5
       - Day: 13
         ItemId: 671
-        Amount: 50
+        Amount: 60
       - Day: 14
         ItemId: 14533
         Amount: 2
@@ -90,7 +90,7 @@ Body:
         Amount: 2
       - Day: 18
         ItemId: 671
-        Amount: 75
+        Amount: 80
       - Day: 19
         ItemId: 6232
         Amount: 1
