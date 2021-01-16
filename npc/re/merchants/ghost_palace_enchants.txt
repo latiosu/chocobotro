@@ -1,0 +1,302 @@
+//===== rAthena Script =======================================
+//= Ghost Palace Enchanter
+//===== By: ==================================================
+//= astral
+//= Credits to NotKappa#2400 for the framework from Geffen Enchant NPC - https://rathena.org/board/profile/18391-notkappa/
+//===== Current Version: =====================================
+//= 1.0
+//===== Additional Comments: =================================
+// - Modified for use in ChocobotRO
+// - See https://www.divine-pride.net/forum/index.php?/topic/3378-kro-geffen-magic-tournament-and-cursed-swordsman-enchant/ for original value ranges
+// - Increased minimum value of various enchantment rolls.
+// - Lowered cost of enchants from 50 to 35
+// - Lowered cost of Sakray card from 10000 to 1000
+//============================================================
+
+dali02,48,133,4	script	Ghost Palace Enchanter	4_M_UNCLEKNIGHT,{
+	disable_items;
+	mes .npc$,
+		"What would you like to enchant?";
+	next;
+	switch(select("Cancel", "Melee Weapon", "Magic Weapon", "Ranged Weapon")){
+		case 1:
+			mes .npc$,
+				"Please drop by anytime.";
+			close;
+			break;
+		case 2:
+			callsub CheckEquipped, "Melee";
+			callsub ConfirmEnchant;
+			callsub Enchant, "Melee";
+			break;
+		case 3:
+			callsub CheckEquipped, "Magic";
+			callsub ConfirmEnchant;
+			callsub Enchant, "Magic";
+			break;
+		case 4:
+			callsub CheckEquipped, "Ranged";
+			callsub ConfirmEnchant;
+			callsub Enchant, "Ranged";
+			break;
+	}
+	end;
+
+CheckEquipped:
+	.@part = EQI_HAND_R;
+	.@equipId = getequipid(.@part);
+	if (inarray(getd("." + getarg(0) + "Weapons"), .@equipId) == -1) {
+		mes .npc$,
+		"I don't see a suitable Thanos weapon, please make sure you've equipped one.";
+		close;
+	}
+
+ConfirmEnchant:
+	.@ropt1 = getequiprandomoption(.@part, 0, ROA_ID);
+	.@ropt2 = getequiprandomoption(.@part, 1, ROA_ID);
+	if(.@ropt1 || .@ropt2) {
+		.@str$ = " is already enchanted.";
+	}
+	mes .npc$,
+		"<ITEM>" + getitemname(.@equipId) + "<INFO>" + .@equipId + "</INFO></ITEM>" + .@str$,
+		"It will cost you " + .cost + " <ITEM>Gray Shard<INFO>6672</INFO></ITEM> to enchant.",
+		"Do you want to continue?";
+	next;
+	if(select("No", "Continue") == 1){
+		mes .npc$,
+			"Please drop by anytime.";
+		close;
+	}
+	if(.cost > countitem(.itemId)){
+		mes .npc$,
+			"You're missing " + (.cost - countitem(.itemId)) + "<ITEM>Gray Shard<INFO>6672</INFO></ITEM>.";
+		close;
+	}
+
+Enchant:
+	.@set1$ = ".RandOpt1_" + getarg(0) + "Weapon";
+	.@set2$ = ".RandOpt2_" + getarg(0) + "Weapon";
+	.@opt1rand = rand(getarraysize(getd(.@set1$)));
+	.@opt2rand = rand(getarraysize(getd(.@set2$)));
+	.@opt1 = getd(.@set1$ + "[" + .@opt1rand + "]");
+	.@opt2 = getd(.@set2$ + "[" + .@opt2rand + "]");
+	.@opt1_V = rand(getd(.@set1$ + "_minV[" + .@opt1rand+ "]"), getd(.@set1$ + "_maxV[" + .@opt1rand + "]"));
+	.@opt2_V = rand(getd(.@set2$ + "_minV[" + .@opt2rand+ "]"), getd(.@set2$ + "_maxV[" + .@opt2rand + "]"));
+	delitem .itemId, .cost;
+	setrandomoption(.@part, 0, .@opt1, .@opt1_V, 0);
+	setrandomoption(.@part, 1, .@opt2, .@opt2_V, 0);
+	percentheal 100, 0;
+	specialeffect2 EF_INVINCIBLEOFF2;
+	mes .npc$,
+		"All done, let me patch you up before you go.",
+		"Come back any time and try your luck again!";
+	close;
+
+OnInit:
+	.npc$ = "[^0000FFGhost Palace Enchanter^000000]";
+	.cost = 35;
+	.itemId = 6672;
+	
+	setarray .MeleeWeapons[0],13093,	// Thanos Dagger
+							13441,		// Thanos Sword
+							21009,		// Thanos Great Sword
+							28100,		// Thanos Axe
+							16028,		// Thanos Hammer
+							1438,		// Thanos Spear
+							1496,		// Thanos Long Spear
+							28000,		// Thanos Katar
+							1836,		// Thanos Knuckle
+							1933,		// Thanos Violin
+							1988;		// Thanos Whip
+	
+	setarray .MagicWeapons[0],1669,		// Thanos Staff
+							2023,		// Thanos Two-Handed Staff
+							13093,		// Thanos Dagger
+							13441,		// Thanos Sword
+							1933,		// Thanos Violin
+							1988;		// Thanos Whip
+	
+	setarray .RangedWeapons[0],18119,	// Thanos Bow
+							1933,		// Thanos Violin
+							1988,		// Thanos Whip
+							13441,		// Thanos Sword
+							21009,		// Thanos Great Sword
+							28100,		// Thanos Axe
+							16028,		// Thanos Hammer
+							1438,		// Thanos Spear
+							1496,		// Thanos Long Spear
+							28000,		// Thanos Katar
+							1836;		// Thanos Knuckle
+																					// Melee First enchant
+	setarray .RandOpt1_MeleeWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_WATER_TARGET,			// Increase Physical Damage to Water Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	10 ~ 20
+									RDMOPT_DAMAGE_SIZE_PERFECT,						// No Weapon Penalty
+									RDMOPT_VAR_PLUSASPD,							// Flat ASPD		1
+									RDMOPT_VAR_PLUSASPDPERCENT,						// ASPD				5 ~ 10
+									RDMOPT_WEAPON_ATTR_SAINT,						// Holy Property
+									RDMOPT_WEAPON_ATTR_DARKNESS,					// Dark Property
+									RDMOPT_WEAPON_ATTR_WATER,						// Water Property
+									RDMOPT_WEAPON_ATTR_WIND,						// Wind Property
+									RDMOPT_WEAPON_ATTR_FIRE,						// Fire Property
+									RDMOPT_WEAPON_ATTR_GROUND;						// Earth Property
+
+																					// Second melee enchant
+	setarray .RandOpt2_MeleeWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	10 ~ 20
+									RDMOPT_RACE_DAMAGE_UNDEAD,						// Increase Physical Damage to Undead Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_ANIMAL,						// Increase Physical Damage to Brute Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_PLANT,						// Increase Physical Damage to Plant Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_INSECT,						// Increase Physical Damage to Insect Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_FISHS,						// Increase Physical Damage to Fish Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_ANGEL,						// Increase Physical Damage to Angel Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_DEVIL,						// Increase Physical Damage to Demon Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_DRAGON,						// Increase Physical Damage to Dragon Race		10 ~ 20
+									RDMOPT_RACE_DAMAGE_HUMAN,						// Increase Physical Damage to Demi-human Race	10 ~ 20
+									RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,				// Increase Physical Damage to Normal Class		5 ~ 10
+									RDMOPT_CLASS_DAMAGE_BOSS_TARGET,				// Increase Physical Damage to Boss Class		5 ~ 10
+									RDMOPT_VAR_ATKPERCENT,							// Attack				3 ~ 5
+									RDMOPT_DAMAGE_CRI_TARGET,						// Critical Damage		10 ~ 20
+									RDMOPT_WEAPON_INDESTRUCTIBLE;					// Indestructible
+	setarray .RandOpt1_MeleeWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,1,5,1,1,1,1,1,1;
+	setarray .RandOpt1_MeleeWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,1,10,1,1,1,1,1,1;
+	setarray .RandOpt2_MeleeWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,10,1;
+	setarray .RandOpt2_MeleeWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,5,20,1;
+
+																					// First magic enchant
+	setarray .RandOpt1_MagicWeapon[0],RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Magic Damage to Neutral Property	10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,			// Increase Magic Damage to Water Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,			// Increase Magic Damage to Fire Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,			// Increase Magic Damage to Earth Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,			// Increase Magic Damage to Wind Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,			// Increase Magic Damage to Poison Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,			// Increase Magic Damage to Holy Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_DARKNESS_TARGET,		// Increase Magic Damage to Dark Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Magic Damage to Ghost Property		10 ~ 20
+									RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Magic Damage to Undead Property		10 ~ 20
+									RDMOPT_DEC_SPELL_CAST_TIME,						// Variable Cast Reduction - to be tested		5 ~ 10
+									RDMOPT_HEAL_MODIFY_PERCENT,						// Increase Healing Bonus						5 ~ 10
+									RDMOPT_DEC_SP_CONSUMPTION,						// Reduce SP Consumption						5 ~ 10
+									RDMOPT_DEC_SPELL_DELAY_TIME;					// Skill Reuse Delay Reduction - to be tested	3 ~ 5
+
+																					// Second magic enchant
+	setarray .RandOpt2_MagicWeapon[0],RDMOPT_RACE_MDAMAGE_NOTHING,					// Increase Magic Damage to Formless Race		10 ~ 20
+								RDMOPT_RACE_MDAMAGE_UNDEAD,							// Increase Magic Damage to Undead Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_ANIMAL,							// Increase Magic Damage to Brute Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_PLANT,							// Increase Magic Damage to Plant Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_INSECT,							// Increase Magic Damage to Insect Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_FISHS,							// Increase Magic Damage to Fish Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_ANGEL,							// Increase Magic Damage to Angel Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_DEVIL,							// Increase Magic Damage to Demon Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_DRAGON,							// Increase Magic Damage to Dragon Race			10 ~ 20
+								RDMOPT_RACE_MDAMAGE_HUMAN,							// Increase Magic Damage to Demi-human Race		10 ~ 20
+								RDMOPT_CLASS_MDAMAGE_NORMAL,						// Increase Magic Damage to Normal Class		5 ~ 10
+								RDMOPT_CLASS_MDAMAGE_BOSS,							// Increase Magic Damage to Boss Class			5 ~ 10
+								RDMOPT_VAR_MAGICATKPERCENT,							// Magic Attack									3 ~ 7
+								RDMOPT_DEC_SPELL_CAST_TIME;							// Variable Cast Reduction - to be tested		5 ~ 10
+	setarray .RandOpt1_MagicWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,5,3;
+	setarray .RandOpt1_MagicWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,10,5;
+	setarray .RandOpt2_MagicWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,5;
+	setarray .RandOpt2_MagicWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,7,10;
+
+																					// First ranged enchant
+	setarray .RandOpt1_RangedWeapon[0],RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET,		// Increase Physical Damage to Neutral Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_WATER_TARGET, 			// Increase Physical Damage to Water Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET,				// Increase Physical Damage to Fire Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET,			// Increase Physical Damage to Earth Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_WIND_TARGET,				// Increase Physical Damage to Wind Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_POISON_TARGET,			// Increase Physical Damage to Poison Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET,			// Increase Physical Damage to Holy Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET,			// Increase Physical Damage to Dark Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET,		// Increase Physical Damage to Ghost Property	10 ~ 20
+									RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET,			// Increase Physical Damage to Undead Property	10 ~ 20
+									RDMOPT_DAMAGE_SIZE_PERFECT,						// No Weapon Penalty
+									RDMOPT_VAR_PLUSASPD,							// Flat ASPD			1
+									RDMOPT_VAR_PLUSASPDPERCENT,						// ASPD					5 ~ 10
+									RDMOPT_RANGE_ATTACK_DAMAGE_TARGET,				// Long Range Attack	3 ~ 5
+									RDMOPT_WEAPON_INDESTRUCTIBLE;					// Indestructible
+
+																					// Second ranged enchant
+	setarray .RandOpt2_RangedWeapon[0],RDMOPT_RACE_DAMAGE_NOTHING,					// Increase Physical Damage to Formless Race	10 ~ 20
+								RDMOPT_RACE_DAMAGE_UNDEAD,							// Increase Physical Damage to Undead Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_ANIMAL,							// Increase Physical Damage to Brute Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_PLANT,							// Increase Physical Damage to Plant Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_INSECT,							// Increase Physical Damage to Insect Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_FISHS,							// Increase Physical Damage to Fish Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_ANGEL,							// Increase Physical Damage to Angel Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_DEVIL,							// Increase Physical Damage to Demon Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_DRAGON,							// Increase Physical Damage to Dragon Race		10 ~ 20
+								RDMOPT_RACE_DAMAGE_HUMAN,							// Increase Physical Damage to Demi-human Race	10 ~ 20
+								RDMOPT_CLASS_DAMAGE_NORMAL_TARGET,					// Increase Physical Damage to Normal Class		5 ~ 10
+								RDMOPT_CLASS_DAMAGE_BOSS_TARGET,					// Increase Physical Damage to Boss Class		5 ~ 10
+								RDMOPT_VAR_ATKPERCENT,								// Attack				3 ~ 7
+								RDMOPT_DAMAGE_CRI_TARGET;							// Critical Damage		10 ~ 20
+	setarray .RandOpt1_RangedWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,1,1,5,3,1;
+	setarray .RandOpt1_RangedWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,1,1,10,5,1;
+	setarray .RandOpt2_RangedWeapon_minV[0],10,10,10,10,10,10,10,10,10,10,5,5,3,10;
+	setarray .RandOpt2_RangedWeapon_maxV[0],20,20,20,20,20,20,20,20,20,20,10,10,7,20;
+	end;
+}
+
+// Item exchange for Knight Sakray card
+dali02,50,132,4	script	Ghost Palace Collector	4_M_CRU_CRUA,{
+	disable_items;
+	.@npc$ = "[Card Collector]";
+	.@grayshard_id = 6672;		// Gray Shard
+	.@reward_id = 27184;		// Knight Sakray Card
+	.@cost = 1000;
+	if ((MaxWeight - Weight) < 1000) {
+		mes .@npc$,
+			"Your bag is too heavy. Reduce some weight and come back.";
+		close;
+	}
+	if (checkweight(1201,1) == 0) {
+		mes .@npc$,
+			"You seem to be carrying too many items. Put some items in storage and come back again.";
+		close;
+	}
+	mes .@npc$,
+		"I have been collecting cards since 2003! Now it's time to show people my collection.";
+	next;
+	mes .@npc$,
+		"Hey, do you have a lot of <ITEM>Gray Shard<INFO>6672</INFO></ITEM>? If so, why don't you trade for a nice card that I have?";
+	next;
+	if (select( "Cancel", "Exchange for Knight Sakray Card") == 1) {
+		mes .@npc$;
+		mes "Well, OK. Come back when you are ready.";
+		close;
+	}
+	mes .@npc$,
+		"So you want to exchange for the Knight Sakray Card?",
+		"I'll need " + callfunc("F_InsertComma", .@cost) + " Gray Shards in return.";
+	next;
+	if (select("Cancel", sprintf("Trade ^666666%s %s^000000", callfunc("F_InsertComma", .@cost), "Gray Shards")) == 1) {
+		mes .@npc$;
+		mes "Well, OK. Come back when you are ready.";
+		close;
+	}
+	if (countitem(.@grayshard_id) < .@cost) {
+		mes .@npc$;
+		mes "Hmm, you don't have enough Gray Shards right now. Go get more.";
+		close;
+	}
+	mes .@npc$,
+		"Are you sure?";
+	next;
+	if (select( "Cancel", "Sure" ) == 1) {
+		mes .@npc$;
+		mes "Well, OK. Come back when you are ready.";
+		close;
+	}
+	mes .@npc$,
+		"Cool, let's make a deal.";
+	delitem .@grayshard_id, .@cost;
+	getitem .@reward_id, 1;
+	close;
+}
