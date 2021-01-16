@@ -4687,7 +4687,7 @@ IG_Choco_Bundle1,5978,1,1,1,0,0,0		// Toy Syringe
 IG_Choco_Bundle1,5973,1,1,1,0,0,0		// Ancient Elven Ear
 IG_Choco_Bundle1,19495,1,1,1,0,0,0		// Diabolus Wing [1]
 IG_Choco_Bundle1,20837,1,1,1,0,0,0		// Skin of Gwiber [1]
-IG_Choco_Bundle1,1837,1,1,1,0,0,0		// Iron Nail
+IG_Choco_Bundle1,1837,1,1,1,0,0,0		// Iron Nail [1]
 
 // Choco Bundle 2
 IG_Choco_Bundle2,28507,1,1,1,0,0,0		// Magician's Gloves [1]
@@ -4718,7 +4718,7 @@ IG_Choco_Bundle4,2864,1,1,1,0,0,0		// Light Of Cure
 IG_Choco_Bundle4,28485,1,1,1,0,0,0		// Shinobi Sash H [1]
 IG_Choco_Bundle4,28484,1,1,1,0,0,0		// Rebellion's Scarf [1]
 IG_Choco_Bundle4,2589,1,1,1,0,0,0		// Fallen Angel Wing [1]
-IG_Choco_Bundle4,18543,1,1,1,0,0,0		// Witch Hat
+IG_Choco_Bundle4,18543,1,1,1,0,0,0		// Witch Hat [1]
 IG_Choco_Bundle4,19156,1,1,1,0,0,0		// Lunar Rainbow [1]
 IG_Choco_Bundle4,19299,1,1,1,0,0,0		// Tree Sprout
 IG_Choco_Bundle4,5924,1,1,1,0,0,0		// Dragon Knight Eye Patch
@@ -4771,7 +4771,7 @@ IG_Choco_Bundle8,5972,1,1,1,0,0,0		// Chatty Parrot
 IG_Choco_Bundle8,5916,1,1,1,0,0,0		// Exorcist Glasses
 IG_Choco_Bundle8,19024,1,1,1,0,0,0		// Feathers of Protection
 IG_Choco_Bundle8,28941,1,1,1,0,0,0		// Excelion Shield [1]
-IG_Choco_Bundle8,22145,1,1,1,0,0,0		// Tengu Shoes [1]
+IG_Choco_Bundle8,22145,1,1,1,0,0,0		// Tengu Shoes
 
 // Choco Bundle 9
 IG_Choco_Bundle9,28430,1,1,1,0,0,0		// Arch Bishop Ring [1]
@@ -4800,7 +4800,7 @@ IG_Choco_Bundle10,2191,1,1,1,0,0,0		// Solomon's Key [1]
 // Choco Bundle 11
 IG_Choco_Bundle11,28377,1,1,1,0,0,0		// Magical Ring [1]
 IG_Choco_Bundle11,28386,1,1,1,0,0,0		// Fallen Monk Rosary [1]
-IG_Choco_Bundle11,28533,1,1,1,0,0,0		// Chemical Glove
+IG_Choco_Bundle11,28533,1,1,1,0,0,0		// Chemical Glove [1]
 IG_Choco_Bundle11,20799,1,1,1,0,0,0		// Elemental Towel [1]
 IG_Choco_Bundle11,19269,1,1,1,0,0,0		// Happy Flapping Angel Wings [1]
 IG_Choco_Bundle11,19306,1,1,1,0,0,0		// Heart Card in Mouth
@@ -4899,9 +4899,9 @@ IG_Choco_Bundle19,32262,1,1,1,0,0,0		// Rasen Fuma's Orb [1]
 IG_Choco_Bundle19,32227,1,1,1,0,0,0		// Fenrir Chain [1]
 IG_Choco_Bundle19,23255,1,1,1,0,0,0		// Kardui Bundle A
 IG_Choco_Bundle19,20942,1,1,1,0,0,0		// Manteau of Guardsman [1]
-IG_Choco_Bundle19,18887,1,1,1,0,0,0		// Aqua Bunny Band
+IG_Choco_Bundle19,18887,1,1,1,0,0,0		// Aqua Bunny Band [1]
 IG_Choco_Bundle19,19460,1,1,1,0,0,0		// Black Veil [1]
-IG_Choco_Bundle19,19114,1,1,1,0,0,0		// Sting Silk Ribbon
+IG_Choco_Bundle19,19114,1,1,1,0,0,0		// Sting Silk Ribbon [1]
 IG_Choco_Bundle19,28502,1,1,1,0,0,0		// Mob Scarf
 IG_Choco_Bundle19,28929,1,1,1,0,0,0		// Happy Shield [1]
 
@@ -4910,7 +4910,7 @@ IG_Choco_Bundle20,28531,1,1,1,0,0,0		// Blacksmith's Gloves [1]
 IG_Choco_Bundle20,28320,1,1,1,0,0,0		// Assassin's Despair [1]
 IG_Choco_Bundle20,15417,1,1,1,0,0,0		// Armor of Purple Thread [1]
 IG_Choco_Bundle20,19048,1,1,1,0,0,0		// Elemental Tights [1]
-IG_Choco_Bundle20,20969,1,1,1,0,0,0		// Rainbow Muffler [1]
+IG_Choco_Bundle20,20969,1,1,1,0,0,0		// Rainbow Muffler
 IG_Choco_Bundle20,20730,1,1,1,0,0,0		// Loyalists Hood [1]
 IG_Choco_Bundle20,5937,1,1,1,0,0,0		// Flying Helmet [1]
 IG_Choco_Bundle20,5924,1,1,1,0,0,0		// Dragon Knight Eye Patch
