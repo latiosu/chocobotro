@@ -22703,6 +22703,18 @@ Body:
     Script: |
       bonus bInt,2;
       bonus bMatk,(readparam(bInt) >= 120 ? 30 : 5);
+  - Id: 2192
+    AegisName: Rose_Of_Eden
+    Name: Rose of Eden
+    Type: Armor
+    Weight: 300
+    Defense: 70
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    EquipLevelMin: 70
+    Script: |
+      bonus bHealPower,10;
   - Id: 2194
     AegisName: Rouban_Shield
     Name: Levain Shield

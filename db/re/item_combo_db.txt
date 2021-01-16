@@ -2260,3 +2260,4 @@
 28560:13461:28913,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus bHit,5*.@r; bonus bAspdRate,4*.@r; }
 28560:13462,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus2 bSkillAtk,"AB_JUDEX",10*.@r; }
 28560:13462:28913,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus bHit,5*.@r; bonus bAspdRate,4*.@r; }
+2192:2743,{ bonus bHealPower,10; }
