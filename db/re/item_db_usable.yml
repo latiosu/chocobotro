@@ -47362,6 +47362,83 @@ Body:
     Weight: 10
     Script: |
       /*synthesisui 23250;*/
+  - Id: 23251
+    AegisName: Rose_Bundle_A
+    Name: Rose Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(2192,1);
+      getitem(2743,1);
+  - Id: 23252
+    AegisName: Orleans_Bundle_A
+    Name: Orleans's Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(2365,1);
+      getitem(2881,1);
+  - Id: 23253
+    AegisName: Black_Shiba_Bundle_A
+    Name: Black Shiba Inu Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(2959,1);
+      getitem(18756,1);
+  - Id: 23255
+    AegisName: Kardui_Bundle_A
+    Name: Kardui Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(1649,1);
+      getitem(2198,1);
+      getitem(15169,1);
   - Id: 23256
     AegisName: Elixir_Bandages
     Name: Elixir Bandages
@@ -47369,6 +47446,25 @@ Body:
     Buy: 10
     Script: |
       pet 1041;
+  - Id: 23266
+    AegisName: Etran_Bundle_A
+    Name: Etran Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(2371,1);
+      getitem(20797,1);
   - Id: 23277
     AegisName: Mado_Box
     Name: Emergency Magic Gear
@@ -47438,6 +47534,25 @@ Body:
     Weight: 10
     Script: |
       /*upgradeui 23291;*/
+  - Id: 23294
+    AegisName: Pororoca_Shoes_Bundle_A
+    Name: Pororoca Shoes Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+        Container: true
+    Trade:
+        Override: 100
+        NoDrop: true
+        NoTrade: true
+        NoSell: true
+        NoCart: true
+        NoGuildStorage: true
+        NoMail: true
+        NoAuction: true
+    Script: |
+        getitem(1646,1);
+        getitem(22104,1);
   - Id: 23299
     AegisName: Enchant_Stone_Box12
     Name: Costume Enchant Stone Box 12
@@ -48737,3 +48852,382 @@ Body:
     EquipLevelMin: 180
     Script: |
       itemheal rand(2730,2750),0;
+  - Id: 2000000
+    AegisName: Naught_Sieger_Bundle_A
+    Name: Naught Sieger Bundle A
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getitem(13412,1);
+      getitem(13413,1);
+  - Id: 2000001
+    AegisName: Choco_Bundle_1
+    Name: Choco Bundle I
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle1);
+  - Id: 2000002
+    AegisName: Choco_Bundle_2
+    Name: Choco Bundle II
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle2);
+  - Id: 2000003
+    AegisName: Choco_Bundle_3
+    Name: Choco Bundle III
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle3);
+  - Id: 2000004
+    AegisName: Choco_Bundle_4
+    Name: Choco Bundle IV
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle4);
+  - Id: 2000005
+    AegisName: Choco_Bundle_5
+    Name: Choco Bundle V
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle5);
+  - Id: 2000006
+    AegisName: Choco_Bundle_6
+    Name: Choco Bundle VI
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle6);
+  - Id: 2000007
+    AegisName: Choco_Bundle_7
+    Name: Choco Bundle VII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle7);
+  - Id: 2000008
+    AegisName: Choco_Bundle_8
+    Name: Choco Bundle VIII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle8);
+  - Id: 2000009
+    AegisName: Choco_Bundle_9
+    Name: Choco Bundle IX
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle9);
+  - Id: 2000010
+    AegisName: Choco_Bundle_10
+    Name: Choco Bundle X
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle10);
+  - Id: 2000011
+    AegisName: Choco_Bundle_11
+    Name: Choco Bundle XI
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle11);
+  - Id: 2000012
+    AegisName: Choco_Bundle_12
+    Name: Choco Bundle XII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle12);
+  - Id: 2000013
+    AegisName: Choco_Bundle_13
+    Name: Choco Bundle XIII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle13);
+  - Id: 2000014
+    AegisName: Choco_Bundle_14
+    Name: Choco Bundle XIV
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle14);
+  - Id: 2000015
+    AegisName: Choco_Bundle_15
+    Name: Choco Bundle XV
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle15);
+  - Id: 2000016
+    AegisName: Choco_Bundle_16
+    Name: Choco Bundle XVI
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle16);
+  - Id: 2000017
+    AegisName: Choco_Bundle_17
+    Name: Choco Bundle XVII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle17);
+  - Id: 2000018
+    AegisName: Choco_Bundle_18
+    Name: Choco Bundle XVIII
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle18);
+  - Id: 2000019
+    AegisName: Choco_Bundle_19
+    Name: Choco Bundle XIX
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle19);
+  - Id: 2000020
+    AegisName: Choco_Bundle_20
+    Name: Choco Bundle XX
+    Type: Usable
+    Weight: 0
+    Flags:
+      Container: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Choco_Bundle20);
