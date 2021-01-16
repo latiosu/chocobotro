@@ -199,7 +199,3 @@ OnInit:
 
     end;
 }
-
-TODO:
-restrict reset if you dont have any enchants
-reset only after all 3
