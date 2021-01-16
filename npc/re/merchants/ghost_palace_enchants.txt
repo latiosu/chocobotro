@@ -244,70 +244,59 @@ OnInit:
 	end;
 }
 
-// Item exchange for Sakray card
-dali02,50,132,4	script	Ghost Palace Card	4_m_cru_crua,{
+// Item exchange for Knight Sakray card
+dali02,50,132,4	script	Ghost Palace Collector	4_M_CRU_CRUA,{
 	disable_items;
+	.@npc$ = "[Card Collector]";
+	.@grayshard_id = 6672;		// Gray Shard
+	.@reward_id = 27184;		// Knight Sakray Card
+	.@cost = 1000;
 	if ((MaxWeight - Weight) < 1000) {
-		mes "Your bag is too heavy. Reduce some weight and come back.";
+		mes .@npc$,
+			"Your bag is too heavy. Reduce some weight and come back.";
 		close;
 	}
 	if (checkweight(1201,1) == 0) {
-		mes "You seem to be carrying too many items. Put some items in storage and come back again.";
+		mes .@npc$,
+			"You seem to be carrying too many items. Put some items in storage and come back again.";
 		close;
 	}
-	.@grayshard_id = 6672;		// Gray Shard
-	.@reward_id = 27184;		// Sakray Card
-
-
-	mes "[Card collector]";
-	mes "I have been collecting cards since 2003! Now it's time to show people my collection.";
+	mes .@npc$,
+		"I have been collecting cards since 2003! Now it's time to show people my collection.";
 	next;
-	mes "[Card collector]";
-	mes "Hey, do you have a lot of " + getitemname(.@grayshard_id) + "? If so, why don't you trade for a nice card that I have?";
+	mes .@npc$,
+		"Hey, do you have a lot of <ITEM>Gray Shard<INFO>6672</INFO></ITEM>? If so, why don't you trade for a nice card that I have?";
 	next;
-	switch( select( "Cancel", "Exchange for " + getitemname(.@sakray_card)) ) {
-	case 1:
-		mes "[Card collector]";
+	if (select( "Cancel", "Exchange for Knight Sakray Card") == 1) {
+		mes .@npc$;
 		mes "Well, OK. Come back when you are ready.";
 		close;
-	case 2:
-		.@reward_id = .@sakray_card;
-		.@amount_grayshard = 1000;
-
-		break;
 	}
-	mes "[Card collector]";
-	mes "Would you like exchange for the " + getitemname(.@reward_id) + "?";
+	mes .@npc$,
+		"So you want to exchange for the Knight Sakray Card?",
+		"I'll need " + callfunc("F_InsertComma", .@cost) + " Gray Shards in return.";
 	next;
-	if (countitem(.@grayshard_id) < .@amount_grayshard)
-		.@color$[0] = "^666666";
-		//sprintf("%s%s %s^000000", .@color$[1],
-	switch( select( "Cancel", sprintf("%s%s %s^000000", .@color$[0], callfunc("F_InsertComma",.@amount_grayshard), getitemname(.@grayshard_id)))) {
-	case 1:
-		mes "[Card collector]";
+	if (select("Cancel", sprintf("Trade ^666666%s %s^000000", callfunc("F_InsertComma", .@cost), "Gray Shards")) == 1) {
+		mes .@npc$;
 		mes "Well, OK. Come back when you are ready.";
 		close;
-	case 2:
-		.@id = .@grayshard_id;
-		.@amount = .@amount_grayshard;
-		break;
 	}
-	if (countitem(.@id) < .@amount) {
-		mes "[Card collector]";
-		mes "Hmm, you don't have enough Gray Shards now. Go get more.";
+	if (countitem(.@grayshard_id) < .@cost) {
+		mes .@npc$;
+		mes "Hmm, you don't have enough Gray Shards right now. Go get more.";
 		close;
 	}
-	mes "[Card collector]";
-	mes "Are you sure?";
+	mes .@npc$,
+		"Are you sure?";
 	next;
 	if (select( "Cancel", "Sure" ) == 1) {
-		mes "[Card collector]";
+		mes .@npc$;
 		mes "Well, OK. Come back when you are ready.";
 		close;
 	}
-	mes "[Card collector]";
-	mes "Cool, let's make a deal.";
-	delitem .@id, .@amount;
-	getitem .@reward_id,1;
+	mes .@npc$,
+		"Cool, let's make a deal.";
+	delitem .@grayshard_id, .@cost;
+	getitem .@reward_id, 1;
 	close;
 }
