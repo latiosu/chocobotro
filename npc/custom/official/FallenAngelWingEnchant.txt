@@ -27,7 +27,7 @@ moc_para01,180,23,3	script	Valkyrie#faw	403,{
 	disable_items;
 	mes .@npc$;
 	mes "I am here to enchant the " +
-		"magnificent ^000099Fallen Angel Wing^000000. " +
+		"magnificent <ITEM>"+ getitemname(.fawItemId) +"<INFO>"+ .fawItemId +"</INFO></ITEM>. " +
 		"Would you like to enchant yours?";
 
 	if(countitem(.fawItemId)) {
@@ -48,23 +48,23 @@ moc_para01,180,23,3	script	Valkyrie#faw	403,{
             "^000099Fallen Angel Wing^000000 for free to give it various " + 
             "effects. In fact, I can do it " +
             "twice if its refinement level is " +
-            "+7 ~ +9, and three times if its" +
+            "+7 ~ +9, and three times if it is " +
             "+10 and above.";
         next;
         mes .npc$,
-            "The 3rd enchantment has a" +
-            "chance to be more powerful" +
+            "The 3rd enchantment has a " +
+            "chance to be more powerful " +
             "than the first two.";
         next;
         mes .npc$,
-            "There is no chance to" +
-            "fail, so enchant away" +
+            "There is no chance to " +
+            "fail, so enchant away " +
             "as much as you like.";
         next;	
         mes .npc$,
-            "But if you're not happy" +
-            "with the results, you can" +
-            "reset the enchantments" +
+            "But if you're not happy " +
+            "with the results, you can " +
+            "reset the enchantments " +
             "for ^009900"+ callfunc("F_InsertComma", .resetCost) + "z^000000.";
         next;
         mes .npc$,
@@ -75,8 +75,8 @@ moc_para01,180,23,3	script	Valkyrie#faw	403,{
     OnEnchantNow:	
         mes .npc$;
         if((getequipid(EQI_GARMENT) != .fawItemId)) {
-            mes "Please equip your" +
-                "^000099Fallen Angel Wing^000000 if" +
+            mes "Please equip your " +
+                "^000099Fallen Angel Wing^000000 if " +
                 "you want to have it enchanted.";
             close;	
         }
@@ -123,7 +123,7 @@ moc_para01,180,23,3	script	Valkyrie#faw	403,{
         }
 
         mes .npc$,
-		    "Your ^000099Fallen Angel Wing^000000 has" +
+		    "Your ^000099Fallen Angel Wing^000000 has " +
 		    "been enchanted with ^000099"+getitemname(.@EnStat)+"^000000.";
     end;
 
@@ -151,7 +151,7 @@ moc_para01,180,23,3	script	Valkyrie#faw	403,{
             (.@equipRefineLevel <= 7 && @card2)) {
 
             Zeny -= .resetCost;
-		    mes "Your ^000099Fallen Angel Wing^000000's" +
+		    mes "Your ^000099Fallen Angel Wing^000000's " +
 			    "enchantments have been reset.";
 
             delequip EQI_GARMENT;
