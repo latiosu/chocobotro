@@ -80960,6 +80960,7 @@ Body:
     Slots: 1
     Locations:
       Head_Mid: true
+    EquipLevelMin: 100
     View: 680
     Script: |
       bonus bAllStats,10;
