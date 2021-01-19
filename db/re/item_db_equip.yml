@@ -74618,7 +74618,7 @@ Body:
     View: 967
     Script: |
       bonus bDex,3;
-      bonus bMatk,40+getrefine();
+      bonus bMatk,40+(7*getrefine());
       bonus bMagicHPGainValue,200;
       bonus2 bHPLossRate,50,5000;
   - Id: 18850
