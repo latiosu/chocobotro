@@ -15484,11 +15484,8 @@ Body:
   - Id: 12999
     AegisName: Branch_Of_Dead_Tree_Box
     Name: Dead Branch Box
-    Type: Cash
     Buy: 20
     Weight: 10
-    Flags:
-      UniqueId: true
     Trade:
       Override: 100
       NoDrop: true
