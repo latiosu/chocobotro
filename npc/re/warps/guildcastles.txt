@@ -79,6 +79,7 @@ OnTouch:
 		case 8: callsub( S_Warp, "te_aldecas3",114,286 );
 		case 9: callsub( S_Warp, "te_aldecas4",149,17 );
 		case 10: callsub( S_Warp, "te_aldecas5",216,103 );
+		case 11: callsub( S_Warp, "gefg_cas02",76,42 );
 	}
 	end;
 
@@ -322,6 +323,35 @@ te_aldecas5,125,194,0	warp	aldeg-5-13_aldeg-5-3#te	1,1,te_aldecas5,199,70
 te_aldecas5,165,232,0	warp	aldeg-5-14_aldeg-5-6#te	1,1,te_aldecas5,193,49
 te_aldecas5,156,231,0	warp	aldeg-5-15_aldeg-5-16#te	1,1,te_aldecas5,18,88
 te_aldecas5,14,88,0	warp	aldeg-5-16_aldeg-5-15#te	1,1,te_aldecas5,156,227
+
+// gefg_cas02
+// Original coords for field to garden area. Modified for TE
+// gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
+gef_fild13,308,244,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
+
+// Disabled first castle door warp from garden
+// gefg_cas02,35,173,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
+// custom: added warp from first castle door (inside) back to field
+gefg_cas02,81,42	warp	gefg-2-01_gefg-2-12	1,1,gef_fild13,308,240,0
+// Disabled wall portal
+// gefg_cas02,46,175,0	warp	gefg-2-02_gefg-2-11	1,1,gefg_cas02,34,64
+// gefg_cas02,22,160,0	warp	gefg-2-03_gefg-2-13	1,1,gefg_cas02,34,17
+// gefg_cas02,48,159,0	warp	gefg-2-04_gefg-2-22	1,1,gefg_cas02,184,41
+// gefg_cas02,34,152,0	warp	gefg-2-05_gefg-2-23	1,1,gefg_cas02,153,18
+// gefg_cas02,57,136,0	warp	gefg-2-06_gefg-2-24	1,1,gefg_cas02,180,18
+gefg_cas02,70,147,0	warp	gefg-2-07_gef-g2	1,1,gef_fild13,308,240
+// Disabled wall portal
+// gefg_cas02,34,68,0	warp	gefg-2-11_gefg-2-02	1,1,gefg_cas02,50,175
+// gefg_cas02,80,42,0	warp	gefg-2-12_gefg-2-01	1,1,gefg_cas02,39,173
+// gefg_cas02,34,13,0	warp	gefg-2-13_gefg-2-03	1,1,gefg_cas02,22,156
+gefg_cas02,25,13,0	warp	gefg-2-14_gefg-2-25	1,1,gefg_cas02,170,11
+gefg_cas02,150,36,0	warp	gefg-2-21_gefg-2-31	1,1,gefg_cas02,152,186
+// Disabled wall portal
+// gefg_cas02,184,36,0	warp	gefg-2-22_gefg-2-04	1,1,gefg_cas02,48,155
+// gefg_cas02,148,18,0	warp	gefg-2-23_gefg-2-05	1,1,gefg_cas02,35,150
+// gefg_cas02,185,18,0	warp	gefg-2-24_gefg-2-06	1,1,gefg_cas02,53,136
+gefg_cas02,174,11,0	warp	gefg-2-25_gefg-2-14	1,1,gefg_cas02,21,13
+gefg_cas02,152,190,0	warp	gefg-2-31_gefg-2-21	1,1,gefg_cas02,150,41
 
 //------------------------------------------------------------//
 // Dungeons
