@@ -77,8 +77,6 @@
 12218,4		// Assumptio_5_Scroll
 14529,4		// Greed_Scroll
 14590,4		// Pty_Assumptio_Scroll
-607,4	// Yggdrasil Berry
-608,4	// Yggdrasil Seed
 
 //----------------------------------------------------------------------------
 // Battlegrounds
@@ -209,8 +207,6 @@
 12591,16	// Uni_Catalog_Bz
 12600,16	// Treasure_Box_Scroll
 14590,16	// Pty_Assumptio_Scroll
-28565,16	// Perverse Demon Mask
-2589,16		// Fallen Angel Wing
 
 //----------------------------------------------------------------------------
 // Zone 1 - Aldebaran Turbo Track
