@@ -70,6 +70,25 @@ OnAgitInit3:
 			monster .@map$,.@emproom[0],.@emproom[1],"Guardian Knight of Emperium",1219,2,.@npc_name$ +"::OnMyMobDead";
 			monster .@map$,.@emproom[0],.@emproom[1],"Raydric Archer",1276,5,.@npc_name$ +"::OnMyMobDead";
 		}
+		else if (compare(.@map$,"gefg_cas02")) {
+			monster .@map$,0,0,"Raydric",1163,10,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Khalitzburg",1132,10,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Abysmal Knight",1219,5,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Bloody Knight",1268,5,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Stormy Knight",1251,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Hatii",1252,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Raydric Archer",1276,5,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Gryphon",1259,2,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Chimera",1283,2,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Alice",1275,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,0,0,"Zealotus",1200,1,.@npc_name$ +"::OnMyMobDead";
+			if (.@map$ == "gefg_cas02") { setarray .@emproom[0],177,177; }
+			monster .@map$,.@emproom[0],.@emproom[1],"Guardian Knight of Emperium",1268,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,.@emproom[0],.@emproom[1],"Chief Guardian Knight of Emperium",1251,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,.@emproom[0],.@emproom[1],"Hatii",1252,1,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,.@emproom[0],.@emproom[1],"Guardian Knight of Emperium",1219,2,.@npc_name$ +"::OnMyMobDead";
+			monster .@map$,.@emproom[0],.@emproom[1],"Raydric Archer",1276,5,.@npc_name$ +"::OnMyMobDead";
+		}
 		disablenpc "Kafra Employee#"+ replacestr(.@map$, "cas", "");
 	}
 	else {
@@ -89,6 +108,7 @@ OnAgitInit3:
 		else if (.@map$ == "te_prtcas03") donpcevent "Eduare::OnSpawnGuardians";
 		else if (.@map$ == "te_prtcas04") donpcevent "Casate::OnSpawnGuardians";
 		else if (.@map$ == "te_prtcas05") donpcevent "Pisaro::OnSpawnGuardians";
+		else if (.@map$ == "gefg_cas02") donpcevent "Latiosu::OnSpawnGuardians";
 	}
 	end;
 
@@ -105,6 +125,7 @@ OnEmpSpawn:
 		else if (.@map$ == "te_prtcas03") { setarray .@emproom[0],16,220; }
 		else if (.@map$ == "te_prtcas04") { setarray .@emproom[0],291,14; }
 		else if (.@map$ == "te_prtcas05") { setarray .@emproom[0],266,266; }
+		else if (.@map$ == "gefg_cas02") { setarray .@emproom[0],177,177; }
 		monster .@map$,.@emproom[0],.@emproom[1],"Emperium",1288,1, strnpcinfo(0) +"::OnAgitBreak";
 	}
 	end;
@@ -511,6 +532,7 @@ function GuardianData;
 			else if (.@map$ == "te_prtcas03") warp "te_prtcas03",190,130;
 			else if (.@map$ == "te_prtcas04") warp "te_prtcas04",275,160;
 			else if (.@map$ == "te_prtcas05") warp "te_prtcas05",281,176;
+			else if (.@map$ == "gefg_cas02") warp "gefg_cas02",140,116;
 			end;
 		case 2:
 			mes .@npc_name$;
@@ -674,6 +696,25 @@ function GuardianData {
 			1285, 32, 253, "Outer Castle Archer Guardian",// ARCHER_GUARDIAN
 			1285, 44, 248, "Outer Castle Archer Guardian";// ARCHER_GUARDIAN
 	}
+	else if (.@map$ == "gefg_cas02") {
+		setarray .@data$[0],
+			// Co-ords slightly differ from the original in agit_main. Grouped them to compound intrusion efforts in main choke points. No outer spawns
+			1286, 67, 41, "Inner Castle Knight Guardian",// KNIGHT_GUARDIAN
+			1286, 47, 42, "Inner Castle Knight Guardian",// KNIGHT_GUARDIAN
+			1286, 17, 43, "Inner Castle Knight Guardian",// KNIGHT_GUARDIAN
+			1287, 159, 188, "Inner Castle Soldier Guardian",// SOLDIER_GUARDIAN
+			1287, 170, 26, "Inner Castle Soldier Guardian",// SOLDIER_GUARDIAN
+			1287, 19, 41, "Inner Castle Soldier Guardian",// SOLDIER_GUARDIAN
+			// Custom addition
+			1285, 160, 187, "Inner Castle Archer Guardian",// ARCHER_GUARDIAN
+			1285, 171, 25, "Inner Castle Archer Guardian",// ARCHER_GUARDIAN
+			1285, 18, 42, "Inner Castle Archer Guardian";// ARCHER_GUARDIAN			
+			// Not necessary since outer castle is disabled
+			// 1285, 171, 25, "Outer Castle Archer Guardian",// ARCHER_GUARDIAN
+			// 1285, 18, 42, "Outer Castle Archer Guardian";// ARCHER_GUARDIAN
+			// 1285, , , "Outer Castle Archer Guardian",// ARCHER_GUARDIAN
+			// 1285, , , "Outer Castle Archer Guardian";// ARCHER_GUARDIAN
+	}
 	for ( .@i = 0; .@i < getarraysize(.@data$); .@i += 4 ) {
 		set getelementofarray( getarg(0),.@index ), .@data$[.@i];
 		set getelementofarray( getarg(1),.@index ), .@data$[.@i+1];
@@ -757,6 +798,7 @@ OnSpawnGuardians:
 		else if (.@map$ == "te_prtcas03") setarray .@coord[0],51,101;
 		else if (.@map$ == "te_prtcas04") setarray .@coord[0],259,265;
 		else if (.@map$ == "te_prtcas05") setarray .@coord[0],36,38;
+		else if (.@map$ == "gefg_cas02") setarray .@coord[0],140,114;
 		warp .@map$,.@coord[0],.@coord[1];
 	}
 	end;
@@ -1058,6 +1100,33 @@ OnClock0001:// Spawn Treasure Chests based on castle economy.
 			2457, 273,177,
 			2452, 273,178,
 			2457, 273,179;
+	}
+	else if (.@map$ == "gefg_cas02") {
+		setarray .@data[0],
+			1336, 139,115,//	TREASURE_BOX13	
+			1337, 140,115,//	TREASURE_BOX14
+			1336, 140,114,
+			1337, 139,114,
+			1336, 137,117,
+			1337, 138,117,
+			1336, 139,117,
+			1337, 140,117,
+			1336, 141,117,
+			1337, 142,117,
+			1336, 142,116,
+			1337, 142,115,
+			1336, 142,114,
+			1337, 142,113,
+			1336, 142,112,
+			1337, 142,112,
+			1336, 141,112,
+			1337, 140,112,
+			1336, 139,112,
+			1337, 138,112,
+			1336, 137,113,
+			1337, 137,114,
+			1336, 137,115,
+			1337, 137,116;
 	}
 	.@treasure_num = ( 4 + ( .@economy /5 ) ) *3;// x3 <-> data[] size
 	for ( .@i = 0; .@i < getarraysize(.@data) && .@treasure_num > .@i; .@i += 3 )// nb. [4;24] chests

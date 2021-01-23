@@ -80,7 +80,8 @@ OnInit:
 	// Rewards per castle.
 	//   setarray .reward_id[0],     <itemID>{,<itemID>,...}
 	//   setarray .reward_amount[0], <amount>{,<amount>,...}
-	setarray .reward_id[0],14001;
+	setarray .reward_id[0],14001,644;
+
 	setarray .reward_amount[0],1;
 
 	// Zeny reward:

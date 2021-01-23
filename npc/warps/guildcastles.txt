@@ -111,7 +111,9 @@ prtg_cas05,253,294,0	warp	prtg-5-31_prtg-5-22	1,1,prtg_cas05,58,11
 //Geffen Castle Map
 gef_fild13,150,54,0	warp	gef-g1-0_gefg-1-07	1,1,gefg_cas01,34,140
 gef_fild13,210,75,0	warp	gef-g1-1_gefg-1-04	1,1,gefg_cas01,95,178
-gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
+// Original coords for field to garden area. Modified for TE
+//// gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
+//gef_fild13,308,244,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
 gef_fild13,77,284,0	warp	gef-g3-0_g-cas3-12	1,1,gefg_cas03,60,286
 gef_fild13,112,269,0	warp	gef-g3-1_g-cas3-13	1,1,gefg_cas03,100,280
 gef_fild13,139,240,0	warp	gef-g3-2_g-cas3-14	1,1,gefg_cas03,125,250
@@ -137,23 +139,29 @@ gefg_cas01,170,34,0	warp	gefg-1-22_gefg-1-06	1,1,gefg_cas01,30,167
 gefg_cas01,209,34,0	warp	gefg-1-23_gefg-1-03	1,1,gefg_cas01,56,170
 gefg_cas01,170,14,0	warp	gefg-1-24_gefg-1-11	1,1,gefg_cas01,50,84
 gefg_cas01,202,160,0	warp	gefg-1-31_gefg-1-21	1,1,gefg_cas01,185,52
-gefg_cas02,35,173,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
-gefg_cas02,46,175,0	warp	gefg-2-02_gefg-2-11	1,1,gefg_cas02,34,64
-gefg_cas02,22,160,0	warp	gefg-2-03_gefg-2-13	1,1,gefg_cas02,34,17
-gefg_cas02,48,159,0	warp	gefg-2-04_gefg-2-22	1,1,gefg_cas02,184,41
-gefg_cas02,34,152,0	warp	gefg-2-05_gefg-2-23	1,1,gefg_cas02,153,18
-gefg_cas02,57,136,0	warp	gefg-2-06_gefg-2-24	1,1,gefg_cas02,180,18
-gefg_cas02,70,147,0	warp	gefg-2-07_gef-g2	1,1,gef_fild13,308,240
-gefg_cas02,34,68,0	warp	gefg-2-11_gefg-2-02	1,1,gefg_cas02,50,175
-gefg_cas02,80,42,0	warp	gefg-2-12_gefg-2-01	1,1,gefg_cas02,39,173
-gefg_cas02,34,13,0	warp	gefg-2-13_gefg-2-03	1,1,gefg_cas02,22,156
-gefg_cas02,25,13,0	warp	gefg-2-14_gefg-2-25	1,1,gefg_cas02,170,11
-gefg_cas02,150,36,0	warp	gefg-2-21_gefg-2-31	1,1,gefg_cas02,152,186
-gefg_cas02,184,36,0	warp	gefg-2-22_gefg-2-04	1,1,gefg_cas02,48,155
-gefg_cas02,148,18,0	warp	gefg-2-23_gefg-2-05	1,1,gefg_cas02,35,150
-gefg_cas02,185,18,0	warp	gefg-2-24_gefg-2-06	1,1,gefg_cas02,53,136
-gefg_cas02,174,11,0	warp	gefg-2-25_gefg-2-14	1,1,gefg_cas02,21,13
-gefg_cas02,152,190,0	warp	gefg-2-31_gefg-2-21	1,1,gefg_cas02,150,41
+// Disabled first castle door warp from garden
+//// gefg_cas02,35,173,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
+// custom: added warp from first castle door (inside) back to field
+//gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42	warp	gef_fild13,308,244,0
+// Disabled wall portal
+//// gefg_cas02,46,175,0	warp	gefg-2-02_gefg-2-11	1,1,gefg_cas02,34,64
+//// gefg_cas02,22,160,0	warp	gefg-2-03_gefg-2-13	1,1,gefg_cas02,34,17
+//// gefg_cas02,48,159,0	warp	gefg-2-04_gefg-2-22	1,1,gefg_cas02,184,41
+//// gefg_cas02,34,152,0	warp	gefg-2-05_gefg-2-23	1,1,gefg_cas02,153,18
+//// gefg_cas02,57,136,0	warp	gefg-2-06_gefg-2-24	1,1,gefg_cas02,180,18
+//gefg_cas02,70,147,0	warp	gefg-2-07_gef-g2	1,1,gef_fild13,308,240
+// Disabled wall portal
+//// gefg_cas02,34,68,0	warp	gefg-2-11_gefg-2-02	1,1,gefg_cas02,50,175
+//// gefg_cas02,80,42,0	warp	gefg-2-12_gefg-2-01	1,1,gefg_cas02,39,173
+//// gefg_cas02,34,13,0	warp	gefg-2-13_gefg-2-03	1,1,gefg_cas02,22,156
+//gefg_cas02,25,13,0	warp	gefg-2-14_gefg-2-25	1,1,gefg_cas02,170,11
+//gefg_cas02,150,36,0	warp	gefg-2-21_gefg-2-31	1,1,gefg_cas02,152,186
+// Disabled wall portal
+//// gefg_cas02,184,36,0	warp	gefg-2-22_gefg-2-04	1,1,gefg_cas02,48,155
+//// gefg_cas02,148,18,0	warp	gefg-2-23_gefg-2-05	1,1,gefg_cas02,35,150
+//// gefg_cas02,185,18,0	warp	gefg-2-24_gefg-2-06	1,1,gefg_cas02,53,136
+//gefg_cas02,174,11,0	warp	gefg-2-25_gefg-2-14	1,1,gefg_cas02,21,13
+//gefg_cas02,152,190,0	warp	gefg-2-31_gefg-2-21	1,1,gefg_cas02,150,41
 gefg_cas03,66,223,0	warp	g3-cas3_g3-in3	1,1,gefg_cas03,96,53
 gefg_cas03,34,286,0	warp	g-cas3-1_g-in3-1	1,1,gefg_cas03,131,92
 gefg_cas03,47,271,0	warp	g-cas3-1-1_g-cas3-3	1,1,gefg_cas03,38,255

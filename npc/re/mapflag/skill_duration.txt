@@ -119,3 +119,15 @@ te_aldecas5	mapflag	skill_duration	HT_FREEZINGTRAP,400
 te_aldecas5	mapflag	skill_duration	HT_BLASTMINE,400
 te_aldecas5	mapflag	skill_duration	HT_CLAYMORETRAP,400
 te_aldecas5	mapflag	skill_duration	HT_TALKIEBOX,400
+
+
+gefg_cas02	mapflag	skill_duration	HT_SKIDTRAP,400
+gefg_cas02	mapflag	skill_duration	HT_LANDMINE,400
+gefg_cas02	mapflag	skill_duration	HT_ANKLESNARE,400
+gefg_cas02	mapflag	skill_duration	HT_SHOCKWAVE,400
+gefg_cas02	mapflag	skill_duration	HT_SANDMAN,400
+gefg_cas02	mapflag	skill_duration	HT_FLASHER,400
+gefg_cas02	mapflag	skill_duration	HT_FREEZINGTRAP,400
+gefg_cas02	mapflag	skill_duration	HT_BLASTMINE,400
+gefg_cas02	mapflag	skill_duration	HT_CLAYMORETRAP,400
+gefg_cas02	mapflag	skill_duration	HT_TALKIEBOX,400
