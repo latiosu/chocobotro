@@ -917,6 +917,7 @@ OnPoripori:
 	mes "Farewell, young adventurer. I wish you good luck in the future.";
 	close2;
 	set EC_INSTANCE_ID, -1;
+	warp SavePoint;
 	charcommand("#load " + strcharinfo(0));
 	end;
 
