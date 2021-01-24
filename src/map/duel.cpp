@@ -55,7 +55,7 @@ void duel_savetime(struct map_session_data* sd)
 	time(&timer);
 	t = localtime(&timer);
 
-	pc_setglobalreg(sd, add_str("PC_LAST_DUEL_TIME"), t->tm_mday*24*60 + t->tm_hour*60 + t->tm_min);
+	pc_setglobalreg(sd, add_str("PC_LAST_DUEL_TIME"), t->tm_mday*24*10 + t->tm_hour*10 + t->tm_min);
 }
 
 /*
@@ -70,7 +70,7 @@ bool duel_checktime(struct map_session_data* sd)
 	time(&timer);
 	t = localtime(&timer);
 
-	diff = t->tm_mday*24*60 + t->tm_hour*60 + t->tm_min - pc_readglobalreg(sd, add_str("PC_LAST_DUEL_TIME"));
+	diff = t->tm_mday*24*10 + t->tm_hour*10 + t->tm_min - pc_readglobalreg(sd, add_str("PC_LAST_DUEL_TIME"));
 
 	return !(diff >= 0 && diff < battle_config.duel_time_interval);
 }
