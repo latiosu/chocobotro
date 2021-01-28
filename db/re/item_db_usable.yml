@@ -15484,6 +15484,7 @@ Body:
   - Id: 12999
     AegisName: Branch_Of_Dead_Tree_Box
     Name: Dead Branch Box
+    Type: Usable
     Buy: 20
     Weight: 10
     Trade:
