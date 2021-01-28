@@ -33814,7 +33814,7 @@ Body:
     Script: |
       bonus2 bAddDamageClass,2047,10;
       bonus2 bAddDefMonster,2048,-10;
-      bonus3 bAddMonsterIdDropItem,6152,2047,70;
+      bonus3 bAddMonsterIdDropItem,6152,2047,100;
   - Id: 2797
     AegisName: Magical_Stone_
     Name: Rocks
@@ -33841,7 +33841,7 @@ Body:
     Script: |
       bonus2 bAddDamageClass,2049,10;
       bonus2 bAddDefMonster,2050,-10;
-      bonus3 bAddMonsterIdDropItem,6151,2049,70;
+      bonus3 bAddMonsterIdDropItem,6151,2049,100;
   - Id: 2798
     AegisName: Will_Of_Exhausted_Angel
     Name: Will Of Exhausted Angel
