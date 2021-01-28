@@ -45,7 +45,7 @@ size_t duel_countactives()
 static void duel_set(const size_t did, struct map_session_data* sd);
 
 /*
- * Save the current time of the duel in PC_LAST_DUEL_TIME
+ * Save the current time of the duel in PC_LAST_DUEL_TIME (in seconds)
  */
 void duel_savetime(struct map_session_data* sd)
 {
@@ -55,11 +55,11 @@ void duel_savetime(struct map_session_data* sd)
 	time(&timer);
 	t = localtime(&timer);
 
-	pc_setglobalreg(sd, add_str("PC_LAST_DUEL_TIME"), t->tm_mday*24*60 + t->tm_hour*60 + t->tm_min);
+	pc_setglobalreg(sd, add_str("PC_LAST_DUEL_TIME"), t->tm_mday*24*60*60 + t->tm_hour*60*60 + t->tm_min*60 + t->tm_sec);
 }
 
 /*
- * Check if the time elapsed between last duel is enough to launch another.
+ * Check if the time elapsed (in seconds) between last duel is enough to launch another.
  */
 bool duel_checktime(struct map_session_data* sd)
 {
@@ -70,7 +70,7 @@ bool duel_checktime(struct map_session_data* sd)
 	time(&timer);
 	t = localtime(&timer);
 
-	diff = t->tm_mday*24*60 + t->tm_hour*60 + t->tm_min - pc_readglobalreg(sd, add_str("PC_LAST_DUEL_TIME"));
+	diff = t->tm_mday*24*60*60 + t->tm_hour*60*60 + t->tm_min*60 + t->tm_sec - pc_readglobalreg(sd, add_str("PC_LAST_DUEL_TIME"));
 
 	return !(diff >= 0 && diff < battle_config.duel_time_interval);
 }

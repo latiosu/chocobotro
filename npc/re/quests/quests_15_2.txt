@@ -1080,7 +1080,7 @@ verus01,151,173,3	script	Fruit#Verus	4_F_FRUIT,{
 	next;
 	if (select( "Trade goods.", "Quit." ) == 1) {
 		mes "[Fruit]";
-		mes "I will give you equipment in return for 17 intact machine components!";
+		mes "I will give you equipment in return for 10 intact machine components!";
 		next;
 		switch( select( "Runaway Chip", "Broken Chip 1", "Broken Chip 2" ) ) {
 		case 1:
@@ -1107,12 +1107,12 @@ verus01,151,173,3	script	Fruit#Verus	4_F_FRUIT,{
 		}
 		next;
 		if (select( "Exchange", "Quit." ) == 1) {
-			if (countitem(6827) < 17) {
+			if (countitem(6827) < 10) {
 				mes "[Fruit]";
 				mes "Not enough!!!";
 				close3;
 			}
-			delitem 6827,17;// Normal_Parts
+			delitem 6827,10;// Normal_Parts
 			getitem .@item_id,1;
 			close3;
 		}
