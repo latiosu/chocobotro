@@ -3,9 +3,9 @@ import os
 import re
 
 # Target update variables
-mobs_low = [1155, 1257]
-mobs_mid = [1366, 1771]
-mobs_high = [2021, 2363]
+mobs_low = [1143, 1692]
+mobs_mid = [1680, 1219]
+mobs_high = [1753, 2133]
 map_low = 'epay_dun00l'
 map_mid = 'egef_dun03m'
 map_high = 'eabyss_03h'
