@@ -108,7 +108,7 @@ aldeg_cas03	mapflag	hidemobhpbar
 aldeg_cas04	mapflag	hidemobhpbar
 aldeg_cas05	mapflag	hidemobhpbar
 gefg_cas01	mapflag	hidemobhpbar
-gefg_cas02	mapflag	hidemobhpbar
+// gefg_cas02	mapflag	hidemobhpbar
 gefg_cas03	mapflag	hidemobhpbar
 gefg_cas04	mapflag	hidemobhpbar
 gefg_cas05	mapflag	hidemobhpbar

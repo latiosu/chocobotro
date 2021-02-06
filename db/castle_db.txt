@@ -16,7 +16,7 @@
 3,aldeg_cas04,Wuerzburg,Agit#aldeg_cas04		// kRO : Byirtsburi
 4,aldeg_cas05,Rothenburg,Agit#aldeg_cas05		// kRO : Rotenburk
 5,gefg_cas01,Repherion,Agit#gefg_cas01			// kRO : Reprion
-6,gefg_cas02,Eeyolbriggar,Agit#gefg_cas02		// kRO : Yolbriger
+
 7,gefg_cas03,Yesnelph,Agit#gefg_cas03			// kRO : Isinlife
 8,gefg_cas04,Bergel,Agit#gefg_cas04				// kRO : Berigel
 9,gefg_cas05,Mersetzdeitz,Agit#gefg_cas05		// kRO : Melsedetsu
@@ -60,3 +60,4 @@
 41,te_prtcas03,Gloria 3,Manager_TE#Wigner
 42,te_prtcas04,Gloria 4,Manager_TE#Heine
 43,te_prtcas05,Gloria 5,Manager_TE#Nerious
+6,gefg_cas02,Eeyolbriggar,Manager_TE#Eeyolbriggar
