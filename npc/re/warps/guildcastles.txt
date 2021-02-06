@@ -327,7 +327,7 @@ te_aldecas5,14,88,0	warp	aldeg-5-16_aldeg-5-15#te	1,1,te_aldecas5,156,227
 // gefg_cas02
 // Original coords for field to garden area. Modified for TE
 // gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
-gef_fild13,308,244,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
+gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,76,42
 
 // Disabled first castle door warp from garden
 // gefg_cas02,35,173,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
