@@ -49,10 +49,10 @@ gld_dun02_2,180,112,0	warp	gdun02b_aldegb#abyss	1,1,alde_gld,242,121
 
 
 // WOE TE
-prt_gld,120,153,0	warp	to_gloria	1,1,te_prt_gld,120,149
+prt_gld,120,153,0	warp	to_geffen_te1	1,1,gef_fild13,308,240
 te_prt_gld,120,153,0	warp	to_valkyrie	1,1,prt_gld,120,149
 
-alde_gld,225,188,0	warp	to_kafragarten	1,1,te_alde_gld,228,185
+alde_gld,225,188,0	warp	to_geffen_te2	1,1,gef_fild13,308,240
 te_alde_gld,225,188,0	warp	to_luina	1,1,alde_gld,228,185
 
 //------------------------------------------------------------//
@@ -114,6 +114,7 @@ S_Warp:
 	end;
 }
 
+/*
 te_prt_gld,129,65,0	duplicate(warp_TE_castle)	prtg-1_prtg-1-01#1_te	WARPNPC,1,1
 te_prt_gld,240,124,0	duplicate(warp_TE_castle)	prtg-2_prtg-2#2_te	WARPNPC,1,1
 te_prt_gld,153,141,0	duplicate(warp_TE_castle)	prtg-3_prtg-3#3_te	WARPNPC,1,1
@@ -201,6 +202,7 @@ te_prtcas05,195,13,0	warp	prtg-5-15_prtg-5-05#te	1,1,te_prtcas05,55,248
 te_prtcas05,26,3,0	warp	prtg-5-21_prtg-5-11#te	1,1,te_prtcas05,228,92
 te_prtcas05,58,7,0	warp	prtg-5-22_prtg-5-31#te	1,1,te_prtcas05,253,290
 te_prtcas05,253,294,0	warp	prtg-5-31_prtg-5-22#te	1,1,te_prtcas05,58,11
+*/
 
 //------------------------------------------------------------//
 // aldebaran
@@ -211,6 +213,7 @@ aldebaran,35,140,0	warp	alde-a_aldeg01	1,1,te_alde_gld,280,160
 te_alde_gld,284,160,0	warp	aldeg01_alde-a	1,1,aldebaran,39,140
 */
 
+/*
 te_alde_gld,48,79,0	duplicate(warp_TE_castle)	aldeg-1_aldeg-1-1#6_te	WARPNPC,1,1
 te_alde_gld,95,253,0	duplicate(warp_TE_castle)	aldeg-2_aldeg-2-1#7_te	WARPNPC,1,1
 te_alde_gld,142,81,0	duplicate(warp_TE_castle)	aldeg-3_aldeg-3-1#8_te	WARPNPC,1,1
@@ -323,6 +326,7 @@ te_aldecas5,125,194,0	warp	aldeg-5-13_aldeg-5-3#te	1,1,te_aldecas5,199,70
 te_aldecas5,165,232,0	warp	aldeg-5-14_aldeg-5-6#te	1,1,te_aldecas5,193,49
 te_aldecas5,156,231,0	warp	aldeg-5-15_aldeg-5-16#te	1,1,te_aldecas5,18,88
 te_aldecas5,14,88,0	warp	aldeg-5-16_aldeg-5-15#te	1,1,te_aldecas5,156,227
+*/
 
 // gefg_cas02
 // Original coords for field to garden area. Modified for TE
@@ -357,9 +361,9 @@ gefg_cas02,152,190,0	warp	gefg-2-31_gefg-2-21	1,1,gefg_cas02,150,41
 // Dungeons
 //------------------------------------------------------------//
 // prontera
-teg_dun01,238,274,0	warp	teg_dun01a_prtg#te	1,1,te_prt_gld,252,247
-teg_dun01,42,30,0	warp	teg_dun01b_prtg#te	1,1,te_prt_gld,63,66
+// teg_dun01,238,274,0	warp	teg_dun01a_prtg#te	1,1,te_prt_gld,252,247
+// teg_dun01,42,30,0	warp	teg_dun01b_prtg#te	1,1,te_prt_gld,63,66
 
 // aldebaran
-teg_dun02,20,160,0	warp	teg_dun02a_aldega#te	1,1,te_alde_gld,229,185
-teg_dun02,180,112,0	warp	teg_dun02b_aldegb#te	1,1,te_alde_gld,242,121
+// teg_dun02,20,160,0	warp	teg_dun02a_aldega#te	1,1,te_alde_gld,229,185
+// teg_dun02,180,112,0	warp	teg_dun02b_aldegb#te	1,1,te_alde_gld,242,121

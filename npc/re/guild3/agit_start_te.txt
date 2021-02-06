@@ -5,6 +5,8 @@
 //===== Changelogs: ==========================================
 //= 1.0 First version. [Capuche]
 //============================================================
+// ChocobotRO reminder: This script is not used, refer to woe_controller.txt
+//============================================================
 
 -	script	woe_TE_contoller	-1,{
 function WoeTimer;

@@ -28,7 +28,7 @@ gefg_cas02,68,36,4	duplicate(simple_info_TE)	Eeyolbriggar#7	GUILD_FLAG
 //============================================================
 gef_fild13,324,243,4	script	Eeyolbriggar#11	GUILD_FLAG,{
 	callfunc( "F_flag_woe_TE",1,"gefg_cas02",96,173 );
-OnFlagTEGaebolg:
+OnFlagTEEeyolbriggar:
 	flagemblem getcastledata( "gefg_cas02",1 );
 	end;
 }
