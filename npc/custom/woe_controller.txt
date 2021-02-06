@@ -75,14 +75,14 @@ OnInit:
 // -----------------------------------------------------------
 
 	// Combine values as needed (e.g. 1|8 = 1+8 = 9).
-	set .Options, 1|8;
+	set .Options, 1|2|8|16;
 
 	// Rewards per castle.
 	//   setarray .reward_id[0],     <itemID>{,<itemID>,...}
 	//   setarray .reward_amount[0], <amount>{,<amount>,...}
 	setarray .reward_id[0],14001,644;
 
-	setarray .reward_amount[0],1;
+	setarray .reward_amount[0],1,1;
 
 	// Zeny reward:
 	.reward_zeny = 0;
