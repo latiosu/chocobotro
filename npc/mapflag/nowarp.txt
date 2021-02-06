@@ -29,7 +29,7 @@ aldeg_cas03	mapflag	nowarp
 aldeg_cas04	mapflag	nowarp
 aldeg_cas05	mapflag	nowarp
 gefg_cas01	mapflag	nowarp
-gefg_cas02	mapflag	nowarp
+// gefg_cas02	mapflag	nowarp
 gefg_cas03	mapflag	nowarp
 gefg_cas04	mapflag	nowarp
 gefg_cas05	mapflag	nowarp

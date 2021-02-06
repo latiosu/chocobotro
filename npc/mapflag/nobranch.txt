@@ -155,7 +155,7 @@ aldeg_cas03	mapflag	nobranch
 aldeg_cas04	mapflag	nobranch
 aldeg_cas05	mapflag	nobranch
 gefg_cas01	mapflag	nobranch
-gefg_cas02	mapflag	nobranch
+// gefg_cas02	mapflag	nobranch
 gefg_cas03	mapflag	nobranch
 gefg_cas04	mapflag	nobranch
 gefg_cas05	mapflag	nobranch

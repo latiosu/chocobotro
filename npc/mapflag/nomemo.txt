@@ -462,7 +462,7 @@ aldeg_cas03	mapflag	nomemo
 aldeg_cas04	mapflag	nomemo
 aldeg_cas05	mapflag	nomemo
 gefg_cas01	mapflag	nomemo
-gefg_cas02	mapflag	nomemo
+// gefg_cas02	mapflag	nomemo
 gefg_cas03	mapflag	nomemo
 gefg_cas04	mapflag	nomemo
 gefg_cas05	mapflag	nomemo
