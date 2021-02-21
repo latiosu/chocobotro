@@ -44106,7 +44106,7 @@ Body:
     Flags:
       NoConsume: true
     Delay:
-      Duration: 1200000
+      Duration: 300000
     Trade:
       Override: 100
       NoDrop: true
