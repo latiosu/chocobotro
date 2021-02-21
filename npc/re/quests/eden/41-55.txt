@@ -14,6 +14,7 @@
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Added support to Para_Team_Mark_ in Eden Group. [Ragno]
 //= 1.4 Added use of F_HasEdenGroupMark function. [Ragno]
+//= 1.5 Allow multiple quests and improve message flow [Latiosu]
 //============================================================
 
 moc_para01,40,38,3	script	Mission [41 - 55]	857,{
@@ -26,16 +27,16 @@ moc_para01,40,38,3	script	Mission [41 - 55]	857,{
 		mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
 		close;
 	}
-	if (checkquest(12088) == -1) {
+	if (checkquest(12088) >= 0) {
+		erasequest 12088;
+	}
+	mes "[Mission Board]";
+	mes "Mission bulletin board [Lv 41 - 55].";
+	next;
+	.@choice = select("Check the Missions.:Turn in Missions.:Cancel.");
+	if (.@choice == 1) {
 		if (BaseLevel < 41 || BaseLevel > 55) {
-			mes "Mission bulletin board for Lv41~55 adventurers.";
-			close;
-		}
-		mes "[Mission Board]";
-		mes "Mission bulletin board.";
-		next;
-		if(select("Check the Missions.:Cancel.") == 2) {
-			mes "^000077Ok. Let's check the missions next time.^000000.";
+			mes "These missions are only for Lv 41 - 55 adventurers.";
 			close;
 		}
 		switch(select("Thara Frog Hunting:Cruiser Hunting:Kukre Hunting:Orc Baby Hunting:Orc Warrior Hunting:Vadon Hunting:Megalodon Hunting:Marse Hunting:Cornutus Hunting:Myst Hunting:Shellfish Hunting:Marine Sphere Hunting")) {
@@ -57,34 +58,37 @@ moc_para01,40,38,3	script	Mission [41 - 55]	857,{
 			case 16: callsub L_Quest,12087,"Be prepared! It is a cruel mission! Hunt 15 Mummies!! I tried once, but I couldn't succeed. It is too scary!";
 		}
 		end;
-	}
-	setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
-	for(set .@i,0; .@i<16; set .@i,.@i+1)
-		if (checkquest(12072+.@i,HUNTING) == 2) {
-			mes "[Mission Board]";
-			mes "You have completed the mission.";
-			mes "Here is your reward.";
-			erasequest 12088;
-			erasequest 12072+.@i;
-			specialeffect2 EF_STEAL;
-			getexp .@Exp[.@i],0;
-			close;
-		}
-	if ((checkquest(12072,HUNTING) == 0) && (checkquest(12073,HUNTING) == 0) && (checkquest(12074,HUNTING) == 0) && (checkquest(12075,HUNTING) == 0) && (checkquest(12076,HUNTING) == 0) && (checkquest(12077,HUNTING) == 0) && (checkquest(12078,HUNTING) == 0) && (checkquest(12079,HUNTING) == 0) && (checkquest(12080,HUNTING) == 0) && (checkquest(12081,HUNTING) == 0) && (checkquest(12082,HUNTING) == 0) && (checkquest(12083,HUNTING) == 0) && (checkquest(12084,HUNTING) == 0) && (checkquest(12085,HUNTING) == 0) && (checkquest(12086,HUNTING) == 0) && (checkquest(12087,HUNTING) == 0)) {
-		mes "You may now view the bulletin board.";
-		erasequest 12088;
+	} else if (.@choice == 2) {
+		setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
+		for(set .@i,0; .@i<16; set .@i,.@i+1)
+			if (checkquest(12072+.@i,HUNTING) == 2) {
+				mes "[Mission Board]";
+				mes "You have completed the mission.";
+				mes "Here is your reward.";
+				erasequest 12072+.@i;
+				specialeffect2 EF_STEAL;
+				getexp .@Exp[.@i],.@Exp[.@i]/3;
+				close;
+			}
+		mes "[Mission Board]";
+		mes "No missions are ready to turn in yet.";
+		close;
+	} else {
+		mes "^000077Ok. Let's check the missions next time.^000000.";
 		close;
 	}
-	mes "There is nothing special to do.";
-	close;
 L_Quest:
+	if (checkquest(getarg(0),HUNTING) >= 0) {
+		mes "[Mission Board Memo]";
+		mes "You have already accepted this mission.";
+		close;
+	}
 	mes "[Mission Board Memo]";
 	mes getarg(1);
 	next;
 	if(select("Accept the mission.:Cancel.") == 1) {
 		mes "[Mission Board]";
 		mes "You have accepted the mission. For more details, please press 'alt + u' keys, you can get information from the Quest Window.";
-		setquest 12088;
 		setquest getarg(0);
 	}
 	close;
