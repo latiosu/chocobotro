@@ -317,30 +317,6 @@ OnTouch:
 	end;
 }
 
-moc_para01,47,39,3	script	#warp_2_pass	111,{
-	if (callfunc("F_HasEdenGroupMark")) {
-		mes "[Lime Evenor]";
-		mes "Oh, it is an exclusive place only for Eden's members.";
-		mes "If you are a member, you can come whenever you want!";
-		next;
-		switch (select("Enter.:Don't Enter.")) {
-		case 1:
-			mes "This door is beautifully decorated but seems a little bit too heavy.";
-			close2;
-			warp "moc_para01",106,14;
-			end;
-		case 2:
-			mes "[Lime Evenor]";
-			mes "Well, if you are not interested.";
-			close;
-		}
-	}
-	mes "[Lime Evenor]";
-	mes "Oh, this is an exclusive place for Eden's members only.";
-	mes "If you want to go inside, you have to join the Eden Group.";
-	close;
-}
-
 moc_para01,16,22,7	script	Old Adventurer#eden	900,{
 	mes "[Old Adventurer]";
 	mes "Harsh, I am strong enough even if I look old! What is her name? Lime Evenor? She just ignores me like I am a some kind of old senile bastard.";
