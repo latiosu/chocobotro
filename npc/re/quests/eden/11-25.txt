@@ -36,13 +36,6 @@ moc_para01,36,38,3	script	Mission [11 - 25]#Tuto	4_BOARD3,{
 			mes " - Manager : Spike - ";
 			close;
 		}
-		else if (.@j >= 0) {
-			mes " - You can only request - ";
-			mes " - one mission at a time. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
-			close;
-		}
 	}
 	if (BaseLevel < 11) {
 		mes " - There are no tasks - ";
