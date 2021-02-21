@@ -5839,34 +5839,24 @@ Body:
         Count: 30
   - Id: 11124
     Title: "Request : Hunt Honet - Complete"
-    TimeLimit: +1d
   - Id: 11125
     Title: "Request : Hunt Condor - Complete"
-    TimeLimit: +1d
   - Id: 11126
     Title: "Request : Hunt Grasshopper's Leg - Complete"
-    TimeLimit: +1d
   - Id: 11127
     Title: "Request : Hunt Worm Tail - Complete"
-    TimeLimit: +1d
   - Id: 11128
     Title: "Request : Hunt Spore - Complete"
-    TimeLimit: +1d
   - Id: 11129
     Title: "Request : Pest Control - Complete"
-    TimeLimit: +1d
   - Id: 11130
     Title: "Request : Hunt Muka - Complete"
-    TimeLimit: +1d
   - Id: 11131
     Title: "Request : Hunt Farmiliar - Complete"
-    TimeLimit: +1d
   - Id: 11132
     Title: "Request : Collect Feather - Complete"
-    TimeLimit: +1d
   - Id: 11133
     Title: "Request : Collect Poison Spore - Complete"
-    TimeLimit: +1d
   - Id: 11135
     Title: Looking for Maestro Song
   - Id: 11136
