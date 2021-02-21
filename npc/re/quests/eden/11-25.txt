@@ -153,7 +153,7 @@ L_Quest:
 			delitem .@item_req,.@req_amount;
 		erasequest .@quest_id;
 		setquest .@quest_id+10;
-		getexp getarg(2),0;
+		getexp getarg(2),getarg(2)/2;
 		close;
 	}
 }
