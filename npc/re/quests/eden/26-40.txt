@@ -14,63 +14,107 @@
 //= 1.2 Optimized. [Euphy]
 //= 1.3 Added support to Para_Team_Mark_ in Eden Group. [Ragno]
 //= 1.4 Added use of F_HasEdenGroupMark function. [Ragno]
+//= 1.5 Customise messaging and hunting quest turn-in [Latiosu]
 //============================================================
 
 moc_para01,38,38,3	script	Mission [26 - 40]	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "You are not a qualified member. You can not use the bulletin board.";
+		mes "You are not an Eden group member. You are not qualified to access the bulletin board.";
 		close;
 	}
-	mes "[26 ~ 40 Lv. Mission Board]";
-	mes "- Many missions are -";
-	mes "- on the bulletin board. -";
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
+		mes "^008800Wait a sec!!";
+		mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
+		close;
+	}
+	mes "[Mission Board]";
+	mes "Mission bulletin board [Lv 26 - 40].";
 	next;
-	if ((BaseLevel < 26) || (BaseLevel > 40)) {
-		mes "Your level is not qualified. You can not use the bulletin board.";
+	.@choice = select("Check the Missions.:Turn in Missions.:Cancel.");
+	if (.@choice == 1) {
+		if ((BaseLevel < 26) || (BaseLevel > 40)) {
+			mes "These missions are only for Lv 26 - 40 adventurers.";
+			close;
+		}
+		switch(select("Hunting Mission:Delivery Mission:Gathering Mission")) {
+		case 1:
+			mes "[Hunting Mission Board]";
+			mes "- Hunting Mission details -";
+			mes "- are on the board. -";
+			next;
+			switch(select("Hunting Poison Spore:Hunting Smokie:Hunting Elder Willow(Above Lv.30):Hunting Coco(Above Lv.35):Hunting Thara Frog(Above Lv.38)")) {
+				case 1: callsub L_HuntingQuest,8266,0,"Hunt 10 Poison Spores","You can find Poison Spores on the Geffen Dungeon 1F or northeast of Prontera. There are other spots but I'll leave it up to you to find out.";
+				case 2: callsub L_HuntingQuest,8267,0,"Hunt 10 Smokies","You can find Smokies northeast and northwest of Geffen. Oh, also the field east of Ayothaya is good spot to find them.";
+				case 3: callsub L_HuntingQuest,8268,30,"Hunt 10 Elder Willows","You can find Elder Willows northeast of Geffen, east of Payon and southwest of Prontera.";
+				case 4: callsub L_HuntingQuest,8269,35,"Hunt 10 Cocos","You can find Cocos around the east of Payon, southwest of Prontera and the field east of Ayothaya.";
+				case 5: callsub L_HuntingQuest,8270,38,"Hunt 10 Thara Frogs","You can find Thara Frogs in the Cave east of Comodo or on Turtle Island.";
+			}
+		case 2:
+			mes "[Delivery Mission Board]";
+			mes "- Delivery Mission details -";
+			mes "- are on the board. -";
+			next;
+			switch(select("Deliver an Insecticide:Deliver Honey:Deliver Blanket(Above Lv.35)")) {
+				case 1: callsub L_Quest,8271,0,"Deliver an Insecticide","Dieshin Man","Morocc Ruins","Get an 'Insecticide' from Dieshin Man and deliver it south east of Payon";
+				case 2: callsub L_Quest,8272,0,"Deliver Honey","Dieshin Man","Morocc Ruins","Get 'Honey' from Dieshin Man and deliver it west of St. Capitolina Abbey";
+				case 3: callsub L_Quest,8273,35,"Deliver Blanket","Dieshin Man","Morocc Ruins","Get Blankets from Dieshin Man and deliver to the field south of Lutie";
+			}
+		case 3:
+			mes "[Gathering Mission Board]";
+			mes "- Gathering Mission details -";
+			mes "- are on the board. -";
+			next;
+			switch(select("Gather Bones:Gather Animal Skins:Gather Peelings(Above Lv.30):Gather Tails(Above Lv.32):Gather Cookies(Above Lv.35):Gather Mustaches(Above Lv.35)")) {
+				case 1: callsub L_Quest,8274,0,"Gather Bones","Dashia","Payon","Gather '10 Skel-Bones' and give them to Dashia";
+				case 2: callsub L_Quest,8275,0,"Gather Animal Skins","Dashia","Payon","Gather '10 Bear's Footskins' and '5 Animal Skins' and give them to Dashia";
+				case 3: callsub L_Quest,8276,30,"Gather Peelings","Dashia","Payon","Gather '20 Worm Peelings' and '20 Garlets' and give them to Dashia";
+				case 4: callsub L_Quest,8277,32,"Gather Tails","Dashia","Payon","Gather '10 Yoyo Tails', '10 Acorns' and '10 Raccon Leafs' and give them to Dashia";
+				case 5: callsub L_Quest,8278,35,"Gather Cookies","Dashia","Payon","Gather '5 Well-baked Cookies' and '1 Piece of Cake' and give them to Dashia";
+				case 6: callsub L_Quest,8279,35,"Gather Mustaches","Dashia","Payon","Gather '5 Mole Whiskers' and '3 Mole Claws' and give them to Dashia";
+			}
+		end;
+		}
+	} else if (.@choice == 2) {
+		setarray .@Exp[0],1000,1000,1000,1000,1500;
+		for (set .@i,0; .@i<5; set .@i,.@i+1) {
+			if (checkquest(8266+.@i,HUNTING) == 2) {
+				mes "[Mission Board]";
+				mes "You have completed the mission.";
+				mes "Here is your reward.";
+				erasequest 8266+.@i;
+				specialeffect2 EF_STEAL;
+				getexp .@Exp[.@i],.@Exp[.@i]/2;
+				close;
+			}
+		}
+		mes "[Mission Board]";
+		mes "No missions are ready to turn in yet.";
+		close;
+	} else {
+		mes "^000077Ok. Let's check the missions next time.^000000.";
 		close;
 	}
-	switch(select("Hunting Mission:Delivery Mission:Gathering Mission:Escort Mission")) {
-	case 1:
-		mes "[Hunting Mission Board]";
-		mes "- Hunting Mission details -";
-		mes "- are on the board. -";
-		next;
-		switch(select("Hunting Poison Spore:Hunting Smokie:Hunting Elder Willow(Above Lv.30):Hunting Coco(Above Lv.35):Hunting Thara Frog(Above Lv.38)")) {
-			case 1: callsub L_Quest,8266,0,"Hunting Poison Spore","Sponiac","Geffen","Hunt 10 Poison Spores";
-			case 2: callsub L_Quest,8267,0,"Hunting Smokie","Sponiac","Geffen","Hunt 10 Smokies";
-			case 3: callsub L_Quest,8268,30,"Hunting Elder Willow","Sponiac","Geffen","Hunt 10 Elder Willows";
-			case 4: callsub L_Quest,8269,35,"Hunting Coco","Sponiac","Geffen","Hunt 10 Cocos";
-			case 5: callsub L_Quest,8270,38,"Hunting Thara Frog","Sponiac","Geffen","Hunt 10 Thara Frogs";
-		}
-	case 2:
-		mes "[Delivery Mission Board]";
-		mes "- Delivery Mission details -";
-		mes "- are on the board. -";
-		next;
-		switch(select("Deliver an Insecticide:Deliver Honey:Deliver Blanket(Above Lv.35)")) {
-			case 1: callsub L_Quest,8271,0,"Deliver an Insecticide","Dieshin Man","Morocc Ruins","Get an 'Insecticide' from Dieshin Man and deliver it south east of Payon";
-			case 2: callsub L_Quest,8272,0,"Deliver Honey","Dieshin Man","Morocc Ruins","Get 'Honey' from Dieshin Man and deliver it west of St. Capitolina Abbey";
-			case 3: callsub L_Quest,8273,35,"Deliver Blanket","Dieshin Man","Morocc Ruins","Get Blankets from Dieshin Man and deliver to the field south of Lutie";
-		}
-	case 3:
-		mes "[Gathering Mission Board]";
-		mes "- Gathering Mission details -";
-		mes "- are on the board. -";
-		next;
-		switch(select("Gather Bones:Gather Animal Skins:Gather Peelings(Above Lv.30):Gather Tails(Above Lv.32):Gather Cookies(Above Lv.35):Gather Mustaches(Above Lv.35)")) {
-			case 1: callsub L_Quest,8274,0,"Gather Bones","Dashia","Payon","Gather '10 Skel-Bones' and give them to Dashia";
-			case 2: callsub L_Quest,8275,0,"Gather Animal Skins","Dashia","Payon","Gather '10 Bear's Footskins' and '5 Animal Skins' and give them to Dashia";
-			case 3: callsub L_Quest,8276,30,"Gather Peelings","Dashia","Payon","Gather '20 Worm Peelings' and '20 Garlets' and give them to Dashia";
-			case 4: callsub L_Quest,8277,32,"Gather Tails","Dashia","Payon","Gather '10 Yoyo Tails', '10 Acorns' and '10 Raccon Leafs' and give them to Dashia";
-			case 5: callsub L_Quest,8278,35,"Gather Cookies","Dashia","Payon","Gather '5 Well-baked Cookies' and '1 Piece of Cake' and give them to Dashia";
-			case 6: callsub L_Quest,8279,35,"Gather Mustaches","Dashia","Payon","Gather '5 Mole Whiskers' and '3 Mole Claws' and give them to Dashia";
-		}
-	case 4:
-		mes "[Escort Mission Board]";
-		mes "There are currently no Escort Missions registered on the board.";
+L_HuntingQuest:
+	//QuestID,ReqLvl,Quest,Loc
+	if (BaseLevel < getarg(1,26)) {
+		mes "Your level doesn't meet the requirements. You can't take the '"+ getarg(2) +"' mission.";
 		close;
 	}
-	end;
+	if (checkquest(getarg(0),HUNTING) >= 0) {
+		mes "[Mission Board Memo]";
+		mes "You have already accepted this mission.";
+		close;
+	}
+	mes "[Mission Board Memo]";
+	mes "^0000FFQuest:^000000 " + getarg(2);
+	mes "^0000FFLocation:^000000 " + getarg(3);
+	next;
+	if(select("Accept the mission.:Cancel.") == 1) {
+		mes "[Mission Board]";
+		mes "You have accepted the mission. For more details, please press 'alt + u' keys, you can get information from the Quest Window.";
+		setquest getarg(0);
+	}
+	close;
 L_Quest:
 	//QuestID,ReqLvl,Quest,Client,Loc,Desc
 	.@string$ = getarg(2);
@@ -79,13 +123,11 @@ L_Quest:
 		close;
 	}
 	mes "["+ .@string$ +" !!]";
-	mes "Client : "+getarg(3);
-	mes "Client Location : "+getarg(4);
-	mes "Requested Mission : "+getarg(5);
-	mes " ";
-	mes "Will you accept this mission?";
+	mes "^0000FFClient:^000000 "+getarg(3);
+	mes "^0000FFLocation:^000000 "+getarg(4);
+	mes "^0000FFMission:^000000 "+getarg(5);
 	next;
-	if(select("No, I won't accept it.:Yes, I will accept it.") == 1) {
+	if(select("Accept the mission.:Cancel.") == 2) {
 		mes "You have declined the "+ .@string$ +" mission.";
 		close;
 	}
@@ -97,87 +139,6 @@ L_Quest:
 	mes "You can get a reward from the client after you finish the mission.";
 	next;
 	mes "For more details, please press 'Alt + U', to get more information from the Quest Window.";
-	close;
-}
-
-geffen,103,42,5	script	Sponiac	99,{
-	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Sponiac]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
-		close;
-	}
-	mes "[Sponiac]";
-	mes "Lu~lu~lu~lu~";
-	mes "Lu~ Huh?";
-	next;
-	mes "[Sponiac]";
-	mes "Wow, you must be a beginner, right?";
-	mes "What an innocent face! Ha~ hahaha.";
-	emotion ET_KIK;
-	next;
-	mes "[Sponiac]";
-	mes "Why don't you do some hunting outside instead of walking around and wasting your time?";
-	next;
-	if(select("I am about to leave now.:I've got a Hunting Mission.") == 1) {
-		mes "[Sponiac]";
-		mes "Oh, well. Then, go figure.";
-		mes "Bye~ bye.";
-		close;
-	}
-	mes "[Sponiac]";
-	mes "Oh, you are from the Eden Group?";
-	mes "What mission do you have?";
-	next;
-	switch(select("Hunting Poison Spore:Hunting Smokie:Hunting Elder Willow:Hunting Coco:Hunting Thara Frog")) {
-		case 1: callsub L_Quest,8266,"Hunting Poison Spore",1000,500,100,"You can find Poison Spores on the Geffen Dungeon 1F or northeast of Prontera. There are other spots but I'll leave it up to you to find out.";
-		case 2: callsub L_Quest,8267,"Hunting Smokie",1000,500,100,"You can find Smokies northeast and northwest of Geffen. Oh, also the field east of Ayothaya is good spot to find them.";
-		case 3: callsub L_Quest,8268,"Hunting Elder Willow",1000,500,110,"You can find Elder Willows northeast of Geffen, east of payon and southwest of Prontera.";
-		case 4: callsub L_Quest,8269,"Hunting Coco",1000,500,150,"You can find Cocos around the east of Payon, southwest of Prontera and the field east of Ayothaya.";
-		case 5: callsub L_Quest,8270,"Hunting Thara Frog",1500,700,200,"You can find Thara Frogs in the Cave east of Comodo or on Turtle Island.";
-	}
-	end;
-L_Quest:
-	//QuestID,Quest,BExp,JExp,PotionAmt,Desc
-	.@quest_id = getarg(0);
-	if (checkquest(.@quest_id) == 1) {
-		if (checkquest(.@quest_id,HUNTING) == 2) {
-			mes "[Sponiac]";
-			mes getarg(1)+"!";
-			mes "Wow, I didn't expect you would do that mission. I was just about to give up. But you did good job. I appreciate it!";
-			next;
-			mes "[Sponiac]";
-			mes "Well, I requested the mission and you did an excellent job.";
-			mes "I will give you a reward as I promised.";
-			next;
-			mes "[Sponiac]";
-			mes "Here it is. Thank you very much. God bless you!";
-			getitem 569,getarg(4); //Novice_Potion
-			getexp getarg(2),getarg(3);
-			erasequest .@quest_id;
-			close;
-		}
-		mes "[Sponiac]";
-		mes "Oh, you are right.";
-		next;
-		mes "[Sponiac]";
-		mes "But, you haven't done the mission yet. Why did you come to me now? You haven't completed the mission!";
-		mes "I will give you a reward if you complete the mission. Ok? Are we good?";
-		next;
-		mes "[Sponiac]";
-		mes getarg(5);
-		mes "You can check the world map by pressing 'ctrl + ~' key.";
-		next;
-		mes "[Sponiac]";
-		mes "Anyway, I will be here waiting for you. Please come back when you finish the mission!";
-		close;
-	}
-	mes "[Sponiac]";
-	mes "Huh? Are you sure? Something is wrong...";
-	next;
-	mes "[Sponiac]";
-	mes "It is weird.";
-	mes "Please check your Quest Window by pressing 'alt + u'.";
 	close;
 }
 
