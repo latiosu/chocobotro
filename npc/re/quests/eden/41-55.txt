@@ -60,7 +60,7 @@ moc_para01,40,38,3	script	Mission [41 - 55]	857,{
 		end;
 	} else if (.@choice == 2) {
 		setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
-		for(set .@i,0; .@i<16; set .@i,.@i+1)
+		for (set .@i,0; .@i<16; set .@i,.@i+1) {
 			if (checkquest(12072+.@i,HUNTING) == 2) {
 				mes "[Mission Board]";
 				mes "You have completed the mission.";
@@ -70,6 +70,7 @@ moc_para01,40,38,3	script	Mission [41 - 55]	857,{
 				getexp .@Exp[.@i],.@Exp[.@i]/3;
 				close;
 			}
+		}
 		mes "[Mission Board]";
 		mes "No missions are ready to turn in yet.";
 		close;
@@ -88,7 +89,7 @@ L_Quest:
 	next;
 	if(select("Accept the mission.:Cancel.") == 1) {
 		mes "[Mission Board]";
-		mes "You have accepted the mission. For more details, please press 'alt + u' keys, you can get information from the Quest Window.";
+		mes "You have accepted the mission. For more details, please press 'Alt + U' keys, you can get information from the Quest Window.";
 		setquest getarg(0);
 	}
 	close;
