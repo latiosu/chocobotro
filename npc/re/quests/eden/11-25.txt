@@ -15,145 +15,89 @@
 //= 1.3 Bug fixes. [Capuche]
 //= 1.4 Added support to Para_Team_Mark_ in Eden Group. [Ragno]
 //= 1.5 Added use of F_HasEdenGroupMark function. [Ragno]
+//= 1.6 Standardise board messages with higher level boards
+//=     for ChocobotRO [Latiosu]
 //============================================================
 
 moc_para01,36,38,3	script	Mission [11 - 25]#Tuto	4_BOARD3,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "- You need to have an -";
-		mes "- ^4d4dff'Eden Group Mark'^000000 -";
-		mes "- to receive these missions. -";
+		mes "You are not an Eden group member. You are not qualified to access the bulletin board.";
 		close;
 	}
-	for ( .@i = 11124; .@i < 11134; .@i++ )
-		if (checkquest(.@i,PLAYTIME) == 2) erasequest .@i;
-	for( .@i = 11114; .@i < 11124; .@i++ ) {
-		.@j = checkquest(.@i,HUNTING);
-		if (.@j == 2) {
-			mes " - You must collect your - ";
-			mes " - reward before starting - ";
-			mes " - a new mission. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
+		mes "^008800Wait a sec!!";
+		mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
+		close;
+	}
+	mes "[Mission Board]";
+	mes "Mission bulletin board [Lv 11 - 25].";
+	next;
+	.@choice = select("Check the Missions.:Turn in Missions.:Cancel.");
+	if (.@choice == 1) {
+		if ((BaseLevel < 11) || (BaseLevel > 25)) {
+			mes "These missions are only for Lv 11 - 25 adventurers.";
 			close;
 		}
-	}
-	if (BaseLevel < 11) {
-		mes " - There are no tasks - ";
-		mes " - open for you right now. - ";
-		close;
-	}
-	if (BaseLevel > 25) {
-		mes " - These missions are too - ";
-		mes " - easy for your caliber - ";
-		mes " - search for a more level - ";
-		mes " - appropriate mission. - ";
-		close;
-	}
-	mes " - Mission bulletin board -";
-	mes " - for beginners. -";
-	mes " ";
-	mes " - Manager : Spike -";
-	next;
-	switch(select("Hornet Hunting:Condor Hunting:Grasshopper's Leg:Worm Tail Hunting:Spore Hunting:Pest Control:Muka Hunting:Familiar Hunting:Collect Feathers:Collect Poison Spores:Cancel")) {
-		case 1: callsub L_Quest,11114,"Hornet Hunting"," - Hunt 10 ^4d4dff'Hornets'^000000 - "," - northwest of Prontera. - ";
-		case 2: callsub L_Quest,11115,"Condor Hunting"," - Hunt 20 ^4d4dff'Condors'^000000 - "," - south of Morocc. - ";
-		case 3: callsub L_Quest,11116,"Grasshopper's Leg"," - Hunt 10 ^4d4dff'Rockers'^000000 - "," - southwest of Prontera and - "," - bring 10 ^4d4dffGrasshopper's Legs^000000. - ";
-		case 4: callsub L_Quest,11117,"Worm Tail Hunting"," - Hunt 20 ^4d4dff'Worm Tails'^000000 - "," - southeast of Payon.- ";
-		case 5: callsub L_Quest,11118,"Spore Hunting"," - Hunt 30 ^4d4dff'Spores'^000000 - "," - around Payon. - ";
-		case 6: callsub L_Quest,11119,"Pest Control"," - Hunt 20 ^4d4dffThief Bug Eggs^000000 - "," - in the Prontera Culvert - "," - and bring 10 ^4d4dffChrysalis^000000. - ";
-		case 7: callsub L_Quest,11120,"Muka Hunting"," - Hunt 20 ^4d4dff'Muka'^000000 - "," - south of Prontera. - ";
-		case 8: callsub L_Quest,11121,"Familiar Hunting"," - Hunt 20 ^4d4dffFamiliar^000000 - "," - in the Culvert Sewers - "," - west of Prontera. - ";
-		case 9: callsub L_Quest,11122,"Collect Feathers"," - Hunt 30 ^4d4dff'Peco Pecos'^000000 - "," - south of Prontera. - ";
-		case 10: callsub L_Quest,11123,"Collect Poison Spores"," - Hunt 30 ^4d4dffPoison Spores^000000 - "," - inside the Geffen Tower and - "," - bring 5 ^4d4dffPoison Spores^000000. - ";
-		case 11:
-			mes " - Stop reading the bulletin board. - ";
-			close;
-	}
-
-L_Quest:
-	.@quest_status = checkquest(getarg(0)+10,PLAYTIME);
-	if (.@quest_status == 0 || .@quest_status == 1) {
-		mes " - Mission ^4d4dff"+ getarg(1) +"^000000 - ";
-		mes " - is already finished for today. - ";
-		mes " ";
-		mes " - Manager : Spike - ";
-		close;
-	}
-	mes " - Mission '"+ getarg(1) +"' - ";
-	for ( .@i = 2; .@i < getargcount(); .@i++ )
-		mes getarg(.@i);
-	mes " ";
-	mes " - Manager : Spike - ";
-	next;
-	if (select("I will do this mission.:Look for other missions.") == 2) {
-		mes " - Let's search for -";
-		mes " - other missions. - ";
-		close;
-	}
-	for ( .@i = 2; .@i < getargcount(); .@i++ )
-		mes getarg(.@i);
-	setquest getarg(0);
-	close;
-}
-
-moc_para01,32,30,6	script	Spike	4_F_CHILD,{
-	for( .@i = 11114; .@i < 11124; .@i++ ) {
-		.@j = checkquest(.@i,HUNTING);
-		if (.@j == 2) {
-			switch(.@i) {
-				case 11114: callsub L_Quest,.@i,"Hornet Hunting",900;
-				case 11115: callsub L_Quest,.@i,"Condor Hunting",1800;
-				case 11116: callsub L_Quest,.@i,"Grasshopper's Leg",1400,940,10;
-				case 11117: callsub L_Quest,.@i,"Worm Tail Hunting",2600;
-				case 11118: callsub L_Quest,.@i,"Spore Hunting",3900;
-				case 11119: callsub L_Quest,.@i,"Extirpate Insects",2900,915,10;
-				case 11120: callsub L_Quest,.@i,"Muka Hunting",3200;
-				case 11121: callsub L_Quest,.@i,"Familiar Hunting",3200;
-				case 11122: callsub L_Quest,.@i,"Collect Feathers",5400;
-				case 11123: callsub L_Quest,.@i,"Collect Poison Spores",6000,7033,5;
-			}
+		switch(select("Hornet Hunting:Condor Hunting:Grasshopper's Leg:Worm Tail Hunting:Spore Hunting:Pest Control:Muka Hunting:Familiar Hunting:Collect Feathers:Collect Poison Spores")) {
+			case 1: callsub L_Quest,11114,"Hornet Hunting","Hunt 10 Hornets","Northwest of Prontera.";
+			case 2: callsub L_Quest,11115,"Condor Hunting","Hunt 20 Condors","South of Morocc.";
+			case 3: callsub L_Quest,11116,"Grasshopper's Leg","Hunt 10 Rockers and bring 10 Grasshopper's Legs.","Southwest of Prontera";
+			case 4: callsub L_Quest,11117,"Worm Tail Hunting","Hunt 20 Worm Tails","Southeast of Payon.";
+			case 5: callsub L_Quest,11118,"Spore Hunting","Hunt 30 Spores","Around Payon.";
+			case 6: callsub L_Quest,11119,"Pest Control","Hunt 20 Thief Bug Eggs and bring 10 Chrysalis.","In the Prontera Culverts, West of Prontera.";
+			case 7: callsub L_Quest,11120,"Muka Hunting","Hunt 20 Muka","South of Prontera.";
+			case 8: callsub L_Quest,11121,"Familiar Hunting","Hunt 20 Familiar","In the Prontera Culverts, West of Prontera.";
+			case 9: callsub L_Quest,11122,"Collect Feathers","Hunt 30 Peco Pecos","South of Prontera.";
+			case 10: callsub L_Quest,11123,"Collect Poison Spores","Hunt 30 Poison Spores and bring 5 Poison Spores.","Inside the Geffen Tower";
 		}
-		else if (.@j >= 0) {
-			mes "[Spike]";
-			mes "You haven't finished your mission yet.";
-			mes "Keep up the good work. You are almost done.";
-			close;
-		}
-	}
-	mes "[Spike]";
-	mes "Are you looking for a job?";
-	mes "We always have lots of work to do.";
-	next;
-	mes "[Spike]";
-	mes "Why don't you look around and find some interesting tasks?";
-	close;
-
-L_Quest:
-	.@quest_id = getarg(0);
-	if (checkquest(.@quest_id,HUNTING) == 2) {
-		.@item_req = getarg(3,0);
-		.@req_amount = getarg(4,0);
-		if (.@item_req) {
-			if (countitem(.@item_req) < .@req_amount) {
-				mes "[Spike]";
-				mes "You don't have enough "+ getitemname(.@item_req) +".";
-				mes "You need to bring "+ .@req_amount +" "+ getitemname(.@item_req) +".";
+		end;
+	} else if (.@choice == 2) {
+		setarray .@Exp[0],900,1800,1400,2600,3900,2900,3200,3200,5400,6000;
+		setarray .@Item[0],0,0,940,0,0,915,0,0,0,7033;
+		setarray .@Amount[0],0,0,10,0,0,10,0,0,0,5;
+		for (set .@i,0; .@i<10; set .@i,.@i+1) {
+			if (checkquest(11114+.@i,HUNTING) == 2) {
+				if (.@Item[.@i]) {
+					if (countitem(.@Item[.@i]) < .@Amount[.@i]) {
+						mes "[Mission Board]";
+						mes "You don't have enough "+ getitemname(.@Item[.@i]) +".";
+						mes "You need to bring "+ .@Amount[.@i] +" "+ getitemname(.@Item[.@i]) +".";
+						close;
+					}
+				}
+				mes "[Mission Board]";
+				mes "You have completed the mission.";
+				mes "Here is your reward.";
+				if (.@Item[.@i]) {
+					delitem .@Item[.@i],.@Amount[.@i];
+				}
+				erasequest 11114+.@i;
+				specialeffect2 EF_STEAL;
+				getexp .@Exp[.@i],.@Exp[.@i]/2;
 				close;
 			}
 		}
-		mes "[Spike]";
-		mes "Hmm... let me see~";
-		mes "You have completed the '"+ getarg(1) +"' mission.";
-		next;
-		mes "[Spike]";
-		mes "Good work~!!";
-		mes "Our client is so happy with your work. He will appreciate what you have done.";
-		mes "Please help us again. Thanks!";
-		if (.@item_req)
-			delitem .@item_req,.@req_amount;
-		erasequest .@quest_id;
-		setquest .@quest_id+10;
-		getexp getarg(2),getarg(2)/2;
+		mes "[Mission Board]";
+		mes "No missions are ready to turn in yet.";
+		close;
+	} else {
+		mes "^000077Ok. Let's check the missions next time.^000000.";
 		close;
 	}
+L_Quest:
+	if (checkquest(getarg(0),HUNTING) >= 0) {
+		mes "[Mission Board Memo]";
+		mes "You have already accepted this mission.";
+		close;
+	}
+	mes "["+ getarg(1) +" !!]";
+	mes "^0000FFLocation:^000000 "+getarg(2);
+	mes "^0000FFMission:^000000 "+getarg(3);
+	next;
+	if(select("Accept the mission.:Cancel.") == 1) {
+		mes "[Mission Board]";
+		mes "You have accepted the mission. For more details, please press 'Alt + U' keys, you can get information from the Quest Window.";
+		setquest getarg(0);
+	}
+	close;
 }
