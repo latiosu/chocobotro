@@ -24,7 +24,7 @@ prt_fild00,18,129,0	warp	prtf015	2,6,gef_fild00,376,140
 prt_fild00,317,18,0	warp	prtf02	8,2,prt_fild04,323,384
 prt_fild00,383,249,0	warp	prtf008	2,4,mjolnir_09,33,248
 prt_fild01,136,373,0	warp	prtf030	1,1,prt_maze01,99,31
-prt_fild01,199,24,0	warp	prtf001	3,2,prt_gld,159,295
+prt_fild01,199,24,0	warp	prtf001	3,2,prt_cas,82,171
 prt_fild01,20,292,0	warp	prtf009	2,3,mjolnir_09,370,288
 prt_fild01,261,373,0	warp	prtf010	6,2,mjolnir_10,265,16
 prt_fild01,380,243,0	warp	prtf03	2,5,prt_fild02,20,242

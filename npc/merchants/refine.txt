@@ -1100,10 +1100,10 @@ lhz_in02,284,14,3	script	Repairman#lhz	86,{
 	end;
 }
 
-prt_gld,139,117,4	script	Repairman#prt_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// prt_gld,139,117,4	script	Repairman#prt_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 gef_fild13,263,117,4	script	Repairman#gef_fild	86,{
 	callfunc "repairmain","Repairman";

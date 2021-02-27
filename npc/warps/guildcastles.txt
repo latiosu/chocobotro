@@ -112,7 +112,7 @@ prtg_cas05,253,294,0	warp	prtg-5-31_prtg-5-22	1,1,prtg_cas05,58,11
 gef_fild13,150,54,0	warp	gef-g1-0_gefg-1-07	1,1,gefg_cas01,34,140
 gef_fild13,210,75,0	warp	gef-g1-1_gefg-1-04	1,1,gefg_cas01,95,178
 // Original coords for field to garden area. Modified for TE
-//// gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
+//gef_fild13,308,244,0	warp	gef-g2_gefg-2-07	1,1,gefg_cas02,70,143
 //gef_fild13,308,244,0	warp	gefg-2-01_gefg-2-12	1,1,gefg_cas02,76,42
 gef_fild13,77,284,0	warp	gef-g3-0_g-cas3-12	1,1,gefg_cas03,60,286
 gef_fild13,112,269,0	warp	gef-g3-1_g-cas3-13	1,1,gefg_cas03,100,280
