@@ -434,21 +434,21 @@ ve_fild02,191,21,0	warp	arug001	1,1,aru_gld,195,360
 aru_gld,195,363,0	warp	arug002	1,1,ve_fild02,191,24
 
 // Arunafeltz Castle Maps
-arug_cas01,281,93,0	warp	arug101	1,1,aru_gld,158,272
-aru_gld,155,274,0	warp	arug102	1,1,arug_cas01,275,93
-arug_cas01,127,357,0	warp	arug103	1,1,arug_cas01,275,93
-arug_cas02,139,25,0	warp	arug201	1,1,aru_gld,83,47
-aru_gld,78,47,0	warp	arug202	1,1,arug_cas02,139,31
-arug_cas02,393,324,0	warp	arug203	1,1,arug_cas02,139,31
+// arug_cas01,281,93,0	warp	arug101	1,1,aru_gld,158,272
+// aru_gld,155,274,0	warp	arug102	1,1,arug_cas01,275,93
+// arug_cas01,127,357,0	warp	arug103	1,1,arug_cas01,275,93
+// arug_cas02,139,25,0	warp	arug201	1,1,aru_gld,83,47
+// aru_gld,78,47,0	warp	arug202	1,1,arug_cas02,139,31
+// arug_cas02,393,324,0	warp	arug203	1,1,arug_cas02,139,31
 arug_cas03,141,40,0	warp	arug301	1,1,aru_gld,68,155
 aru_gld,68,150,0	warp	arug302	1,1,arug_cas03,141,45
 arug_cas03,321,52,0	warp	arug303	1,1,arug_cas03,141,45
-arug_cas04,141,40,0	warp	arug401	1,1,aru_gld,299,345
-aru_gld,289,347,0	warp	arug402	1,1,arug_cas04,141,45
-arug_cas04,321,52,0	warp	arug403	1,1,arug_cas04,141,45
-arug_cas05,141,40,0	warp	arug501	1,1,aru_gld,292,107
-aru_gld,287,107,0	warp	arug502	1,1,arug_cas05,141,45
-arug_cas05,321,52,0	warp	arug503	1,1,arug_cas05,141,45
+// arug_cas04,141,40,0	warp	arug401	1,1,aru_gld,299,345
+// aru_gld,289,347,0	warp	arug402	1,1,arug_cas04,141,45
+// arug_cas04,321,52,0	warp	arug403	1,1,arug_cas04,141,45
+// arug_cas05,141,40,0	warp	arug501	1,1,aru_gld,292,107
+// aru_gld,287,107,0	warp	arug502	1,1,arug_cas05,141,45
+// arug_cas05,321,52,0	warp	arug503	1,1,arug_cas05,141,45
 
 //==================  4 Novices Guild Castles =============================
 //Novices Guild: Al de Baran Guild Castles Map
