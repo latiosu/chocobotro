@@ -21,6 +21,7 @@ services:
             - "5121:5121" # map server
             - "6121:6121" # char server
             - "6900:6900" # login server
+            - "8888:8888" # web server
         volumes:
             - "../..:/rathena" # mount git repo directory inside container
             - "./asset/inter_conf.txt:/rathena/conf/import/inter_conf.txt" # load db connection
