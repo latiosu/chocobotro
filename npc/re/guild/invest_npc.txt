@@ -22,9 +22,9 @@ alde_gld,186,157,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Megrez	549
 alde_gld,191,164,3	duplicate(Gate Manager#realm)	Gate Manager#alde_f00	421
 alde_gld,188,158,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Alde	857
 
-gef_fild13,187,208,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Meraq	549
-gef_fild13,189,206,3	duplicate(Gate Manager#realm)	Gate Manager#gef_f00	421
-gef_fild13,190,209,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Gef	857
+// gef_fild13,187,208,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Meraq	549
+// gef_fild13,189,206,3	duplicate(Gate Manager#realm)	Gate Manager#gef_f00	421
+// gef_fild13,190,209,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Gef	857
 
 // pay_gld,203,189,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Phecda	549
 // pay_gld,206,189,3	duplicate(Gate Manager#realm)	Gate Manager#pay_f00	421

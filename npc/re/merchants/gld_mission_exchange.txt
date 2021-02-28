@@ -461,7 +461,7 @@ S_Kvasir:
 // Main NPCs
 alde_gld,180,163,3	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#1	2_VENDING_MACHINE1
 // pay_gld,196,176,5	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#2	2_VENDING_MACHINE1
-gef_fild13,198,246,3	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#3	2_VENDING_MACHINE1
+// gef_fild13,198,246,3	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#3	2_VENDING_MACHINE1
 sch_gld,266,119,5	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#4	2_VENDING_MACHINE1
 aru_gld,89,204,5	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#5	2_VENDING_MACHINE1
 // prt_gld,107,155,3	duplicate(#GldDungeonReward)	ClickClick MeowMeow-GX#6	2_VENDING_MACHINE1
