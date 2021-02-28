@@ -41,6 +41,9 @@ OnAgitStart:
 // Duplicates to guide players to active castles
 yuno,13,127,4	duplicate(WOE Information)	WOE Information#yuno	835
 aldebaran,36,140,4	duplicate(WOE Information)	WOE Information#alde	835
+gef_fild13,24,201,4	duplicate(WOE Information)	WOE Information#gef1	835
+gef_fild13,24,59,4	duplicate(WOE Information)	WOE Information#gef2	835
+gef_fild13,189,24,4	duplicate(WOE Information)	WOE Information#gef3	835
 
 // Script Core
 //============================================================
@@ -127,7 +130,7 @@ OnInit:
 	Region("Arunafeltz");
 	// 	Castle("arug_cas01", "Manager#arug_cas01::OnAgitEnd2", "Steward#ar01::OnStartArena", "aru_gld",158,272);
 	// 	Castle("arug_cas02", "Manager#arug_cas02::OnAgitEnd2", "Steward#ar02::OnStartArena", "aru_gld",83,47);
-		Castle("arug_cas03", "Manager#arug_cas03::OnAgitEnd2", "Steward#ar03::OnStartArena", "aru_gld",68,155);
+		Castle("arug_cas03", "Manager#arug_cas03::OnAgitEnd2", "Steward#ar03::OnStartArena", "aru_gld",68,175);
 	// 	Castle("arug_cas04", "Manager#arug_cas04::OnAgitEnd2", "Steward#ar04::OnStartArena", "aru_gld",299,345);
 	// 	Castle("arug_cas05", "Manager#arug_cas05::OnAgitEnd2", "Steward#ar05::OnStartArena", "aru_gld",292,107);
 	// Region("Schwarzwald");
@@ -139,7 +142,7 @@ OnInit:
 
 	if (checkre(0)) {
 		Region("Geffen (TE)");
-			Castle("gefg_cas02", "Manager_TE#Eeyolbriggar::OnAgitEnd3",	"Manager_TE#Eeyolbriggar::OnAgitBreak", "gef_fild13",308,240);
+			Castle("gefg_cas02", "Manager_TE#Eeyolbriggar::OnAgitEnd3",	"Manager_TE#Eeyolbriggar::OnAgitBreak", "gef_fild13",308,235);
 		// Region("Prontera (TE)");
 		// 	Castle("te_prtcas01", "Manager_TE#Gaebolg::OnAgitEnd3",	"Manager_TE#Gaebolg::OnAgitBreak",	"te_prt_gld",134,65);
 		// 	Castle("te_prtcas02", "Manager_TE#Richard::OnAgitEnd3",	"Manager_TE#Richard::OnAgitBreak",	"te_prt_gld",240,128);

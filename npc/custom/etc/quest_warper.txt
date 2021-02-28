@@ -2374,6 +2374,7 @@ yuno_fild03,37,135,4	duplicate(Warpra#0)	Warpra#14	113
 
 // WoE Convenience
 gef_fild13,319,242,4	duplicate(Warpra#0)	Warpra#woe1	113
+aru_gld,59,186,6	duplicate(Warpra#0)	Warpra#woe2	113
 
 // Towns
 alberta,32,240,4	script	Warpra#15	113,{ callfunc "QWS_Town_Warpra",1,"Alberta Town"; close; }
