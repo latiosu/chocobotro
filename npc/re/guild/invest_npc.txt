@@ -26,9 +26,9 @@ gef_fild13,187,208,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Meraq	54
 gef_fild13,189,206,3	duplicate(Gate Manager#realm)	Gate Manager#gef_f00	421
 gef_fild13,190,209,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Gef	857
 
-pay_gld,203,189,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Phecda	549
-pay_gld,206,189,3	duplicate(Gate Manager#realm)	Gate Manager#pay_f00	421
-pay_gld,200,189,5	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Pay	857
+// pay_gld,203,189,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Phecda	549
+// pay_gld,206,189,3	duplicate(Gate Manager#realm)	Gate Manager#pay_f00	421
+// pay_gld,200,189,5	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Pay	857
 
 // prt_gld,158,96,5	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Dubae	549
 // prt_gld,161,96,3	duplicate(Gate Manager#realm)	Gate Manager#prt_f00	421

@@ -1110,10 +1110,10 @@ gef_fild13,263,117,4	script	Repairman#gef_fild	86,{
 	end;
 }
 
-pay_gld,295,183,4	script	Repairman#pay_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// pay_gld,295,183,4	script	Repairman#pay_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 alde_gld,220,152,4	script	Repairman#alde_gld	86,{
 	callfunc "repairmain","Repairman";

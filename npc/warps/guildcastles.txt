@@ -232,8 +232,8 @@ gefg_cas05,190,20,0	warp	gefg-5-24_gefg-5-31	1,1,gefg_cas05,194,151
 gefg_cas05,194,147,0	warp	gefg-5-31_gefg-5-24	1,1,gefg_cas05,190,16
 
 //Payon Castle Map
-payon,16,143,0	warp	payon-a_payg01	1,1,pay_gld,370,149
-moc_fild02,378,272,0	warp	moc02a_payg02	1,1,pay_gld,20,276
+payon,16,143,0	warp	payon-a_payg01	1,1,moc_fild02,374,272
+moc_fild02,378,272,0	warp	moc02a_payg02	1,1,payon,19,143
 pay_gld,374,149,0	warp	payg01_payon-a	1,1,payon,19,143
 pay_gld,16,276,0	warp	payg02_moc02a	1,1,moc_fild02,374,272
 pay_gld,121,238,0	warp	payg-1_payg-1-06	1,1,payg_cas01,214,48

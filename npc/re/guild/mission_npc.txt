@@ -9,7 +9,7 @@
 
 alde_gld,176,163,5	duplicate(gld_mission#core)	Luina Training Instructor#gqaldeg	4_M_HUMAN_02
 gef_fild13,197,242,3	duplicate(gld_mission#core)	Britoria Training Instructor#gqgefg	4_M_HUMAN_02
-pay_gld,198,178,5	duplicate(gld_mission#core)	Greenwood Lake Training Instructor#gqpayg	4_M_HUMAN_02
+// pay_gld,198,178,5	duplicate(gld_mission#core)	Greenwood Lake Training Instructor#gqpayg	4_M_HUMAN_02
 // prt_gld,125,149,3	duplicate(gld_mission#core)	Valkyrie Realm Training Instructor#gqprtg	4_M_HUMAN_02
 
 aru_gld,96,203,3	duplicate(gld_mission#core)	Valfreyja Training Instructor#gqaru	4_M_HUMAN_02
