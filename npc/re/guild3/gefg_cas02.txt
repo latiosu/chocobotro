@@ -1,0 +1,83 @@
+//===== rAthena Script =======================================
+//= War of Emperium (Geffen) - Eeyorbriggar
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= NPCs that relate to Geffen Guild Castle 2
+//===== Additional Comments: =================================
+//= 1.0 First Version. No longer uses functions. [L0ne_W0lf]
+//= 1.1 Removed dialog from interior flags. [L0ne_W0lf]
+//= 1.2 Partially rewrote Script. [Masao]
+//============================================================
+
+// Simple infos flags
+//============================================================
+gefg_cas02,65,130,4	duplicate(simple_info_TE)	Eeyolbriggar#1	GUILD_FLAG
+gefg_cas02,30,123,4	duplicate(simple_info_TE)	Eeyolbriggar#2	GUILD_FLAG
+gefg_cas02,65,139,4	duplicate(simple_info_TE)	Eeyolbriggar#3	GUILD_FLAG
+gefg_cas02,37,177,4	duplicate(simple_info_TE)	Eeyolbriggar#4	GUILD_FLAG
+gefg_cas02,37,168,4	duplicate(simple_info_TE)	Eeyolbriggar#5	GUILD_FLAG
+gefg_cas02,68,47,4	duplicate(simple_info_TE)	Eeyolbriggar#6	GUILD_FLAG
+gefg_cas02,68,36,4	duplicate(simple_info_TE)	Eeyolbriggar#7	GUILD_FLAG
+
+// Infos flags + warp guildmaster inside
+//============================================================
+gef_fild13,324,243,4	script	Eeyolbriggar#11	GUILD_FLAG,{
+	callfunc( "F_flag_woe_TE",1,"gefg_cas02",96,173 );
+OnFlagTEEeyolbriggar:
+	flagemblem getcastledata( "gefg_cas02",1 );
+	end;
+}
+gef_fild13,303,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#12	GUILD_FLAG
+gef_fild13,312,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#13	GUILD_FLAG
+gef_fild13,290,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#14	GUILD_FLAG
+
+// Town flags
+//============================================================
+prontera,158,193,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#15	GUILD_FLAG
+payon,112,323,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#16	GUILD_FLAG
+payon,166,177,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#17	GUILD_FLAG
+geffen,126,106,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#18	GUILD_FLAG
+aldebaran,149,103,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#19	GUILD_FLAG
+
+// Kafra Employee
+//============================================================
+gefg_cas02,23,66,3	duplicate(Kafra_Staff_TE)	Kafra Employee#gefg_02	4_F_KAFRA1
+
+// Lever 1 (warp outside treasure)
+//============================================================
+gefg_cas02,12,67,0	duplicate(lever1_TE)	#lever1_gefg_cas02	HIDDEN_NPC
+
+// Guild Treasure Spawns
+//============================================================
+gefg_cas02,140,116,0	duplicate(treasure_TE)	Treasure#gefg_cas02	-1
+
+// Rental items npc
+//============================================================
+gef_fild13,316,242,3	duplicate(rental_woe_TE)	Rental Manager#gefg01	4_F_HUWOMAN
+
+// Invest eco / def / guardian
+//============================================================
+gefg_cas02,22,68,4	duplicate(invest_TE)	Latiosu	1_M_JOBTESTER
+
+// Manager woe
+//============================================================
+gefg_cas02,1,1,0	duplicate(Manager_TE)	Manager_TE#Eeyolbriggar	-1
+
+// Treasure Room Exit
+//============================================================
+gefg_cas02,145,114,0	script	#Lever_GE01	111,{
+    mes " ";
+    mes "There's a small lever. Will you pull it?";
+    next;
+    if(select("Pull.:Do not.") == 1) {
+        close2;
+        warp "gefg_cas02",12,68;
+        end;
+    }
+    close;
+}

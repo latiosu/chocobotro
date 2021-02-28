@@ -172,7 +172,7 @@ aldeg_cas03	mapflag	nosave	SavePoint
 aldeg_cas04	mapflag	nosave	SavePoint
 aldeg_cas05	mapflag	nosave	SavePoint
 gefg_cas01	mapflag	nosave	SavePoint
-gefg_cas02	mapflag	nosave	SavePoint
+// gefg_cas02	mapflag	nosave	SavePoint
 gefg_cas03	mapflag	nosave	SavePoint
 gefg_cas04	mapflag	nosave	SavePoint
 gefg_cas05	mapflag	nosave	SavePoint

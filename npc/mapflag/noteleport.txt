@@ -178,7 +178,7 @@ aldeg_cas03	mapflag	noteleport
 aldeg_cas04	mapflag	noteleport
 aldeg_cas05	mapflag	noteleport
 gefg_cas01	mapflag	noteleport
-gefg_cas02	mapflag	noteleport
+// gefg_cas02	mapflag	noteleport
 gefg_cas03	mapflag	noteleport
 gefg_cas04	mapflag	noteleport
 gefg_cas05	mapflag	noteleport

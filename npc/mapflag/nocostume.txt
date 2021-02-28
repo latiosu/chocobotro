@@ -20,6 +20,7 @@ te_aldecas2	mapflag	nocostume
 te_aldecas3	mapflag	nocostume
 te_aldecas4	mapflag	nocostume
 te_aldecas5	mapflag	nocostume
+gefg_cas02	mapflag	nocostume
 
 // Guild Dungeons =========
 teg_dun01	mapflag	nocostume

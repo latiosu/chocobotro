@@ -780,7 +780,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			item->stack.guild_storage = false;
 		}
 	}
-	
+
 	if (this->nodeExists(node, "NoUse")) {
 		const YAML::Node &nouseNode = node["NoUse"];
 
@@ -974,7 +974,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 
 		item->script = parse_script(script.c_str(), this->getCurrentFile().c_str(), node["Script"].Mark().line + 1, SCRIPT_IGNORE_EXTERNAL_BRACKETS);
 	} else {
-		if (!exists) 
+		if (!exists)
 			item->script = nullptr;
 	}
 
@@ -1297,12 +1297,12 @@ char itemdb_pc_get_itemgroup(uint16 group_id, bool identify, struct map_session_
 	struct s_item_group_db *group;
 
 	nullpo_retr(1,sd);
-	
+
 	if (!(group = (struct s_item_group_db *) uidb_get(itemdb_group, group_id))) {
 		ShowError("itemdb_pc_get_itemgroup: Invalid group id '%d' specified.\n",group_id);
 		return 2;
 	}
-	
+
 	// Get the 'must' item(s)
 	if (group->must_qty) {
 		for (i = 0; i < group->must_qty; i++)
@@ -1548,7 +1548,7 @@ static bool itemdb_read_group(char* str[], int columns, int current) {
 	memset(&entry, 0, sizeof(entry));
 	entry.amount = 1;
 	entry.bound = BOUND_NONE;
-	
+
 	str[0] = trim(str[0]);
 	if( ISDIGIT(str[0][0]) ){
 		group_id = atoi(str[0]);
@@ -1630,7 +1630,7 @@ static bool itemdb_read_group(char* str[], int columns, int current) {
 	if( columns > 7 ) entry.GUID = atoi(str[7]) > 0;
 	if( columns > 8 ) entry.bound = cap_value(atoi(str[8]),BOUND_NONE,BOUND_MAX-1);
 	if( columns > 9 ) entry.isNamed = atoi(str[9]) > 0;
-	
+
 	if (!(group = (struct s_item_group_db *) uidb_get(itemdb_group, group_id))) {
 		CREATE(group, struct s_item_group_db, 1);
 		group->id = group_id;
@@ -1641,7 +1641,7 @@ static bool itemdb_read_group(char* str[], int columns, int current) {
 	if (!rand_group) {
 		RECREATE(group->must, struct s_item_group_entry, group->must_qty+1);
 		group->must[group->must_qty++] = entry;
-		
+
 		// If 'must' item isn't set as random item, skip the next process
 		if (!prob) {
 			return true;
@@ -1652,13 +1652,13 @@ static bool itemdb_read_group(char* str[], int columns, int current) {
 		rand_group -= 1;
 
 	random = &group->random[rand_group];
-	
+
 	RECREATE(random->data, struct s_item_group_entry, random->data_qty+prob);
 
 	// Put the entry to its rand_group
 	for (j = random->data_qty; j < random->data_qty+prob; j++)
 		random->data[j] = entry;
-	
+
 	random->data_qty += prob;
 	return true;
 }
@@ -2275,7 +2275,7 @@ static int itemdb_read_sqldb(void) {
 bool itemdb_isNoEquip(struct item_data *id, uint16 m) {
 	if (!id->flag.no_equip)
 		return false;
-	
+
 	struct map_data *mapdata = map_getmapdata(m);
 
 	if ((id->flag.no_equip&1 && !mapdata_flag_vs2(mapdata)) || // Normal
@@ -2625,18 +2625,18 @@ static void itemdb_read(void) {
 		"",
 		"/" DBIMPORT,
 	};
-	
+
 	if (db_use_sqldbs)
 		itemdb_read_sqldb();
 	else
 		item_db.load();
-	
+
 	for(i=0; i<ARRAYLENGTH(dbsubpath); i++){
 		uint8 n1 = (uint8)(strlen(db_path)+strlen(dbsubpath[i])+1);
 		uint8 n2 = (uint8)(strlen(db_path)+strlen(DBPATH)+strlen(dbsubpath[i])+1);
 		char* dbsubpath1 = (char*)aMalloc(n1+1);
 		char* dbsubpath2 = (char*)aMalloc(n2+1);
-		
+
 
 		if(i==0) {
 			safesnprintf(dbsubpath1,n1,"%s%s",db_path,dbsubpath[i]);
@@ -2751,7 +2751,7 @@ void itemdb_reload(void) {
 		pc_setinventorydata(sd);
 		pc_check_available_item(sd, ITMCHK_ALL); // Check for invalid(ated) items.
 		pc_load_combo(sd); // Check to see if new combos are available
-		status_calc_pc(sd, SCO_FORCE); // 
+		status_calc_pc(sd, SCO_FORCE); //
 	}
 	mapit_free(iter);
 }

@@ -18,6 +18,7 @@
 //= 1.8 Updated Payon Cave Bulletion Board Locations. [Masao]
 //= 1.9 Moved Izlude NPC to Pre-RE path. [Euphy]
 //= 2.0 Moved some NPC to Pre-re path. [Capuche]
+//= 2.1 Removed bulletin board in gef_fild13 for ChocobotRO [Latiosu]
 //============================================================
 
 alberta,111,59,5	script	Bulletin Board#1	837,{
@@ -248,9 +249,9 @@ gef_fild09,227,29,4	script	Bulletin Board::OrcsBoard	835,{
 	close;
 }
 
-gef_fild13,202,31,5	duplicate(OrcsBoard)	Bulletin Board#orc1	835
+// gef_fild13,202,31,5	duplicate(OrcsBoard)	Bulletin Board#orc1	835
 
-gef_fild13,29,206,5	script	Bulletin Board::KoboldsBoard	836,{
+gef_fild08,211,24,5	script	Bulletin Board::KoboldsBoard	836,{
 
 	mes "[Kobold Village]";
 	mes "^6B1312Caution!^000000";
@@ -258,8 +259,6 @@ gef_fild13,29,206,5	script	Bulletin Board::KoboldsBoard	836,{
 	mes "Please be aware this village is filled with many kobolds.";
 	close;
 }
-
-gef_fild08,211,24,5	duplicate(KoboldsBoard)	Bulletin Board#kb1	836
 
 gef_fild10,109,23,5	script	Bulletin Board#15	836,{
 

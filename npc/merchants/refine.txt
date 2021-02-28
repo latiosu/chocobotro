@@ -16,6 +16,7 @@
 //= 3.2a Added 'disable_items' command. [Euphy]
 //= 3.3 Some official script updates. [Euphy]
 //= 3.4 Added VIP features. [Euphy]
+//= 3.5 Disabled repairmans in inactive castles for ChocobotRO [Latiosu]
 //============================================================
 
 // Christopher: Geffen Blacksmith
@@ -523,31 +524,31 @@ ein_in01,38,29,0	script	Paul Spanner	63,{
 // Weapon/Armor Refiners
 //============================================================
 prt_in,63,60,0	script	Hollgrehenn	85,{
-	callfunc "refinemain","Hollgrehenn",0;
+	callfunc "refinemain","Hollgrehenn",1;
 	end;
 }
 morocc_in,73,38,6	script	Aragham	99,{
-	callfunc "refinemain","Aragham",0;
+	callfunc "refinemain","Aragham",1;
 	end;
 }
 payon,144,173,5	script	Antonio	88,{
-	callfunc "refinemain","Antonio",0;
+	callfunc "refinemain","Antonio",1;
 	end;
 }
 alberta_in,28,58,0	script	Fredrik	85,{
-	callfunc "refinemain","Fredrik",0;
+	callfunc "refinemain","Fredrik",1;
 	end;
 }
 yuno_in01,171,21,4	script	Lambert	88,{
-	callfunc "refinemain","Lambert",0;
+	callfunc "refinemain","Lambert",1;
 	end;
 }
 ein_in01,24,87,5	script	Manthasman	826,{
-	callfunc "refinemain","Manthasman Pruhag",0;
+	callfunc "refinemain","Manthasman Pruhag",1;
 	end;
 }
 lhz_in02,282,20,7	script	Fulerr	869,{
-	callfunc "refinemain","Fulerr",0;
+	callfunc "refinemain","Fulerr",1;
 	end;
 }
 
@@ -614,11 +615,11 @@ function	script	refinemain	{
 	.@material = getequiprefinecost(.@part, REFINE_COST_NORMAL, REFINE_MATERIAL_ID);
 
 	switch (getequipweaponlv(.@part)) {
-		case 1: .@safe = 7; break;
-		case 2: .@safe = 6; break;
-		case 3: .@safe = 5; break;
+		case 1: .@safe = 10; break;
+		case 2: .@safe = 9; break;
+		case 3: .@safe = 8; break;
 		case 4:
-		default: .@safe = 4; break;
+		default: .@safe = 7; break;
 	}
 
 	// If the VIP system is enabled, the prices for non-VIP players are considerably higher.
@@ -1100,35 +1101,35 @@ lhz_in02,284,14,3	script	Repairman#lhz	86,{
 	end;
 }
 
-prt_gld,139,117,4	script	Repairman#prt_gld	86,{
+// prt_gld,139,117,4	script	Repairman#prt_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+gef_fild13,294,242,5	script	Repairman#gef_fild	86,{
 	callfunc "repairmain","Repairman";
 	end;
 }
 
-gef_fild13,263,117,4	script	Repairman#gef_fild	86,{
+// pay_gld,295,183,4	script	Repairman#pay_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+// alde_gld,220,152,4	script	Repairman#alde_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+aru_gld,84,204,5	script	Repairman#aru_gld	86,{
 	callfunc "repairmain","Repairman";
 	end;
 }
 
-pay_gld,295,183,4	script	Repairman#pay_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-alde_gld,220,152,4	script	Repairman#alde_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-aru_gld,189,336,4	script	Repairman#aru_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-sch_gld,340,80,7	script	Repairman#sch_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// sch_gld,340,80,7	script	Repairman#sch_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 // Equipment Repair Function
 //============================================================

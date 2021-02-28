@@ -1,0 +1,136 @@
+//===== rAthena Script =======================================
+//= Overlook Water Dungeon mobs
+//===== By: ==================================================
+//= Alayne
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Spawns monsters in Overlook Water Dungeon
+//===== Additional Comments: =================================
+//= 1.0
+//= 1.1 Modify messaging, use character-based cooldown, fixed
+//      final reward bug, add duplicate boards
+//============================================================
+
+gef_fild07,264,286,0	script	Overlook Water Dungeon::ovwadu	2_BULLETIN_BOARD,{
+	mes "[Overlook Water Dungeon]";
+	mes "This is the entrance to Overlook Water Dungeon.";
+	mes "^FF0000Restricted Level: "+ .level[0] +" - "+ .level[1] +"^000000";
+	mes "^FF0000Cooldown: 20 hours^000000";
+	next;
+	mes "[Overlook Water Dungeon]";
+	mes "Would you like to enter in the Overlook Water Dungeon?";
+	mes "It'll cost you ^FF0000" + .cost + "z^000000 to enter.";
+	next;
+	if (select("Enter","Leave") == 1) {
+		if (BaseLevel < .level[0] || BaseLevel > .level[1]) {
+			mes "[Overlook Water Dungeon]";
+			mes "Sorry, this dungeon is restricted to level "+ .level[0] +" - "+ .level[1];
+			close;
+		} else if (Zeny < .cost) {
+			mes "[Overlook Water Dungeon]";
+			mes "Sorry, you don't have enough zeny to enter.";
+			close;
+		}
+		.@cooldown = OWD_Cooldown - gettimetick(2);
+		if (.@cooldown > 0) {
+			.@hours = .@cooldown / 3600;
+			.@mins = .@cooldown / 60 % 60;
+			.@secs = .@cooldown % 60;
+			mes "[Overlook Water Dungeon]";
+			mes "You have been into the dungeon recently.";
+			mes "Cooldown remaining: ^FF0000"+.@hours+"hr "+.@mins+"m "+.@secs+"s^000000";
+			close;
+		}
+		Zeny -= .cost;
+		OWD_Cooldown = gettimetick(2) + .owdDelay;
+		warp .owdMap$, .owdX, .owdY;
+	}
+	close;
+
+OnInit:
+	.cost = 300000;
+	.owdMap$ = "iz_dun00t";
+	.owdX = 168;
+	.owdY = 168;
+	.owdDelay = 72000; // 20 hour delay
+	setarray .level[0],30,200;
+	end;
+}
+
+function	script	OWD_Quest_Board	{
+	setarray .@mobReq[0],2512,20,2506,20,2515,40,2504,40,2510,60,2508,60,2505,80,2511,80,2513,100,2509,100;
+	setarray .@rewardExp[0],60600,68040,88695,99900,155700,174960,218475,245925,335340,377190;
+	setarray .@rewardItem[0],2102,2104,2504,2506,984,985,2608,2404,2608,985;
+	setarray .@rewardItemQty[0],1,1,1,1,2,2,1,1,1,2;
+	setarray .@finalRewardItem[0],4027,4049,4024,4035,4045,4055,4091,4093,4199,4105,4077,4084,4089,4111,4125;
+	setarray .@questIds[0],50531,50532,50533,50534,50535;
+
+	mes "[Quest Board]";
+	mes "What would you like to do?";
+	next;
+	.@completeAll = OWDCurQuest >= getarraysize(.@questIds);
+	.@completePartial = checkquest(.@questIds[OWDCurQuest], HUNTING) == 2 || checkquest(.@questIds[OWDCurQuest]) == 2;
+	if (select((.@completeAll || .@completePartial ? "Turn-in Quest" : "Receive Quest"), "Leave") == 2) {
+		mes "[Quest Board]";
+		mes "You will need to pay the entry fee again and will not be able to re-enter for: ^FF000020 hours^000000";
+		mes "";
+		mes "Are you sure you want to leave?";
+		next;
+		if (select("Stay", "Leave") == 2) {
+			warp "SavePoint",0,0;
+		}
+		close;
+	}
+	// Check if quest chain is complete
+	if (.@completeAll) {
+		mes "[Quest Board]";
+		mes "You've completed all quests.";
+		mes "Choose a reward.";
+		for (.@i = 0; .@i < getarraysize(.@finalRewardItem); .@i++) {
+			.@menu$ += (.@i == 0 ? "" : ":") + getitemname(.@finalRewardItem[.@i]);
+		}
+		.@choice = select(.@menu$) - 1;
+		getitem .@finalRewardItem[.@choice], 1;
+		// Reset player's quest chain
+		OWDCurQuest = 0;
+	} else if (.@completePartial) {
+		// Grant reward for each stage of the quest chain
+		mes "[Quest Board]";
+		mes "Please, choose a reward.";
+		.@menu$ = "";
+		for (.@i = OWDCurQuest * 2; .@i < (OWDCurQuest * 2 + 2); .@i++) {
+			.@menu$ += (.@i == (OWDCurQuest * 2) ? "" : ":") + .@rewardItemQty[.@i] + "x " + getitemname(.@rewardItem[.@i]);
+		}
+		.@choice = select(.@menu$) - 1 + (OWDCurQuest * 2);
+		next;
+		mes "[Quest Board]";
+		mes "Quest complete.";
+		mes "Reward: " + .@rewardItemQty[.@choice] + "x " + getitemname(.@rewardItem[.@choice]);
+		getitem .@rewardItem[.@choice], .@rewardItemQty[.@choice];
+		getexp .@rewardExp[OWDCurQuest * 2], .@rewardExp[OWDCurQuest * 2 + 1];
+		erasequest .@questIds[OWDCurQuest];
+		OWDCurQuest += 1;
+	} else {
+		if (!isbegin_quest(.@questIds[OWDCurQuest])) {
+			setquest .@questIds[OWDCurQuest];
+		}
+		mes "[Quest Board]";
+		mes "Kill these monsters to get a reward:";
+		for (.@i = OWDCurQuest * 4; .@i < OWDCurQuest * 4 + 4; .@i += 2) {
+			mes .@mobReq[.@i + 1] + " " + strmobinfo(1, .@mobReq[.@i]);
+		}
+	}
+	close;
+}
+
+// Quest Board Duplicates
+-	script	Overlook Water Dungeon#0	-1,{ callfunc "OWD_Quest_Board"; }
+iz_dun00t,172,171,0	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#1	2_BULLETIN_BOARD
+iz_dun01t,257,253,4	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#2	2_BULLETIN_BOARD
+iz_dun01t,46,43,4	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#3	2_BULLETIN_BOARD
+iz_dun02t,238,216,4	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#4	2_BULLETIN_BOARD
+iz_dun03t,34,57,4	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#5	2_BULLETIN_BOARD
+iz_dun04t,24,35,6	duplicate(Overlook Water Dungeon#0)	Overlook Water Dungeon#6	2_BULLETIN_BOARD

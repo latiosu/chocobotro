@@ -5,21 +5,33 @@
 //===== Changelogs: ==========================================
 //= 1.0 First version. [Capuche]
 //============================================================
+// ChocobotRO reminder: This script is not used, refer to woe_controller.txt
+//============================================================
 
 -	script	woe_TE_contoller	-1,{
 function WoeTimer;
 
-OnSun2000:// date woe start
+OnSun0700:// date woe start Sunday 7pm
 	if (agitcheck3() == 0)
 		agitstart3;
 	end;
-OnSun2100:// date woe end
+OnSun0800:// date woe end Sunday 8pm
+	if (agitcheck3() == 1)
+		agitend3;
+	end;
+
+OnWed0800:// date woe start Wednesday 8pm
+	if (agitcheck3() == 0)
+		agitstart3;
+	end;
+OnWed0900:// date woe end Wednesday 9pm
 	if (agitcheck3() == 1)
 		agitend3;
 	end;
 
 OnAgitInit3:
-	WoeTimer( SUNDAY,20,21 );// <day>, <hour start>, <hour end>
+	WoeTimer( SUNDAY,7,8 );// <day>, <hour start>, <hour end>
+	WoeTimer( WEDNESDAY,8,9 );
 	end;
 
 function WoeTimer {

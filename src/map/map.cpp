@@ -120,7 +120,7 @@ static struct block_list *bl_list[BL_LIST_MAX];
 static int bl_list_count = 0;
 
 #ifndef MAP_MAX_MSG
-	#define MAP_MAX_MSG 1550
+	#define MAP_MAX_MSG 1600
 #endif
 
 struct map_data map[MAX_MAP_PER_SERVER];
@@ -1950,6 +1950,14 @@ void map_reqnickdb(struct map_session_data * sd, int charid)
 
 	nullpo_retv(sd);
 
+	// Start costume conversion logic (3)
+	if( battle_config.reserved_costume_id && battle_config.reserved_costume_id == charid )
+	{
+		clif_solved_charname(sd->fd, charid, "Costume");
+		return;
+	}
+	// End costume conversion logic (3)
+
 	tsd = map_charid2sd(charid);
 	if( tsd )
 	{
@@ -2724,19 +2732,10 @@ int map_addinstancemap(int src_m, int instance_id)
 
 	struct map_data *src_map = map_getmapdata(src_m);
 	struct map_data *dst_map = map_getmapdata(dst_m);
-	char iname[MAP_NAME_LENGTH];
-
-	strcpy(iname, name);
 
 	// Alter the name
-	// Due to this being custom we only worry about preserving as many characters as necessary for accurate map distinguishing
 	// This also allows us to maintain complete independence with main map functions
-	if ((strchr(iname, '@') == nullptr) && strlen(iname) > 8) {
-		memmove(iname, iname + (strlen(iname) - 9), strlen(iname));
-		snprintf(dst_map->name, sizeof(dst_map->name), "%d#%s", (instance_id % 1000), iname);
-	} else
-		snprintf(dst_map->name, sizeof(dst_map->name), "%.3d%s", (instance_id % 1000), iname);
-	dst_map->name[MAP_NAME_LENGTH - 1] = '\0';
+	instance_generate_mapname(src_m, instance_id, dst_map->name);
 
 	dst_map->m = dst_m;
 	dst_map->instance_id = instance_id;

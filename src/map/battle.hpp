@@ -545,6 +545,7 @@ struct Battle_Config
 	int item_enabled_npc;
 	int item_onfloor; // Whether to drop an undroppable item on the map or destroy it if inventory is full.
 	int bowling_bash_area;
+	int reserved_costume_id; // Costume System
 	int drop_rateincrease;
 	int feature_auction;
 	int feature_banking;
@@ -689,6 +690,9 @@ struct Battle_Config
 	int homunculus_starving_delay;
 	int drop_connection_on_quit;
 	int mob_spawn_variance;
+	int mercenary_autoloot;
+	int mer_idle_no_share;
+	int idletime_mer_option;
 
 #include "../custom/battle_config_struct.inc"
 };

@@ -22,6 +22,7 @@ te_aldecas2	mapflag	nowarp
 te_aldecas3	mapflag	nowarp
 te_aldecas4	mapflag	nowarp
 te_aldecas5	mapflag	nowarp
+gefg_cas02	mapflag	nowarp
 
 // Episode 15
 1@lab	mapflag	nowarp

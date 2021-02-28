@@ -22,7 +22,7 @@ const t_itemid UNKNOWN_ITEM_ID = 512;
 /// The maximum number of item delays
 #define MAX_ITEMDELAYS	10
 ///Designed for search functions, species max number of matches to display.
-#define MAX_SEARCH	5
+#define MAX_SEARCH	10
 ///Maximum amount of items a combo may require
 #define MAX_ITEMS_PER_COMBO 6
 
@@ -744,6 +744,26 @@ enum e_random_item_group {
 	IG_ENCHANT_STONE_BOX13,
 	IG_ENCHANT_STONE_BOX14,
 	IG_ENCHANT_STONE_BOX15,
+	IG_CHOCO_BUNDLE1,
+	IG_CHOCO_BUNDLE2,
+	IG_CHOCO_BUNDLE3,
+	IG_CHOCO_BUNDLE4,
+	IG_CHOCO_BUNDLE5,
+	IG_CHOCO_BUNDLE6,
+	IG_CHOCO_BUNDLE7,
+	IG_CHOCO_BUNDLE8,
+	IG_CHOCO_BUNDLE9,
+	IG_CHOCO_BUNDLE10,
+	IG_CHOCO_BUNDLE11,
+	IG_CHOCO_BUNDLE12,
+	IG_CHOCO_BUNDLE13,
+	IG_CHOCO_BUNDLE14,
+	IG_CHOCO_BUNDLE15,
+	IG_CHOCO_BUNDLE16,
+	IG_CHOCO_BUNDLE17,
+	IG_CHOCO_BUNDLE18,
+	IG_CHOCO_BUNDLE19,
+	IG_CHOCO_BUNDLE20,
 };
 
 /// Enum for bound/sell restricted selling

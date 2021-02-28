@@ -34,7 +34,7 @@ aldeg_cas03	mapflag	gvg_castle
 aldeg_cas04	mapflag	gvg_castle
 aldeg_cas05	mapflag	gvg_castle
 gefg_cas01	mapflag	gvg_castle
-gefg_cas02	mapflag	gvg_castle
+// gefg_cas02	mapflag	gvg_castle // Used as TE castle
 gefg_cas03	mapflag	gvg_castle
 gefg_cas04	mapflag	gvg_castle
 gefg_cas05	mapflag	gvg_castle

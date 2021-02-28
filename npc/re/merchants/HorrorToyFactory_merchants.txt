@@ -185,7 +185,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	mes "[Black Beard Joe]";
 	mes "Huhu, humanbeing's greed is naturally wantless. What do you want me to do?";
 	next;
-	switch( select( "What can you do for me?", "Enchant accessory of Toy Factory", "Enchant weapon of Toy Factory", "Enchant headgear of Toy Factory", "Enchant footwear of Toy Factory" ) ) {
+	switch( select( "What can you do for me?", "Enchant accessory of Toy Factory", "Enchant weapon of Toy Factory", "Enchant headgear of Toy Factory", "Enchant footwear of Toy Factory", "Reset item enchantments") ) {
 	case 1:
 		mes "[Black Beard Joe]";
 		mes "What do I do? That's really simple. You just bring me Bloody Coins and I will get them and enchant your accessory.";
@@ -194,7 +194,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		mes "I will take 15 Bloody Coins for each try. I will enchant one slot amount for every 15 Coins. Of course, 3 is the maximum.";
 		next;
 		mes "[Black Beard Joe]";
-		mes "Well, it is so natural that the destruction rate will get higher as the upgrade level increases. I would recommend you to stop first or second try, tee-hee.";
+		mes "Enchanting won't fail but you may not get the ability you want.";
 		close;
 	case 2:
 		.@eq_num = EQI_ACC_R;
@@ -208,6 +208,9 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	case 5:
 		.@eq_num = EQI_SHOES;
 		break;
+	case 6:
+		callsub L_Reset_Enchant;
+		close;
 	}
 	.@item_id = getequipid(.@eq_num);
 	.@refine = getequiprefinerycnt(.@eq_num);
@@ -262,17 +265,17 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		}
 		if (.@card[3] == 0) {
 			.@slot_num = 3;
-			mes "Okay, let's try the first enchantment. Usually, they are not broken. About 95% success rate?";
-			.@string$ = "You blow hot and cold, this fickle friend.!";
+			mes "Okay, let's try the first enchantment.";
+			.@string$ = "You blow hot and cold, this fickle friend!";
 		}
 		else if (.@card[2] == 0) {
 			.@slot_num = 2;
-			mes "Ho~ Second enchantment. Now it became dangerous. The success rate is about 70%. Do you want continue? The whole accessory will be blown if fail.";// custom
-			.@string$ = "You blow hot and cold, this fickle friend.!";
+			mes "Ho~ Second enchantment.";// custom
+			.@string$ = "You blow hot and cold, this fickle friend!";
 		}
 		else if (.@card[1] == 0) {
 			.@slot_num = 1;
-			mes "This is the last enchantment. Will you keep going? At this time, ^ff0000the success rate is below 50%^000000. Of course, it would be great if it is successfull... Hmm, I will follow your descision, but keep that in mind.";// custom
+			mes "This is the last enchantment.";// custom
 			.@string$ = "Wise! The third enchantment is too greedy.";// custom translation
 		}
 		else {
@@ -327,11 +330,11 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	}
 	mes "[Black Beard Joe]";
 	if (.@slot_num == 3)
-		setarray .@range[0],550,1050;
+		setarray .@range[0],601,1050;
 	else if (.@slot_num == 2)
-		setarray .@range[0],450,1125;
+		setarray .@range[0],601,1125;
 	else if (.@slot_num == 1)
-		setarray .@range[0],1,1161;
+		setarray .@range[0],601,1161;
 	else {
 		mes "There is a problem, please come back again!";// custom
 		close;
@@ -476,6 +479,97 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		specialeffect2 EF_REPAIRWEAPON;
 		close;
 	}
-	mes "Hmm.. By the way, you need to fill up Bloody Coins. You cannot even pay for the fee.";
+	mes "Hmm... you need more Bloody Coins. You can't even pay the fee.";
 	close;
+
+L_Reset_Enchant:
+	mes "[Black Beard Joe]";
+	mes "I can reset enchantments on any equipment you have without fail, except accessories with 3 enchantments.";
+	next;
+	mes "[Black Beard Joe]";
+	mes "Be warned, this will ^FF0000destroy any cards^000000 on the equipment.";
+	mes "The refinement level will be untouched.";
+	next;
+	mes "[Black Beard Joe]";
+	mes "To continue, I need the following items:";
+	mes "^0000FF200 Bloody Coins";
+	mes "^0000FF1 Bloodstained Letter";
+	mes "^0000FF1 Unsent Letter^000000";
+	next;
+	if (select("Continue", "Cancel") == 2) {
+		mes "[Black Beard Joe]";
+		mes "Fine with me. Let me know if you want to reset your equipment.";
+		close;
+	}
+	if (countitem(7642) < 200 || countitem(7643) < 1 || countitem(7644) < 1) {
+		mes "[Black Beard Joe]";
+		mes "You don't have the items I need to continue.";
+		close;
+	}
+	mes "[Black Beard Joe]";
+	mes "Which equipment do you want to reset?";
+	next;
+
+	// Build list of equipment to choose
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	for(.@i = 1; .@i<=10; ++.@i) {
+		if (getequipisequiped(.@indices[.@i])) {
+			.@menu$ = .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			.@equipped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+
+	// Check if equipment can be reset
+	if (.@equipped == 0) {
+		mes "[Black Beard Joe]";
+		mes "Wait a second, you aren't wearing anything I can reset...";
+		close;
+	}
+	.@part = .@indices[ select(.@menu$) ];
+	.@equip_id = getequipid(.@part);
+	if (!getequipisequiped(.@part)) {
+		mes "[Black Beard Joe]";
+		mes "You're not wearing anything there that I can reset.";
+		close;
+	}
+	setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
+	if (.@card[3] == 0) {
+		mes "[Black Beard Joe]";
+		mes "There aren't any enchantments on that equipment...";
+		close;
+	}
+
+	// Refuse to reset accessories with 3 enchants
+	if ((.@part == EQI_ACC_L || .@part == EQI_ACC_R) && .@card[1] > 0) {
+		mes "[Black Beard Joe]";
+		mes "I told you earlier that I won't reset accessories with 3 enchantments!";
+		close;
+	}
+
+	// anti-hack
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) || callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		close;
+
+	// Confirm player wants to proceed again
+	mes "[Black Beard Joe]";
+	mes "Are you sure you want me to reset your ^FF0000"+ getitemname(.@equip_id) +"^000000?";
+	next;
+	if (select("Yes, please continue", "No, I changed my mind") == 2) {
+		mes "[Black Beard Joe]";
+		mes "Fine with me. Let me know if you want to reset your equipment.";
+		close;
+	}
+
+	// Reset equipment
+	.@refine = getequiprefinerycnt(.@part);
+	specialeffect2 EF_ANGEL2;
+	mes "[Black Beard Joe]";
+	mes "I've reset the enchantments successfully.";
+	delitem 7642,200; // Bloody Coins
+	delitem 7643,1; // Bloodstained Letter
+	delitem 7644,1; // Unsent Letter
+	delequip .@part;
+	getitem2 .@equip_id,1,1,.@refine,0,0,0,0,0;
+	return;
 }

@@ -1,0 +1,105 @@
+//===== rAthena Script =======================================
+//= Dress Room
+//===== Description ==========================================
+//= Dress room NPC that allows players to disguise as another
+//= class in their classline.
+//===== By: ==================================================
+//= Secret's Scripting Service
+//===== Changelog: ===========================================
+//= 1.0 Initial version. [Secret]
+//===== License: =============================================
+// Copyright 2018 Jittapan P.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
+//= to deal in the Software without restriction, including without limitation the rights to use,
+//= copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+//= and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//=
+//= The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//=
+//= THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//= EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//= FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//= IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//= DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//= TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//============================================================
+//= Modified version that only allows 3rd job outfit change [Latiosu]
+//============================================================
+
+prontera,169,179,4	script	Dress Room#sc	4_M_OLIVER,{
+function RestrictClass;
+function HasjROCostume;
+function ChangeAppr;
+
+function RestrictClass {
+	.@eac = eaclass();
+	if(.@eac&EAJL_THIRD) {
+		return 1;
+	}
+	return 0;
+}
+
+function HasjROCostume {
+	switch(roclass(eaclass()&EAJ_UPPERMASK|EAJL_THIRD)) {
+		case Job_Guillotine_Cross:
+		case Job_Genetic:
+		case Job_Royal_Guard:
+		case Job_Arch_Bishop:
+		case Job_Mechanic:
+		case Job_Ranger:
+		case Job_Minstrel:
+		case Job_Wanderer:
+		case Job_Warlock:
+		case Job_Shadow_Chaser:
+		case Job_Sorcerer:
+		case Job_Sura:
+		case Job_Rune_Knight:
+			return 1;
+		default:
+			return 0;
+	}
+}
+
+function ChangeAppr {
+	if(Zeny < .cost_dressroom) {
+		mes .n$;
+		mes "You don't have enough Zeny.";
+		close;
+	}
+
+	changebase roclass(eaclass()|EAJL_THIRD);
+	setlook LOOK_CLOTHES_COLOR,0;
+	setlook LOOK_BODY2,!(getlook(LOOK_BODY2));
+	//atcommand "@bodystyle " + !(getlook(LOOK_BODY2));
+	baselook = 0;
+
+	Zeny -= .cost_dressroom;
+	mes .n$;
+	mes "Here you are!";
+	close;
+}
+
+	mes .n$;
+	if(!RestrictClass()){
+		mes "Only third jobs are allowed to use my services.";
+		close;
+	}
+	if(!HasjROCostume()){
+		mes "Sorry, I don't have a costume for your class right now.";
+		close;
+	}
+	mes "I can change your appearance to an alternative costume " + (.cost_dressroom > 0 ? "at a cost of ^FF0000" + callfunc("F_InsertComma",.cost_dressroom) + "^000000z!" : "for free!");
+	mes "Which costume do you want to change into?";
+	next;
+	switch(select(getlook(LOOK_BODY2) ? "Restore costume" : "New jRO costume")) {
+		case 1:
+			ChangeAppr();
+			break;
+	}
+	close;
+
+OnInit:
+	.n$ = "[Dress Room]"; // NPC Name
+	.cost_dressroom = 0; // Cost
+}

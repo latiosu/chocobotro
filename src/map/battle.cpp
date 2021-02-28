@@ -1797,6 +1797,13 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		pc_overheat(tsd, (element == ELE_FIRE ? 3 : 1));
 	}
 
+	if (bl->type == BL_MOB) { // Reduces damage received for Green Aura MVP
+		mob_data *md = BL_CAST(BL_MOB, bl);
+
+		if (md && md->db->damagetaken != 100)
+			damage = i64max(damage * md->db->damagetaken / 100, 1);
+	}
+
 	return damage;
 }
 
@@ -2154,36 +2161,14 @@ static int battle_calc_base_weapon_attack(struct block_list *src, struct status_
 	uint16 atkmin = (type == EQI_HAND_L)?status->watk2:status->watk;
 	uint16 atkmax = atkmin;
 	int64 damage = atkmin;
-	bool weapon_perfection = false;
+	uint16 weapon_perfection = 0;
 	struct status_change *sc = status_get_sc(src);
 
-	if (sd && sd->equip_index[type] >= 0 && sd->inventory_data[sd->equip_index[type]]) {
-		short base_stat;
+	if (sd->equip_index[type] >= 0 && sd->inventory_data[sd->equip_index[type]]) {
+		int variance =   wa->atk * (sd->inventory_data[sd->equip_index[type]]->wlv*5)/100;
 
-		switch (sd->status.weapon) {
-			case W_BOW:
-			case W_MUSICAL:
-			case W_WHIP:
-			case W_REVOLVER:
-			case W_RIFLE:
-			case W_GATLING:
-			case W_SHOTGUN:
-			case W_GRENADE:
-				if (pc_checkskill(sd, SU_SOULATTACK) > 0)
-					base_stat = status->str;
-				else
-					base_stat = status->dex;
-				break;
-			default:
-				base_stat = status->str;
-				break;
-		}
-
-		float variance = 5.0f * wa->atk * wa->wlv / 100.0f;
-		float base_stat_bonus = wa->atk * base_stat / 200.0f;
-
-		atkmin = max(0, (int)(atkmin - variance + base_stat_bonus));
-		atkmax = min(UINT16_MAX, (int)(atkmax + variance + base_stat_bonus));
+		atkmin = max(0, (int)(atkmin - variance));
+		atkmax = min(UINT16_MAX, (int)(atkmax + variance));
 
 		if (sc && sc->data[SC_MAXIMIZEPOWER])
 			damage = atkmax;
@@ -2192,7 +2177,7 @@ static int battle_calc_base_weapon_attack(struct block_list *src, struct status_
 	}
 
 	if (sc && sc->data[SC_WEAPONPERFECTION])
-		weapon_perfection = true;
+		weapon_perfection = 1;
 
 	battle_add_weapon_damage(sd, &damage, type);
 
@@ -4011,7 +3996,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #endif
 			break;
 		case MO_EXTREMITYFIST:
-			skillratio += 100 * (7 + sstatus->sp / 10);			
+			skillratio += 100 * (7 + sstatus->sp / 10);
 #ifdef RENEWAL
 			if (wd->miscflag&1)
 				skillratio *= 2; // More than 5 spirit balls active
@@ -8973,6 +8958,7 @@ static const struct _battle_data {
 	{ "item_enabled_npc",                   &battle_config.item_enabled_npc,                1,      0,      1,              },
 	{ "item_flooritem_check",               &battle_config.item_onfloor,                    1,      0,      1,              },
 	{ "bowling_bash_area",                  &battle_config.bowling_bash_area,               0,      0,      20,             },
+	{ "reserved_costume_id",                &battle_config.reserved_costume_id,             999998, 0,      INT_MAX,        },
 	{ "drop_rateincrease",                  &battle_config.drop_rateincrease,               0,      0,      1,              },
 	{ "feature.auction",                    &battle_config.feature_auction,                 0,      0,      2,              },
 	{ "feature.banking",                    &battle_config.feature_banking,                 1,      0,      1,              },
@@ -9089,6 +9075,7 @@ static const struct _battle_data {
 	{ "summoner_race",                      &battle_config.summoner_race,                   RC_PLAYER_DORAM,      RC_FORMLESS,      RC_PLAYER_DORAM,              },
 	{ "summoner_size",                      &battle_config.summoner_size,                   SZ_SMALL,                SZ_SMALL,               SZ_BIG,              },
 	{ "homunculus_autofeed_always",         &battle_config.homunculus_autofeed_always,      1,      0,      1,              },
+	{ "homunculus_exp_gain",                &battle_config.homunculus_exp_gain,             10,     0,      100,            },
 	{ "feature.attendance",                 &battle_config.feature_attendance,              1,      0,      1,              },
 	{ "feature.privateairship",             &battle_config.feature_privateairship,          1,      0,      1,              },
 	{ "rental_transaction",                 &battle_config.rental_transaction,              1,      0,      1,              },
@@ -9118,6 +9105,9 @@ static const struct _battle_data {
 	{ "homunculus_starving_delay",          &battle_config.homunculus_starving_delay,       20000,  0,      INT_MAX,        },
 	{ "drop_connection_on_quit",            &battle_config.drop_connection_on_quit,         0,      0,      1,              },
 	{ "mob_spawn_variance",                 &battle_config.mob_spawn_variance,              1,      0,      3,              },
+	{ "mercenary_autoloot",                 &battle_config.mercenary_autoloot,              0,      0,      1,              },
+	{ "mer_idle_no_share" ,                 &battle_config.mer_idle_no_share,               0,      0,      INT_MAX,        },
+	{ "idletime_mer_option",                &battle_config.idletime_mer_option,             0x1F,   0x1,    0xFFF,          },
 
 #include "../custom/battle_config_init.inc"
 };
