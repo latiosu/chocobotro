@@ -1125,10 +1125,10 @@ aru_gld,189,336,4	script	Repairman#aru_gld	86,{
 	end;
 }
 
-sch_gld,340,80,7	script	Repairman#sch_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// sch_gld,340,80,7	script	Repairman#sch_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 // Equipment Repair Function
 //============================================================

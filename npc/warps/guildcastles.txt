@@ -408,7 +408,7 @@ aldeg_cas05,14,88,0	warp	aldeg-5-16_aldeg-5-15	1,1,aldeg_cas05,156,227
 
 // Episode 12: WoE:SE
 // Schwarzwald Guild Castles Map Connection
-yuno,13,126,0	warp	schg001	1,1,sch_gld,351,89
+// yuno,13,126,0	warp	schg001	1,1,sch_gld,351,89
 sch_gld,354,89,0	warp	schg002	1,1,yuno,16,126
 
 // Schwarzwald Castle Maps

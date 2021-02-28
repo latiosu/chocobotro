@@ -125,12 +125,12 @@ OnInit:
 		Castle("arug_cas03", "Manager#arug_cas03::OnAgitEnd2", "Steward#ar03::OnStartArena", "aru_gld",68,155);
 		Castle("arug_cas04", "Manager#arug_cas04::OnAgitEnd2", "Steward#ar04::OnStartArena", "aru_gld",299,345);
 		Castle("arug_cas05", "Manager#arug_cas05::OnAgitEnd2", "Steward#ar05::OnStartArena", "aru_gld",292,107);
-	Region("Schwarzwald");
-		Castle("schg_cas01", "Manager#schg_cas01::OnAgitEnd2", "Steward#sc01::OnStartArena", "sch_gld",293,100);
-		Castle("schg_cas02", "Manager#schg_cas02::OnAgitEnd2", "Steward#sc02::OnStartArena", "sch_gld",288,252);
-		Castle("schg_cas03", "Manager#schg_cas03::OnAgitEnd2", "Steward#sc03::OnStartArena", "sch_gld",97,196);
-		Castle("schg_cas04", "Manager#schg_cas04::OnAgitEnd2", "Steward#sc04::OnStartArena", "sch_gld",137,90);
-		Castle("schg_cas05", "Manager#schg_cas05::OnAgitEnd2", "Steward#sc05::OnStartArena", "sch_gld",71,315);
+	// Region("Schwarzwald");
+	// 	Castle("schg_cas01", "Manager#schg_cas01::OnAgitEnd2", "Steward#sc01::OnStartArena", "sch_gld",293,100);
+	// 	Castle("schg_cas02", "Manager#schg_cas02::OnAgitEnd2", "Steward#sc02::OnStartArena", "sch_gld",288,252);
+	// 	Castle("schg_cas03", "Manager#schg_cas03::OnAgitEnd2", "Steward#sc03::OnStartArena", "sch_gld",97,196);
+	// 	Castle("schg_cas04", "Manager#schg_cas04::OnAgitEnd2", "Steward#sc04::OnStartArena", "sch_gld",137,90);
+	// 	Castle("schg_cas05", "Manager#schg_cas05::OnAgitEnd2", "Steward#sc05::OnStartArena", "sch_gld",71,315);
 
 	if (checkre(0)) {
 		Region("Geffen (TE)");

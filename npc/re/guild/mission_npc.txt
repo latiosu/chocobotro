@@ -13,7 +13,7 @@
 // prt_gld,125,149,3	duplicate(gld_mission#core)	Valkyrie Realm Training Instructor#gqprtg	4_M_HUMAN_02
 
 aru_gld,96,203,3	duplicate(gld_mission#core)	Valfreyja Training Instructor#gqaru	4_M_HUMAN_02
-sch_gld,270,117,3	duplicate(gld_mission#core)	Nidhoggur Training Instructor#gqsch	4_M_HUMAN_02
+// sch_gld,270,117,3	duplicate(gld_mission#core)	Nidhoggur Training Instructor#gqsch	4_M_HUMAN_02
 
 te_alde_gld,189,159,3	duplicate(gld_mission#core)	Kafragarten Training Instructor#gqtealde	4_M_HUMAN_02
 te_prt_gld,112,150,5	duplicate(gld_mission#core)	Gloria Training Instructor#gqteprt	4_M_HUMAN_02
