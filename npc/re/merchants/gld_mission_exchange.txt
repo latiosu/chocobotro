@@ -8,6 +8,7 @@
 //= 1.1 Minified the script. [Secretdataz]
 //= 1.2 Script cleanup. [aleos]
 //= 1.3 Minified Kvasir's ring part. [Lemongrass]
+//= 1.4 Disabled NPCs within inactive castles for ChocobotRO [Latiosu]
 //============================================================
 
 // Templates

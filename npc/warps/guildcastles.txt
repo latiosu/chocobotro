@@ -25,6 +25,7 @@
 //= 2.6 Fixed warp position between Juno and Schwarzwald Realm. [Gepard]
 //= 2.7 Updated WoE:FE warps. [Masao]
 //= 2.8 Prontera castle map changed in ep16.1 [Capuche]
+//= 3.0 Disabled connecting warps to majority of castles for ChocobotRO [Latiosu]
 //============================================================
 
 //Prontera Castle Map

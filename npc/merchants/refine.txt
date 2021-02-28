@@ -16,6 +16,7 @@
 //= 3.2a Added 'disable_items' command. [Euphy]
 //= 3.3 Some official script updates. [Euphy]
 //= 3.4 Added VIP features. [Euphy]
+//= 3.5 Disabled repairmans in inactive castles for ChocobotRO [Latiosu]
 //============================================================
 
 // Christopher: Geffen Blacksmith

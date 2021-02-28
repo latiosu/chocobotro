@@ -12,6 +12,7 @@
 //= 1.7 Removed direct SQL access [Lemongrass]
 //= 1.8 Fixed invalid checkweight usage [Lemongrass]
 //= 1.9 Fixed reward handout for multiple characters on the same account [Lemongrass]
+//= 2.0 Disabled majority of castles for ChocobotRO [Latiosu]
 //===== Description: =========================================
 //= A controller for War of Emperium designed for
 //= simplicity and ease of use.
@@ -36,6 +37,10 @@ OnAgitStart:
 	}
 	end;
 }
+
+// Duplicates to guide players to active castles
+yuno,13,127,4	duplicate(WOE Information)	WOE Information#yuno	835
+aldebaran,36,140,4	duplicate(WOE Information)	WOE Information#alde	835
 
 // Script Core
 //============================================================
