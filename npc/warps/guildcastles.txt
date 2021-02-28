@@ -307,7 +307,7 @@ payg_cas05,290,43,0	warp	payg-5-22_payg-5-12	1,1,payg_cas05,287,256
 payg_cas05,14,14,0	warp	payg-5-31_payg-5-21	1,1,payg_cas05,246,41
 
 //Al De Baran Castle Map
-aldebaran,35,140,0	warp	alde-a_aldeg01	1,1,alde_gld,280,160
+// aldebaran,35,140,0	warp	alde-a_aldeg01	1,1,alde_gld,280,160
 alde_gld,284,160,0	warp	aldeg01_alde-a	1,1,aldebaran,39,140
 alde_gld,48,79,0	warp	aldeg-1_aldeg-1-1	1,1,aldeg_cas01,34,248
 alde_gld,95,253,0	warp	aldeg-2_aldeg-2-1	1,1,aldeg_cas02,88,163

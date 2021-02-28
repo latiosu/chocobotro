@@ -1115,10 +1115,10 @@ gef_fild13,263,117,4	script	Repairman#gef_fild	86,{
 // 	end;
 // }
 
-alde_gld,220,152,4	script	Repairman#alde_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// alde_gld,220,152,4	script	Repairman#alde_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 aru_gld,189,336,4	script	Repairman#aru_gld	86,{
 	callfunc "repairmain","Repairman";

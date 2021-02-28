@@ -18,9 +18,9 @@
 
 // Realms - Merchant Guilds, Gate Managers, Status Boards
 //============================================================
-alde_gld,186,157,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Megrez	549
-alde_gld,191,164,3	duplicate(Gate Manager#realm)	Gate Manager#alde_f00	421
-alde_gld,188,158,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Alde	857
+// alde_gld,186,157,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Megrez	549
+// alde_gld,191,164,3	duplicate(Gate Manager#realm)	Gate Manager#alde_f00	421
+// alde_gld,188,158,3	duplicate(Investment Status Board)	Investment Status Board::InvestStatus_Alde	857
 
 // gef_fild13,187,208,3	duplicate(Cat Paw Merchant Guild)	Cat Paw Merchant Meraq	549
 // gef_fild13,189,206,3	duplicate(Gate Manager#realm)	Gate Manager#gef_f00	421

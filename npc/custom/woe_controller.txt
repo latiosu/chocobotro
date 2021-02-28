@@ -113,12 +113,12 @@ OnInit:
 	// 	Castle("gefg_cas03", "Agit#gefg_cas03::OnAgitEnd", "Agit#gefg_cas03::OnAgitBreak", "gef_fild13",143,240);
 	// 	Castle("gefg_cas04", "Agit#gefg_cas04::OnAgitEnd", "Agit#gefg_cas04::OnAgitBreak", "gef_fild13",193,278);
 	// 	Castle("gefg_cas05", "Agit#gefg_cas05::OnAgitEnd", "Agit#gefg_cas05::OnAgitBreak", "gef_fild13",305,87);
-	Region("Aldebaran");
-		Castle("aldeg_cas01", "Agit#aldeg_cas01::OnAgitEnd", "Agit#aldeg_cas01::OnAgitBreak", "alde_gld",48,83);
-		Castle("aldeg_cas02", "Agit#aldeg_cas02::OnAgitEnd", "Agit#aldeg_cas02::OnAgitBreak", "alde_gld",95,249);
-		Castle("aldeg_cas03", "Agit#aldeg_cas03::OnAgitEnd", "Agit#aldeg_cas03::OnAgitBreak", "alde_gld",142,85);
-		Castle("aldeg_cas04", "Agit#aldeg_cas04::OnAgitEnd", "Agit#aldeg_cas04::OnAgitBreak", "alde_gld",239,242);
-		Castle("aldeg_cas05", "Agit#aldeg_cas05::OnAgitEnd", "Agit#aldeg_cas05::OnAgitBreak", "alde_gld",264,90);
+	// Region("Aldebaran");
+	// 	Castle("aldeg_cas01", "Agit#aldeg_cas01::OnAgitEnd", "Agit#aldeg_cas01::OnAgitBreak", "alde_gld",48,83);
+	// 	Castle("aldeg_cas02", "Agit#aldeg_cas02::OnAgitEnd", "Agit#aldeg_cas02::OnAgitBreak", "alde_gld",95,249);
+	// 	Castle("aldeg_cas03", "Agit#aldeg_cas03::OnAgitEnd", "Agit#aldeg_cas03::OnAgitBreak", "alde_gld",142,85);
+	// 	Castle("aldeg_cas04", "Agit#aldeg_cas04::OnAgitEnd", "Agit#aldeg_cas04::OnAgitBreak", "alde_gld",239,242);
+	// 	Castle("aldeg_cas05", "Agit#aldeg_cas05::OnAgitEnd", "Agit#aldeg_cas05::OnAgitBreak", "alde_gld",264,90);
 	Region("Arunafeltz");
 		Castle("arug_cas01", "Manager#arug_cas01::OnAgitEnd2", "Steward#ar01::OnStartArena", "aru_gld",158,272);
 		Castle("arug_cas02", "Manager#arug_cas02::OnAgitEnd2", "Steward#ar02::OnStartArena", "aru_gld",83,47);
