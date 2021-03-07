@@ -276,7 +276,9 @@ OnClock0000:
 		else
 			$event_paramk = 3;
 		break;
-	case THURSDAY:
+	case SUNDAY:
+		$event_paramk = 4;
+		break;
 	default:
 		$event_paramk = 1;
 		break;

@@ -1490,19 +1490,6 @@ void clif_class_change_target(struct block_list *bl,int class_,int type, enum se
 	}
 }
 
-
-/// Notifies the client of an object's spirits.
-/// 01d0 <id>.L <amount>.W (ZC_SPIRITS)
-/// 01e1 <id>.L <amount>.W (ZC_SPIRITS2)
-static void clif_spiritball_single(int fd, struct map_session_data *sd)
-{
-	WFIFOHEAD(fd, packet_len(0x1e1));
-	WFIFOW(fd,0)=0x1e1;
-	WFIFOL(fd,2)=sd->bl.id;
-	WFIFOW(fd,6)=sd->spiritball;
-	WFIFOSET(fd, packet_len(0x1e1));
-}
-
 /// Notifies the client of an object's Millenium Shields.
 static void clif_millenniumshield_single(int fd, map_session_data *sd)
 {
@@ -1531,29 +1518,6 @@ static void clif_spiritcharm_single(int fd, struct map_session_data *sd)
 	WFIFOW(fd,8)=sd->spiritcharm;
 	WFIFOSET(fd, packet_len(0x08cf));
 }
-
-
-/// Notifies the client of an object's souls.
-/// Note: Spirit spheres and Soul spheres work on
-/// seprate systems officially, but both send out
-/// the same packet which leads to confusion on how
-/// much soul energy a Soul Reaper acturally has
-/// should the player also have spirit spheres.
-/// They will likely create a new packet for this soon
-/// to seprate the animations for spirit and soul spheres.
-/// For now well use this and replace it later when possible. [Rytech]
-///
-/// 01d0 <id>.L <amount>.W (ZC_SPIRITS)
-/// 01e1 <id>.L <amount>.W (ZC_SPIRITS2)
-static void clif_soulball_single(int fd, struct map_session_data *sd)
-{
-	WFIFOHEAD(fd, packet_len(0x1d0));
-	WFIFOW(fd,0)=0x1d0;
-	WFIFOL(fd,2)=sd->bl.id;
-	WFIFOW(fd,6)=sd->soulball;
-	WFIFOSET(fd, packet_len(0x1d0));
-}
-
 
 /*==========================================
  * Run when player changes map / refreshes
@@ -1770,8 +1734,8 @@ void clif_hominfo( struct map_session_data *sd, struct homun_data *hd, int flag 
 		p.sp = status->sp;
 		p.maxSp = status->max_sp;
 	}
-	p.exp = hd->homunculus.exp;
-	p.expNext = hd->exp_next;
+	p.exp = (uint32)hd->homunculus.exp;
+	p.expNext = (uint32)hd->exp_next;
 	switch( hom_class2type( hd->homunculus.class_ ) ){
 		case HT_REG:
 		case HT_EVO:
@@ -4705,29 +4669,25 @@ void clif_storageclose(struct map_session_data* sd)
 }
 
 
-/// Notifies clients in an area of an object's souls.
-/// Note: Spirit spheres and Soul spheres work on
-/// seprate systems officially, but both send out
-/// the same packet which leads to confusion on how
-/// much soul energy a Soul Reaper actually has
-/// should the player also have spirit spheres.
-/// They will likely create a new packet for this soon
-/// to seprate the animations for spirit and soul spheres.
-/// For now we'll use this and replace it later when possible. [Rytech]
-/// 
+/// Notifies clients in an area of a player's souls.
 /// 01d0 <id>.L <amount>.W (ZC_SPIRITS)
 /// 01e1 <id>.L <amount>.W (ZC_SPIRITS2)
-void clif_soulball(struct map_session_data *sd)
-{
-	unsigned char buf[8];
+/// 0b73 <id>.L <amount>.W
+void clif_soulball( struct map_session_data *sd, struct block_list* target, enum send_target send_target ){
+#if PACKETVER_MAIN_NUM >= 20200916 || PACKETVER_RE_NUM >= 20200724
+	struct PACKET_ZC_UNCONFIRMED_SPIRITS3 p = {};
 
-	nullpo_retv(sd);
+	p.packetType = HEADER_ZC_UNCONFIRMED_SPIRITS3;
+#else
+	struct PACKET_ZC_SPIRITS p = {};
 
-	WBUFW(buf,0)=0x1d0;
-	WBUFL(buf,2)=sd->bl.id;
-	WBUFW(buf,6)=sd->soulball;
-	clif_send(buf,packet_len(0x1d0),&sd->bl,AREA);
-	return;
+	p.packetType = HEADER_ZC_SPIRITS;
+#endif
+
+	p.GID = sd->bl.id;
+	p.amount = sd->soulball;
+
+	clif_send( &p, sizeof( p ), target == nullptr ? &sd->bl : target, send_target );
 }
 
 
@@ -4749,13 +4709,13 @@ static void clif_getareachar_pc(struct map_session_data* sd,struct map_session_d
 		clif_buyingstore_entry_single(sd, dstsd);
 
 	if(dstsd->spiritball > 0)
-		clif_spiritball_single(sd->fd, dstsd);
+		clif_spiritball( &dstsd->bl, &sd->bl, SELF );
 	if (dstsd->sc.data[SC_MILLENNIUMSHIELD])
 		clif_millenniumshield_single(sd->fd, dstsd);
 	if (dstsd->spiritcharm_type != CHARM_TYPE_NONE && dstsd->spiritcharm > 0)
 		clif_spiritcharm_single(sd->fd, dstsd);
 	if (dstsd->soulball > 0)
-		clif_soulball_single(sd->fd, dstsd);
+		clif_soulball( dstsd, &sd->bl, SELF );
 	if( (sd->status.party_id && dstsd->status.party_id == sd->status.party_id) || //Party-mate, or hpdisp setting.
 		(sd->bg_id && sd->bg_id == dstsd->bg_id) || //BattleGround
 		pc_has_permission(sd, PC_PERM_VIEW_HPMETER)
@@ -8329,27 +8289,27 @@ void clif_devotion(struct block_list *src, struct map_session_data *tsd)
 		clif_send(buf, packet_len(0x1cf), src, AREA);
 }
 
-/*==========================================
- * Server tells clients nearby 'sd' (and himself) to display 'sd->spiritball' number of spiritballs on 'sd'
- * Notifies clients in an area of an object's spirits.
- * 01d0 <id>.L <amount>.W (ZC_SPIRITS)
- * 01e1 <id>.L <amount>.W (ZC_SPIRITS2)
- *------------------------------------------*/
-void clif_spiritball(struct block_list *bl) {
-    unsigned char buf[16];
-    TBL_PC *sd = BL_CAST(BL_PC,bl);
-    TBL_HOM *hd = BL_CAST(BL_HOM,bl);
+/// Notifies the client of an object's spirits.
+/// 01d0 <id>.L <amount>.W (ZC_SPIRITS)
+/// 01e1 <id>.L <amount>.W (ZC_SPIRITS2)
+void clif_spiritball( struct block_list *bl, struct block_list* target, enum send_target send_target ){
+	nullpo_retv( bl );
 
-    nullpo_retv(bl);
+	struct PACKET_ZC_SPIRITS p = {};
 
-    WBUFW(buf, 0) = 0x1d0;
-    WBUFL(buf, 2) = bl->id;
-	WBUFW(buf, 6) = 0; //init to 0
-    switch(bl->type){
-        case BL_PC: WBUFW(buf, 6) = sd->spiritball; break;
-        case BL_HOM: WBUFW(buf, 6) = hd->homunculus.spiritball; break;
-    }
-    clif_send(buf, packet_len(0x1d0), bl, AREA);
+	p.packetType = HEADER_ZC_SPIRITS;
+	p.GID = bl->id;
+
+	switch( bl->type ){
+		case BL_PC:
+			p.amount = ( (struct map_session_data*)bl )->spiritball;
+			break;
+		case BL_HOM:
+			p.amount = ( (struct homun_data*)bl )->homunculus.spiritball;
+			break;
+	}
+
+	clif_send( &p, sizeof( p ), target == nullptr ? bl : target, send_target );
 }
 
 
@@ -9677,13 +9637,13 @@ void clif_refresh(struct map_session_data *sd)
 	clif_updatestatus(sd,SP_DEX);
 	clif_updatestatus(sd,SP_LUK);
 	if (sd->spiritball)
-		clif_spiritball_single(sd->fd, sd);
+		clif_spiritball( &sd->bl, &sd->bl, SELF );
 	if (sd->sc.data[SC_MILLENNIUMSHIELD])
 		clif_millenniumshield_single(sd->fd, sd);
 	if (sd->spiritcharm_type != CHARM_TYPE_NONE && sd->spiritcharm > 0)
 		clif_spiritcharm_single(sd->fd, sd);
 	if (sd->soulball)
-		clif_soulball_single(sd->fd, sd);
+		clif_soulball( sd, &sd->bl, SELF );
 	if (sd->vd.cloth_color)
 		clif_refreshlook(&sd->bl,sd->bl.id,LOOK_CLOTHES_COLOR,sd->vd.cloth_color,SELF);
 	if (sd->vd.body_style)
@@ -10064,7 +10024,7 @@ void clif_hate_info(struct map_session_data *sd, unsigned char hate_level,int cl
 	if( pcdb_checkid(class_) ) {
 		clif_starskill(sd, job_name(class_), class_, hate_level, type ? 10 : 11);
 	} else if( mobdb_checkid(class_) ) {
-		clif_starskill(sd, mob_db(class_)->jname, class_, hate_level, type ? 10 : 11);
+		clif_starskill(sd, mob_db.find(class_)->jname.c_str(), class_, hate_level, type ? 10 : 11);
 	} else {
 		ShowWarning("clif_hate_info: Received invalid class %d for this packet (char_id=%d, hate_level=%u, type=%u).\n", class_, sd->status.char_id, (unsigned int)hate_level, (unsigned int)type);
 	}
@@ -10075,7 +10035,7 @@ void clif_hate_info(struct map_session_data *sd, unsigned char hate_level,int cl
  *------------------------------------------*/
 void clif_mission_info(struct map_session_data *sd, int mob_id, unsigned char progress)
 {
-	clif_starskill(sd, mob_db(mob_id)->jname, mob_id, progress, 20);
+	clif_starskill(sd, mob_db.find(mob_id)->jname.c_str(), mob_id, progress, 20);
 }
 
 /*==========================================
@@ -10376,6 +10336,10 @@ static bool clif_process_message(struct map_session_data* sd, bool whisperFormat
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_CHAT)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_CHAT)
+		sd->idletime_mer = last_tick;
+
+	//achievement_update_objective(sd, AG_CHATTING, 1, 1); // !TODO: Confirm how this achievement is triggered
 
 	return true;
 }
@@ -10728,12 +10692,6 @@ void clif_parse_LoadEndAck(int fd,struct map_session_data *sd)
 			clif_status_load(&sd->bl, EFST_RIDING, 1);
 		else if (sd->sc.option&OPTION_WUGRIDER)
 			clif_status_load(&sd->bl, EFST_WUGRIDER, 1);
-		else if (sd->sc.option&OPTION_MADOGEAR)
-#if PACKETVER_MAIN_NUM >= 20191120 || PACKETVER_RE_NUM >= 20191106
-			clif_status_load( &sd->bl, EFST_MADOGEAR, 1 );
-#else
-			clif_status_load( &sd->bl, EFST_RIDING, 1 );
-#endif
 		else if (sd->sc.data[SC_ALL_RIDING])
 			clif_status_load(&sd->bl, EFST_ALL_RIDING, 1);
 
@@ -11194,6 +11152,8 @@ void clif_parse_WalkToXY(int fd, struct map_session_data *sd)
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_WALK)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_WALK)
+		sd->idletime_mer = last_tick;
 
 	unit_walktoxy(&sd->bl, x, y, 4);
 }
@@ -11413,6 +11373,8 @@ void clif_parse_Emotion(int fd, struct map_session_data *sd)
 			sd->idletime = last_tick;
 		if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_EMOTION)
 			sd->idletime_hom = last_tick;
+		if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_EMOTION)
+			sd->idletime_mer = last_tick;
 
 		if (sd->state.block_action & PCBLOCK_EMOTION) {
 			clif_skill_fail(sd, 1, USESKILL_FAIL_LEVEL, 1);
@@ -11499,6 +11461,8 @@ void clif_parse_ActionRequest_sub(struct map_session_data *sd, int action_type, 
 			sd->idletime = last_tick;
 		if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_ATTACK)
 			sd->idletime_hom = last_tick;
+		if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_ATTACK)
+			sd->idletime_mer = last_tick;
 		unit_attack(&sd->bl, target_id, action_type != 0);
 		break;
 	case 0x02: // sitdown
@@ -11531,6 +11495,8 @@ void clif_parse_ActionRequest_sub(struct map_session_data *sd, int action_type, 
 			sd->idletime = last_tick;
 		if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_SIT)
 			sd->idletime_hom = last_tick;
+		if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_SIT)
+			sd->idletime_mer = last_tick;
 
 		pc_setsit(sd);
 		skill_sit(sd, true);
@@ -11556,6 +11522,8 @@ void clif_parse_ActionRequest_sub(struct map_session_data *sd, int action_type, 
 				sd->idletime = last_tick;
 			if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_SIT)
 				sd->idletime_hom = last_tick;
+			if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_SIT)
+				sd->idletime_mer = last_tick;
 			skill_sit(sd, false);
 			clif_standing(&sd->bl);
 		}
@@ -11815,6 +11783,8 @@ void clif_parse_DropItem(int fd, struct map_session_data *sd){
 			sd->idletime = last_tick;
 		if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_DROPITEM)
 			sd->idletime_hom = last_tick;
+		if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_DROPITEM)
+			sd->idletime_mer = last_tick;
 
 		return;
 	}
@@ -11847,6 +11817,8 @@ void clif_parse_UseItem(int fd, struct map_session_data *sd)
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_USEITEM)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USEITEM)
+		sd->idletime_mer = last_tick;
 	n = RFIFOW(fd,packet_db[RFIFOW(fd,0)].pos[0])-2;
 
 	if(n <0 || n >= MAX_INVENTORY)
@@ -11896,6 +11868,8 @@ void clif_parse_EquipItem(int fd,struct map_session_data *sd)
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_USEITEM)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USEITEM)
+		sd->idletime_mer = last_tick;
 
 	//Client doesn't send the position for ammo.
 	if(sd->inventory_data[index]->type == IT_AMMO)
@@ -11937,6 +11911,8 @@ void clif_parse_UnequipItem(int fd,struct map_session_data *sd)
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_USEITEM)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USEITEM)
+		sd->idletime_mer = last_tick;
 
 	pc_unequipitem(sd,index,1);
 }
@@ -12594,6 +12570,8 @@ void clif_parse_skill_toid( struct map_session_data* sd, uint16 skill_id, uint16
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_USESKILLTOID)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USESKILLTOID)
+		sd->idletime_mer = last_tick;
 
 	if( sd->npc_id ){
 		if( pc_hasprogress( sd, WIP_DISABLE_SKILLITEM ) || !sd->npc_item_flag || !( inf & INF_SELF_SKILL ) ){
@@ -12724,6 +12702,8 @@ static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, uin
 		sd->idletime = last_tick;
 	if (battle_config.hom_idle_no_share && sd->hd && battle_config.idletime_hom_option&IDLE_USESKILLTOPOS)
 		sd->idletime_hom = last_tick;
+	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USESKILLTOPOS)
+		sd->idletime_mer = last_tick;
 
 	if( skill_isNotOk(skill_id, sd) )
 		return;
@@ -14521,7 +14501,6 @@ void clif_parse_GM_Item_Monster(int fd, struct map_session_data *sd)
 	struct s_packet_db* info = &packet_db[RFIFOW(fd,0)];
 	int mob_id = 0;
 	struct item_data *id = NULL;
-	struct mob_db *mob = NULL;
 	StringBuf command;
 	char *str;
 //#if PACKETVER >= 20131218
@@ -14566,9 +14545,11 @@ void clif_parse_GM_Item_Monster(int fd, struct map_session_data *sd)
 	if ((mob_id = mobdb_searchname(str)) == 0)
 		mob_id = mobdb_checkid(atoi(str));
 
-	if( (mob = mob_db(mob_id)) ) {
+	std::shared_ptr<s_mob_db> mob = mob_db.find(mob_id);
+
+	if( mob != nullptr ) {
 		StringBuf_Init(&command);
-		StringBuf_Printf(&command, "%cmonster %s", atcommand_symbol, mob->sprite);
+		StringBuf_Printf(&command, "%cmonster %s", atcommand_symbol, mob->sprite.c_str());
 		is_atcommand(fd, sd, StringBuf_Value(&command), 1);
 		StringBuf_Destroy(&command);
 		return;
@@ -17106,7 +17087,7 @@ void clif_bossmapinfo(struct map_session_data *sd, struct mob_data *md, enum e_b
 	}
 
 	if (md != NULL)
-		safestrncpy(WFIFOCP(fd,19), md->db->jname, NAME_LENGTH);
+		safestrncpy(WFIFOCP(fd,19), md->db->jname.c_str(), NAME_LENGTH);
 
 	WFIFOSET(fd,70);
 }
@@ -17198,10 +17179,10 @@ static void clif_quest_len(int def_len, int info_len, int avail_quests, int *lim
 	(*len_out) = ((*limit_out) * info_len) + def_len;
 }
 
-std::string clif_mobtype_name(e_race race, e_size size, e_element element) {
-	std::string race_name, size_name, ele_name;
+std::string clif_quest_string( std::shared_ptr<s_quest_objective> objective ){
+	std::string race_name;
 
-	switch(race) {
+	switch( objective->race ){
 		case RC_FORMLESS:	race_name = "Formless"; break;
 		case RC_UNDEAD:		race_name = "Undead"; break;
 		case RC_BRUTE:		race_name = "Brute"; break;
@@ -17212,17 +17193,27 @@ std::string clif_mobtype_name(e_race race, e_size size, e_element element) {
 		case RC_DEMIHUMAN:	race_name = "Demihuman"; break;
 		case RC_ANGEL:		race_name = "Angel"; break;
 		case RC_DRAGON:		race_name = "Dragon"; break;
+		default:
+			ShowWarning( "clif_quest_string: Unsupported race %d - using empty string...\n", objective->race );
+			// Fallthrough
 		case RC_ALL:		race_name = ""; break;
-		default:			race_name = "unknown"; break;
 	}
-	switch(size) {
+
+	std::string size_name;
+
+	switch( objective->size ){
 		case SZ_SMALL:	size_name = "Small"; break;
 		case SZ_MEDIUM:	size_name = "Medium"; break;
 		case SZ_BIG:	size_name = "Large"; break;
+		default:
+			ShowWarning( "clif_quest_string: Unsupported size %d - using empty string...\n", objective->size );
+			// Fallthrough
 		case SZ_ALL:	size_name = ""; break;
-		default:		size_name = "unknown"; break;
 	}
-	switch(element) {
+
+	std::string ele_name;
+
+	switch( objective->element ){
 		case ELE_NEUTRAL:	ele_name = "Neutral Element"; break;
 		case ELE_WATER:		ele_name = "Water Element"; break;
 		case ELE_EARTH:		ele_name = "Earth Element"; break;
@@ -17233,10 +17224,43 @@ std::string clif_mobtype_name(e_race race, e_size size, e_element element) {
 		case ELE_DARK:		ele_name = "Shadow Element"; break;
 		case ELE_GHOST:		ele_name = "Ghost Element"; break;
 		case ELE_UNDEAD:	ele_name = "Undead Element"; break;
+		default:
+			ShowWarning( "clif_quest_string: Unsupported element %d - using empty string...\n", objective->element );
+			// Fallthrough
 		case ELE_ALL:		ele_name = ""; break;
-		default:			ele_name = "unknown"; break;
 	}
-	return (race_name + (race_name.size() && size_name.size() ? ", " + size_name : size_name) + ((race_name.size() || size_name.size()) && ele_name.size() ? ", " + ele_name : ele_name));
+
+	std::string str;
+
+	if( !objective->map_name.empty() ){
+		str += objective->map_name;
+	}
+
+	if( !race_name.empty() ){
+		if( !str.empty() ){
+			str += ", ";
+		}
+
+		str += race_name;
+	}
+
+	if( !size_name.empty() ){
+		if( !str.empty() ){
+			str += ", ";
+		}
+
+		str += size_name;
+	}
+
+	if( !ele_name.empty() ){
+		if( !str.empty() ){
+			str += ", ";
+		}
+
+		str += ele_name;
+	}
+	
+	return str;
 }
 
 /// Sends list of all quest states
@@ -17283,10 +17307,10 @@ void clif_quest_send_list(struct map_session_data *sd)
 		offset += 2;
 		
 		if (!qi->objectives.empty()) {
-			struct mob_db *mob;
+			std::shared_ptr<s_mob_db> mob;
 
 			for (int j = 0; j < qi->objectives.size(); j++) {
-				mob = mob_db(qi->objectives[j]->mob_id);
+				mob = mob_db.find(qi->objectives[j]->mob_id);
 
 				e_race race = qi->objectives[j]->race;
 				e_size size = qi->objectives[j]->size;
@@ -17311,9 +17335,9 @@ void clif_quest_send_list(struct map_session_data *sd)
 				WFIFOW(fd, offset) = qi->objectives[j]->count;
 				offset += 2;
 				if (mob && qi->objectives[j]->mob_id > 0)
-					safestrncpy((char *)WFIFOP(fd,offset), mob->jname, NAME_LENGTH);
+					safestrncpy(WFIFOCP(fd,offset), mob->jname.c_str(), NAME_LENGTH);
 				else
-					safestrncpy((char *)WFIFOP(fd,offset), clif_mobtype_name(race, size, element).c_str(), NAME_LENGTH);
+					safestrncpy(WFIFOCP(fd,offset), clif_quest_string(qi->objectives[j]).c_str(), NAME_LENGTH);
 				offset += NAME_LENGTH;
 			}
 		}
@@ -17364,14 +17388,14 @@ void clif_quest_send_mission(struct map_session_data *sd)
 		WFIFOW(fd, i*104+20) = static_cast<uint16>(qi->objectives.size());
 
 		for (int j = 0 ; j < qi->objectives.size(); j++) {
-			struct mob_db *mob = mob_db(qi->objectives[j]->mob_id);
+			std::shared_ptr<s_mob_db> mob = mob_db.find(qi->objectives[j]->mob_id);
 
 			WFIFOL(fd, i*104+22+j*30) = (mob ? qi->objectives[j]->mob_id : MOBID_PORING);
 			WFIFOW(fd, i*104+26+j*30) = sd->quest_log[i].count[j];
 			if (mob && qi->objectives[j]->mob_id > 0)
-				safestrncpy(WFIFOCP(fd, i*104+28+j*30), mob->jname, NAME_LENGTH);
+				safestrncpy(WFIFOCP(fd, i*104+28+j*30), mob->jname.c_str(), NAME_LENGTH);
 			else
-				safestrncpy(WFIFOCP(fd, i*104+28+j*30), clif_mobtype_name(qi->objectives[j]->race, qi->objectives[j]->size, qi->objectives[j]->element).c_str(), NAME_LENGTH);
+				safestrncpy(WFIFOCP(fd, i*104+28+j*30), clif_quest_string(qi->objectives[j]).c_str(), NAME_LENGTH);
 		}
 	}
 
@@ -17407,7 +17431,7 @@ void clif_quest_add(struct map_session_data *sd, struct quest *qd)
 	WFIFOW(fd, 15) = static_cast<uint16>(qi->objectives.size());
 
 	for (int i = 0, offset = 17; i < qi->objectives.size(); i++) {
-		struct mob_db *mob = mob_db(qi->objectives[i]->mob_id);
+		std::shared_ptr<s_mob_db> mob = mob_db.find(qi->objectives[i]->mob_id);
 		e_race race = qi->objectives[i]->race;
 		e_size size = qi->objectives[i]->size;
 		e_element element = qi->objectives[i]->element;
@@ -17429,9 +17453,9 @@ void clif_quest_add(struct map_session_data *sd, struct quest *qd)
 		WFIFOW(fd, offset) = qd->count[i];
 		offset += 2;
 		if (mob && qi->objectives[i]->mob_id > 0)
-			safestrncpy((char *)WFIFOP(fd,offset), mob->jname, NAME_LENGTH);
+			safestrncpy(WFIFOCP(fd,offset), mob->jname.c_str(), NAME_LENGTH);
 		else
-			safestrncpy((char *)WFIFOP(fd,offset), clif_mobtype_name(race, size, element).c_str(), NAME_LENGTH);
+			safestrncpy(WFIFOCP(fd,offset), clif_quest_string(qi->objectives[i]).c_str(), NAME_LENGTH);
 		offset += NAME_LENGTH;
 	}
 
@@ -20529,10 +20553,10 @@ void clif_broadcast_obtain_special_item( const char *char_name, t_itemid nameid,
 				safestrncpy( p.Name, name, sizeof( p.Name ) );
 
 				if( type == ITEMOBTAIN_TYPE_MONSTER_ITEM ){
-					struct mob_db *db = mob_db( container );
+					std::shared_ptr<s_mob_db> db = mob_db.find( container );
 
 					p.monsterNameLen = NAME_LENGTH;
-					safestrncpy( p.monsterName, db->name, NAME_LENGTH );
+					safestrncpy( p.monsterName, db->name.c_str(), NAME_LENGTH );
 				}else{
 					p.monsterNameLen = 0;
 					p.monsterName[0] = '\0';

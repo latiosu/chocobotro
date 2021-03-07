@@ -36,6 +36,14 @@ gef_fild13,303,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#12	GUILD_FLAG
 gef_fild13,312,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#13	GUILD_FLAG
 gef_fild13,290,243,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#14	GUILD_FLAG
 
+// Town flags
+//============================================================
+prontera,158,193,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#15	GUILD_FLAG
+payon,112,323,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#16	GUILD_FLAG
+payon,166,177,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#17	GUILD_FLAG
+geffen,126,106,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#18	GUILD_FLAG
+aldebaran,149,103,4	duplicate(Eeyolbriggar#11)	Eeyolbriggar#19	GUILD_FLAG
+
 // Kafra Employee
 //============================================================
 gefg_cas02,23,66,3	duplicate(Kafra_Staff_TE)	Kafra Employee#gefg_02	4_F_KAFRA1

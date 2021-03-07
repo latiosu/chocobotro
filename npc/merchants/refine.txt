@@ -16,6 +16,7 @@
 //= 3.2a Added 'disable_items' command. [Euphy]
 //= 3.3 Some official script updates. [Euphy]
 //= 3.4 Added VIP features. [Euphy]
+//= 3.5 Disabled repairmans in inactive castles for ChocobotRO [Latiosu]
 //============================================================
 
 // Christopher: Geffen Blacksmith
@@ -1100,35 +1101,35 @@ lhz_in02,284,14,3	script	Repairman#lhz	86,{
 	end;
 }
 
-prt_gld,139,117,4	script	Repairman#prt_gld	86,{
+// prt_gld,139,117,4	script	Repairman#prt_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+gef_fild13,294,242,5	script	Repairman#gef_fild	86,{
 	callfunc "repairmain","Repairman";
 	end;
 }
 
-gef_fild13,263,117,4	script	Repairman#gef_fild	86,{
+// pay_gld,295,183,4	script	Repairman#pay_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+// alde_gld,220,152,4	script	Repairman#alde_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
+
+aru_gld,84,204,5	script	Repairman#aru_gld	86,{
 	callfunc "repairmain","Repairman";
 	end;
 }
 
-pay_gld,295,183,4	script	Repairman#pay_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-alde_gld,220,152,4	script	Repairman#alde_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-aru_gld,189,336,4	script	Repairman#aru_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
-
-sch_gld,340,80,7	script	Repairman#sch_gld	86,{
-	callfunc "repairmain","Repairman";
-	end;
-}
+// sch_gld,340,80,7	script	Repairman#sch_gld	86,{
+// 	callfunc "repairmain","Repairman";
+// 	end;
+// }
 
 // Equipment Repair Function
 //============================================================

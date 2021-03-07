@@ -12,7 +12,7 @@ prontera,156,358,0	warp	prt_cas_B#prt_cas_A	1,1,prt_cas,216,146
 //= Prontera Castle ===========================================
 prt_cas,216,142,0	warp	prt_cas_A#prt_cas_B	1,1,prontera,156,354
 
-prt_cas,82,175,0	warp	prt_cas_C#prt_cas_D	1,1,prt_gld,159,30
+prt_cas,82,175,0	warp	prt_cas_C#prt_cas_D	1,1,prt_fild01,199,30 // Skip to field
 
 // castle left side
 prt_cas_q,154,8,0	warp	prt_cas_F#prt_cas_E	1,1,prt_cas,156,163

@@ -71,4 +71,17 @@ OnRecvCastleAr03:
 	FlagEmblem GetCastleData("arug_cas03",1);
 	end;
 }
+
+// Map flags
 aru_gld,74,174,0	duplicate(Ar03_Flag)	Horn#flag_Ar03_2	722
+aru_gld,60,195,5	duplicate(Ar03_Flag)	Horn#flag_Ar03_3	722
+aru_gld,72,204,5	duplicate(Ar03_Flag)	Horn#flag_Ar03_4	722
+aru_gld,105,215,5	duplicate(Ar03_Flag)	Horn#flag_Ar03_5	722
+aru_gld,99,178,1	duplicate(Ar03_Flag)	Horn#flag_Ar03_6	722
+
+// Town flags
+prontera,153,193,4	duplicate(Ar03_Flag)	Horn#flag_Ar03_7	722
+payon,101,323,4	duplicate(Ar03_Flag)	Horn#flag_Ar03_9	722
+payon,161,177,4	duplicate(Ar03_Flag)	Horn#flag_Ar03_10	722
+geffen,113,106,4	duplicate(Ar03_Flag)	Horn#flag_Ar03_11	722
+aldebaran,130,103,4	duplicate(Ar03_Flag)	Horn#flag_Ar03_12	722
