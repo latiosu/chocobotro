@@ -138,7 +138,7 @@ moc_para01,29,35,3	script	Gramps#Eden	866,{
 					mes "Do you want both Base and Job experience or split?";
 					next;
 					.@vip_reward = select("^FF0000Both Base and Job EXP^000000", "^0000FFI want Base EXP only.^000000", "^FFA400I want Job EXP only.^000000");
-					.@boost = 600;
+					.@boost = 50;
 					mes "[Gramps]";
 					mes "Here is your reward.";
 					erasequest .quest_id[.@i];
