@@ -1,7 +1,3 @@
-char_ip: 127.0.0.1
-map_ip: 127.0.0.1
-
-// ChocobotRO custom maps
 map: eabyss_01l
 map: eabyss_01m
 map: eabyss_01h
