@@ -217,7 +217,7 @@ int do_init(int argc, char** argv)
 
 	// Open the map list
 	FILE *list;
-	std::vector<std::string> directories = { std::string(db_path) + "/",  std::string(db_path) + "/" + std::string(DBIMPORT) + "/" };
+	std::vector<std::string> directories = { std::string(db_path) + "/" };
 
 	for (const auto &directory : directories) {
 		std::string filename = directory + map_list_file;
