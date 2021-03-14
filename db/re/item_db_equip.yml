@@ -60977,6 +60977,7 @@ Body:
     AegisName: Saber__
     Name: Saber
     Type: Weapon
+    SubType: 1hSword
     Buy: 10
     Weight: 1000
     Attack: 115
@@ -61599,6 +61600,7 @@ Body:
     AegisName: Saber___
     Name: Saber
     Type: Weapon
+    SubType: 1hSword
     Buy: 1
     Weight: 1000
     Attack: 115
@@ -130129,8 +130131,6 @@ Body:
       All_Third: true
     Locations:
       Left_Hand: true
-      Armor: true
-      Right_Accessory: true
     WeaponLevel: 4
     EquipLevelMin: 100
     Refineable: true
