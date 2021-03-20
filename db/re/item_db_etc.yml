@@ -34627,6 +34627,7 @@ Body:
     AegisName: Heart_Hunter_Seal
     Name: Heart Hunter's Seal
     Type: Etc
+    Buy: 500
     Weight: 10
   - Id: 25160
     AegisName: Borrow_Book
@@ -35535,6 +35536,11 @@ Body:
     Name: Knotted Letter
     Type: Etc
     Weight: 1
+  - Id: 25669
+    AegisName: EP17_1_EVT02
+    Name: Mysterious Component
+    Type: Etc
+    Weight: 10
   - Id: 25670
     AegisName: M_M_Defense
     Name: Modification Module (Defense)
@@ -35983,6 +35989,12 @@ Body:
     Name: Assassin Cross Stone (Garment)
     Type: Etc
     Weight: 100
+  - Id: 25723
+    AegisName: EP17_1_EVT39
+    Name: Cor Core
+    Type: Etc
+    Buy: 15000
+    Weight: 10
   - Id: 25729
     AegisName: Shadowdecon
     Name: Shadowdecon
