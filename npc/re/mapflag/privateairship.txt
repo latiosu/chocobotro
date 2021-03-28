@@ -184,6 +184,7 @@ ma_fild02	mapflag	privateairship_source
 ma_scene01	mapflag	privateairship_source
 mag_dun01	mapflag	privateairship_source
 mag_dun02	mapflag	privateairship_source
+mag_dun03	mapflag	privateairship_source
 mal_dun01	mapflag	privateairship_source
 malangdo	mapflag	privateairship_source
 malaya	mapflag	privateairship_source
@@ -535,6 +536,7 @@ ma_fild02	mapflag	privateairship_destination
 ma_scene01	mapflag	privateairship_destination
 mag_dun01	mapflag	privateairship_destination
 mag_dun02	mapflag	privateairship_destination
+mag_dun03	mapflag	privateairship_destination
 mal_dun01	mapflag	privateairship_destination
 malangdo	mapflag	privateairship_destination
 malaya	mapflag	privateairship_destination
