@@ -43,7 +43,7 @@ ein_fild03,278,269,4	script	Rebellion Crew#old_mem_1	CLEAR_NPC,{
 			close2;
 			navigateto("ein_fild03",347,219);
 			end;
-			
+
 		case 30:
 			if(!isbegin_quest(11599)){
 				mes "[ Rebellion Crew ]";
@@ -65,10 +65,10 @@ ein_fild03,278,269,4	script	Rebellion Crew#old_mem_1	CLEAR_NPC,{
 			setquest 11600;
 			getexp 100000,100000;
 			end;
-			
+
 		case 31:
 			break;
-			
+
 		case 32:
 			mes "[ Rebellion Crew ]";
 			mes "What?!";
@@ -84,14 +84,14 @@ ein_fild03,278,269,4	script	Rebellion Crew#old_mem_1	CLEAR_NPC,{
 			mes "Dien's room?";
 			mes "It's on the second floor of Clana Nemieri.";
 			close;
-			
+
 		default:
 			mes "[ Rebellion Crew ]";
 			mes "Huh...";
 			mes "It used to be great...";
 			mes "It was great...";
 			close;
-			
+
 	}
 	mes "[ Rebellion Crew ]";
 	mes "Are you ready?";
@@ -126,40 +126,40 @@ ein_fild03,278,269,4	script	Rebellion Crew#old_mem_1	CLEAR_NPC,{
 					mes "You already have an instance active. Cancel it and try again later.";
 					mes "Player already have instance.";
 					end;
-					
+
 				case -4:
 					mes "[ Rebellion Crew ]";
 					mes "Reservation is currently full. Try again later.";
 					end;
-					
+
 				default:
 					mes "[ Rebellion Crew ]";
 					mes "Please wait a minute. I'll prepare the portal, talk to me again to enter.";
 					end;
 			}
-			
+
 		case 2:
 			switch(instance_enter(.@md_name$)){
 				case IE_OTHER:
 					mes "An unknown error has occurred.";
 					end;
-					
+
 				case IE_NOINSTANCE:
 					mes "^ff0000Character doesn't have an instance reserved.^000000";
 					end;
-					
+
 				case IE_OK:
 					mapannounce "ein_fild03", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
 					end;
 			}
-			
+
 		case 3:
 			mes "[ Rebellion Crew ]";
 			mes "Tell me whenever you're ready.";
 			close;
 	}
-	
-	
+
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_CLASS,4215;
 	setunitdata getnpcid(0),UNPC_SEX,SEX_MALE;
@@ -175,105 +175,105 @@ end;
 
 1@os_b,1,1,0	script	#171_sealedos_control	-1,{
 OnInstanceInit:
-	set_instance_var("map$",instance_mapname("1@os_b"));
-	instance_hide("Dien#s_os",true);
-	instance_hide("Cotnes#s_os",true);
-	instance_hide("Dien#s_os2",true);
-	instance_hide("Ridsh#s_os2",true);
-	instance_hide("Cotnes#s_os2",true);
-	instance_enable("Suspicious Device#s_os_trigger",false);
-	instance_enable("Thick Wire#os_lock_0",false);
-	instance_enable("Thick Wire#os_lock_1",false);
-	instance_enable("Thick Wire#os_lock_2",false);
-	instance_enable("Dien#s_os3",false);
-	instance_enable("Cotnes#s_os3",false);
-	instance_enable("Dien#s_os4",false);
-	instance_enable("Erst#s_os",false);
-	instance_enable("Cotnes#s_os4",false);
-	instance_enable("Dien#s_os5",false);
-	instance_enable("Ridsh#s_os3",false);
-	instance_enable("#s_os_dum01",false);
-	instance_enable("#s_os_dum02",false);
-	instance_enable("Ridsh#s_os4",false);
-	instance_enable("Erst#s_os2",false);
-	instance_enable("Cotnes#s_os5",false);
-	instance_enable("Dien#s_os6",false);
+	set 'map$,instance_mapname("1@os_b");
+	disablenpc("Dien#s_os");
+	disablenpc("Cotnes#s_os");
+	disablenpc("Dien#s_os2");
+	disablenpc("Ridsh#s_os2");
+	disablenpc("Cotnes#s_os2");
+	enablenpc("Suspicious Device#s_os_trigger");
+	enablenpc("Thick Wire#os_lock_0");
+	enablenpc("Thick Wire#os_lock_1");
+	enablenpc("Thick Wire#os_lock_2");
+	enablenpc("Dien#s_os3");
+	enablenpc("Cotnes#s_os3");
+	enablenpc("Dien#s_os4");
+	enablenpc("Erst#s_os");
+	enablenpc("Cotnes#s_os4");
+	enablenpc("Dien#s_os5");
+	enablenpc("Ridsh#s_os3");
+	enablenpc("#s_os_dum01");
+	enablenpc("#s_os_dum02");
+	enablenpc("Ridsh#s_os4");
+	enablenpc("Erst#s_os2");
+	enablenpc("Cotnes#s_os5");
+	enablenpc("Dien#s_os6");
 end;
 
 OnEvent01:
-	instance_hide("Ridsh#s_os",true);
-	instance_hide("Dien#s_os",true);
-	instance_hide("Cotnes#s_os",true);
-	instance_enable("Ridsh#s_os",false);
-	instance_enable("Dien#s_os",false);
-	instance_enable("Cotnes#s_os",false);
-	instance_hide("#os_lock_01",true);
-	instance_enable("#os_lock_01",false);
-	instance_hide("#os_lock_02",true);
-	instance_enable("#os_lock_02",false);
-	instance_hide("Dien#s_os2",false);
-	instance_hide("Ridsh#s_os2",false);
-	instance_hide("Cotnes#s_os2",false);
-	instance_event("#sealedos_mob_1","OnSpawn",false);
+	disablenpc("Ridsh#s_os");
+	disablenpc("Dien#s_os");
+	disablenpc("Cotnes#s_os");
+	enablenpc("Ridsh#s_os");
+	enablenpc("Dien#s_os");
+	enablenpc("Cotnes#s_os");
+	disablenpc("#os_lock_01");
+	enablenpc("#os_lock_01");
+	disablenpc("#os_lock_02");
+	enablenpc("#os_lock_02");
+	disablenpc("Dien#s_os2");
+	disablenpc("Ridsh#s_os2");
+	disablenpc("Cotnes#s_os2");
+	donpcevent("#sealedos_mob_1::OnSpawn");
 end;
 
 OnEvent02:
 	for(.@i = 0; .@i < 6; .@i++){
-		instance_hide("#s_os_dummy0"+.@i,true);
-		instance_enable("#s_os_dummy0"+.@i,false);
+		disablenpc("#s_os_dummy0"+.@i);
+		enablenpc("#s_os_dummy0"+.@i);
 	}
-	instance_hide("Suspicious Device#s_os_trigger",true);
-	instance_hide("Dien#s_os2",true);
-	instance_hide("Ridsh#s_os2",true);
-	instance_hide("Cotnes#s_os2",true);
-	instance_enable("Suspicious Device#s_os_trigger",false);
-	instance_enable("Dien#s_os2",false);
-	instance_enable("Ridsh#s_os2",false);
-	instance_enable("Cotnes#s_os2",false);
-	instance_enable("#os_lock_00",false);
-	instance_enable("Thick Wire#os_lock_0",true);
-	instance_enable("Thick Wire#os_lock_1",true);
-	instance_enable("Thick Wire#os_lock_2",true);
-	instance_enable("Dien#s_os3",true);
+	disablenpc("Suspicious Device#s_os_trigger");
+	disablenpc("Dien#s_os2");
+	disablenpc("Ridsh#s_os2");
+	disablenpc("Cotnes#s_os2");
+	enablenpc("Suspicious Device#s_os_trigger");
+	enablenpc("Dien#s_os2");
+	enablenpc("Ridsh#s_os2");
+	enablenpc("Cotnes#s_os2");
+	enablenpc("#os_lock_00");
+	enablenpc("Thick Wire#os_lock_0");
+	enablenpc("Thick Wire#os_lock_1");
+	enablenpc("Thick Wire#os_lock_2");
+	enablenpc("Dien#s_os3");
 end;
 
 OnEvent03:
-	instance_enable("Dien#s_os3",false);
-	instance_enable("Cotnes#s_os3",true);
-	instance_enable("Dien#s_os4",true);
-	instance_enable("Ridsh#s_os3",true);
+	enablenpc("Dien#s_os3");
+	enablenpc("Cotnes#s_os3");
+	enablenpc("Dien#s_os4");
+	enablenpc("Ridsh#s_os3");
 end;
 
 OnEvent04:
-	set_instance_var("s_os",8);
-	instance_hide("#os_lock_03",true);
-	instance_enable("#os_lock_03",false);
-	instance_enable("Ridsh#s_os3",true);
-	instance_enable("#s_os_dum01",true);
-	instance_enable("#s_os_dum02",true);
+	set 's_os,8;
+	disablenpc("#os_lock_03");
+	enablenpc("#os_lock_03");
+	enablenpc("Ridsh#s_os3");
+	enablenpc("#s_os_dum01");
+	enablenpc("#s_os_dum02");
 end;
 
 OnEvent05:
-	set_instance_var("s_os",9);
-	instance_hide("Ridsh#s_os3",true);
-	instance_hide("Erst#s_os",true);
-	instance_hide("Cotnes#s_os4",true);
-	instance_hide("Dien#s_os5",true);
-	instance_hide("#os_lock_05",true);
-	instance_enable("Ridsh#s_os3",false);
-	instance_enable("Erst#s_os",false);
-	instance_enable("Cotnes#s_os4",false);
-	instance_enable("Dien#s_os5",false);
-	instance_enable("#os_lock_05",false);
-	instance_enable("Ridsh#s_os4",true);
-	instance_enable("Erst#s_os2",true);
-	instance_enable("Cotnes#s_os5",true);
-	instance_enable("Dien#s_os6",true);
+	set 's_os,9;
+	disablenpc("Ridsh#s_os3");
+	disablenpc("Erst#s_os");
+	disablenpc("Cotnes#s_os4");
+	disablenpc("Dien#s_os5");
+	disablenpc("#os_lock_05");
+	enablenpc("Ridsh#s_os3");
+	enablenpc("Erst#s_os");
+	enablenpc("Cotnes#s_os4");
+	enablenpc("Dien#s_os5");
+	enablenpc("#os_lock_05");
+	enablenpc("Ridsh#s_os4");
+	enablenpc("Erst#s_os2");
+	enablenpc("Cotnes#s_os5");
+	enablenpc("Dien#s_os6");
 end;
 }
 
 1@os_b,188,45,5	script	Ridsh#s_os	4_F_LEEDSH,{
-	.@var = get_instance_var("s_os");
+	.@var = 's_os;
 	.@dien$ =  instance_npcname("Dien#s_os");
 	.@cot$ = instance_npcname("Cotnes#s_os");
 	if(!.@var){
@@ -283,8 +283,8 @@ end;
 		mes "What are you doing here?";
 		npctalk "Ridsh : Oh? What are you doing here.";
 		next;
-		instance_hide("Dien#s_os",false);
-		instance_hide("Cotnes#s_os",false);
+		disablenpc("Dien#s_os");
+		disablenpc("Cotnes#s_os");
 		cutin "ep162_rds05",2;
 		mes "[ Ridsh ]";
 		mes "We're in trouble~~";
@@ -341,20 +341,20 @@ end;
 		npctalk "Ridsh : It can't be helped~~ We have to go with the adventurer.";
 		next;
 		cutin "ep162_dn01",2;
-		mes "[ Dien ]";	
+		mes "[ Dien ]";
 		mes "It's dangerous, so please come with us.";
 		npctalk "Dien :  It's dangerous so please come with us.",.@dien$;
 		close2;
 		cutin "",255;
-		set_instance_var("s_os",1);
-		instance_event("#171_sealedos_control","OnEvent01",false);
+		set 's_os,1;
+		donpcevent("#171_sealedos_control::OnEvent01");
 	}
 	end;
 }
 
 1@os_b,212,41,0	script	Suspicious Device#s_os_trigger	4_ENERGY_BLUE,{
-	.@var = get_instance_var("s_os");
-	.@map$ = get_instance_var("map$");
+	.@var = 's_os;
+	.@map$ = 'map$;
 	mes "- There is a pipe going through the floor. -";
 	if(.@var == 2){
 		next;
@@ -365,9 +365,9 @@ end;
 		mes "- Breaking the piple made a strange noise. The machine has stopped. -";
 		specialeffect EF_BLASTMINEBOMB;
 		close2;
-		set_instance_var("s_os",3);
+		set 's_os,3;
 		mapannounce .@map$,"Ridsh : Alright! Let's move up along the railroad tracks!",bc_map,0xFF0000;
-		instance_event("#171_sealedos_control","OnEvent02",false);
+		donpcevent("#171_sealedos_control::OnEvent02");
 	}
 	end;
 }
@@ -387,9 +387,9 @@ end;
 
 1@os_b,115,112,0	script	Dangerous Device#s_os_0	4_PURPLE_WARP,3,5,{
 	end;
-	
+
 OnTouch:
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	mes "[ Dien ]";
 	mes "Oh! I think it's a very precise device.";
 	npctalk "Dien : Oh! I think it's a very precise device.",instance_npcname("Dien#s_os3"),bc_map;
@@ -411,19 +411,19 @@ end;
 1@os_b,115,138,0	duplicate(Dangerous Device#s_os_0)	Dangerous Device#s_os_2	4_PURPLE_WARP,3,2
 
 1@os_b,137,107,0	script	Thick Wire#os_lock_0	4_ENERGY_BLUE,{
-	.@map$ = get_instance_var("map$");
-	.@var = get_instance_var("s_os");
+	.@map$ = 'map$;
+	.@var = 's_os;
 	.@npc = atoi(replacestr(strnpcinfo(2),"os_lock_",""));
-	set_instance_var("s_os",.@var + 1);
-	instance_hide(strnpcinfo(0),true);
-	instance_enable(strnpcinfo(0),false);
-	instance_enable("Dangerous Device#s_os_" + .@npc,false);
+	set 's_os,.@var + 1;
+	disablenpc(strnpcinfo(0));
+	enablenpc(strnpcinfo(0));
+	enablenpc("Dangerous Device#s_os_" + .@npc);
 	if((.@var+1) < 6)
 		mapannounce .@map$,"Ridsh : The machine hasn't turned off yet. Please take a look above.",bc_map,0xFF0000;
 	else {
-		set_instance_var("s_os",7);
+		set 's_os,7;
 		mapannounce .@map$,"Ridsh : That's it! Let's move along the railroad tracks!",bc_map,0xFF0000;
-		instance_event("#171_sealedos_control","OnEvent03",false);
+		donpcevent("#171_sealedos_control::OnEvent03");
 	}
 	end;
 }
@@ -433,19 +433,19 @@ end;
 
 1@os_b,122,212,5	script	Dien#s_os4	4_F_DIENE,{
 OnTalk:
-	.@var = get_instance_var("s_os");
+	.@var = 's_os;
 	cutin "ep162_dn01",2;
 	mes "[ Dien ]";
 	mes "Oh!";
 	mes "If you go right, I think you can go back on the railroad without having to break the door.";
 	npctalk "Dien : Oh! If you go right, I think you can go back on the railroad without having to break the door";
 	if(.@var == 7)
-		instance_event("#171_sealedos_control","OnEvent04",false);
+		donpcevent("#171_sealedos_control::OnEvent04");
 	close3;
 }
 
 1@os_b,114,217,0	script	Cotnes#s_os3	4_F_COATNEIS,{
-	.@var = get_instance_var("s_os");
+	.@var = 's_os;
 	if(.@var == 7){
 		cutin "ep162_ctn01",2;
 		mes "[ Cotnes ]";
@@ -453,7 +453,7 @@ OnTalk:
 		mes "It will take some time to break it~";
 		next;
 	}
-	instance_event("Dien#s_os4","OnTalk",true);
+	donpcevent("Dien#s_os4::OnTalk");
 	end;
 }
 
@@ -468,11 +468,11 @@ OnTalk:
 	next;
 	specialeffect EF_BLASTMINEBOMB,AREA,instance_npcname("#s_os_dum01");
 	specialeffect EF_BLASTMINEBOMB,AREA,instance_npcname("#s_os_dum02");
-	instance_hide("#s_os_dum01",true);	
-	instance_hide("#s_os_dum02",true);
-	instance_enable("#s_os_dum01",false);	
-	instance_enable("#s_os_dum02",false);
-	instance_enable("Erst#s_os",true);
+	disablenpc("#s_os_dum01");
+	disablenpc("#s_os_dum02");
+	enablenpc("#s_os_dum01");
+	enablenpc("#s_os_dum02");
+	enablenpc("Erst#s_os");
 	cutin "ep162_est01",2;
 	mes "[ Erst ]";
 	mes "Oh...";
@@ -508,16 +508,16 @@ OnTalk:
 	mes "Didn't you just did now?";
 	mes "I don't think I heard that wrong. Did I?";
 	next;
-	instance_enable("Cotnes#s_os3",false);
-	instance_enable("Cotnes#s_os4",true);
+	enablenpc("Cotnes#s_os3");
+	enablenpc("Cotnes#s_os4");
 	cutin "ep162_ctn01",2;
 	mes "[ Cotnes ]";
 	mes "You two really~";
 	mes "Please stop fighting.";
 	npctalk "Cotnes : You two really~ Please stop fighting.",.@cot$;
 	next;
-	instance_enable("Dien#s_os4",false);
-	instance_enable("Dien#s_os5",true);
+	enablenpc("Dien#s_os4");
+	enablenpc("Dien#s_os5");
 	cutin "ep162_dn03",2;
 	mes "[ Dien ]";
 	mes "How do you always fight like that?";
@@ -541,15 +541,15 @@ OnTalk:
 	npctalk "Cotnes : Yeah~ I'm tired of fighting, let's go back to work. The road is open now.",.@cot$;
 	close2;
 	cutin "",255;
-	instance_event("#171_sealedos_control","OnEvent05",false);
+	donpcevent("#171_sealedos_control::OnEvent05");
 	end;
 }
 
 1@os_b,148,217,3	duplicate(dummynpc2)	Erst#s_os	4_F_ESTLOVELOY
 1@os_b,142,225,5	duplicate(dummynpc2)	Cotnes#s_os4	4_F_COATNEIS
 1@os_b,143,222,5	duplicate(dummynpc2)	Dien#s_os5	4_F_DIENE
-1@os_b,144,221,5	duplicate(dummynpc2)	#s_os_dum01	20363
-1@os_b,148,221,3	duplicate(dummynpc2)	#s_os_dum02	20365
+1@os_b,144,221,5	duplicate(dummynpc2)	#s_os_dum01	EP17_1_VENENUM1
+1@os_b,148,221,3	duplicate(dummynpc2)	#s_os_dum02	EP17_1_TWIN_CAPUT1
 
 1@os_b,259,360,5	script	Dien#s_os6	4_F_DIENE,{
 	cutin "ep162_dn03",2;
@@ -646,7 +646,7 @@ OnTalk:
 	warp "ein_fild03",258,267;
 	instance_destroy();
 	end;
-	
+
 OnInstanceInit:
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"isbegin_quest(11600) == 1");
 end;
@@ -679,7 +679,7 @@ end;
 
 1@os_b,1,1,0	script	#sealedos_mob_1	HIDDEN_WARP_NPC,{
 OnSpawn:
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	npctalk "Cotnes : This way.",instance_npcname("Dien#s_os2");
 	sleep 1500;
 	npctalk "Dien : Oh my... what a surprise!",instance_npcname("Dien#s_os2");
@@ -690,12 +690,12 @@ OnSpawn:
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount(.@map$,.@event$)){
-		instance_enable(strnpcinfo(0),false);
-		set_instance_var("s_os",2);
-		instance_enable("Suspicious Device#s_os_trigger",true);
+		enablenpc(strnpcinfo(0));
+		set 's_os,2;
+		enablenpc("Suspicious Device#s_os_trigger");
 		mapannounce .@map$,"Ridsh : While we are dealing with the enemies, turn of the device at the bottom.",bc_map,0xFF0000;
 	}
 end;
@@ -703,32 +703,32 @@ end;
 
 1@os_b,204,266,0	script	#s_os_trap_0	4_PURPLE_WARP,2,3,{
 	end;
-	
+
 OnTouch:
 	.@i = atoi(replacestr(strnpcinfo(2),"s_os_trap_",""));
-	if(get_instance_var("trap[" + .@i + "]"))
+	if('trap[" + .@i + "])
 		end;
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	switch(.@i){
-		case 0: setarray .@xy,209,264,20363,209,268,20355; break;		
-		case 1: setarray .@xy,234,269,20357,236,266,20357; break;		
+		case 0: setarray .@xy,209,264,20363,209,268,20355; break;
+		case 1: setarray .@xy,234,269,20357,236,266,20357; break;
 		case 2: setarray .@xy,250,268,20363,252,266,20355; break;
 		case 3: setarray .@xy,263,285,20361,259,286,20365; break;
 		case 4: setarray .@xy,262,303,20355,258,306,20355; break;
 		case 5: setarray .@xy,262,318,20363,259,320,20361; break;
 		case 6: setarray .@xy,258,336,20365,263,338,20355; break;
 	}
-	set_instance_var("trap[" + .@i + "]",1);
+	setd "'" + trap[" + .@i + "],1;
 	for(.@j = 0; .@j < getarraysize(.@xy); .@j += 3)
 		monster .@map$,.@xy[.@j],.@xy[.@j+1],"--ja--",.@xy[.@j+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 end;
-	
+
 OnMobKill:
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount(.@map$,.@event$)){
-		instance_hide(strnpcinfo(0),true);
-		instance_enable(strnpcinfo(0),false);
+		disablenpc(strnpcinfo(0));
+		enablenpc(strnpcinfo(0));
 	}
 end;
 }
@@ -743,9 +743,9 @@ end;
 //= Warp/Other
 1@os_b,187,52,0	script	#os_lock_00	WARPNPC,3,4,{
 	end;
-	
+
 OnTouch:
-	.@map$ = get_instance_var("map$");
+	.@map$ = 'map$;
 	.@ev = atoi(replacestr(strnpcinfo(2),"os_lock_0",""));
 	switch(.@ev){
 		case 0:
@@ -753,10 +753,10 @@ OnTouch:
 		case 2:
 			warp .@map$,188,41;
 			break;
-			
+
 		case 3:
 		case 4:
-			.@var = get_instance_var("s_os");
+			.@var = 's_os;
 			if(.@var < 8){
 				cutin "ep162_dn01",2;
 				mes "[ Dien ]";
@@ -767,7 +767,7 @@ OnTouch:
 			}
 			warp .@map$,114,204;
 			break;
-			
+
 		case 5:
 			warp .@map$,142,220;
 			break;
@@ -777,35 +777,35 @@ end;
 
 1@os_b,191,46,0	duplicate(#os_lock_00)	#os_lock_01	WARPNPC,3,4
 1@os_b,192,49,0	duplicate(#os_lock_00)	#os_lock_02	WARPNPC,3,4
-1@os_b,118,209,0	duplicate(#os_lock_00)	#os_lock_03	WARPNPC,3,4	
+1@os_b,118,209,0	duplicate(#os_lock_00)	#os_lock_03	WARPNPC,3,4
 1@os_b,119,215,0	duplicate(#os_lock_00)	#os_lock_04	WARPNPC,3,4
 1@os_b,147,224,0	duplicate(#os_lock_00)	#os_lock_05	WARPNPC,2,2
 
-1@os_b,203,53,5	duplicate(dummynpc2)	#s_os_dummy00	20357
-1@os_b,202,55,3	duplicate(dummynpc2)	#s_os_dummy01	20357
-1@os_b,198,53,3	duplicate(dummynpc2)	#s_os_dummy02	20355
-1@os_b,199,55,5	duplicate(dummynpc2)	#s_os_dummy03	20355
-1@os_b,201,52,3	duplicate(dummynpc2)	#s_os_dummy04	20363
-1@os_b,200,54,3	duplicate(dummynpc2)	#s_os_dummy05	20361
-1@os_b,194,250,5	duplicate(dummynpc2)	#s_os_dummy06	20357
-1@os_b,196,250,3	duplicate(dummynpc2)	#s_os_dummy07	20355
-1@os_b,195,251,3	duplicate(dummynpc2)	#s_os_dummy08	20363
-1@os_b,205,256,4	duplicate(dummynpc2)	#s_os_dummy09	20365
-1@os_b,193,274,4	duplicate(dummynpc2)	#s_os_dummy10	20365
-1@os_b,199,274,4	duplicate(dummynpc2)	#s_os_dummy11	20361
-1@os_b,205,274,4	duplicate(dummynpc2)	#s_os_dummy12	20363
-1@os_b,213,256,4	duplicate(dummynpc2)	#s_os_dummy13	20357
-1@os_b,125,230,4	duplicate(dummynpc2)	#s_os_dummy14	20365
-1@os_b,129,230,4	duplicate(dummynpc2)	#s_os_dummy15	20361
-1@os_b,228,276,4	duplicate(dummynpc2)	#s_os_dummy16	20361
-1@os_b,243,276,4	duplicate(dummynpc2)	#s_os_dummy17	20361
-1@os_b,231,276,4	duplicate(dummynpc2)	#s_os_dummy18	20365
-1@os_b,240,276,4	duplicate(dummynpc2)	#s_os_dummy19	20365
-1@os_b,260,261,4	duplicate(dummynpc2)	#s_os_dummy20	20365
-1@os_b,262,261,4	duplicate(dummynpc2)	#s_os_dummy21	20363
-1@os_b,265,268,4	duplicate(dummynpc2)	#s_os_dummy22	20361
-1@os_b,252,279,5	duplicate(dummynpc2)	#s_os_dummy23	20363
-1@os_b,252,300,5	duplicate(dummynpc2)	#s_os_dummy24	20363
-1@os_b,252,298,5	duplicate(dummynpc2)	#s_os_dummy25	20361
-1@os_b,266,283,3	duplicate(dummynpc2)	#s_os_dummy26	20355
-1@os_b,134,230,4	duplicate(dummynpc2)	#s_os_dummy27	20363
+1@os_b,203,53,5	duplicate(dummynpc2)	#s_os_dummy00	EP17_1_SANARE1
+1@os_b,202,55,3	duplicate(dummynpc2)	#s_os_dummy01	EP17_1_SANARE1
+1@os_b,198,53,3	duplicate(dummynpc2)	#s_os_dummy02	EP17_1_BELLARE1
+1@os_b,199,55,5	duplicate(dummynpc2)	#s_os_dummy03	EP17_1_BELLARE1
+1@os_b,201,52,3	duplicate(dummynpc2)	#s_os_dummy04	EP17_1_VENENUM1
+1@os_b,200,54,3	duplicate(dummynpc2)	#s_os_dummy05	EP17_1_DOLOR1
+1@os_b,194,250,5	duplicate(dummynpc2)	#s_os_dummy06	EP17_1_SANARE1
+1@os_b,196,250,3	duplicate(dummynpc2)	#s_os_dummy07	EP17_1_BELLARE1
+1@os_b,195,251,3	duplicate(dummynpc2)	#s_os_dummy08	EP17_1_VENENUM1
+1@os_b,205,256,4	duplicate(dummynpc2)	#s_os_dummy09	EP17_1_TWIN_CAPUT1
+1@os_b,193,274,4	duplicate(dummynpc2)	#s_os_dummy10	EP17_1_TWIN_CAPUT1
+1@os_b,199,274,4	duplicate(dummynpc2)	#s_os_dummy11	EP17_1_DOLOR1
+1@os_b,205,274,4	duplicate(dummynpc2)	#s_os_dummy12	EP17_1_VENENUM1
+1@os_b,213,256,4	duplicate(dummynpc2)	#s_os_dummy13	EP17_1_SANARE1
+1@os_b,125,230,4	duplicate(dummynpc2)	#s_os_dummy14	EP17_1_TWIN_CAPUT1
+1@os_b,129,230,4	duplicate(dummynpc2)	#s_os_dummy15	EP17_1_DOLOR1
+1@os_b,228,276,4	duplicate(dummynpc2)	#s_os_dummy16	EP17_1_DOLOR1
+1@os_b,243,276,4	duplicate(dummynpc2)	#s_os_dummy17	EP17_1_DOLOR1
+1@os_b,231,276,4	duplicate(dummynpc2)	#s_os_dummy18	EP17_1_TWIN_CAPUT1
+1@os_b,240,276,4	duplicate(dummynpc2)	#s_os_dummy19	EP17_1_TWIN_CAPUT1
+1@os_b,260,261,4	duplicate(dummynpc2)	#s_os_dummy20	EP17_1_TWIN_CAPUT1
+1@os_b,262,261,4	duplicate(dummynpc2)	#s_os_dummy21	EP17_1_VENENUM1
+1@os_b,265,268,4	duplicate(dummynpc2)	#s_os_dummy22	EP17_1_DOLOR1
+1@os_b,252,279,5	duplicate(dummynpc2)	#s_os_dummy23	EP17_1_VENENUM1
+1@os_b,252,300,5	duplicate(dummynpc2)	#s_os_dummy24	EP17_1_VENENUM1
+1@os_b,252,298,5	duplicate(dummynpc2)	#s_os_dummy25	EP17_1_DOLOR1
+1@os_b,266,283,3	duplicate(dummynpc2)	#s_os_dummy26	EP17_1_BELLARE1
+1@os_b,134,230,4	duplicate(dummynpc2)	#s_os_dummy27	EP17_1_VENENUM1

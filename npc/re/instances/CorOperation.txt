@@ -22,15 +22,15 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 		close;
 	}
 	switch(checkquest(16377,PLAYTIME)){
-		case -1: 
+		case -1:
 			break;
-		case 0: 
+		case 0:
 		case 1:
 			mes "[ Rebellion ]";
 			mes "Mina is feeling more relaxed.";
 			mes "Mina's lovely children are resting?";
 			next;
-			classchange(4_EP17_ELYUMINA,"Elyumina#os_merchant",bc_self);	
+			classchange(4_EP17_ELYUMINA,"Elyumina#os_merchant",bc_self);
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "... the security devices that summon monsters are still at lower power. Don't touch them the can overheat.";
@@ -45,7 +45,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "After dawn, they will have charged up enough so that you can go back!";
 			unittalk getcharid(3),strcharinfo(0) + " : She handles this surprisingly well...",bc_self;
 			close3;
-			
+
 		case 2:
 			break;
 	}
@@ -55,7 +55,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "Oh, adventurer. I haven't seen you in a while! I wanted to ask you something. It's about Mina...";
 			unittalk getcharid(3),strcharinfo(0)+ " : Mina?",bc_self;
 			next;
-			cloaknpc("Elyumina#os_merchant",false,getcharid(0));
+			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "Here, I'll explain. My children who attacked you the last time you followed me...";
@@ -112,14 +112,14 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			next;
 			cutin "",255;
 			break;
-			
-		
+
+
 		case 2:
 			mes "[ Rebellion ]";
 			mes "It's time for Mina's children to wake up, adventurer!";
 			mes "Will they patiently wait this time around?";
 			next;
-			cloaknpc("Elyumina#os_merchant",false,getcharid(0));	
+			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "... they're no longer on low power and the security devices are operation again.";
@@ -130,7 +130,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "Let me know please, I want to get away from this guy.";
 			next;
 			cutin "",255;
-			break;	
+			break;
 	}
 	.@md_name$ = "Cor Mission 2";
 	.@party_id = getcharid(1);
@@ -161,12 +161,12 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 					mes "[ Rebellion ]";
 					mes "You already have an instance active. Please cancel it before proceeding.";
 					close;
-					
+
 				case -4:
 					mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
 					mes "^0000ff"+.@md_name$+" ^000000 is currently full.";
 					end;
-					
+
 				default:
 					mes "[ Rebellion ]";
 					mes "Okay, when everyone is ready. Please talk to me again and choose 'Enter'";
@@ -179,12 +179,12 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 				case 3:
 					mes "An unknown error has occurred.";
 					end;
-					
+
 				case 2:
 				case 1:
 					mes "^ff0000Character doesn't have an instance reserved.^000000";
 					end;
-					
+
 				case 0:
 					mapannounce "sp_cor", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
 					if(!isbegin_quest(16363))
@@ -192,11 +192,11 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 					setquest 16377;
 					end;
 			}
-			
+
 		case 3:
 			break;
 	}
-	end;			
+	end;
 }
 
 sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
@@ -233,7 +233,7 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			setquest 16354;
 			questinfo_refresh();
 			close3;
-			
+
 		case 42:
 			.@party_id = getcharid(1);
 			.@md_name$ = "Cor Mission";
@@ -246,7 +246,7 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 				close3;
 			}
 			for(.@i = 0; .@i < 6; .@i++)
-				cloaknpc("Rebellion#cor_ms_" + .@i,false,getcharid(0));
+				cloakoffnpc("Rebellion#cor_ms_" + .@i,getcharid(0));
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "The blockage of the area is over.";
@@ -290,12 +290,12 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 							mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
 							mes "Player already have instance.";
 							end;
-							
+
 						case -4:
 							mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
 							mes "^0000ff"+.@md_name$+" ^000000 is currently full.";
 							end;
-							
+
 						default:
 							mes "[ Elena Bolkova ]";
 							mes "Talk to me again when you're ready. The operation is going to start soon.";
@@ -315,23 +315,23 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 						case 3:
 							mes "An unknown error has occurred.";
 							end;
-							
+
 						case 2:
 						case 1:
 							mes "^ff0000Character doesn't have an instance reserved.^000000";
 							end;
-							
+
 						case 0:
 							mapannounce "sp_cor", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
 							end;
 					}
-					
+
 				case 3:
 					mes "[ Elena Bolkova ]";
 					mes "Talk to me again when you're ready. The operation is going to start soon.";
 					end;
 			}
-			
+
 		case 43:
 			cutin "162elena_02",2;
 			mes "[ Elena Bolkova ]";
@@ -360,16 +360,16 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			getitem 25723,5;
 			questinfo_refresh();
 			close3;
-			
-		case 44: 
+
+		case 44:
 		case 45:
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "Join them on that <NAVI>[side]<INFO>sp_cor,136,210,0,000,0</INFO></NAVI>.";
 			mes "Lucky will be asking the questions.";
 			close3;
-			
-		case 46: 
+
+		case 46:
 		case 47:
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
@@ -400,12 +400,18 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			close3;
 	}
 	end;
-	
+
 OnInit:
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 41";
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 42";
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 43";
 end;
+}
+
+-	script	dummynpc	-1,{
+	mes "[ " + strnpcinfo(1) + " ]";
+	mes "...";
+	close;
 }
 
 sp_cor,177,165,1	duplicate(dummynpc)	Rebellion#cor_ms_0	4_M_REBELLION3
@@ -417,135 +423,135 @@ sp_cor,183,163,1	duplicate(dummynpc)	Rebellion#cor_ms_5	4_F_REBELLION2
 
 1@cor,1,1,0	script	#171_cor_control	-1,{
 	end;
-	
+
 OnInstanceInit:
 	.@type$ = instance_live_info(ILI_NAME);
 	if(.@type$ == "Cor Mission 2")
 		.@type = 1;
-	set_instance_var("map$",instance_mapname("1@cor"));
-	.@map$ = get_instance_var("map$");
-	setcell .@map$,159,216,159,225,CELL_WALKABLE,0;
-	setcell .@map$,159,216,159,225,CELL_SHOOTABLE,0;
-	setcell .@map$,98,216,98,225,CELL_WALKABLE,0;
-	setcell .@map$,98,216,98,225,CELL_SHOOTABLE,0;	
-	setcell .@map$,132,240,141,240,CELL_WALKABLE,0;
-	setcell .@map$,132,240,141,240,CELL_SHOOTABLE,0;
+	set 'map$,instance_mapname("1@cor");
+	setcell 'map$,159,216,159,225,CELL_WALKABLE,0;
+	setcell 'map$,159,216,159,225,CELL_SHOOTABLE,0;
+	setcell 'map$,98,216,98,225,CELL_WALKABLE,0;
+	setcell 'map$,98,216,98,225,CELL_SHOOTABLE,0;
+	setcell 'map$,132,240,141,240,CELL_WALKABLE,0;
+	setcell 'map$,132,240,141,240,CELL_SHOOTABLE,0;
 	for(.@i = 0; .@i < 4; .@i++){
-		instance_enable("Box#cor_d_box_" + .@i,false);
-		instance_enable("Rebellion#cor_s_box_" + .@i,false);
-		instance_enable("Box#cor_s_box_" + .@i,false);
-		instance_enable("Elyumina#cor_d_box_" + .@i,false);
+		enablenpc("Box#cor_d_box_" + .@i);
+		enablenpc("Rebellion#cor_s_box_" + .@i);
+		enablenpc("Box#cor_s_box_" + .@i);
+		enablenpc("Elyumina#cor_d_box_" + .@i);
 	}
-	instance_enable("Rebellion#cor_s_box_4",false);
-	instance_enable("Elena Bolkova#cor_s2",false);
-	instance_enable("#cor_ms_warp",false);
-	instance_enable("Elena Bolkova#cor_s3",false);
-	instance_enable("Elyumina#cor_end",false);
-	instance_enable("Rebellion#cor_end1",false);
-	instance_enable("Rebellion#cor_end2",false);
-	instance_enable("Elyumina#cor_d2",false);	
+	enablenpc("Rebellion#cor_s_box_4");
+	enablenpc("Elena Bolkova#cor_s2");
+	enablenpc("#cor_ms_warp");
+	enablenpc("Elena Bolkova#cor_s3");
+	enablenpc("Elyumina#cor_end");
+	enablenpc("Rebellion#cor_end1");
+	enablenpc("Rebellion#cor_end2");
+	enablenpc("Elyumina#cor_d2");
 	switch(.@type){
 		case 0:
 			for(.@i = 0; .@i < 6; .@i++)
-				instance_hide("Rebellion#cor_op_" + .@i,true);
-			instance_enable("Elena Bolkova#cor_d",false);
-			instance_enable("Elyumina#cor_d",false);
+				disablenpc("Rebellion#cor_op_" + .@i);
+			enablenpc("Elena Bolkova#cor_d");
+			enablenpc("Elyumina#cor_d");
 		break;
-			
+
 		case 1:
 			for(.@i = 0; .@i < 6; .@i++)
-				instance_enable("Rebellion#cor_op_" + .@i,false);
-			instance_enable("Elena Bolkova#cor_s",false);
-			instance_hide("Elyumina#cor_d",true);
+				enablenpc("Rebellion#cor_op_" + .@i);
+			enablenpc("Elena Bolkova#cor_s");
+			disablenpc("Elyumina#cor_d");
 		break;
 	}
 end;
 
 OnEventStory01:
-	set_instance_var("cor_mission",1);
+	set 'cor_mission,1;
 	for(.@i = 0; .@i < 6; .@i++){
-		instance_hide("Rebellion#cor_op_" + .@i,true);
-		instance_enable("Rebellion#cor_op_" + .@i,false);
+		disablenpc("Rebellion#cor_op_" + .@i);
+		enablenpc("Rebellion#cor_op_" + .@i);
 	}
-	instance_hide("Elena Bolkova#cor_s",true);
-	instance_enable("Elena Bolkova#cor_s",false);
+	disablenpc("Elena Bolkova#cor_s");
+	enablenpc("Elena Bolkova#cor_s");
 	for(.@i = 0; .@i < 4; .@i++){
-		instance_enable("Rebellion#cor_s_box_" + .@i,true);
-		instance_enable("Box#cor_s_box_" + .@i,true);
+		enablenpc("Rebellion#cor_s_box_" + .@i);
+		enablenpc("Box#cor_s_box_" + .@i);
 	}
-	instance_enable("Rebellion#cor_s_box_4",true);
+	enablenpc("Rebellion#cor_s_box_4");
 end;
 
 OnEventStory02:
-	.@map$ = get_instance_var("map$");
-	set_instance_var("cor_mission",5);
-	instance_hide("Rebellion#cor_s_box_1",true);
-	instance_hide("Rebellion#cor_s_box_0",true);
-	instance_hide("Rebellion#cor_s_box_4",true);
-	instance_hide("Box#cor_s_box_0",true);
-	instance_hide("Box#cor_s_box_1",true);
-	instance_enable("Rebellion#cor_s_box_1",false);
-	instance_enable("Rebellion#cor_s_box_0",false);
-	instance_enable("Rebellion#cor_s_box_4",false);
-	instance_enable("Box#cor_s_box_0",false);
-	instance_enable("Box#cor_s_box_1",false);
-	mapannounce .@map$,"Elena Bolkova : Awesome, she came out! I've sent the signal, come to my location!",bc_yellow;
-	instance_enable("Elena Bolkova#cor_s2",true);
+	set 'cor_mission,5;
+	disablenpc("Rebellion#cor_s_box_1");
+	disablenpc("Rebellion#cor_s_box_0");
+	disablenpc("Rebellion#cor_s_box_4");
+	disablenpc("Box#cor_s_box_0");
+	disablenpc("Box#cor_s_box_1");
+	enablenpc("Rebellion#cor_s_box_1");
+	enablenpc("Rebellion#cor_s_box_0");
+	enablenpc("Rebellion#cor_s_box_4");
+	enablenpc("Box#cor_s_box_0");
+	enablenpc("Box#cor_s_box_1");
+	mapannounce 'map$,"Elena Bolkova : Awesome, she came out! I've sent the signal, come to my location!",bc_yellow;
+	enablenpc("Elena Bolkova#cor_s2");
 	viewpoint 1,172,223,5,0xFFFFFF;
 	viewpoint 2,160,119,2,0xFFFFFF;
 	viewpoint 2,140,79,1,0xFFFFFF;
-	instance_event(strnpcinfo(0),"OnCenterPoint",false);
+	donpcevent(strnpcinfo(0) + "::OnCenterPoint");
 end;
 
 OnEventStory03:
-	instance_event(strnpcinfo(0),"OnRemoveCenter",false);
-	instance_hide("Elena Bolkova#cor_s2",true);
-	instance_enable("Elena Bolkova#cor_s2",false);
-	instance_event("#cor_ms_warp","OnActive",false);
-	instance_event("#cor_mob_boss","OnSpawn",false);
+	donpcevent(strnpcinfo(0) + "::OnRemoveCenter");
+	disablenpc("Elena Bolkova#cor_s2");
+	enablenpc("Elena Bolkova#cor_s2");
+	donpcevent("#cor_ms_warp::OnActive");
+	donpcevent("#cor_mob_boss::OnSpawn");
 end;
 
 OnCenterPoint:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 1,172,223,5,0xFFFFFF;
 end;
 
 OnRemoveCenter:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,172,223,5,0xFFFFFF;
 end;
 
 OnEventDaily01:
-	set_instance_var("cor_mission",1);
-	instance_hide("Elyumina#cor_d",true);
-	instance_hide("Elena Bolkova#cor_d",true);
-	instance_enable("Elena Bolkova#cor_d",false);
-	instance_enable("Elyumina#cor_d",false);
+	set 'cor_mission,1;
+	disablenpc("Elyumina#cor_d");
+	disablenpc("Elena Bolkova#cor_d");
+	enablenpc("Elena Bolkova#cor_d");
+	enablenpc("Elyumina#cor_d");
 	for(.@i = 0; .@i < 4; .@i++){
-		instance_enable("Elyumina#cor_d_box_" + .@i,true);
-		instance_enable("Box#cor_d_box_" + .@i,true);
+		enablenpc("Elyumina#cor_d_box_" + .@i);
+		enablenpc("Box#cor_d_box_" + .@i);
 	}
 end;
 
 OnEventDaily02:
-	.@map$ = get_instance_var("map$");
-	set_instance_var("cor_mission",6);
-	instance_event(strnpcinfo(0),"OnCenterPoint",false);
-	mapannounce .@map$,"Elena Bolkova : Once you've covered all of them, come to the barracks and Elyumina will guide you!",bc_yellow;
-	instance_enable("Elyumina#cor_d2",true);
+	set 'cor_mission,6;
+	donpcevent(strnpcinfo(0) + "::OnCenterPoint");
+	mapannounce 'map$,"Elena Bolkova : Once you've covered all of them, come to the barracks and Elyumina will guide you!",bc_yellow;
+	enablenpc("Elyumina#cor_d2");
 end;
 
 OnEventDaily03:
-	instance_event(strnpcinfo(0),"OnRemoveCenter",false);
-	instance_hide("Elyumina#cor_d2",true);
-	instance_enable("Elyumina#cor_d2",false);
-	instance_event("#cor_ms_warp","OnActive",false);
-	instance_event("#cor_mob_boss","OnSummon",false);
+	donpcevent(strnpcinfo(0) + "::OnRemoveCenter");
+	disablenpc("Elyumina#cor_d2");
+	enablenpc("Elyumina#cor_d2");
+	donpcevent("#cor_ms_warp::OnActive");
+	donpcevent("#cor_mob_boss::OnSummon");
 end;
+}
+
+-	script	dummynpc2	-1,{
+	mes "...";
+	close;
 }
 
 1@cor,178,172,3	duplicate(dummynpc2)	Elyumina#cor_d	4_EP17_ELYUMINA
@@ -553,18 +559,17 @@ end;
 1@cor,180,169,3	script	Elena Bolkova#cor_s	4_F_ELENA,4,4,{
 	if(is_party_leader() == false)
 		end;
-	.@var = get_instance_var("cor_mission");
-	if(!.@var){
-		set_instance_var("party_id",getcharid(1));
+	if(!'cor_mission){
+		set 'party_id,getcharid(1);
 		cutin "162elena_01",2;
 		mes "[ Elena Bolkova ]";
 		mes "I'll start explaining the operation. First...";
 		specialeffect EF_SCREEN_QUAKE;
 		for(.@i = 0; .@i < 6; .@i++)
-			instance_hide("Rebellion#cor_op_" + .@i,false);		
+			disablenpc("Rebellion#cor_op_" + .@i);
 		next;
 		mes "[ Elena Bolkova ]";
-		mes "I'll start explaining the operation. First...";		
+		mes "I'll start explaining the operation. First...";
 		mes "... now everyone is up to date.";
 		next;
 		cutin "",255;
@@ -576,7 +581,7 @@ end;
 		mes "There are 4 identified locations these explosion came from! I have ^0000FFshown them on your minimap.^000000";
 		viewpoint 1,140,79,1,0xFFFFFF;
 		viewpoint 1,160,119,2,0xFFFFFF;
-		viewpoint 1,220,170,3,0xFFFFFF;	
+		viewpoint 1,220,170,3,0xFFFFFF;
 		viewpoint 1,222,236,4,0xFFFFFF;
 		next;
 		mes "[ Elena Bolkova ]";
@@ -600,10 +605,10 @@ end;
 		mes "I ask you to act separately adventurer. Please check ^0000FFyour minimap^000000 to organize the situationn as quickly as possible. Join the team if they need support!";
 		close2;
 		cutin "",255;
-		instance_event("#171_cor_control","OnEventStory01",false);
+		donpcevent("#171_cor_control::OnEventStory01");
 	}
 	end;
-	
+
 OnTouch:
 	npctalk "Elena Bolkova : This way. Let's gather and brief our troops.";
 end;
@@ -612,8 +617,7 @@ end;
 1@cor,172,223,3	script	Elena Bolkova#cor_s2	4_F_ELENA,{
 	if(is_party_leader() == false)
 		end;
-	.@var = get_instance_var("cor_mission");
-	if(.@var == 5){
+	if('cor_mission == 5){
 		cutin "162elena_01",2;
 		mes "[ Elena Bolkova ]";
 		mes "I've been waiting for you. I've found the crazy researcher.";
@@ -650,7 +654,7 @@ end;
 		close2;
 		cutin "",255;
 		viewpoint 2,172,223,5,0xFFFFFF;
-		instance_event("#171_cor_control","OnEventStory03",false);
+		donpcevent("#171_cor_control::OnEventStory03");
 	}
 	end;
 }
@@ -658,10 +662,9 @@ end;
 1@cor,180,169,3	script	Elena Bolkova#cor_d	4_F_ELENA,4,4,{
 	if(is_party_leader() == false)
 		end;
-	.@var = get_instance_var("cor_mission");
-	if(!.@var){
-		set_instance_var("party_id",getcharid(1));
-		instance_hide("Elyumina#cor_d",false);
+	if(!'cor_mission){
+		set 'party_id,getcharid(1);
+		disablenpc("Elyumina#cor_d");
 		cutin "162elena_01",2;
 		mes "[ Elena Bolkova ]";
 		mes "Here's the situation... Actually, the criminal will be giving you the briefing.";
@@ -679,7 +682,7 @@ end;
 		npctalk "So noisy. Alright, let's get started. Are you part of the PSU now?";
 		next;
 		cutin "ep171_elyumina03",0;
-		mes "[ Elyumina ]";		
+		mes "[ Elyumina ]";
 		mes "Yes, I am... are you afraid of me?";
 		mes "Hey, I'll do the explaining because those are my children behind there!";
 		npctalk "Yes, I am... are you afraud of me? Hey, I'll do the explaining because those are my children behind there!",instance_npcname("Elyumina#cor_d");
@@ -718,20 +721,19 @@ end;
 		cutin "",255;
 		viewpoint 1,140,79,1,0xFFFFFF;
 		viewpoint 1,160,119,2,0xFFFFFF;
-		viewpoint 1,220,170,3,0xFFFFFF;	
+		viewpoint 1,220,170,3,0xFFFFFF;
 		viewpoint 1,222,236,4,0xFFFFFF;
-		instance_event("#171_cor_control","OnEventDaily01",false);
-		instance_event(strnpcinfo(0),"OnActiveView",false);
+		donpcevent("#171_cor_control::OnEventDaily01");
+		donpcevent(strnpcinfo(0) + "::OnActiveView");
 	}
 	end;
-	
+
 OnActiveView:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$){
+	if(strcharinfo(3) == 'map$){
 		setarray .@xy,140,79,160,119,220,170,222,236;
 		for(.@i = 0; .@i < getarraysize(.@xy); .@i += 2){
-			if(get_instance_var("cor_d_box_" +.@i) < 2)
+			if(getd("'cor_d_box_" +.@i) < 2)
 				viewpoint 1,.@xy[.@i],.@xy[.@i+1],.@i+1,0xFFFFFF;
 		}
 	}
@@ -740,9 +742,8 @@ end;
 
 1@cor,172,223,3	script	Elyumina#cor_d2	4_EP17_ELYUMINA,{
 	if(is_party_leader() == false)
-		end;	
-	.@var = get_instance_var("cor_mission");
-	if(.@var == 6){
+		end;
+	if('cor_mission == 6){
 		cutin "ep171_elyumina03",0;
 		mes "[ Elyumina ]";
 		mes "That was fast... It was expected that my kids wouldn't win though.";
@@ -752,7 +753,7 @@ end;
 		cutin "ep171_elyumina01",0;
 		mes "[ Elyumina ]";
 		mes "... are you going straight for my EL1-A17T?";
-		mapannounce .@map$,"Elena Bolkova : Yeah, damn criminal! Why don't you open the portal right now?",bc_yellow;
+		mapannounce 'map$,"Elena Bolkova : Yeah, damn criminal! Why don't you open the portal right now?",bc_yellow;
 		npctalk "Elyumina : ... are you going straight for my EL1-A17T?";
 		next;
 		if(select("Go in.:Don't go in yet.") == 2){
@@ -768,14 +769,13 @@ end;
 		close2;
 		cutin "",255;
 		viewpoint 2,172,223,5,0xFFFFFF;
-		instance_event("#171_cor_control","OnEventDaily03",false);
+		donpcevent("#171_cor_control::OnEventDaily03");
 	}
 	end;
-	
+
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,172,223,5,0xFFFFFF;
 end;
 }
@@ -787,7 +787,7 @@ end;
 	next;
 	mes "[ Rebellion ]";
 	mes "Let's show them what we're all about, and that we're good guys.";
-	close;	
+	close;
 }
 
 1@cor,160,117,1	script	Rebellion#cor_s_box_1	4_M_GONY,{
@@ -797,7 +797,7 @@ end;
 }
 
 1@cor,218,172,5	script	Rebellion#cor_s_box_2	4_F_REBELLION2,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(.@var == 2){
 		mes "[ Rebellion ]";
 		mes "It's an awful but interesting device. It wasn't a device meant to summon monsters.";
@@ -812,27 +812,26 @@ end;
 		mes "So, it looks like this is over, I'll go join another team! You should too.";
 		viewpoint 2,220,170,3,0xFFFFFF;
 		close2;
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		instance_hide(strnpcinfo(0),true);
-		instance_hide("Box#cor_s_box_2",true);
-		instance_enable(strnpcinfo(0),false);
-		instance_enable("Box#cor_s_box_2",false);
-		instance_event(strnpcinfo(0),"OnRemove",false);
-		if(get_instance_var("cor_mission") == 3)
-			instance_event("#171_cor_control","OnEventStory02",true);
+		set 'cor_mission,'cor_mission + 1;
+		disablenpc(strnpcinfo(0));
+		disablenpc("Box#cor_s_box_2");
+		enablenpc(strnpcinfo(0));
+		enablenpc("Box#cor_s_box_2");
+		donpcevent(strnpcinfo(0) + "::OnRemove");
+		if('cor_mission == 3)
+			donpcevent("#171_cor_control::OnEventStory02");
 	}
 	end;
-	
+
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,220,170,3,0xFFFFFF;
 end;
 }
 
 1@cor,224,238,3	script	Rebellion#cor_s_box_3	4_M_REBELLION3,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(.@var == 2){
 		mes "[ Rebellion ]";
 		mes "Sorry for the late analysis. It wasn't a device to summon monsters.";
@@ -850,20 +849,19 @@ end;
 		mes "It looks like you've found something interesting here. You should check out the other teams!";
 		viewpoint 2,222,236,4,0xFFFFFF;
 		close2;
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		instance_hide(strnpcinfo(0),true);
-		instance_hide("Box#cor_s_box_3",true);
-		instance_enable(strnpcinfo(0),false);
-		instance_enable("Box#cor_s_box_3",false);
-		if(get_instance_var("cor_mission") == 3)
-			instance_event("#171_cor_control","OnEventStory02",true);
+		set 'cor_mission,'cor_mission + 1;
+		disablenpc(strnpcinfo(0));
+		disablenpc("Box#cor_s_box_3");
+		enablenpc(strnpcinfo(0));
+		enablenpc("Box#cor_s_box_3");
+		if('cor_mission == 3)
+			donpcevent("#171_cor_control::OnEventStory02");
 	}
 	end;
-	
+
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,222,236,4,0xFFFFFF;
 end;
 }
@@ -879,36 +877,34 @@ end;
 
 1@cor,161,221,0	script	#cor_ms_warp	WARPNPC,2,2,{
 	end;
-	
+
 OnActive:
-	instance_enable(strnpcinfo(0),true);
+	enablenpc(strnpcinfo(0));
 	specialeffect EF_BASH;
 	specialeffect EF_READYPORTAL;
 end;
 
 OnTouch:
-	.@map$ = get_instance_var("map$");
-	warp .@map$,151,220;
+	warp 'map$,151,220;
 end;
 }
 
 1@cor,140,82,3	script	Elyumina#cor_d_box_0	4_EP17_ELYUMINA,{
-	.@var = get_instance_var("cor_mission");
-	if(.@var == 6){
+	if('cor_mission == 6){
 		npctalk "Elyumina : You know where the barrack is? I showed it up on your minimap. I'll follow you soon.";
-		instance_event("#171_cor_control","OnCenterPoint",false);
+		donpcevent("#171_cor_control::OnCenterPoint");
 		end;
 	}
-	.@num = get_instance_var(strnpcinfo(2));
+	.@num = getd("'" + strnpcinfo(2));
 	if(.@num == 1){
 		npctalk "Elyumina : You have so much free time, you're chatting during battle? Huh, it's a little annoying.";
 		end;
-	} else 
+	} else
 	if(.@num == 2){
 		npctalk "Elyumina : Very good combat data... Well, you can go ahead now!";
 		end;
 	}
-	if(.@var)
+	if('cor_mission)
 		npctalk "Elyumina : Here, here! Please be careful. Touch the box and it will activate.";
 	end;
 }
@@ -932,61 +928,57 @@ end;
 	mes "We will now conduct our search, until the signal comes. Adventurer, be careful!";
 	viewpoint 2,140,79,1,0xFFFFFF;
 	close2;
-	instance_hide("Rebellion#cor_s_box_0",true);
-	instance_hide("Rebellion#cor_s_box_4",true);
-	instance_hide(strnpcinfo(0),true);
-	instance_enable("Rebellion#cor_s_box_0",false);
-	instance_enable("Rebellion#cor_s_box_4",false);
-	instance_enable(strnpcinfo(0),false);
-	instance_event(strnpcinfo(0),"OnRemove",false);
+	disablenpc("Rebellion#cor_s_box_0");
+	disablenpc("Rebellion#cor_s_box_4");
+	disablenpc(strnpcinfo(0));
+	enablenpc("Rebellion#cor_s_box_0");
+	enablenpc("Rebellion#cor_s_box_4");
+	enablenpc(strnpcinfo(0));
+	donpcevent(strnpcinfo(0) + "::OnRemove");
 	end;
-	
+
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,140,79,1,0xFFFFFF;
 end;
 }
 
 
 1@cor,140,79,3	script	Box#cor_d_box_0	4_WOODBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var)
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	end;
-	
+
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	specialeffect EF_BAKU;
 	setarray .@xy,141,78,20356,141,80,20343,140,73,20343,137,72,20356,138,83,20356,133,83,20342,143,78,20342,144,79,20342,145,80,20342,143,82,20342,145,76,20342;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	sleep 1500;
-	monster .@map$,140,79,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+	monster 'map$,140,79,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
-		instance_hide(strnpcinfo(0),true);
-		instance_enable(strnpcinfo(0),false);
-		instance_event(strnpcinfo(0),"OnRemove",false);
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
+		set 'cor_mission,'cor_mission + 1;
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+		disablenpc(strnpcinfo(0));
+		enablenpc(strnpcinfo(0));
+		donpcevent(strnpcinfo(0) + "::OnRemove");
 		viewpoint 2,140,79,1,0xFFFFFF;
-		if(get_instance_var("cor_mission") == 5)
-			instance_event("#171_cor_control","OnEventDaily02",false);
+		if('cor_mission == 5)
+			donpcevent("#171_cor_control::OnEventDaily02");
 	}
 end;
 
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,140,79,1,0xFFFFFF;
 end;
 
@@ -1015,63 +1007,59 @@ end;
 	mes "- Let's go support another team. -";
 	viewpoint 2,160,119,2,0xFFFFFF;
 	close2;
-	instance_hide("Rebellion#cor_s_box_1",true);
-	instance_hide(strnpcinfo(0),true);
-	instance_enable("Rebellion#cor_s_box_1",false);
-	instance_enable(strnpcinfo(0),false);
-	instance_event(strnpcinfo(0),"OnRemove",false);
+	disablenpc("Rebellion#cor_s_box_1");
+	disablenpc(strnpcinfo(0));
+	enablenpc("Rebellion#cor_s_box_1");
+	enablenpc(strnpcinfo(0));
+	donpcevent(strnpcinfo(0) + "::OnRemove");
 	end;
-	
+
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,160,119,2,0xFFFFFF;
 end;
 }
 
 1@cor,160,119,3	script	Box#cor_d_box_1	4_STEELBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var)
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	end;
-	
+
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	specialeffect EF_BAKU;
 	setarray .@xy,159,114,20355,159,113,20343,162,113,20343,162,114,20341,167,112,20355,164,117,20341,165,117,20341,168,119,20341,156,123,20341,156,124,20341,159,127,20355;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,.@event$ ;
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,.@event$ ;
 	sleep 1000;
-	while(mobcount(.@map$,.@event$)){
-		if(mobcount(.@map$,.@event$))
-			monster .@map$,160,119,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+	while(mobcount('map$,.@event$)){
+		if(mobcount('map$,.@event$))
+			monster 'map$,160,119,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
 		sleep 10000;
 	}
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
-		instance_hide(strnpcinfo(0),true);
-		instance_enable(strnpcinfo(0),false);
-		instance_event(strnpcinfo(0),"OnRemove",false);
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
+		set 'cor_mission,'cor_mission + 1;
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+		disablenpc(strnpcinfo(0));
+		enablenpc(strnpcinfo(0));
+		donpcevent(strnpcinfo(0) + "::OnRemove");
 		viewpoint 2,160,119,2,0xFFFFFF;
-		if(get_instance_var("cor_mission") == 5)
-			instance_event("#171_cor_control","OnEventDaily02",false);
+		if('cor_mission == 5)
+			donpcevent("#171_cor_control::OnEventDaily02");
 	}
 end;
 
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,160,119,2,0xFFFFFF;
 end;
 
@@ -1081,7 +1069,7 @@ end;
 
 
 1@cor,220,170,3	script	Box#cor_s_box_2	4_WOODBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var){
 		mes "[ Rebellion ]";
 		mes "The cause of the explosion is unknown, but I've found this suspicious box at the site. It seems to be some sort of mechanism.";
@@ -1091,29 +1079,27 @@ end;
 		mes "Something's happenning!";
 		close2;
 		specialeffect EF_BAKU;
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	}
 	end;
 
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	setarray .@xy,224,164,20342,215,175,20342,222,174,20342;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	sleep 1500;
-	monster .@map$,220,170,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+	monster 'map$,220,170,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
 end;
 
 OnPoisonKill:
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
 		npctalk "They suffered! Please listen to what I have to say before helping another team.",instance_npcname("Rebellion#cor_s_box_2");
 		viewpoint 2,220,170,3,0xFFFFFF;
 	}
@@ -1121,42 +1107,39 @@ end;
 }
 
 1@cor,220,170,3	script	Box#cor_d_box_2	4_WOODBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var)
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	end;
-	
+
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	specialeffect EF_BAKU;
 	setarray .@xy,222,168,20356,223,166,20343,219,162,20356,219,158,20343,215,158,20343,220,170,20342,219,169,20342,221,171,20342,217,177,20342,215,171,20342,227,175,20342,226,176,20356;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	sleep 1500;
-	monster .@map$,220,170,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+	monster 'map$,220,170,"",20344,1,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
-		instance_hide(strnpcinfo(0),true);
-		instance_enable(strnpcinfo(0),false);
-		instance_event(strnpcinfo(0),"OnRemove",false);
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
+		set 'cor_mission,'cor_mission + 1;
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnPoisonKill";
+		disablenpc(strnpcinfo(0));
+		enablenpc(strnpcinfo(0));
+		donpcevent(strnpcinfo(0) + "::OnRemove");
 		viewpoint 2,220,170,3,0xFFFFFF;
-		if(get_instance_var("cor_mission") == 5)
-			instance_event("#171_cor_control","OnEventDaily02",false);
+		if('cor_mission == 5)
+			donpcevent("#171_cor_control::OnEventDaily02");
 	}
 end;
 
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,220,170,3,0xFFFFFF;
 end;
 
@@ -1165,7 +1148,7 @@ end;
 }
 
 1@cor,222,236,3	script	Box#cor_s_box_3	4_STEELBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var){
 		mes "[ Rebellion ]";
 		mes "The cause of the explosion is unknown, but I've found this suspicious box at the site. It seems to be some sort of mechanism.";
@@ -1175,32 +1158,30 @@ end;
 		mes "Something's happenning!";
 		close2;
 		specialeffect EF_BAKU;
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	}
 	end;
-	
+
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	setarray .@xy,229,232,20341,223,239,20341,218,237,20341;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	sleep 1000;
-	while(mobcount(.@map$,.@event$)){
-		if(mobcount(.@map$,.@event$))
-			monster .@map$,222,236,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+	while(mobcount('map$,.@event$)){
+		if(mobcount('map$,.@event$))
+			monster 'map$,222,236,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
 		sleep 10000;
 	}
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
 		viewpoint 2,222,236,4,0xFFFFFF;
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
 	}
 end;
 
@@ -1209,47 +1190,44 @@ end;
 }
 
 1@cor,222,236,3	script	Box#cor_d_box_3	4_STEELBOX,{
-	.@var = get_instance_var(strnpcinfo(2));
+	.@var = getd("'" + strnpcinfo(2));
 	if(!.@var)
-		instance_event(strnpcinfo(0),"OnSpawn",false);
+		donpcevent(strnpcinfo(0) + "::OnSpawn");
 	end;
-	
+
 OnSpawn:
-	set_instance_var(strnpcinfo(2),1);
-	.@map$ = get_instance_var("map$");
+	setd "'" + strnpcinfo(2),1;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	specialeffect EF_BAKU;
 	setarray .@xy,224,236,20343,219,224,20343,212,243,20343,216,236,20355,223,228,20355,224,238,20355,222,234,20341,219,236,20341,220,238,20341,224,239,20341,226,240,20341,218,244,20341;
 	for(.@i = 0; .@i < getarraysize(.@xy); .@i += 3)
-		monster .@map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,.@event$;
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"--ja--",.@xy[.@i+2],1,.@event$;
 	sleep 1000;
-	while(mobcount(.@map$,.@event$)){
-		if(mobcount(.@map$,.@event$))
-			monster .@map$,222,236,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+	while(mobcount('map$,.@event$)){
+		if(mobcount('map$,.@event$))
+			monster 'map$,222,236,"",20345,1,instance_npcname(strnpcinfo(0))+"::OnBombKill";
 		sleep 10000;
 	}
 end;
 
 OnMobKill:
-	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
-	if(!mobcount(.@map$,.@event$)){
-		set_instance_var(strnpcinfo(2),2);
-		set_instance_var("cor_mission",get_instance_var("cor_mission") + 1);
-		killmonster .@map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
-		instance_hide(strnpcinfo(0),true);
-		instance_enable(strnpcinfo(0),false);
-		instance_event(strnpcinfo(0),"OnRemove",false);
+	if(!mobcount('map$,.@event$)){
+		setd "'" + strnpcinfo(2),2;
+		set 'cor_mission,'cor_mission + 1;
+		killmonster 'map$,instance_npcname(strnpcinfo(0))+"::OnBombKill";
+		disablenpc(strnpcinfo(0));
+		enablenpc(strnpcinfo(0));
+		donpcevent(strnpcinfo(0) + "::OnRemove");
 		viewpoint 2,222,236,4,0xFFFFFF;
-		if(get_instance_var("cor_mission") == 5)
-			instance_event("#171_cor_control","OnEventDaily02",false);
+		if('cor_mission == 5)
+			donpcevent("#171_cor_control::OnEventDaily02");
 	}
 end;
 
 OnRemove:
-	.@map$ = get_instance_var("map$");
 	addrid(1,1);
-	if(strcharinfo(3) == .@map$)
+	if(strcharinfo(3) == 'map$)
 		viewpoint 2,222,236,4,0xFFFFFF;
 end;
 
@@ -1258,8 +1236,7 @@ end;
 }
 
 1@cor,138,221,3	script	Elena Bolkova#cor_s3	4_F_ELENA,{
-	.@var = get_instance_var("cor_mission");
-	if(.@var == 4){
+	if('cor_mission == 4){
 		cutin "162elena_02",2;
 		mes "[ Elena Bolkova ]";
 		mes "Good work, " +strcharinfo(0)+ ". The operation was a success!";
@@ -1334,39 +1311,36 @@ end;
 
 1@cor,1,1,0	script	#cor_mob_boss	-1,{
 	end;
-	
+
 OnSpawn:
-	.@map$ = get_instance_var("map$");
-	monster .@map$,138,221,"--ja--",20340,1,instance_npcname(strnpcinfo(0))+"::OnBossKill";
+	monster 'map$,138,221,"--ja--",20340,1,instance_npcname(strnpcinfo(0))+"::OnBossKill";
 	.@boss_id = $@mobid[0];
 	getunitdata .@boss_id ,.@boss;
 	.@MAX_HP = .@boss[3];
 	.@DAMAGE = (.@MAX_HP/10) * 9;
 	.@HP = (.@MAX_HP - .@DAMAGE);
 	setunitdata .@boss_id ,UMOB_HP,.@HP;
-	//mapannounce .@map$,"Elyumina : It's beginning to spread. Prepare yourself!",bc_yellow;	
+	//mapannounce 'map$,"Elyumina : It's beginning to spread. Prepare yourself!",bc_yellow;
 end;
 
 OnSummon:
 	//Todo add script skills from boss
-	.@map$ = get_instance_var("map$");
-	monster .@map$,138,221,"--ja--",20340,1,instance_npcname(strnpcinfo(0))+"::OnDailyKill";
+	monster 'map$,138,221,"--ja--",20340,1,instance_npcname(strnpcinfo(0))+"::OnDailyKill";
 	.@boss_id = $@mobid[0];
 end;
 
 OnBossKill:
-	set_instance_var("cor_mission",4);
-	instance_enable("Elena Bolkova#cor_s3",true);
-	instance_enable("Elyumina#cor_end",true);
-	instance_enable("Rebellion#cor_end1",true);
-	instance_enable("Rebellion#cor_end2",true);	
+	set 'cor_mission,4;
+	enablenpc("Elena Bolkova#cor_s3");
+	enablenpc("Elyumina#cor_end");
+	enablenpc("Rebellion#cor_end1");
+	enablenpc("Rebellion#cor_end2");
 end;
 
 OnDailyKill:
-	.@map$ = get_instance_var("map$");
-	set_instance_var("cor_mission",7);
-	instance_enable("Elena Bolkova#cor_s3",true);
-	instance_enable("Elyumina#cor_end",true);
+	set 'cor_mission,7;
+	enablenpc("Elena Bolkova#cor_s3");
+	enablenpc("Elyumina#cor_end");
 end;
 }
 
