@@ -35536,6 +35536,24 @@ Body:
     Name: Knotted Letter
     Type: Etc
     Weight: 1
+  - Id: 25666
+    AegisName: Id_Card
+    Name: Identification Bracelet
+    Weight: 0
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 25668
+    AegisName: EP17_1_EVT01
+    Name: Damaged Weapon
+    Type: Etc
+    Weight: 10
   - Id: 25669
     AegisName: EP17_1_EVT02
     Name: Mysterious Component
