@@ -1008,7 +1008,7 @@ function	script	orimain	{
 	mes "5 Rough Stones to make";
 	mes "1 pure one for you.";
 	next;
-	switch(select("Make Oridecon:Make Elunium:Ask about Enchanted Stones")) {
+	switch(select("Make 1 Oridecon:Make 1 Elunium:Make All Oridecon:Make All Elunium:Ask about Enchanted Stones")) {
 	case 1:
 		if (countitem(756) > 4) {
 			delitem 756,5;  //Oridecon_Stone
@@ -1042,6 +1042,44 @@ function	script	orimain	{
 			close;
 		}
 	case 3:
+		.@rough = countitem(756);
+		.@ores = .@rough / 5;
+		.@cost = .@ores * 5;
+		if (.@rough > 4) {
+			delitem 756,.@cost;  //Oridecon_Stone
+			getitem 984,.@ores; // Oridecon
+			mes "["+ .@npc_name$ +"]";
+			mes "Here's your Oridecon.";
+			mes "You're welcome to come";
+			mes "back whenever you want.";
+			close;
+		}
+		else {
+			mes "["+ .@npc_name$ +"]";
+			mes "You're kidding me, right?";
+			mes "I just told you that I need 5 Rough Oridecons to make a pure Oridecon.";
+			close;
+		}
+	case 4:
+		.@rough = countitem(757);
+		.@ores = .@rough / 5;
+		.@cost = .@ores * 5;
+		if (.@rough > 4) {
+			delitem 757,.@cost;  //Elunium_Stone
+			getitem 985,.@ores; // Elunium
+			mes "["+ .@npc_name$ +"]";
+			mes "Here's your Elunium.";
+			mes "You're welcome to come";
+			mes "back whenever you want.";
+			close;
+		}
+		else {
+			mes "["+ .@npc_name$ +"]";
+			mes "You're kidding me, right?";
+			mes "I just told you that I need 5 Rough Eluniums to make a pure Elunium.";
+			close;
+		}
+	case 5:
 		mes "["+ .@npc_name$ +"]";
 		mes "Enchanted Stones...?";
 		mes "I've been a stonesmith for 20 years, so I've heard a lot about them. Supposedly, there are";
