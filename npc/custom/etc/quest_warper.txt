@@ -1538,12 +1538,12 @@ function	script	QWS_Darray	{
 	setarray @pDmenuitems$[@Di], "Magma Dungeon";
 	setarray @pDprice[@Di], $QW_AW_PRICE;
 	setarray @pDfee$[@Di], "$QW_AW_FEE";
-	setarray @DLevels[@Di], 2;
+	setarray @DLevels[@Di], 3;
 
-	setarray @DGat$[@Dref], "mag_dun01", "mag_dun02";
-	setarray @DLevelName$[@Dref], "Level 1", "Level 2";
-	setarray @DXcoords[@Dref], 126, 47;
-	setarray @DYcoords[@Dref], 69, 32;
+	setarray @DGat$[@Dref], "mag_dun01", "mag_dun02", "mag_dun03";
+	setarray @DLevelName$[@Dref], "Level 1", "Level 2", "Level 3";
+	setarray @DXcoords[@Dref], 126, 47, 123;
+	setarray @DYcoords[@Dref], 69, 32, 121;
 	setarray @DDepth[@Dref], 0, 1;
 
 	QWS_Make_Dungeon_Menu 17;

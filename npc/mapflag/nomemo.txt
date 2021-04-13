@@ -329,6 +329,7 @@ lou_dun01	mapflag	nomemo
 // Magma Dun -----------------
 mag_dun01	mapflag	nomemo
 mag_dun02	mapflag	nomemo
+mag_dun03	mapflag	nomemo
 // Pyrmaids ------------------
 moc_pryd01	mapflag	nomemo
 moc_pryd02	mapflag	nomemo
