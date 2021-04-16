@@ -1181,12 +1181,14 @@ OnStop:
 	end;
 OnStart:
 	enablenpc instance_npcname("#ghmemorialmob05");
+	.spawn_threshold = rand(35) + 50;
 	for ( .@i = 1; .@i <= 7; .@i++ )
 		enablenpc instance_npcname("#ogh_2-" + .@i);
 	end;
 
 OnMyMobDead:
-	if (rand(50) == 0) {// can re-spawn
+	.killcount++;
+	if (.killcount > .spawn_threshold) {// can re-spawn
 		mapannounce 'map_name$[1], "Evil Forces are appearing in this area.", bc_map,0xFFFF44,FW_NORMAL,15;
 		killmonster 'map_name$[1], instance_npcname("#ghmemorialmob05") + "::OnBossDead";
 
@@ -1213,6 +1215,7 @@ OnBossDead:
 	end;
 OnStart:
 	enablenpc instance_npcname("#ghmemorialmob06");
+	.spawn_threshold = rand(35) + 50;
 	for ( .@i = 1; .@i <= 7; .@i++ )
 		enablenpc instance_npcname("#ogh_3-" + .@i);
 
@@ -1265,7 +1268,8 @@ OnStart:
 	end;
 
 OnMyMobDead:
-	if (rand(50) == 0) {// can re-spawn
+	.killcount++;
+	if (.killcount > .spawn_threshold) {// can re-spawn
 		mapannounce 'map_name$[1], "An evil presence has teleported into this area.", bc_map,0xFFFF44,FW_NORMAL,15;
 		killmonster 'map_name$[1], instance_npcname("#ghmemorialmob06") + "::OnBossDead";
 
