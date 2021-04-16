@@ -57,7 +57,8 @@ prt_cas_q,21,39,3	script	Nyhill M. Heine#171_prtq	4_EP16_NIHIL,{
 		mes "I have to go now.";
 		ep_illusion = 1;
 		cloakonnpc(strnpcinfo(0),getcharid(0));
-		close;
+		close2;
+		cutin "",255;
 	}
 	end;
 
@@ -155,7 +156,9 @@ rebel_in,161,91,0	script	Ornament Box#rebel_in	HIDDEN_NPC,{
 				case 1:
 					cutin "ep171_trio_memory",1;
 					mes "- It's an old picture with people you've met before. -";
-					close;
+					close2;
+					cutin "",255;
+					end;
 
 				case 2:
 					mes "- I took the picture with me, let's give it back to Dien. -";
@@ -420,14 +423,18 @@ einbroch,42,208,3	script	Lazy#171_einbr	4_M_LAZY,{
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Aren't you supposed to be working right now?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "Hourray, finally some air, huh.";
 			mes "Let's go to Yuno. Huh.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 	}
 
@@ -440,7 +447,9 @@ einbroch,41,204,7	script	Kaya#171_einbr	4_EP17_KAYA,{
 	cutin "ep171_kaya01",2;
 	mes "[ Kaya ]";
 	mes "Don't you want to hear what Daisy want to say?";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -451,7 +460,9 @@ einbroch,39,205,7	script	Ashley#171_einbr	4_EP17_AS,{
 	cutin "ep171_as02",2;
 	mes "[ Ashley ]";
 	mes "Do you know what Daisy is trying to drag us into? Can you believe this?";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -591,14 +602,18 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			completequest 17013;
 			setquest 17014;
 			getitem 25723,20;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 28:
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
 			mes "Did you go to <NAVI>[Cat on Bullet]<INFO>pub_cat,93,105,0,000,0</INFO></NAVI> yet?";
 			mes "Let's hurry. There's still a lot to do.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -613,7 +628,9 @@ ein_fild01,94,145,5	script	Ashley#einf	4_EP17_AS,{
 	mes "[ Ashley ]";
 	mes "Let's go back to <NAVI>[Cat on Bullet]<INFO>pub_cat,93,105,0,000,0</INFO></NAVI>.";
 	mes "I think we should hurry.";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -625,7 +642,9 @@ ein_fild01,97,144,1	script	Lazy#einf	4_M_LAZY,{
 	mes "[ Lazy ]";
 	mes "Let's go to <NAVI>[Cat on Bullet]<INFO>pub_cat,93,105,0,000,0</INFO></NAVI>.";
 	mes "I'm already hungry.";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -762,14 +781,18 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Tess ]";
 			mes "In the meantime, I will try and learn more about Lighthalzen.";
 			mes "You should received enough information to start investigating now.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 3:
 			cutin "ep16_tes01",1;
 			mes "[ Tess ]";
 			mes "<NAVI>[Rudus]<INFO>ein_fild05,158,284,0,000,0</INFO></NAVI> is at Einbroch North-East field.";
 			mes "If you join, it will definitely help.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 7:
 			cutin "ep16_tes01",1;
@@ -797,7 +820,9 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			completequest 7859;
 			setquest 7860;
 			questinfo_refresh();
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 8:
 		case 9:
@@ -805,7 +830,9 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Tess ]";
 			mes "It's that room over there. It's a place where only rebellions can go in or out.";
 			mes "All the captains are inside.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 10:
 			cutin "ep16_tes01",1;
@@ -816,7 +843,9 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Tess ]";
 			mes "Erst will also be there, you'll find the location easily.";
 			mes "I hope this mission goes well.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 11:
 			cutin "ep16_tes01",2;
@@ -827,7 +856,9 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Tess ]";
 			mes "Please bring back as much data and information as you can from there.";
 			mes "If not now, when would you shake up the Enterprise's labs?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 12:
 			cutin "ep16_tes01",2;
@@ -848,14 +879,18 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			setquest 7864;
 			getitem 25669,25;
 			getexp 1000000,800000;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 13:
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "Lazy seems to be up to something.";
 			mes "He's somewhere here in the pub, go and find him.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 28:
 			cutin "ep16_tes01",1;
@@ -930,7 +965,9 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			ep_illusion = 29;
 			completequest 17014;
 			setquest 7865;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 29:
 			mes "[ Tess ]";
@@ -953,12 +990,16 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 				mes "I will analyze this along with the other materials.";
 				getexp 200000,200000;
 				completequest 7863;
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "I'm a bit tired. There are tons of documents to analyze.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -968,7 +1009,7 @@ OnInit:
 end;
 }
 
-pub_cat,95,103,3	duplicate(dummynpc)	Elena Bolkova#171_cat	4_F_ELENA
+pub_cat,95,105,3	duplicate(dummynpc)	Elena Bolkova#171_cat	4_F_ELENA
 
 pub_cat,151,105,0	script	#EP171_EVT_CAT00	HIDDEN_WARP_NPC,3,2,{
 	end;
@@ -1198,7 +1239,9 @@ pub_cat,160,102,5	script	Philofontes#171_cat2	4_M_PHILOFONTES,{
 			ep_illusion = 9;
 			cloakonnpc("Rekenber Senior Guard#171_cat",getcharid(0));
 			cloakonnpc("Commander Erst#171_cat",getcharid(0));
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 9:
 			npctalk "I think Kaya has something else to say.","",bc_self;
@@ -1217,7 +1260,9 @@ pub_cat,163,102,3	script	Middle-Aged Man#171_cat	4_EP17_KAYA,{
 			cutin "ep171_kaya01",0;
 			mes "[ Middle-Aged Man ]";
 			mes "I don't think I should be starting this conversation, so why do not you speak with Tess instead?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 9:
 			cutin "ep171_kaya01",2;
@@ -1308,7 +1353,9 @@ pub_cat,163,102,3	script	Middle-Aged Man#171_cat	4_EP17_KAYA,{
 			mes "[ Kaya ]";
 			mes "I'm sorry I can't help you anymore.";
 			mes "I think it may turn into a messy fight.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -1325,7 +1372,9 @@ pub_cat,165,103,3	script	Rekenber Senior Guard#171_cat	4_EP17_AS,{
 	mes "Oh, hello there! My name is Ashley,";
 	mes "from the Rekenber secury support team!";
 	mes "I came here with Kaya!";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -1337,7 +1386,9 @@ pub_cat,166,100,3	script	Commander Erst#171_cat	4_F_ESTLOVELOY,{
 	mes "[ Erst ]";
 	mes "Why should we help them?";
 	mes "Can you explain why we have to cooperate with them?";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -1543,7 +1594,9 @@ pub_cat,106,69,7	script	Lazy#171_cat	4_M_LAZY,{
 		ep_illusion = 14;
 		completequest 7864;
 		setquest 17000;
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
@@ -1673,13 +1726,17 @@ pub_cat,105,58,3	script	Lazy#171_cat2	4_M_LAZY,{
 			ep_illusion = 15;
 			completequest 17000;
 			setquest 17001;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 15:
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "I really like it here. Don't forget about the adventure, there's nothing to worry about.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 16:
 			cutin "16lei_01",2;
@@ -1858,14 +1915,18 @@ pub_cat,105,58,3	script	Lazy#171_cat2	4_M_LAZY,{
 			completequest 17002;
 			setquest 17003;
 			getexp 300000,300000;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 17:
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "What are you doing here?.";
 			mes "Let's go to the <NAVI>[Einbroch Airport]<INFO>einbroch,42,208,0,000,0</INFO></NAVI>.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -2025,19 +2086,25 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 			ep_illusion = 16;
 			completequest 17001;
 			setquest 17002;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 16:
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "Daisy's opinion is hard to accept, but the adventurer's logic is correct. I think... I'll give it a try.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "Didn't you come here to find Daisy?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -2050,7 +2117,9 @@ pub_cat,102,62,5	script	Kaya#171_cat2	4_EP17_KAYA,{
 	cutin "ep171_kaya01",0;
 	mes "[ Kaya ]";
 	mes "I decided to go along with the adventurer's suggestion and conduct a new investigation. But I wonder if I made the right choice.";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -2063,7 +2132,9 @@ pub_cat,112,72,3	script	Ashley#171_cat	4_EP17_AS,{
 	cutin "ep171_as01",1;
 	mes "[ Ashley ]";
 	mes "Daisy, I don't like his eyes and his manner of speech. Are all government people like this?";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -2074,7 +2145,9 @@ pub_cat,104,63,3	script	Ashley#171_cat2	4_EP17_AS,{
 	cutin "ep171_as02",1;
 	mes "[ Ashley ]";
 	mes "I don't know what the Vice President is thinking... But I'm going with him, even if I don't have to.";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -2141,7 +2214,9 @@ lighthalzen,56,270,3	script	Republic Guard#171_light	4_M_EIN_SOLDIER,{
 			setquest 7862;
 			cloakonnpc("Commander Erst#171_light",getcharid(0));
 			cloakonnpc("Emily#171_light",getcharid(0));
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 11:
 			mes "[ Republic Guard ]";
@@ -2164,7 +2239,9 @@ lighthalzen,58,268,3	script	Ashley#171_light	4_EP17_AS,{
 	mes "[ Ashley ]";
 	mes "We have to open the main gate.";
 	mes "Let's open the door with Oscar.";
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -2274,20 +2351,26 @@ lighthalzen,259,215,3	script	Lazy#lhz	4_M_LAZY,{
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "I've found where to go next. Let's go over <NAVI>[here]<INFO>lighthalzen,336,266,0,000,0</INFO></NAVI> next.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 20:
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Let's go to the headquarters. The Rekenber roads are wide and gleaming~ everyone knows about the Schwarzald Republic~";
 			npctalk "The Rekenber roads are wide and gleaming~ everyone knows about the Schwarzald Republic~","",bc_self;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "The Rekenber roads are wide and gleaming~ everyone knows about the Schwarzald Republic~";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -2540,7 +2623,9 @@ lighthalzen,336,266,3	script	Lazy#lhz2	4_M_LAZY,{
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "The Rekenber roads are wide and gleaming~ everyone knows about the Schwarzald Republic~";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -2835,13 +2920,17 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Come on, get inside the <NAVI>[Headquarters]<INFO>lhz_in01,107,137,0,000,0</INFO></NAVI>!";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "The Rekenber roads are wide and gleaming~ everyone knows about the Schwarzald Republic~";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -3835,7 +3924,9 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 			ep_illusion = 4;
 			completequest 7851;
 			setquest 7852;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 4:
 			cutin "162elena_01",2;
@@ -3843,7 +3934,9 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 			mes "I need to find out what's beyond the barrier.";
 			mes "If there's nothing there, I'll withdraw. But if there's nothing at all, I'll go at it with full force.";
 			mes "What do you think?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 5:
 			npctalk "Elena : Ehehehe. Whatever this place is, it'll be a challenge.","",bc_self;
@@ -3855,7 +3948,9 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 				mes "[ Elena Bolkova ]";
 				mes "Do you want to investigate beyond the barrier?";
 				mes "If something suspicious comes up, I'll take care of it!";
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
@@ -3870,14 +3965,18 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 			ep_illusion = 7;
 			getitem 25723,15;
 			getexp 800000,800000;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 7:
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "The USU will manage somehow, you go ahead and report back to Tess about the situation.";
 			mes "In the meantime, I have to help out my team.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "162elena_01",2;
@@ -3889,7 +3988,9 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 			mes "[ Elena Bolkova ]";
 			mes "It would be great if those guys went outside the barrier.";
 			mes "I haven't trained today!";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -3939,7 +4040,9 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 			next;
 			mes "[ Rookie ]";
 			mes "The abandoned mine is beyond this barrier. Be careful.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 5:
 			if(!isbegin_quest(7857)){
@@ -3950,7 +4053,9 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 				next;
 				mes "[ Rookie ]";
 				mes "The abandoned mine is beyond this barrier. Be careful.";
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			cutin "16loo_03",2;
 			mes "[ Rookie ]";
@@ -4000,7 +4105,9 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 			mes "When you want to come out, do 'tock-tock-tock' on the other side and knock on the iron door three times.";
 			mes "I'll open the door from my end.";
 			mes "Of course you can also use magic to get out... Ahaha.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 6:
 			if(checkquest(7858,HUNTING) != 2){
@@ -4009,7 +4116,9 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 				mes "Other rebellion members have already entered.";
 				mes "We're not going to abandon them.";
 				mes "Be careful.";
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			mes "[ Rookie ]";
 			mes "Woah... what the hell happened in there?";
@@ -4023,13 +4132,17 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 			mes "[ Rookie ]";
 			mes "Can the monsters get out from the small gap?";
 			mes "I'll stay here and return with Elena in a bit!";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
 			mes "It's nice to suddenly have so much work to do... But I won't be able to to do everything on own...";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 
 OnInit:
@@ -4147,6 +4260,8 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 		cutin "ep171_morning03",2;
 		sleep2 2000;
 		unittalk getcharid(3),strcharinfo(0) + " : The child is laughing with a bright smile that doesn't match this place.",bc_self;
+		close2;
+		cutin "",255;
 		end;
 	}
 	switch(checkquest(5861,PLAYTIME)){
@@ -5203,13 +5318,17 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			setquest 17016;
 			ep_illusion = 37;
 			questinfo_refresh();
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 37:
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "Even when I tried to persuade them, they didn't listen. It's not easy to change someone's mind. I should discuss it with Tess.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -5225,7 +5344,9 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "The Vice President, Kaya Tess, is going to persuade them. Let's listen to him.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 37:
 			.@old$ = "Worker#171_old";
@@ -5511,7 +5632,9 @@ sp_cor,164,77,1	script	Ashley#os_rb	4_EP17_AS,{
 		mes "[ Ashley ]";
 		mes "Didn't Tess tell you to take action? If you aren't prepared, you should do that now.";
 	}
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 OnInit:
 	cloakonnpc(strnpcinfo(0));
@@ -5796,19 +5919,25 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			cloakonnpc("Ashley#sp_cor2",getcharid(0));
 			sleep2 200;
 			cloakoffnpc("Ashley#sp_cor",getcharid(0));
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 39:
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "Didn't you see <NAVI>[Ashley]<INFO>sp_cor,135,147,0,000,0</INFO></NAVI> going with the Vice President? I'm worried about the wounded people.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "It will take some time to finish the investigation and gather all the data here.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -5823,7 +5952,9 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "It looks like <NAVI>[Ashley]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI> is concerned about the wounded people. Let's go see what she wants to talk about.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			if(ep_illusion > 39)
@@ -5831,7 +5962,9 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "I hope we can find all the missing people. I really hope we do.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	switch(finding_patrick){
 		case 0:
@@ -5867,14 +6000,18 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 				next;
 				mes "[ Kaya ]";
 				mes "But please think of Kaufman when you can later.";
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			mes "[ Kaya ]";
 			mes "Thank you. I'm sorry to have had to ask you this so suddenly.";
 			setquest 17020;
 			finding_patrick = 1;
 			questinfo_refresh();
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 8:
 			cutin "ep171_kaya01",2;
@@ -5924,14 +6061,18 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			completequest 17032;
 			getexp 600000,600000;
 			getitem 25723,20;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "I would like you to continue investigating Patrick Kaufman.";
 			mes "Maybe if he worked here, the others might know something about it.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -5946,7 +6087,9 @@ sp_cor,125,140,5	script	Kaya#sp_cor2	4_EP17_KAYA,{
 		cutin "ep171_kaya01",2;
 		mes "[ Kaya ]";
 		mes "It looks like <NAVI>[Ashley]<INFO>sp_cor,135,147,0,000,0</INFO></NAVI> is concerned about the wounded people. Let's go see what she wants to talk about.";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
@@ -6164,7 +6307,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			cutin "ep171_as02",2;
 			mes "[ Ashley ]";
 			mes "I honestly had no idea this place was hidden here. How the hell did they manage to avoid the surrounding people's attention?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	switch(finding_patrick){
 		case 9:
@@ -6179,7 +6324,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			mes "[ Ashley ]";
 			mes "If you have time, how about you go back to Rudus and find more Identification Bracelets?";
 			finding_patrick = 10;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 10:
 			switch(checkquest(17035,PLAYTIME)){
@@ -6200,7 +6347,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 					next;
 					mes "[ Ashley ]";
 					mes "I'll see you again at dawn.";
-					close;
+					close2;
+					cutin "",255;
+					end;
 
 				case 2:
 					erasequest 17035;
@@ -6216,7 +6365,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 						cutin "ep171_as03",2;
 						mes "[ Ashley ]";
 						mes "It's alright, you need to take breaks as well, adventurer.";
-						close;
+						close2;
+						cutin "",255;
+						end;
 					}
 					mes "[ Ashley ]";
 					mes "It won't be easy, but plesae put to rest 20 ^0000FFDolors specimens^000000 and collect 10 ^0000FFIdentification Bracelets^000000 from them. Thank you, and again, please be careful.";
@@ -6225,7 +6376,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 					mes "[ Ashley ]";
 					mes "I know you will do well.";
 					setquest 17034;
-					close;
+					close2;
+					cutin "",255;
+					end;
 
 				case 1:
 					switch(checkquest(17034,HUNTING)){
@@ -6236,7 +6389,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 							next;
 							mes "[ Ashley ]";
 							mes "Oh... huh, I thought the Vice President told you to put them to rest?";
-							close;
+							close2;
+							cutin "",255;
+							end;
 
 						case 2:
 							if(countitem(25666) < 10){
@@ -6246,7 +6401,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 								next;
 								mes "[ Ashley ]";
 								mes "Oh... huh, I thought the Vice President told you to put them to rest?";
-								close;
+								close2;
+								cutin "",255;
+								end;
 							}
 							cutin "ep171_as01",2;
 							mes "[ Ashley ]";
@@ -6266,7 +6423,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 							getitem 25669,5;
 							erasequest 17034;
 							setquest 17035;
-							close;
+							close2;
+							cutin "",255;
+							end;
 					}
 			}
 
@@ -6289,13 +6448,17 @@ sp_cor,124,139,1	script	Lazy#sp_cor_main	4_M_LAZY,{
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "The <NAVI>[guard]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI> seems to have something to say to the VIP. Is it a problem with the wounded people?";
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "Do you think this is where they are? I have to find the missing people.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 }
@@ -6304,14 +6467,18 @@ sp_cor,120,140,5	script	Rookie#sp_cor_main	4_M_ROOKIE,{
 	cutin "16loo_01",2;
 	mes "[ Rookie ]";
 	mes "I really can't believe this place runs illegal experiments. It just looks too good?";
-	close;
+	close2;
+	cutin "",255;
+	end;
 }
 
 sp_cor,121,138,7	script	Gonie#sp_cor_main	4_M_GONY,{
 	cutin "16go_01",0;
 	mes "[  ]";
 	mes "......";
-	close;
+	close2;
+	cutin "",255;
+	end;
 }
 
 sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
@@ -6506,14 +6673,18 @@ sp_cor,110,130,3	script	Elena Bolkova#sp_cor_main	4_F_ELENA,{
 			ep_illusion = 41;
 			completequest 16352;
 			setquest 16353;
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		case 41:
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "An explosion occured near a facility. It must be Elyumina.";
 			mes "I have to capture her this time, follow me over <NAVI>[there]<INFO>sp_cor,180,169,0,000,0</INFO></NAVI>!";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -6561,19 +6732,25 @@ function	armor		{
 		cutin "ep171_elyumina03",0;
 		mes "[ Elyumina ]";
 		mes "Are you kidding me? I've been very careful!";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if(countitem(25723) < 50){
 		cutin "ep171_elyumina03",0;
 		mes "[ Elyumina ]";
 		mes "Are you kidding me? You don't have enough Cor Core pieces!";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	delitem 25723,50;
 	mes "[ Elyumina ]";
 	mes "Here, " + .@item_name$[.@s] + "! Take it, don't forget to upgrade it with modules because it will be the best armor you've ever had.";
 	getitem .@item_id[.@s],1;
-	close;
+	close2;
+	cutin "",255;
+	end;
 }
 
 function	weapon	{
@@ -6592,13 +6769,17 @@ function	weapon	{
 			.@item_name$ = getitemname(.weapon[.@i]);
 			mes "<ITEM>["+.@item_name$+"]<INFO>"+.weapon[.@i]+"</INFO></ITEM>";
 		}
-		close;
+		close2;
+		cutin "",255;
+		end;
 	} else {
 		if(countitem(25668) < 1 || countitem(25669) < 50){
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "I told you I need 1 Broken Weapon and 50 Unknown Parts. Open your ears and listen!";
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 		delitem 25668,1;
 		delitem 25669,50;
@@ -6607,7 +6788,9 @@ function	weapon	{
 		mes "[ Elyumina ]";
 		mes "Now, take it. If you need anything else, come back with more broken weapons and unknown parts.";
 		getitem .@weapon,1;
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 }
 
@@ -6810,13 +6993,17 @@ sp_cor,136,210,7	script	Gonie#sp_barracks	4_M_GONY,12,12,{
 			completequest 16358;
 			setquest 16359;
 			questinfo_refresh();
-			close;
+			close2;
+			cutin "",255;
+			end;
 
 		default:
 			cutin "16go_01",0;
 			mes "[ Gonie ]";
 			mes ".....";
-			close;
+			close2;
+			cutin "",255;
+			end;
 	}
 	end;
 
@@ -7044,7 +7231,9 @@ sp_cor,141,215,3	script	Elena Bolkova#sp_barracks	4_F_ELENA,{
 		cutin "162elena_01",2;
 		mes "[ Elena Bolkova ]";
 		mes "I'm busy focusing with my eyes!!";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
@@ -7059,7 +7248,9 @@ sp_cor,138,219,3	script	Tess#sp_barracks	4_M_PHILOFONTES,{
 		mes "[ Tess ]";
 		mes "It's an important interrogation, we should let the government know as well, no? I don't know what to say later.";
 		npctalk "Lazy : You're too rigid, too scrupulous~","Lazy#sp_barracks",bc_self;
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
@@ -7073,7 +7264,9 @@ sp_cor,141,211,1	script	Lazy#sp_barracks	4_M_LAZY,{
 		cutin "16lei_03",2;
 		mes "[ Lazy ]";
 		mes "It's time for Lucky to show his skills. Ya, what are you expecting?";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
@@ -7091,7 +7284,9 @@ sp_cor,140,213,3	script	Elyumina#sp_barracks	4_EP17_ELYUMINA,{
 		cutin "ep171_elyumina02",0;
 		mes "[ Elyumina ]";
 		mes "Don't talk to me!";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	end;
 
