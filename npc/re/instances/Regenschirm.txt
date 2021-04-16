@@ -99,48 +99,48 @@ end;
 
 1@rgsr,1,1,0	script	#171_rgsr_control	HIDDEN_WARP_NPC,{
 OnInstanceInit:
-	set 'map$,instance_mapname("1@rgsr");
-	enablenpc("Researcher#rgsr_ev_0");
-	enablenpc("Access Controller#rgsr");
-	enablenpc("#rgsr_touch_mob_0");
-	enablenpc("#rgsr_touch_mob_1");
-	enablenpc("#rgsr_warp_0");
-	enablenpc("Erst#rgsr");
-	enablenpc("Rebellion Crew#rgsr_dum01");
-	enablenpc("Ashley#rgsr3");
-	enablenpc("Gonie#rgsr");
-	enablenpc("Erst#rgsr2");
-	enablenpc("Central Room#rgsr");
-	enablenpc("Restrained Specimen#rgsr");
-	enablenpc("Control Device#rgsr0");
-	enablenpc("Control Device#rgsr1");
-	enablenpc("Control Device#rgsr2");
-	enablenpc("Control Device#rgsr3");
-	enablenpc("Ashley#rgsr4");
+	'map$ = instance_mapname("1@rgsr");
+	enablenpc(instance_npcname("Researcher#rgsr_ev_0"));
+	disablenpc(instance_npcname("#rgsr_touch_mob_0"));
+	disablenpc(instance_npcname("#rgsr_touch_mob_1"));
+	disablenpc(instance_npcname("Access Controller#rgsr"));
+	disablenpc(instance_npcname("#rgsr_warp_0"));
+	disablenpc(instance_npcname("Erst#rgsr"));
+	disablenpc(instance_npcname("Rebellion Crew#rgsr_dum01"));
+	disablenpc(instance_npcname("Ashley#rgsr3"));
+	disablenpc(instance_npcname("Gonie#rgsr"));
+	disablenpc(instance_npcname("Erst#rgsr2"));
+	disablenpc(instance_npcname("Central Room#rgsr"));
+	disablenpc(instance_npcname("Restrained Specimen#rgsr"));
+	disablenpc(instance_npcname("Control Device#rgsr0"));
+	disablenpc(instance_npcname("Control Device#rgsr1"));
+	disablenpc(instance_npcname("Control Device#rgsr2"));
+	disablenpc(instance_npcname("Control Device#rgsr3"));
+	disablenpc(instance_npcname("Ashley#rgsr4"));
 end;
 
 OnEvent01:
-	enablenpc("#rgsr_touch_mob_0");
-	enablenpc("#rgsr_touch_mob_1");
-	donpcevent("#rgsr_mob_1::OnSummon");
+	enablenpc(instance_npcname("#rgsr_touch_mob_0"));
+	enablenpc(instance_npcname("#rgsr_touch_mob_1"));
+	donpcevent(instance_npcname("#rgsr_mob_1")+"::OnSummon");
 end;
 
 OnEvent02:
-	enablenpc("#rgsr_warp_0");
-	donpcevent("#rgsr_mob_2::OnSummon");
+	enablenpc(instance_npcname("#rgsr_warp_0"));
+	donpcevent(instance_npcname("#rgsr_mob_2")+"::OnSummon");
 end;
 
 OnEvent03:
-	enablenpc("Restrained Specimen#rgsr");
-	enablenpc("Control Device#rgsr0");
-	enablenpc("Control Device#rgsr1");
-	enablenpc("Control Device#rgsr2");
-	enablenpc("Control Device#rgsr3");
+	enablenpc(instance_npcname("Restrained Specimen#rgsr"));
+	enablenpc(instance_npcname("Control Device#rgsr0"));
+	enablenpc(instance_npcname("Control Device#rgsr1"));
+	enablenpc(instance_npcname("Control Device#rgsr2"));
+	enablenpc(instance_npcname("Control Device#rgsr3"));
 end;
 
 OnEvent04:
-	set 'rgsr,14;
-	donpcevent("#rgsr_boss::OnSummon");
+	'rgsr = 14;
+	donpcevent(instance_npcname("#rgsr_boss")+"::OnSummon");
 end;
 }
 
@@ -177,17 +177,16 @@ end;
 	mes "Now go ahead.";
 	close2;
 	if(!'rgsr){
-		set 'rgsr,1;
-		donpcevent("#171_rgsr_control::OnEvent01");
+		'rgsr = 1;
+		donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent01");
 	}
 	warp 'map$,127,67;
 	end;
 }
 
 1@rgsr,60,138,0	script	Access Controller#rgsr	4_ENERGY_WHITE,{
-	enablenpc("Researcher#rgsr_ev_0");
 	if('rgsr == 2){
-		set 'rgsr,3;
+		'rgsr = 3;
 		npctalk "Communication Requested.";
 		sleep2 2750;
 		npctalk "Analysing Signal.";
@@ -208,22 +207,22 @@ end;
 		sleep2 2750;
 		npctalk "Voice Transmission Ended.";
 		sleep2 2750;
-		disablenpc(strnpcinfo(0));
-		enablenpc(strnpcinfo(0));
+		disablenpc(instance_npcname(strnpcinfo(0)));
+		enablenpc(instance_npcname(strnpcinfo(0)));
 		npctalk "Researcher : Do you mind If I open the door?",instance_npcname("Researcher#rgsr_ev_0");
-		set 'rgsr,4;
+		'rgsr = 4;
 	}
 	end;
 }
 
 1@rgsr,59,132,7	script	Researcher#rgsr_ev_0	4_M_NFMAN,{
 	if('rgsr == 4 && 'activate == 0){
-		set 'activate,1;
+		'activate = 1;
 		mes "[ Researcher ]";
 		mes "The biometric scan is still operational, I'll be staying here to keep the door open.";
 		mes "If you're in a hurry, please go...";
 		dispbottom "Control : Identity confirmed.";
-		donpcevent("#171_rgsr_control::OnEvent02");
+		donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent02");
 		close2;
 		sleep2 800;
 		npctalk "Researcher : ...huh... what the hell is this...";
@@ -268,7 +267,7 @@ end;
 		mes "[ Erst ]";
 		mes "You have to open the entrance of the private labs.";
 		if('rgsr == 4)
-			set 'rgsr,5;
+			'rgsr = 5;
 		close3;
 	}
 	cutin "ep162_est02",2;
@@ -287,7 +286,7 @@ end;
 	if('rgsr == 5){
 		mes "Voice Transmission Connected.";
 		close2;
-		set 'rgsr,6;
+		'rgsr = 6;
 		npctalk "Waiting for communication response...";
 		sleep2 2750;
 		npctalk "Ashley : Commander Erst? We closed the hall lock, but what is the problem?";
@@ -303,7 +302,7 @@ end;
 		npctalk "Ashley : The priority should be to secure the laboratories and then the Guard Room.... *click*";
 		sleep2 2000;
 		npctalk "Erst : Eh, what was that?",instance_npcname("Erst#rgsr");
-		set 'rgsr,7;
+		'rgsr = 7;
 		end;
 	}
 	if('rgsr < 7)
@@ -357,9 +356,9 @@ end;
 		mes "Meet me over there.";
 		close2;
 		cutin "",255;
-		enablenpc("Central Room#rgsr");
-		set 'rgsr,8;
-		enablenpc("#rgsr_mob_2");
+		enablenpc(instance_npcname("Central Room#rgsr"));
+		'rgsr = 8;
+		enablenpc(instance_npcname("#rgsr_mob_2"));
 		end;
 	}
 	cutin "ep171_as02",1;
@@ -390,8 +389,8 @@ end;
 		mes "I'll go with you, thank you!";
 		setd 'rescued[0],1;
 		close2;
-		disablenpc(strnpcinfo(0));
-		enablenpc(strnpcinfo(0));
+		disablenpc(instance_npcname(strnpcinfo(0)));
+		enablenpc(instance_npcname(strnpcinfo(0)));
 	}
 	end;
 }
@@ -422,8 +421,8 @@ end;
 		setd 'rescued[1],1;
 		close2;
 		cutin "",255;
-		disablenpc(strnpcinfo(0));
-		enablenpc(strnpcinfo(0));
+		disablenpc(instance_npcname(strnpcinfo(0)));
+		enablenpc(instance_npcname(strnpcinfo(0)));
 	}
 	end;
 }
@@ -505,10 +504,10 @@ end;
 
 1@rgsr,125,157,0	script	Central Room#rgsr	4_ENERGY_BLUE,{
 	if('rgsr == 8){
-		set 'rgsr,9;
-		enablenpc("Ashley#rgsr3");
-		enablenpc("Gonie#rgsr");
-		enablenpc("Erst#rgsr2");
+		'rgsr = 9;
+		enablenpc(instance_npcname("Ashley#rgsr3"));
+		enablenpc(instance_npcname("Gonie#rgsr"));
+		enablenpc(instance_npcname("Erst#rgsr2"));
 		npctalk "Am I late?",instance_npcname("Ashley#rgsr3");
 		sleep2 1800;
 		npctalk "No you arrived just in time.",instance_npcname("Erst#rgsr2");
@@ -522,7 +521,7 @@ end;
 	if('rgsr > 13)
 		end;
 	if('rgsr == 9){
-		set 'rgsr,10;
+		'rgsr = 10;
 		.@ashley$ = instance_npcname("Ashley#rgsr3");
 		.@gonie$ = instance_npcname("Gonie#rgsr");
 		.@erst$ = instance_npcname("Erst#rgsr2");
@@ -542,10 +541,10 @@ end;
 		sleep2 3000;
 		npctalk "Gonie : *Nods*",.@gonie$;
 		sleep2 3000;
-		enablenpc("Gonie#rgsr");
-		enablenpc("Erst#rgsr2");
+		enablenpc(instance_npcname("Gonie#rgsr"));
+		enablenpc(instance_npcname("Erst#rgsr2"));
 		npctalk "Ashley : So adventurer, let's check out the Central Room.",.@ashley$;
-		set 'rgsr,11;
+		'rgsr = 11;
 		end;
 	}
 	cutin "ep171_as02",1;
@@ -565,8 +564,8 @@ end;
 	mes "[ Ashley ]";
 	mes "First I'll need to disable the auto-locking mechanism, and then I'll follow right away.";
 	if('rgsr == 11){
-		set 'rgsr,12;
-		donpcevent("#171_rgsr_control::OnEvent03");
+		'rgsr = 12;
+		donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent03");
 	}
 	close2;
 	cutin "",255;
@@ -595,7 +594,7 @@ end;
 		specialeffect EF_BEGINSPELL3;
 		npctalk "Do... do not... come close to me...!! Huh, my head... it hurts...";
 		mapannounce 'map$,"Do... do not... come close to me...!! Huh, my head... it hurts...",bc_map,0x00FF00;
-		set 'rgsr,13;
+		'rgsr = 13;
 	}
 	end;
 
@@ -619,7 +618,7 @@ end;
 			mes "There are four buttons in the room.";
 			next;
 			select("Press the button.");
-			donpcevent("Restrained Specimen#rgsr::OnFail");
+			donpcevent(instance_npcname("Restrained")+" Specimen#rgsr::OnFail");
 			end;
 		}
 	}
@@ -635,7 +634,7 @@ end;
 		next;
 		.@s = select("Red Button.:Blue Button.:White Button.:Yellow Button.");
 		if(.@s != .@answer)
-			donpcevent("Restrained Specimen#rgsr::OnFail");
+			donpcevent(instance_npcname("Restrained")+" Specimen#rgsr::OnFail");
 		else {
 			specialeffect EF_BEGINSPELL3,AREA,instance_npcname("Restrained Specimen#rgsr");
 			if(.@index < 3){
@@ -645,7 +644,7 @@ end;
 				setd "'" + rsgr_c["+.@index+"],1;
 				mapannounce 'map$,"Gravity control adjustment... completed... Restraints have been disengaged.",bc_map,0x0D98BA;
 				sleep2 2500;
-				donpcevent("#171_rgsr_control::OnEvent04");
+				donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent04");
 			}
 		}
 		end;
@@ -724,9 +723,10 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		set 'rgsr,2;
-		enablenpc(strnpcinfo(0));
-		enablenpc("Access Controller#rgsr");
+		'rgsr = 2;
+		enablenpc(instance_npcname(strnpcinfo(0)));
+		enablenpc(instance_npcname("Access Controller#rgsr"));
+		mapannounce 'map$,"An access controller has appeared somewhere.",bc_map,0x0D98BA;
 	}
 end;
 }
@@ -753,8 +753,8 @@ OnLeftKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnLeftKill";
 	if(!mobcount('map$,.@event$)){
 		mapannounce 'map$,"Erst : Who is it? Are you Ashley? Are you the adventurer?",bc_map,0x0D98BA;
-		enablenpc("Erst#rgsr");
-		enablenpc("Rebellion Crew#rgsr_dum01");
+		enablenpc(instance_npcname("Erst#rgsr"));
+		enablenpc(instance_npcname("Rebellion Crew#rgsr_dum01"));
 	}
 end;
 
@@ -771,16 +771,15 @@ OnSummon:
 	sleep 2000;
 	mapannounce 'map$,"I'm not a defect! I'm not a monster!",bc_map,0x00FF00;
 	specialeffect EF_LORD,AREA,instance_npcname("Restrained Specimen#rgsr");
-	disablenpc("Restrained Specimen#rgsr");
-	enablenpc("Restrained Specimen#rgsr");
+	disablenpc(instance_npcname("Restrained Specimen#rgsr"));
 	monster 'map$,125,188,"Failed Specimen",20353,1,instance_npcname(strnpcinfo(0))+"::OnBossKill";
 	end;
 
 OnBossKill:
-	disablenpc("Ashley#rgsr3");
-	enablenpc("Ashley#rgsr3");
-	enablenpc("Ashley#rgsr4");
-	enablenpc(strnpcinfo(0));
+	disablenpc(instance_npcname("Ashley#rgsr3"));
+	enablenpc(instance_npcname("Ashley#rgsr3"));
+	enablenpc(instance_npcname("Ashley#rgsr4"));
+	enablenpc(instance_npcname(strnpcinfo(0)));
 end;
 }
 
@@ -789,8 +788,7 @@ end;
 	end;
 
 OnTouch:
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
+	disablenpc(instance_npcname(strnpcinfo(0)));
 	.@v = atoi(replacestr(strnpcinfo(2),"rgsr_touch_mob_",""));
 	if(!.@v)
 		setarray .@xy,98,66,94,68,95,70,92,68;
