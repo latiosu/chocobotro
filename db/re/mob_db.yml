@@ -86110,8 +86110,35 @@ Body:
 #    AegisName: MD_A013_BELLARE
 #  - Id: 20351
 #    AegisName: MD_MANHOLE2
-#  - Id: 20352
-#    AegisName: MD_POMPOM
+  - Id: 20352
+    AegisName: MD_POMPOM
+    Name: Fatal Pompom
+    Level: 112
+    Hp: 35000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 855
+    Attack2: 185
+    Defense: 85
+    MagicDefense: 42
+    Str: 63
+    Agi: 84
+    Vit: 12
+    Int: 55
+    Dex: 138
+    Luk: 12
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Poison
+    ElementLevel: 3
+    WalkSpeed: 200
+    AttackDelay: 1100
+    AttackMotion: 650
+    DamageMotion: 500
+    Ai: 04
   - Id: 20353
     AegisName: MD_CROB
     Name: Sorrow Crob
