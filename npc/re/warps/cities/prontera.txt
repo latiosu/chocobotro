@@ -26,7 +26,7 @@ OnTouch:
 		setpcblock PCBLOCK_NPC, true;
 		sleep2 3000;
 		setpcblock PCBLOCK_NPC, false;
-		npctalk "If you are invited, a severnt should be there to greet you. Please be guided officially.", "Royal Guardian Knight#02", bc_self;
+		npctalk "If you are invited, a servant should be there to greet you. Please be guided officially.", "Royal Guardian Knight#02", bc_self;
 		end;
 	}
 	warp "prt_cas_q",150,8;
@@ -41,7 +41,7 @@ OnTouch:
 		setpcblock PCBLOCK_NPC, true;
 		sleep2 3000;
 		setpcblock PCBLOCK_NPC, false;
-		npctalk "If you are invited, a severnt should be there to greet you. Please be guided officially.", "Royal Guardian Knight#03", bc_self;
+		npctalk "If you are invited, a servant should be there to greet you. Please be guided officially.", "Royal Guardian Knight#03", bc_self;
 		end;
 	}
 	warp "prt_cas_q",135,119;
