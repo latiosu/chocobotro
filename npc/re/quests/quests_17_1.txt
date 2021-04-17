@@ -4605,20 +4605,20 @@ function	script	171_worker_talk	{
 .@type = getarg(0);
 .@npc$ = getarg(1);
 	switch(.@type){
-		case 1: .@talk$ = "Oh wow! We weren't lucky this morning!"; break;
+		case 1: .@talk$ = "Oh wow! Aren't we lucky this morning!"; break;
 		case 2: .@talk$ = "Who's being so loud?"; break;
 		case 3: .@talk$ = "It looks like it's these guys."; break;
-		case 4: .@talk$ = "It's a mess!"; break;
-		case 5: .@talk$ = "You didn't? Then please get out!"; break;
-		case 6: .@talk$ = "Why are messing with someone else's home?"; break;
-		case 7: .@talk$ = "Are you bringing more?"; break;
-		case 8: .@talk$ = "I can't get in here anymore!"; break;
-		case 9: .@talk$ = "I can see your eyes!"; break;
-		case 10: .@talk$ = "No, please leave. We can't do this."; break;
+		case 4: .@talk$ = "What a mess!"; break;
+		case 5: .@talk$ = "You did it? Get out!"; break;
+		case 6: .@talk$ = "Why are you messing with our home?"; break;
+		case 7: .@talk$ = "There's more coming?"; break;
+		case 8: .@talk$ = "They won't let me through anymore!"; break;
+		case 9: .@talk$ = "I can see it in your eyes!"; break;
+		case 10: .@talk$ = "No, please leave. We can't do this anymore."; break;
 		case 11: .@talk$ = "No, did you guys kill everyone?"; break;
 		case 12: .@talk$ = "We don't know who you are."; break;
-		case 13: .@talk$ = "Stay still everyone, let me see what they want."; break;
-		case 14: .@talk$ = "I don't see that?"; break;
+		case 13: .@talk$ = "Everyone, stay calm, let me see what they want."; break;
+		case 14: .@talk$ = "Can you see that?"; break;
 		case 15: .@talk$ = "Yeah, that's right. I haven't been able to go anywhere."; break;
 		case 16: .@talk$ = "No, that's not what we do!"; break;
 		case 17: .@talk$ = "Are we doing chores too now?"; break;
@@ -4784,29 +4784,29 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "Are you threatening us now?";
 			171_worker_talk(10,.@man$);
 			next;
-			select("What's going in?");
+			select("What's going on?");
 			mes "[ Advanced Team ]";
 			mes "Aah! You're alive! Adventurer! Has anyone else come with you?";
 			171_worker_talk(11,.@poor$);
 			next;
 			select("I'm the first to arrive...");
 			mes "[ Advanced Team ]";
-			mes "I sent a person to pick the person in charge. We are the Advanced Team who was sent here to search and organize this place, as you can see.";
+			mes "I sent someone to find out who's in charge. We're the Advanced Team, sent here to search and organize this place, as you can see.";
 			next;
 			select("Who are these people?");
 			mes "[ Worker ]";
-			mes "Is this the person responsible for all of this?";
+			mes "Is this person responsible for all this?";
 			171_worker_talk(12,.@cook$);
 			171_worker_talk(13,.@man$);
 			171_worker_talk(14,.@old$);
 			next;
 			mes "[ Worker ]";
-			mes "I don't think so? That person looks stupid.";
+			mes "I doubt it. They look dumb.";
 			171_worker_talk(15,.@cook$);
 			next;
 			mes "[ Advanced Team ]";
 			mes "They are the ^0000CDpeople who work here^000000.";
-			mes "As you can see, we didn't harm them...";
+			mes "As you can see, we've caused no harm...";
 			next;
 			mes "[ Advanced Team ]";
 			mes "I really don't know what to do.";
@@ -4814,21 +4814,21 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "who do chores around here, and when we tried to enter they stopped us.";
 			next;
 			mes "[ Worker ]";
-			mes "What are you saying does chores?";
+			mes "What did you say?! Chores!?";
 			171_worker_talk(16,.@moc$);
 			171_worker_talk(17,.@man$);
 			next;
 			mes "[ Worker ]";
-			mes "Why do you guys judge the work of others? You aren't in charge, are you?";
+			mes "Who made you the judge of us? You're not in charge.";
 			171_worker_talk(18,.@old$);
 			171_worker_talk(19,.@poor$);
 			next;
 			mes "[ Worker ]";
-			mes "I think you're just ignorant people who don't know anything.";
+			mes "You're just ignorant people who don't know anything.";
 			171_worker_talk(20,.@moc$);
 			next;
 			mes "[ Worker ]";
-			mes "Come on, they're all gunmen!";
+			mes "Come on, they're typical gunmen!";
 			171_worker_talk(21,.@old$);
 			next;
 			mes "[ Advanced Team ]";
@@ -4843,7 +4843,7 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			select("Why are you blocking the road?");
 			mes "[ Worker ]";
 			mes "Why not? If someone came into your home, would you just let them in?";
-			mes "These people are out of their minds and are making a mess.";
+			mes "These people are out of their minds and making a mess.";
 			171_worker_talk(24,.@man$);
 			next;
 			mes "[ Worker ]";
@@ -4856,11 +4856,11 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "We have came to arrest the people responsible in cooperation with the Government and Rekenber.";
 			next;
 			mes "[ Worker ]";
-			mes "What? What do you mean illegal experiments? Can you tell us where these illegal experiments were done?";
+			mes "What? What do you mean illegal experiments? Can you even prove it?";
 			171_worker_talk(26,.@poor$);
 			next;
 			mes "[ Advanced Team ]";
-			mes "I know it's hard to believe, I'm having a hard time to believe it myself, but this is the place that was used to run illegal experiments.";
+			mes "I know it's hard to believe, I'm having a hard time believing it myself, but this is the place that was used to run illegal experiments.";
 			171_worker_talk(27,.@moc$);
 			next;
 			select("Who owns this mansion?");
@@ -4872,13 +4872,13 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			171_worker_talk(30,.@cook$);
 			next;
 			mes "[ Advanced Team ]";
-			mes "These people look like the manual workforce, they are not researchers.";
+			mes "These people look like the labour workforce, they are not researchers.";
 			next;
 			mes "[ Advanced Team ]";
-			mes "The people and the materials that are left behind in the rush of escaping are likely the good people left.";
+			mes "But the others ran off with the materials and left behind these people.";
 			next;
 			mes "[ Worker ]";
-			mes "What are you saying about us?";
+			mes "What are you talking about? Us?";
 			171_worker_talk(31,.@cook$);
 			next;
 			mes "[ Worker ]";
@@ -4886,7 +4886,7 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			171_worker_talk(32,.@old$);
 			next;
 			mes "[ Worker ]";
-			mes "How many researcher are like us!";
+			mes "How many researchers are like us!";
 			mes "They can't keep this place running without us!";
 			171_worker_talk(33,.@moc$);
 			next;
@@ -4900,12 +4900,12 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			next;
 			select("I would never hurt you guys.");
 			mes "[ Worker ]";
-			mes "Why should we stand back? You're the invaders!";
+			mes "You think we'll stand back? You're invaders!";
 			171_worker_talk(36,.@cook$);
 			171_worker_talk(37,.@man$);
 			next;
 			mes "[ Worker ]";
-			mes "I don't want anybody to get hurt, you will hurt us with your weapons!";
+			mes "I don't want anybody to get hurt, you'll hurt us with your weapons!";
 			171_worker_talk(38,.@old$);
 			next;
 			mes "[ Advanced Team ]";
@@ -4928,11 +4928,11 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			select("Vice President! Tess!");
 			cutin "",255;
 			mes "[ Worker ]";
-			mes "Why do you keep coming? Get out! Get out!";
+			mes "Why do more keep coming? Get out! Get out!";
 			171_worker_talk(42,.@moc$);
 			next;
 			mes "[ Advanced Team ]";
-			mes "These are employees who help the laboratory run, but they do not believe when I tell them they've been conducting illegal experiments.";
+			mes "These are employees who help run the laboratory, but they do not believe me when I tell them they've been facilitating illegal experiments.";
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
@@ -4940,7 +4940,7 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			next;
 			cutin "",255;
 			mes "[ Worker ]";
-			mes "Who are you now?!";
+			mes "Who's this now?!";
 			171_worker_talk(43,.@old$);
 			ep_illusion = 36;
 			setquest 17015;
@@ -4959,12 +4959,12 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 
 		case 38:
 			mes "[ Advanced Team ]";
-			mes "Go to the safe location, quick!";
+			mes "Get to the safe area, quick!";
 			close;
 
 		default:
 			mes "[ Advanced Team ]";
-			mes "Adventurer, it's dangerous here. Proceed to the safe location.";
+			mes "Adventurer, it's dangerous here. Proceed to the safe area.";
 			close;
 	}
 
@@ -5044,7 +5044,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "What did the person wearing blue clothes over here do here?";
+			mes "What did the person wearing blue clothes over here do?";
 			next;
 			cutin "",255;
 			mes "[ Worker ]";
@@ -5079,7 +5079,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "While you do your own work, you don't know what this place is really for. in fact, I'm glad it's like that.";
+			mes "While you do your own work, you don't know what this place is really for. In fact, I'm glad it's like that.";
 			next;
 			mes "[ Kaya ]";
 			mes "This facility is doing illegal experiments that are strictly forbidden by the government and Rekenber.";
@@ -5090,7 +5090,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			171_worker_talk(56,.@poor$);
 			next;
 			mes "[ Worker ]";
-			mes "Those people were doing experiments outside of the law?";
+			mes "Those people were doing experiments against the law?";
 			171_worker_talk(57,.@moc$);
 			next;
 			mes "[ Worker ]";
@@ -5147,7 +5147,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			171_worker_talk(69,.@old$);
 			next;
 			mes "[ Tess ]";
-			mes "Hello everyone. My name is Tess, I'm fron the office of the President of Schwarzwald.";
+			mes "Hello everyone. My name is Tess, I'm from the office of the President of Schwarzwald.";
 			171_worker_talk(70,.@poor$);
 			171_worker_talk(71,.@moc$);
 			next;
@@ -5157,8 +5157,8 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			npctalk "Okay, well there's nothing here, so go back!",.@man$,bc_self;
 			next;
 			mes "[ Tess ]";
-			mes "The Regenschirm lab, back at Rekenber, was involved with similar experiments and it caused a turmoil.";
-			mes "If you refuse to cooperate, you will be charged with illegal acts and  your refusal to cooperate.";
+			mes "The Regenschirm lab, back at Rekenber, was involved with similar experiments and it caused turmoil.";
+			mes "If you refuse to cooperate, you will be charged with illegal acts and refusal to cooperate.";
 			171_worker_talk(72,.@poor$);
 			next;
 			cutin "",255;
@@ -5167,7 +5167,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			171_worker_talk(73,.@man$);
 			next;
 			mes "[ Worker ]";
-			mes "No way! have we done anything wrong?";
+			mes "No way! Have we done anything wrong?";
 			171_worker_talk(74,.@old$);
 			next;
 			mes "[ Worker ]";
@@ -5175,7 +5175,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			171_worker_talk(75,.@cook$);
 			next;
 			mes "[ Worker ]";
-			mes "What gives you the right to just come here and charge us? We've been living her quietly for years. Did we sin?";
+			mes "What gives you the right to just come here and charge us? We've been living here quietly for years. Have we sinned?";
 			171_worker_talk(76,.@moc$);
 			next;
 			cutin "ep16_tes02",2;
@@ -5184,7 +5184,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 			next;
 			cutin "",255;
 			mes "[ Worker ]";
-			mes "oh, they must just be busy!";
+			mes "Oh, they must just be busy!";
 			171_worker_talk(77,.@old$);
 			next;
 			mes "[ Worker ]";
@@ -5246,7 +5246,7 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			next;
 			cutin "ep16_tes02",2;
 			mes "[ Tess ]";
-			mes "Even so, we might have to. We split in two teams, one of them keeps them from pursuing, and the rest enter and keep investigating.";
+			mes "Even so, we might have to. We split into two teams, one of them keeps them from pursuing, and the rest enter and keep investigating.";
 			171_worker_talk(83,.@poor$);
 			171_worker_talk(84,.@moc$);
 			next;
@@ -5279,7 +5279,7 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			next;
 			cutin "ep171_elyumina02",2;
 			mes "[ Elyumina ]";
-			mes "Who gave you permission to approach my staff? You see them? Just try putting one hand on them, and I'll blow you up.";
+			mes "Who gave you permission to approach my staff? You see them? Just try putting one hand on them, and I'll blow your hands right off.";
 			171_worker_talk(88,.@moc$);
 			next;
 			cutin "ep171_elyumina04",2;
@@ -5294,7 +5294,7 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			next;
 			cutin "ep171_elyumina03",2;
 			mes "[ Elyumina ]";
-			mes "You all look like skeletons, why aren't you hiding? You will all disappear!";
+			mes "You all look like skeletons, why aren't you hiding? You'll all disappear!";
 			next;
 			specialeffect EF_RAIN_PARTICLE2,AREA,"Elyumina#os_rb";
 			cutin "",255;
@@ -5397,23 +5397,23 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_1";
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_2";
 			mes "[ Mercenary 1 ]";
-			mes "Avoid that!";
+			mes "Look out!";
 			next;
 			specialeffect EF_RAPIDSHOWER,AREA,"Gonie#os_rb_2";
 			specialeffect EF_RAPIDSHOWER,AREA,"Denny#os_rb_2";
 			specialeffect EF_RAPIDSHOWER,AREA,"Tommy#os_rb_2";
 			cutin "ep171_elyumina02",2;
 			mes "[ Elyumina ]";
-			mes "Why? Why are they not hurt? What about this?";
+			mes "Why? Why are they not hurt? How about this!?";
 			next;
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_2";
 			cutin "",255;
 			mes "[ Mercenary 2 ]";
-			mes "Oh, I've been struck! Hurry!";
+			mes "Agh, I'm hit! Hurry!";
 			next;
 			cutin "ep171_elyumina02",2;
 			mes "[ Elyumina ]";
-			mes "Why are they doing so well? Did we pick the wrong subjects?";
+			mes "Why are they still standing? Did we pick the wrong subjects?";
 			next;
 			specialeffect EF_RAPIDSHOWER,AREA,"Advanced Team#171_cor";
 			specialeffect EF_RAPIDSHOWER,AREA,"Advanced Team#171_cor2";
@@ -5421,23 +5421,23 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			specialeffect EF_SUI_EXPLOSION,AREA,"Elyumina#os_rb";
 			cutin "",255;
 			mes "[ Mercenary 1 ]";
-			mes "They are professionals!";
+			mes "They're professionals!";
 			next;
 			cutin "ep171_elyumina02",2;
 			mes "[ Elyumina ]";
-			mes "You are pros!";
+			mes "Aw crap, they're the real deal!";
 			next;
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_2";
 			cutin "",255;
 			mes "[ Mercenary 2 ]";
-			mes "I'm also a high-end pro who gets money!! I don't have to cover the heat! Hurry!";
+			mes "I'm also a high-end pro who gets money!! I can handle this! Hyaaa!";
 			next;
 			specialeffect EF_RAPIDSHOWER,AREA,"Gonie#os_rb_2";
 			specialeffect EF_RAPIDSHOWER,AREA,"Denny#os_rb_2";
 			specialeffect EF_RAPIDSHOWER,AREA,"Tommy#os_rb_2";
 			cutin "ep171_elyumina02",2;
 			mes "[ Elyumina ]";
-			mes "No! Let me go! Quick! You have to avoid being crushed! Let me go! Let me go!!";
+			mes "No! Let's go! Quick! We aren't dying here! Let's go now! Now!!";
 			next;
 			specialeffect EF_TELEPORTATION2,AREA,"Elyumina#os_rb";
 			specialeffect EF_TELEPORTATION2,AREA,"Mercenary#os_rb_1";
@@ -5467,7 +5467,7 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "I'll move the people to a safe location.";
+			mes "I'll move the people to a safe place.";
 			next;
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
@@ -5590,7 +5590,7 @@ end;
 
 sp_cor,172,80,1	script	Worker#os_cook	4_M_CHNCOOK,{
 	mes "[ Worker ]";
-	mes "I'll have a warm drink when this is over!!";
+	mes "I'll have a warm drink when this is all over!!";
 	end;
 
 OnInit:
@@ -5620,7 +5620,7 @@ end;
 
 sp_cor,161,80,5	script	Worker#os_man	4_M_03,{
 	mes "[ Worker ]";
-	mes "Who said it? Who's going to kick our butts?!";
+	mes "Who said that? Who's going to kick our butts?!";
 	end;
 
 OnInit:
@@ -5652,21 +5652,21 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			next;
 			cutin "16lei_02",2;
 			mes "[ Lazy ]";
-			mes "Was I really this late? What is all of this, why is everyone wounded?";
+			mes "Was I really that late? What is all of this, why is everyone wounded?";
 			npctalk "It's a mess, it's a total mess. I should have been here sooner.","Lazy#sp_cor",bc_self;
 			next;
 			cutin "ep16_tes01",0;
 			mes "[ Tess ]";
 			mes "You know what? Please help me out instead, I don't have time to explain.";
-			npctalk "If you arrived a little sooner, you'd have a hole on your tongue.","",bc_self;
+			npctalk "If you arrived a little sooner, you'd have a hole in your tongue.","",bc_self;
 			next;
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
-			mes "Hey, I've been worried about all of this!";
+			mes "Hey, I'm worried about all of this too!";
 			next;
 			cutin "",255;
 			mes "[ Worker ]";
-			mes "This is impossible... the chief researcher attacked us.";
+			mes "This can't be... the chief researcher attacked us.";
 			npctalk "Why did they do this...","Worker#os_red",bc_self;
 			next;
 			mes "[ Worker ]";
@@ -5681,11 +5681,11 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			npctalk "What are you talking about?","Worker#os_sit",bc_self;
 			next;
 			mes "[ Worker ]";
-			mes "Do you still believe in that researchers? Is that it?";
+			mes "Do you still believe in those researchers, is that it?";
 			npctalk "Really?","Worker#os_red",bc_self;
 			next;
 			mes "[ Worker ]";
-			mes "Of course not... They're assassins.";
+			mes "Of course not... They're killers.";
 			next;
 			cloakonnpc("Ashley#sp_cor",getcharid(0));
 			cloakonnpc("Kaya#sp_cor",getcharid(0));
@@ -5699,8 +5699,8 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "Let's look at the status of the wounded people.";
-			npctalk "Let's look at the status of the wounded people.","Kaya#sp_cor2",bc_self;
+			mes "Let's check the condition of the wounded.";
+			npctalk "Let's check the condition of the wounded.","Kaya#sp_cor2",bc_self;
 			next;
 			cloakonnpc("Ashley#sp_cor2",getcharid(0));
 			sleep2 200;
@@ -5720,7 +5720,7 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			next;
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
-			mes "It was stupid thing to come and attack directly. What are they studying?";
+			mes "It was stupid of them to come and attack us directly. What are they studying?";
 			unittalk getcharid(3),strcharinfo(0) + " : I'd rather say the combatants on both sides were wrong.";
 			next;
 			cutin "",255;
@@ -5732,7 +5732,7 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			npctalk "Yeah. She used to laugh strangely before.","Worker#os_lady",bc_self;
 			next;
 			mes "[ Worker ]";
-			mes "Have you evere seen her room? I was frightened when I saw it the first time. She closed the door quicly, but I saw it.";
+			mes "Have you ever seen her room? I was frightened when I saw it the first time. She closed the door quickly, but I saw it.";
 			npctalk "I've seen some signs too.","Worker#os_sit",bc_self;
 			next;
 			cutin "ep171_kaya01",2;
@@ -5768,8 +5768,8 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			next;
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
-			mes "The list of missing people. I need to double check with who we have here.";
-			npctalk "If you could line up, that would be nice.","Lazy#sp_cor",bc_self;
+			mes "The list of missing people. I need to double check it with who we have here.";
+			npctalk "If you could all line up, that would be nice.","Lazy#sp_cor",bc_self;
 			next;
 			cutin "16lei_02",2;
 			mes "[ Lazy ]";
@@ -5802,7 +5802,7 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 		case 39:
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
-			mes "Didn't you see <NAVI>[Ashley]<INFO>sp_cor,135,147,0,000,0</INFO></NAVI> going with the Vice President? I'm worried about the wounded people.";
+			mes "Didn't you see <NAVI>[Ashley]<INFO>sp_cor,135,147,0,000,0</INFO></NAVI> going with the Vice President? I'm worried about the wounded.";
 			close3;
 
 		default:
@@ -5850,7 +5850,7 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			mes "I think this lab has also been doing illegal experiments. So... could I ask you a favor?";
 			next;
 			mes "[ Kaya ]";
-			mes "I think this is the laboratory where the ^0000FFmissing people were sent to.^000000 Besides the people in this area, there might be other that can't see right now.";
+			mes "I think this is the laboratory where the ^0000FFmissing people were sent to.^000000 Besides the people in this area, there might be others that we can't see right now.";
 			next;
 			select("....");
 			mes "[ Kaya ]";
@@ -5859,7 +5859,7 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			next;
 			cutin "ep171_kaya02",2;
 			mes "[ Kaya ]";
-			mes "Maybe... this is the last chance we'll ahve to find Patrick after all.";
+			mes "Maybe... this is the last chance we'll have to find Patrick after all.";
 			next;
 			if(select("I'll look into it.:I have something else to do right now.") == 2){
 				cutin "ep171_kaya01",2;
@@ -5910,7 +5910,7 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			next;
 			cutin "ep171_kaya02",2;
 			mes "[ Kaya ]";
-			mes "I'm sorry to keep asking these hard task for you. If you bring me their bracelets, I will reward you.";
+			mes "I'm sorry to keep asking these hard task of you. If you bring me their bracelets, I will reward you.";
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
@@ -5968,11 +5968,11 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			cloakoffnpc("Kaya#sp_cor",getcharid(0));
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "What's the status of the wounded people?";
+			mes "What's the status of the wounded?";
 			next;
 			cutin "ep171_as01",0;
 			mes "[ Ashley ]";
-			mes "They're being looked at seriously, but we're also getting some paperwork done about them.";
+			mes "They're being looked after carefully, but we're also getting some paperwork done about them.";
 			npctalk "Paperwork?","Kaya#sp_cor",bc_self;
 			next;
 			mes "[ Ashley ]";
@@ -5997,7 +5997,7 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			cutin "",255;
 			mes "[ Worker ]";
 			mes "Am I... dead?";
-			npctalk "I haven't eaten too much!","Worker#os_sit",bc_self;
+			npctalk "I haven't eaten much.","Worker#os_sit",bc_self;
 			next;
 			cutin "ep171_as02",0;
 			mes "[ Ashley ]";
@@ -6135,7 +6135,7 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
-			mes "What is it? Are the wounded people okay?";
+			mes "What is it? Are the wounded okay?";
 			next;
 			cutin "",255;
 			mes "[ Support Team ]";
@@ -6289,7 +6289,7 @@ sp_cor,124,139,1	script	Lazy#sp_cor_main	4_M_LAZY,{
 		case 39:
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
-			mes "The <NAVI>[guard]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI> seems to have something to say to the VIP. Is it a problem with the wounded people?";
+			mes "The <NAVI>[guard]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI> seems to have something to say to the VIP. Is it a problem with the wounded?";
 			close3;
 
 		default:
@@ -6304,13 +6304,13 @@ sp_cor,124,139,1	script	Lazy#sp_cor_main	4_M_LAZY,{
 sp_cor,120,140,5	script	Rookie#sp_cor_main	4_M_ROOKIE,{
 	cutin "16loo_01",2;
 	mes "[ Rookie ]";
-	mes "I really can't believe this place runs illegal experiments. It just looks too good?";
+	mes "I really can't believe this place runs illegal experiments. It just looks too proper?";
 	close3;
 }
 
 sp_cor,121,138,7	script	Gonie#sp_cor_main	4_M_GONY,{
 	cutin "16go_01",0;
-	mes "[  ]";
+	mes "[ Gonie ]";
 	mes "......";
 	close3;
 }
@@ -6343,7 +6343,7 @@ sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
 			mes "[ Rebellion ]";
 			mes "Did you bring a broken weapon?";
 			mes "Looking for a scientist criminal?";
-			mes "I deal everything. What do you need?";
+			mes "I deal with everything. What do you need?";
 			mes "Perhaps you need me? I'm replacing the weapon with modules.";
 			npctalk "Hey criminal, someone's looking for you!","",bc_self;
 			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
@@ -6529,7 +6529,7 @@ sp_cor,111,130,3	script	Elyumina#os_merchant	4_EP17_ELYUMINA,{
 	function armor;
 	cutin "ep171_elyumina04",0;
 	mes "[ Elyumina ]";
-	mes "What's up? If you call a busy person, you have to atleast talk to them, no?";
+	mes "What's up? If you call a busy person, you have to at least talk to them, no?";
 	next;
 	if(select("Request OS Weapons.:Request Illusion Equipments.") == 1)
 		weapon();
@@ -6915,7 +6915,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			next;
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
-			mes "Well, these are both names. I don't care much for names.";
+			mes "Well, those are both names. I don't care much for names.";
 			next;
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
@@ -6944,7 +6944,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			next;
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
-			mes "We will also lose if you choose the first option. But you said you do great research? Then we'd be happy to work with you.";
+			mes "You will also lose if you choose the first option. But you said you do great research? Then we'd be happy to work with you.";
 			mes "I want to judge you fairly.";
 			next;
 			mes "[ Elyumina ]";
@@ -6954,7 +6954,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			cutin "16loo_02",2;
 			mes "[ Rookie ]";
 			mes "Well... of course. But only if you cooperate sincerely, then I will look the other way.";
-			mes "So let's have a deep talk, I'm sending you back to Lazy.";
+			mes "So let's have a serious talk, I'm sending you back to Lazy.";
 			npctalk "Lazy : So, are you going to do good, oh great researcher?","Lazy#sp_barracks",bc_self;
 			next;
 			cutin "16lei_03",2;
@@ -7073,7 +7073,7 @@ sp_cor,141,211,1	script	Lazy#sp_barracks	4_M_LAZY,{
 	if(ep_illusion == 45){
 		cutin "16lei_03",2;
 		mes "[ Lazy ]";
-		mes "It's time for Lucky to show his skills. Ya, what are you expecting?";
+		mes "It's time for Lucky to show his skills. Hey, what are you expecting?";
 		close3;
 	}
 	end;
@@ -7174,7 +7174,7 @@ sp_cor,155,94,3	script	Yuslan#171_dailies	4_M_GUNSLINGER3,{
 	next;
 	if(select("Let's do it.:That sounds like trouble.") == 2){
 		mes "[ Yuslan ]";
-		mes "It will  be. Huh.";
+		mes "It will be. Huh.";
 		mes "The adventurer should take a break.";
 		mes "Your body must be tired.";
 		close;
@@ -7690,7 +7690,6 @@ pub_cat,64,66,1	script	Guest#171_pub_5	4_F_MONK,{
 
 pub_cat,63,69,5	script	Guest#171_pub_6	4_M_ROGUE,{
 	setpcblock PCBLOCK_ALL,true;
-	//=俺は風神だ！！　ヤー！！！
 	npctalk "I'm the God of Wind!! Hya!!","",bc_self;
 	specialeffect 775;
 	sleep2 2000;
@@ -7759,7 +7758,7 @@ pub_cat,41,98,3	script	Guest#171_pub_15	4_M_DEWGIRL,{
 }
 
 pub_cat,45,96,1	script	Guest#171_pub_16	4_F_04,{
-	npctalk "Shouldn't you awake by now? Hey, wake up!","",bc_self;
+	npctalk "Shouldn't you be awake by now? Hey, wake up!","",bc_self;
 	sleep2 2000;
 	npctalk "Huh!!! Waaaaa!!","Guest#171_pub_17",bc_self;
 	sleep2 2000;
@@ -7851,7 +7850,7 @@ sp_cor,70,263,5	script	Worker#cor_other_04	4_M_02,{
 			next;
 			select("How do the researchers handle the garbage?");
 			mes "[ Worker ]";
-			mes "We collect the garbage from each room and then nprocess it. Well, usually that's what we do for neat people. They don't say much.";
+			mes "We collect the garbage from each room and then process it. Well, usually that's what we do for neat people. They don't say much.";
 			npctalk "I can't understand how people who are so smart can be so dirty and messy.";
 			next;
 			mes "[ Worker ]";
@@ -7990,7 +7989,7 @@ sp_cor,151,180,5	script	Worker#cor_other_12	4_M_RUSMAN2,{
 			next;
 			select("Yes, that's him.");
 			mes "[ Marcus ]";
-			mes "That's right, that's right! The guy who looked tall and big. I wanted to be his friend becase we came from the same place. I couldn't see him one day. Then I was moved.";
+			mes "That's right, that's right! The guy who looked tall and big. I wanted to be his friend because we came from the same place. I couldn't see him one day. Then I was transferred.";
 			next;
 			mes "[ Marcus ]";
 			mes "It was a Facility Maintenance Department, I told them things weren't supposed to work that way.";
@@ -8149,7 +8148,7 @@ sp_cor,153,260,3	script	Scout#cor_02	4_F_REBELLION3,{
 }
 
 sp_cor,166,139,3	script	Scout#cor_03	4_M_GUNSLINGER3,{
-	npctalk "It's a pod lot? I'd love to eat been noodles~ But we can't eat them yet. I wish we could...","",bc_self;
+	npctalk "It's a pod lot? I'd love to eat bean noodles~ But we can't eat them yet. I wish we could...","",bc_self;
 	end;
 }
 
@@ -8236,7 +8235,7 @@ sp_cor,224,77,3	script	Researcher#cor_00	4_F_SCIENCE,{
 			next;
 			select("I'm looking for a person.");
 			mes "[ Researcher ]";
-			mes "Who? Patrick? I don't know him. I don't know many peopl, I'm only focused on the field work here.";
+			mes "Who? Patrick? I don't know him. I don't know many people, I'm only focused on the field work here.";
 			npctalk "I can tell you the names of all the vegetables.","",bc_self;
 			next;
 			select("Why are the researchers doing the field work?");
