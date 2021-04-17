@@ -35536,6 +35536,19 @@ Body:
     Name: Knotted Letter
     Type: Etc
     Weight: 1
+  - Id: 25665
+    AegisName: Dienes_Envelope
+    Name: Dien's Precious Envelope
+    Weight: 0
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 25666
     AegisName: Id_Card
     Name: Identification Bracelet
