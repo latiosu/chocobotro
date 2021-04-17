@@ -643,6 +643,7 @@ OnTalk:
 	getitem 25669,25;
 	getexp 600000,600000;
 	close2;
+	cutin "",255;
 	warp "ein_fild03",258,267;
 	instance_destroy();
 	end;
@@ -706,7 +707,7 @@ end;
 
 OnTouch:
 	.@i = atoi(replacestr(strnpcinfo(2),"s_os_trap_",""));
-	if('trap[" + .@i + "])
+	if('trap[.@i])
 		end;
 	.@map$ = 'map$;
 	switch(.@i){
@@ -718,7 +719,7 @@ OnTouch:
 		case 5: setarray .@xy,262,318,20363,259,320,20361; break;
 		case 6: setarray .@xy,258,336,20365,263,338,20355; break;
 	}
-	setd "'" + trap[" + .@i + "],1;
+	'trap[.@i] = 1;
 	for(.@j = 0; .@j < getarraysize(.@xy); .@j += 3)
 		monster .@map$,.@xy[.@j],.@xy[.@j+1],"--ja--",.@xy[.@j+2],1,instance_npcname(strnpcinfo(0))+"::OnMobKill";
 end;

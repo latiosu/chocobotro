@@ -100,7 +100,7 @@ end;
 1@rgsr,1,1,0	script	#171_rgsr_control	HIDDEN_WARP_NPC,{
 OnInstanceInit:
 	'map$ = instance_mapname("1@rgsr");
-	enablenpc(instance_npcname("Researcher#rgsr_ev_0"));
+	disablenpc(instance_npcname("Researcher#rgsr_ev_0"));
 	disablenpc(instance_npcname("#rgsr_touch_mob_0"));
 	disablenpc(instance_npcname("#rgsr_touch_mob_1"));
 	disablenpc(instance_npcname("Access Controller#rgsr"));
@@ -206,9 +206,9 @@ end;
 		npctalk "...*Zap*....";
 		sleep2 2750;
 		npctalk "Voice Transmission Ended.";
+		enablenpc(instance_npcname("Researcher#rgsr_ev_0"));
 		sleep2 2750;
 		disablenpc(instance_npcname(strnpcinfo(0)));
-		enablenpc(instance_npcname(strnpcinfo(0)));
 		npctalk "Researcher : Do you mind If I open the door?",instance_npcname("Researcher#rgsr_ev_0");
 		'rgsr = 4;
 	}
@@ -317,7 +317,7 @@ end;
 1@rgsr,235,44,5	script	Ashley#rgsr2	4_EP17_AS,{
 	if('rgsr == 7){
 		for(.@i = 0; .@i < 3; .@i++){
-			if(!'rescued[" + .@i + "])
+			if(!'rescued[.@i])
 				.@miss++;
 		}
 		if(.@miss){
@@ -387,10 +387,9 @@ end;
 		mes "[ Researcher ]";
 		mes "Oh, you're there to protect me?";
 		mes "I'll go with you, thank you!";
-		setd 'rescued[0],1;
+		'rescued[0] = 1;
 		close2;
 		disablenpc(instance_npcname(strnpcinfo(0)));
-		enablenpc(instance_npcname(strnpcinfo(0)));
 	}
 	end;
 }
@@ -418,11 +417,10 @@ end;
 		cutin "ep162_est01",2;
 		mes "[ Erst ]";
 		mes "I'll take this guy out of here and you look at the other rooms.";
-		setd 'rescued[1],1;
+		'rescued[1] = 1;
 		close2;
 		cutin "",255;
 		disablenpc(instance_npcname(strnpcinfo(0)));
-		enablenpc(instance_npcname(strnpcinfo(0)));
 	}
 	end;
 }
@@ -456,7 +454,7 @@ end;
 		mes "Oh you already know.";
 		mes "Okay. I'll be quiet now and wait.";
 		mes "Your uniform is really cool though.";
-		setd 'rescued[2],1;
+		'rescued[2] = 1;
 		end;
 	}
 	mes "[ Researcher ]";
@@ -529,7 +527,7 @@ end;
 		sleep2 3000;
 		npctalk "Erst : I'll go ahead and take the researchers out of here. Will that be okay?",.@erst$;
 		sleep2 3000;
-		npctalk "Ashley : Yes. Nothing else is being detected on the system. With our progres so far, the enemies have all been restrained.",.@ashley$;
+		npctalk "Ashley : Yes. Nothing else is being detected on the system. With our progress so far, the enemies have all been restrained.",.@ashley$;
 		sleep2 3000;
 		npctalk "Erst : What are you scared of something else? I'm going back already!",.@erst$;
 		sleep2 3000;
@@ -537,7 +535,7 @@ end;
 		sleep2 3000;
 		npctalk "Erst : There were couple of researchers left in the labs, I'll go bring them along. I'll be waiting.",.@erst$;
 		sleep2 3000;
-		npctalk "Erst : Alright, Gonie. You go to the main lobby first and secure the road. I'll take the others at the conference room.",.@erst$;
+		npctalk "Erst : Alright, Gonie. You go to the main lobby first and secure the road. I'll take the others from the conference room.",.@erst$;
 		sleep2 3000;
 		npctalk "Gonie : *Nods*",.@gonie$;
 		sleep2 3000;
@@ -547,29 +545,29 @@ end;
 		'rgsr = 11;
 		end;
 	}
-	cutin "ep171_as02",1;
-	mes "[ Ashley ]";
-	mes "That's the Central Room right ahead.";
-	next;
-	if(select("Enter.:Wait.") == 2){
+	if('rgsr == 11) {
+		cutin "ep171_as02",1;
 		mes "[ Ashley ]";
-		mes "Please speak to me when you're ready.";
-		mes "I don't know why, but it's tightly closed;. It takes some time to maintain access.";
+		mes "That's the Central Room right ahead.";
 		next;
+		if(select("Enter.:Wait.") == 2){
+			mes "[ Ashley ]";
+			mes "Please speak to me when you're ready.";
+			mes "I don't know why, but it's tightly closed;. It takes some time to maintain access.";
+			next;
+			mes "[ Ashley ]";
+			mes "As confirmed by the security system, nothing is being detected on the inside...";
+			mes "I still want to confirm inside the room regardless.";
+			close3;
+		}
 		mes "[ Ashley ]";
-		mes "As confirmed by the security system, nothing is being detected on the inside...";
-		mes "I still want to confirm inside the room regardless.";
-		close3;
-	}
-	mes "[ Ashley ]";
-	mes "First I'll need to disable the auto-locking mechanism, and then I'll follow right away.";
-	if('rgsr == 11){
+		mes "First I'll need to disable the auto-locking mechanism, and then I'll follow right away.";
 		'rgsr = 12;
 		donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent03");
+		close2;
+		cutin "",255;
+		warp 'map$,126,164;
 	}
-	close2;
-	cutin "",255;
-	warp 'map$,126,164;
 	end;
 }
 
@@ -613,16 +611,16 @@ end;
 	}
 	.@index = atoi(replacestr(strnpcinfo(2),"rgsr",""));
 	if(.@index > 0){
-		if(!'rsgr_c["+(.@index - 1)+"]){
+		if(!'rsgr_c[.@index - 1]){
 			mes "This device has an unknown purpose.";
 			mes "There are four buttons in the room.";
 			next;
 			select("Press the button.");
-			donpcevent(instance_npcname("Restrained")+" Specimen#rgsr::OnFail");
+			donpcevent(instance_npcname("Restrained Specimen#rgsr")+"::OnFail");
 			end;
 		}
 	}
-	if(!'rsgr_c["+.@index+"]){
+	if(!'rsgr_c[.@index]){
 		switch(.@index){
 			case 0: .@answer = 2; .@string$ = "three phases"; break;
 			case 1: .@answer = 1; .@string$ = "two phases"; break;
@@ -634,14 +632,14 @@ end;
 		next;
 		.@s = select("Red Button.:Blue Button.:White Button.:Yellow Button.");
 		if(.@s != .@answer)
-			donpcevent(instance_npcname("Restrained")+" Specimen#rgsr::OnFail");
+			donpcevent(instance_npcname("Restrained Specimen#rgsr")+"::OnFail");
 		else {
 			specialeffect EF_BEGINSPELL3,AREA,instance_npcname("Restrained Specimen#rgsr");
 			if(.@index < 3){
 				mapannounce 'map$,"Gravity control adjustment... completed... There are " + .@string$ +" remaining.",bc_map,0x0D98BA;
-				setd "'" + rsgr_c["+.@index+"],1;
+				'rsgr_c[.@index] = 1;
 			} else {
-				setd "'" + rsgr_c["+.@index+"],1;
+				'rsgr_c[.@index] = 1;
 				mapannounce 'map$,"Gravity control adjustment... completed... Restraints have been disengaged.",bc_map,0x0D98BA;
 				sleep2 2500;
 				donpcevent(instance_npcname("#171_rgsr_control")+"::OnEvent04");
@@ -726,7 +724,7 @@ OnMobKill:
 		'rgsr = 2;
 		enablenpc(instance_npcname(strnpcinfo(0)));
 		enablenpc(instance_npcname("Access Controller#rgsr"));
-		mapannounce 'map$,"An access controller has appeared somewhere.",bc_map,0x0D98BA;
+		mapannounce 'map$,"A loud buzzing noise can be heard from the dining area.",bc_map,0x0D98BA;
 	}
 end;
 }
@@ -760,6 +758,11 @@ end;
 
 OnRightKill:
 OnTopKill:
+	.@eventRight$ = instance_npcname(strnpcinfo(0))+"::OnRightKill";
+	.@eventTop$ = instance_npcname(strnpcinfo(0))+"::OnTopKill";
+	if(mobcount('map$,.@eventRight$) + mobcount('map$,.@eventTop$) == 0){
+		mapannounce 'map$,"A series of metallic clicks echo through the hallways.",bc_map,0x0D98BA;
+	}
 end;
 }
 

@@ -1034,8 +1034,8 @@ OnFirstSummon:
 			if(unitexists('summon[.@i]))
 				unitkill 'summon[.@i];
 		}
-		setd "'" + boss_x,.@xy[6];
-		setd "'" + boss_y,.@xy[7];
+		'boss_x = .@xy[6];
+		'boss_y = .@xy[7];
 		monster 'map$,'boss_x+7,'boss_y,"",20351,1,.@event$;
 		'summon[0] = $@mobid[0];
 		monster 'map$,'boss_x-7,'boss_y,"",20351,1,.@event$;
@@ -1057,7 +1057,7 @@ OnFirstSummon:
 		for(.@i = 0; .@i < 8; .@i++){
 			if(.@i == 4 && 'second_summon == 0)
 				break;
-			setunitdata 'summon["+.@i+"],UMOB_DMGIMMUNE,1;
+			setunitdata 'summon[.@i],UMOB_DMGIMMUNE,1;
 		}
 		sleep 100;
 	}
@@ -1080,7 +1080,7 @@ OnSecondSummon:
 	monster 'map$,'boss_x-5,'boss_y-5,"",20351,1,.@event$;
 	'summon[7] = $@mobid[0];
 	for(.@i = 4; .@i < 8; .@i++)
-		setunitdata 'summon["+.@i+"],UMOB_DMGIMMUNE,1;
+		setunitdata 'summon[.@i],UMOB_DMGIMMUNE,1;
 end;
 
 OnMobKill:
