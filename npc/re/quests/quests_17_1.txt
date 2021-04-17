@@ -491,13 +491,13 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			mes "Even if everything looks fine on the surface, there are so many lies within. I've been deceived.";
 			next;
 			mes "[ "+strcharinfo(0)+" ]";
-			mes "If you don't investigate with suspicious, you won't see any problems on the surface.";
+			mes "If you don't investigate with suspicions, you won't see any problems under the surface.";
 			next;
 			cloakoffnpc("Ashley#einf",getcharid(0));
 			cloakoffnpc("Lazy#einf",getcharid(0));
 			mes "[ Ashley ]";
-			mes "But that's so... not trusting...";
-			npctalk "But that's so... not trusting...","Ashley#einf",bc_self;
+			mes "But that's so... distrusting...";
+			npctalk "But that's so... distrusting...","Ashley#einf",bc_self;
 			npctalk "But it's very useful, isn't it?","Lazy#einf",bc_self;
 			next;
 			mes "[ Ashley ]";
@@ -548,7 +548,7 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			mes "Wouldn't it be too hard for such supplies to pass through the borders?";
 			next;
 			mes "[ Kaya ]";
-			mes "So the laboratory is probasbly still in Schartzwald. The materials can't be transported in the open,";
+			mes "So the laboratory is probably still in Schartzwald. The materials can't be transported in the open,";
 			mes "so we have to look for a secret location, I guess it's going to be in one of those locations.";
 			next;
 			cutin "16lei_01",2;
@@ -565,7 +565,7 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			next;
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
-			mes "I would like to personally apologize to Daisy. I'm sorry I didn't believe you. Thank you for coming to us.";
+			mes "I would like to personally apologize to Daisy. I'm sorry I didn't believe you. Thank you for coming with us.";
 			next;
 			mes "[ Kaya ]";
 			mes "Daisy, if you need anything, please come and visit me at anytime.";
@@ -574,7 +574,7 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			next;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
-			mes "In the future, please call me Lazy. Let's go with me for another adventurer one day. Come to Yuno everynow and then.";
+			mes "In the future, please call me Lazy. Let's go with me for another adventurer one day. Come to Yuno every now and then.";
 			npctalk "I always hide in Yuno's restaurants~","Lazy#einf",bc_self;
 			next;
 			mes "[ Lazy ]";
@@ -582,7 +582,7 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			next;
 			select("Should I investigate further?");
 			mes "[ Lazy ]";
-			mes "Why not? What more can you do here, Hmm. I'm a little hungry. My legs hurt too. I need to get back to work. I'll have to deal with the VIP as well.";
+			mes "Why not? What more can we do here. Hmm. I'm a little hungry. My legs hurt too. I need to get back to work. I'll have to deal with the VIP as well.";
 			next;
 			mes "[ Lazy ]";
 			mes "As such, I'm going to report the investigation regarding Pat's journey.";
@@ -2956,7 +2956,7 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 			cloakoffnpc("Staff#rek3",getcharid(0));
 			npctalk "With this, we will have completed the pre-training for the employees.","Staff#rek3",bc_self;
 			sleep2 2000;
-			npctalk "If you're new around here, you can get directions from the person in charge of the assignemnts.","Staff#rek3",bc_self;
+			npctalk "If you're new around here, you can get directions from the person in charge of the assignments.","Staff#rek3",bc_self;
 			sleep2 2000;
 			npctalk "Facility maintenance department, come with me!","",bc_self;
 			sleep2 2000;
@@ -3052,9 +3052,9 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 			next;
 			cutin "",255;
 			mes "[ Staff ]";
-			mes "Well you see... I need mor epeople for repairs. There's always something broken, so I always need more manpower. But recently,";
-			mes "There's been ^0000FFa  lot more workforce requested.^000000";
-			npctalk "It's kind of a problem to always send away the best workers everyday.","",bc_self;
+			mes "Well you see... I need more people for repairs. There's always something broken, so I always need more manpower. But recently,";
+			mes "There's been ^0000FFa lot more workforce requests.^000000";
+			npctalk "It's kind of a problem to always send away the best workers.","",bc_self;
 			next;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
@@ -3068,7 +3068,7 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 			npctalk "They're like ghosts, they take them away as soon as they arrive.","",bc_self;
 			next;
 			mes "[ Staff ]";
-			mes "But if you are pressured from above, you have to abide and give them the workforce, right?";
+			mes "But if you are pressured from above, you have to abide and give them their request, right?";
 			next;
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
@@ -3400,7 +3400,7 @@ lhz_in01,32,264,5	script	Staff#rek4	4_M_HUMAN_02,{
 		next;
 		cutin "16lei_02",2;
 		mes "[ Lazy ]";
-		mes "And there it goes. Of course. I also know the asnwer, but I'll ask you anyway, are Patrick and Marcus still working at Rekenber?";
+		mes "And there it goes. Of course. I also know the answer, but I'll ask you anyway, are Patrick and Marcus still working at Rekenber?";
 		next;
 		cutin "",255;
 		mes "[ Staff ]";
@@ -3437,7 +3437,7 @@ lhz_in01,32,264,5	script	Staff#rek4	4_M_HUMAN_02,{
 		next;
 		cutin "16lei_02",2;
 		mes "[ Lazy ]";
-		mes "Have you forgotten? The Vice PResident wants to do this operation as unbiased as possible.";
+		mes "Have you forgotten? The Vice President wants to do this operation as unbiased as possible.";
 		mes "Would you believe the findings of me and the adventurer?";
 		npctalk "I'm the image of distrust~","Lazy#rek4",bc_self;
 		next;
@@ -3644,7 +3644,7 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			next;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
-			mes "Oh wow, look at the attitude change. All we had to do was say the magic words : Vice President.";
+			mes "Oh wow, look at the attitude change. All we had to do was say the magic words 'Vice President'.";
 			mes "That was too easy.";
 			unittalk getcharid(3),strcharinfo(0) + " : It does look a little to easy.",bc_self;
 			next;
@@ -3680,11 +3680,11 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			next;
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
-			mes "You aren't supposed to relocate new employees for at least a whole year, why are you constantly asking for more workforce?";
+			mes "You aren't supposed to relocate new employees for at least a whole year, why are you constantly asking for more manpower?";
 			next;
 			cutin "",255;
 			mes "[ Sammy ]";
-			mes "Yeah...? Why are we being sent so many? I have ^0000FFnever asked or more manpower in the building^000000. When new people arrive here, I assume they're simply a transfer.";
+			mes "Yeah...? Why are we being sent so many? I have ^0000FFnever asked for more manpower in the building^000000. When new people arrive here, I assume they're simply a transfer.";
 			next;
 			cutin "",255;
 			mes "[ Sammy ]";
