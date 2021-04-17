@@ -2384,7 +2384,7 @@ OnInit:
 
 // Instance Room of conciousness, daily quest
 prt_lib_q,91,85,3	script	Nillem#ep16_lib_q	4_M_JOB_WIZARD,{
-	if (ep16_royal == 18) {
+	if (ep16_royal == 18 && isbegin_quest(7700) == 1) {
 		mes "[Nillem]";
 		mes "Oh, we did it.";
 		mes "I don't know when, but it is the ^4d4dffPast Memories of the Royal Family^000000!";
