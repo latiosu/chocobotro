@@ -86007,8 +86007,50 @@ Body:
 #    AegisName: NIGHTMARE_TERROR_MJ
 #  - Id: 20339
 #    AegisName: BLAZZER_MJ
-#  - Id: 20340
-#    AegisName: MD_EL_A17T
+  - Id: 20340
+    AegisName: MD_EL_A17T
+    Name: EL1_A17T#boss
+    Level: 118
+    Hp: 16412000
+    BaseExp: 5279658
+    JobExp: 4585648
+    Attack: 1543
+    Attack2: 854
+    Defense: 355
+    MagicDefense: 42
+    Str: 173
+    Agi: 143
+    Vit: 77
+    Int: 148
+    Dex: 202
+    Luk: 84
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 3
+    WalkSpeed: 220
+    AttackDelay: 1008
+    AttackMotion: 1004
+    DamageMotion: 240
+    Ai: 21
+    Class: Boss
+    Drops:
+    - Item: Old_Steel_Plate
+      Rate: 3500
+    - Item: 25669
+      Rate: 2500
+    - Item: 25668
+      Rate: 100
+    - Item: 25723
+      Rate: 1000
+    - Item: Crushed_Can_Iron_Plate
+      Rate: 1500
+    - Item: EL_A17T_Card
+    Rate: 1
+    StealProtected: true
   - Id: 20341
     AegisName: MD_E_EA1L
     Name: E-EA1L
@@ -86048,14 +86090,142 @@ Body:
     - Item: E_EA1L_Card
       Rate: 1
       StealProtected: true
-#  - Id: 20342
-#    AegisName: MD_E_EA2S
-#  - Id: 20343
-#    AegisName: MD_E_13EN0
-#  - Id: 20344
-#    AegisName: MD_VENOM_BUG
-#  - Id: 20345
-#    AegisName: MD_CONSTANT
+  - Id: 20342
+    AegisName: MD_E_EA2S
+    Name: E_EA2S#cor1m
+    Level: 117
+    Hp: 26200
+    BaseExp: 5448
+    JobExp: 4790
+    Attack: 1073
+    Attack2: 190
+    Defense: 101
+    MagicDefense: 37
+    Str: 110
+    Agi: 75
+    Vit: 47
+    Int: 49
+    Dex: 86
+    Luk: 61
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 2
+    WalkSpeed: 165
+    AttackDelay: 1552
+    AttackMotion: 1152
+    DamageMotion: 336
+    Ai: 10
+    Modes:
+      CanMove: true
+    Drops:
+    - Item: Screw
+      Rate: 1250
+    - Item: Burnt_Parts
+      Rate: 1000
+    - Item: EP17_1_EVT02
+      Rate: 10
+    - Item: E_EA2S_Card
+      Rate: 1
+      StealProtected: true
+  - Id: 20343
+    AegisName: MD_E_13EN0
+    Name: E-13EN0#cor4m
+    Level: 118
+    Hp: 26840
+    BaseExp: 5570
+    JobExp: 4992
+    Attack: 1082
+    Attack2: 198
+    Defense: 72
+    MagicDefense: 29
+    Str: 95
+    Agi: 76
+    Vit: 38
+    Int: 76
+    Dex: 86
+    Luk: 61
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Fish
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 200
+    AttackDelay: 432
+    AttackMotion: 864
+    DamageMotion: 360
+    Ai: 13
+    Drops:
+    - Item: Sticky_Mucus
+      Rate: 1250
+    - Item: Sticky_Poison
+      Rate: 1000
+    - Item: Fluorescent_Liquid
+      Rate: 800
+    - Item: Elunium_Stone
+      Rate: 120
+    - Item: Elunium
+      Rate: 20
+    - Item: EP17_1_EVT39
+      Rate: 3
+  - Id: 20344
+    AegisName: MD_VENOM_BUG
+    Name: Chemical Poison#corM_b9
+    Level: 110
+    Hp: 10000
+    BaseExp: 0
+    JobExp: 0
+    Defense: 200
+    MagicDefense: 200
+    Str: 100
+    Agi: 100
+    Vit: 100
+    Int: 100
+    Dex: 100
+    Luk: 100
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Formless
+    Element: Poison
+    ElementLevel: 1
+    AttackDelay: 105
+    AttackMotion: 0
+    DamageMotion: 480
+    Ai: 10
+  - Id: 20345
+    AegisName: MD_CONSTANT
+    Name: Bio Battery#cor1m
+    Level: 110
+    Hp: 10000
+    BaseExp: 0
+    JobExp: 0
+    Defense: 200
+    MagicDefense: 200
+    Str: 100
+    Agi: 100
+    Vit: 100
+    Int: 100
+    Dex: 100
+    Luk: 100
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Small
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 3
+    WalkSpeed: 150
+    AttackDelay: 720
+    AttackMotion: 360
+    DamageMotion: 360
+    Ai: 04
   - Id: 20346
     AegisName: MD_MIGUEL
     Name: Miguel

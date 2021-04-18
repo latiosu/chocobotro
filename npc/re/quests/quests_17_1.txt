@@ -4369,7 +4369,7 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 		mes "[ Discarded Person ]";
 		mes "A 1:2 ratio might better... No it's better not to experiment. I think you're right.";
 		next;
-		select("Oh, woah, hello?? It's ok I don't mind!");
+		select("Oh, woah, hello? It's ok I don't mind!");
 		mes "[ Discarded Person ]";
 		mes "Why are you surprised? I'm not dead yet.";
 		unittalk getcharid(3),strcharinfo(0) + " : I'm sorry.",bc_self;
@@ -4400,7 +4400,7 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 		next;
 		select("Are there any other people here?");
 		mes "[ Discarded Person ]";
-		mes "Why are you looking for? A dead person? A living person? Or perhaps a half dead person?";
+		mes "Why are you looking for a dead person? No, a living person? Or perhaps a half dead person?";
 		next;
 		mes "[ Discarded Person ]";
 		mes "How many discarded people do you think you'll find here?";
@@ -4410,7 +4410,7 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 		mes "If they had a ^0000FFcertain physical condition and a poor background^000000, sometimes just homeless, it was easier to experiment on them.";
 		next;
 		mes "[ Discarded Person ]";
-		mes "Don't look at me like that. The porrer you are, the better off your family is, we would be fools to not take advantage of these people. At least that's what I thought back then.";
+		mes "Don't look at me like that. The poorer you are, the better off your family is, we would be fools to not take advantage of these people. At least that's what I thought back then.";
 		next;
 		mes "[ Discarded Person ]";
 		mes "Where do you think all these missing people have gone to over the years?";
@@ -4430,10 +4430,10 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 		mes "Well.. I ^0000FFdon't have the information you seek.^000000 I was the last person to come here.";
 		next;
 		mes "[ Discarded Person ]";
-		mes "I don't have much to do, but I've looked through this place and I haven't seen anyone by that that... you know what I mean?";
+		mes "I don't have much to do, but I've looked through this place and I haven't seen anyone by that name... you know what I mean?";
 		next;
 		mes "[ Discarded Person ]";
-		mes "You should try and look for an ^0000FFIdentification Bracelet^000000 in the pile of garbage. DO you know what it is?";
+		mes "You should try and look for an ^0000FFIdentification Bracelet^000000 in the pile of garbage. Do you know what it is?";
 		mes "The wrist band is a bracelet. The names of the specimens are written on it.";
 		next;
 		mes "[ Discarded Person ]";
@@ -4457,7 +4457,7 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 		mes "Even if I received treatments, there's no chance I'd survive. I know this well. Wouldn't it be best for me to have a quiet life here without anyone?";
 		next;
 		mes "[ Discarded Person ]";
-		mes "See, this is my family nmow. Why do I have to carry such a heavy load? It's a hundred times easier to give up hope than to be alive elsewhere isn't it?";
+		mes "See, this is my family now. Why do I have to carry such a heavy burden? It's a hundred times easier to give up hope than to be alive elsewhere isn't it?";
 		next;
 		mes "[ Discarded Person ]";
 		mes "Do I sound weird when I say stuff like that? I think I'm losing it a little.";
@@ -4527,7 +4527,7 @@ sp_rudus,236,46,0	script	Suspicious Evidence#ep171_0	4_ENERGY_BLACK,{
 		end;
 	}
 	mes "[ "+strcharinfo(0)+" ]";
-	mes "I looked throught the garbage and found several identification bracelet. Let's look elsewhere.";
+	mes "I looked throught the garbage and found several identification bracelets. Let's look elsewhere.";
 	for(.@i = 17026; .@i < 17031; .@i++){
 		if(isbegin_quest(.@i)){
 			erasequest .@i;
@@ -4617,11 +4617,11 @@ function	script	171_worker_talk	{
 		case 10: .@talk$ = "No, please leave. We can't do this anymore."; break;
 		case 11: .@talk$ = "No, did you guys kill everyone?"; break;
 		case 12: .@talk$ = "We don't know who you are."; break;
-		case 13: .@talk$ = "Everyone, stay calm, let me see what they want."; break;
-		case 14: .@talk$ = "Can you see that?"; break;
+		case 13: .@talk$ = "Everyone, stay calm, let's see what they want."; break;
+		case 14: .@talk$ = "Can you see what's going on?"; break;
 		case 15: .@talk$ = "Yeah, that's right. I haven't been able to go anywhere."; break;
 		case 16: .@talk$ = "No, that's not what we do!"; break;
-		case 17: .@talk$ = "Are we doing chores too now?"; break;
+		case 17: .@talk$ = "Are we doing chores now too?"; break;
 		case 18: .@talk$ = "Well that's just awesome!"; break;
 		case 19: .@talk$ = "Who do you think you are?"; break;
 		case 20: .@talk$ = "Yeah, just look at you guys."; break;
@@ -4634,45 +4634,45 @@ function	script	171_worker_talk	{
 		case 27: .@talk$ = "Yeah. What are they talking about?"; break;
 		case 28: .@talk$ = "How did we know there were researchers?"; break;
 		case 29: .@talk$ = "Wait, where have you been?"; break;
-		case 30: .@talk$ = "They will come when the rice is cooked."; break;
+		case 30: .@talk$ = "They will come when the food is ready."; break;
 		case 31: .@talk$ = "Is anyone allowed to leave? I heard you!"; break;
 		case 32: .@talk$ = "What, are we rubbish to you? Is that it?"; break;
 		case 33: .@talk$ = "Yeah! without us, the lab can't function!"; break;
 		case 34: .@talk$ = "We won't listen to you anymore! Get out!"; break;
-		case 35: .@talk$ = "Come on! Get out!"; break;
-		case 36: .@talk$ = "Your existence itself is a threat to us!"; break;
+		case 35: .@talk$ = "Go on! Get out!"; break;
+		case 36: .@talk$ = "Your existence is a threat to us!"; break;
 		case 37: .@talk$ = "Come on, I'll fight you at the end of the day!"; break;
 		case 38: .@talk$ = "Do you think you can just stay here?"; break;
 		case 39: .@talk$ = "Just come and try! Do it!!"; break;
 		case 40: .@talk$ = "Who's that?"; break;
-		case 41: .@talk$ = "Are you on the meeting square, who is this now?"; break;
+		case 41: .@talk$ = "Are you at the meeting square, who's this now?"; break;
 		case 42: .@talk$ = "Wait, I think I just heard something? Vice President?"; break;
 		case 43: .@talk$ = "We have nothing else to say!"; break;
 		case 44: .@talk$ = "If that's the Vice President, then I'm the Vice President too!"; break;
-		case 45: .@talk$ = "No, what? For Real?"; break;
+		case 45: .@talk$ = "No, what? For real?"; break;
 		case 46: .@talk$ = "Well, me neither."; break;
 		case 47: .@talk$ = "What are you doing here?"; break;
 		case 48: .@talk$ = "Yeah, why are you here?"; break;
-		case 49: .@talk$ = "What are you trying to say now?"; break;
+		case 49: .@talk$ = "What are talking about?"; break;
 		case 50: .@talk$ = "That's right, why?"; break;
 		case 51: .@talk$ = "I don't know..."; break;
 		case 52: .@talk$ = "Do we just suddenly introduce ourselves?"; break;
 		case 53: .@talk$ = "Oh, I don't think that's it."; break;
 		case 54: .@talk$ = "They were doing that with sunlight right?"; break;
 		case 55: .@talk$ = "Right. I saw it."; break;
-		case 56: .@talk$ = "Eh, did you do something illegal?"; break;
+		case 56: .@talk$ = "Eh, did you do anything illegal?"; break;
 		case 57: .@talk$ = "So you think we've done illegal experiments?"; break;
-		case 58: .@talk$ = "it's you guys who're doing something illegal!"; break;
+		case 58: .@talk$ = "It's you guys who're doing something illegal!"; break;
 		case 59: .@talk$ = "I thought you were the Vice President."; break;
 		case 60: .@talk$ = "Is he a fraud?"; break;
 		case 61: .@talk$ = "Why would you say that to your own workers?"; break;
-		case 62: .@talk$ = "I toldyou, he looks like an impostor."; break;
+		case 62: .@talk$ = "I told you, he looks like an impostor."; break;
 		case 63: .@talk$ = "That's defnitely strange, isn't it?"; break;
 		case 64: .@talk$ = "That's right! Why aren't there a dozen bureaucrats with him?"; break;
 		case 65: .@talk$ = "I don't think he is."; break;
 		case 66: .@talk$ = "That's true."; break;
-		case 67: .@talk$ = "Someone else might look better?"; break;
-		case 68: .@talk$ = "Do we look like an idiots to you? Are you going to use us?"; break;
+		case 67: .@talk$ = "Someone else might look similar."; break;
+		case 68: .@talk$ = "Do we look like idiots to you? Are you going to use us?"; break;
 		case 69: .@talk$ = "Take your time."; break;
 		case 70: .@talk$ = "Oh, look at that! Now the president is here~"; break;
 		case 71: .@talk$ = "He's not the president, he's from the office of the president."; break;
@@ -4682,7 +4682,7 @@ function	script	171_worker_talk	{
 		case 75: .@talk$ = "Yeah! Can't you see our hardworking hands?"; break;
 		case 76: .@talk$ = "We have to deal with these sinners as well!"; break;
 		case 77: .@talk$ = "I know, I wouldn't want to be here either."; break;
-		case 78: .@talk$ = "We're those who work!"; break;
+		case 78: .@talk$ = "We're the ones who work!"; break;
 		case 79: .@talk$ = "I've been moving things all day long"; break;
 		case 80: .@talk$ = "Doesn't it seem quiet?"; break;
 		case 81: .@talk$ = "So just go back."; break;
@@ -4692,31 +4692,31 @@ function	script	171_worker_talk	{
 		case 85: .@talk$ = "Hey, don't move!"; break;
 		case 86: .@talk$ = "Well, now it's a big deal."; break;
 		case 87: .@talk$ = "The senior researcher is here."; break;
-		case 88: .@talk$ = "Did our researcher always had such a personality?"; break;
+		case 88: .@talk$ = "Did our researcher always have such a personality?"; break;
 		case 89: .@talk$ = "Well, I never had a word with her, did you?"; break;
 		case 90: .@talk$ = "What's the matter?"; break;
 		case 91: .@talk$ = "Oh!!! What is all this!"; break;
 		case 92: .@talk$ = "Please, you're not alone!"; break;
 		case 93: .@talk$ = "Aaaaah!! Researcher!! It's us! We're here too!"; break;
 		case 94: .@talk$ = "El, Elyumina! Wait a second!"; break;
-		case 95: .@talk$ = "The researcher is crazy!"; break;
+		case 95: .@talk$ = "That researcher is crazy!"; break;
 		case 96: .@talk$ = "She is!!"; break;
 		case 97: .@talk$ = "Hey!! Are you okay?!"; break;
 		case 98: .@talk$ = "What is that sound!!"; break;
 		case 99: .@talk$ = "Aaah!!"; break;
 		case 100: .@talk$ = "No! Please!!"; break;
-		case 101: .@talk$ = "The researcher is nuts!!!"; break;
+		case 101: .@talk$ = "They're nuts!!!"; break;
 		case 102: .@talk$ = "Huh, we're coming too!"; break;
 		case 103: .@talk$ = "Hey, come quickly!!"; break;
 		case 104: .@talk$ = "Spare me!!"; break;
 		case 105: .@talk$ = "Good job!"; break;
 		case 106: .@talk$ = "You're doing great, gunmen!"; break;
 		case 107: .@talk$ = "Now!"; break;
-		case 108: .@talk$ = "Oh, did you hear that? You should shoot now!"; break;
+		case 108: .@talk$ = "Oh, did you hear that? Just shoot them now!"; break;
 		case 109: .@talk$ = "Are they gone?"; break;
 		case 110: .@talk$ = "Huh... uh.."; break;
 		case 111: .@talk$ = "Hey, are you okay?"; break;
-		case 112: .@talk$ = "Ah... argh!! I'm... gonna die!!"; break;
+		case 112: .@talk$ = "Ah... argh!! It... it hurts!!"; break;
 		case 113: .@talk$ = "I don't think so..."; break;
 		case 114: .@talk$ = "We'll help you!"; break;
 	}
@@ -5790,7 +5790,7 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			next;
 			cutin "ep171_as01",0;
 			mes "[ Ashley ]";
-			mes "Not here, please come <NAVI>[here]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI>.";
+			mes "Not here, over <NAVI>[there]<INFO>sp_cor,135,147,0,101,0</INFO></NAVI>.";
 			ep_illusion = 39;
 			completequest 17017;
 			setquest 17018;
@@ -5842,7 +5842,7 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			next;
 			select("What's the matter?");
 			mes "[ Kaya ]";
-			mes "You and others previously attacked a lab that's been conducting illegal experiments.";
+			mes "You and others previously took over a lab that's been conducting illegal experiments.";
 			mes "What do you think about this one?";
 			next;
 			select("I think this lab is the same.:I don't know");
@@ -5892,7 +5892,7 @@ sp_cor,137,146,3	script	Kaya#sp_cor	4_EP17_KAYA,{
 			mes "This is Kaufman's...? Were there other people there?";
 			next;
 			cutin "",255;
-			mes "- Told Kaya the story about the researcher you met at Rudus and about the experiments.";
+			mes "- You tell Kaya the story about the researcher you met at Rudus and about the experiments.";
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
@@ -6662,7 +6662,7 @@ sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 		.@card[.@i] = getequipcardid(.@part,.@i);
 	copyarray .@check[0],.@card[0],4;
 	if(.@id[0] != .@equip_id && .@id[1] != .@equip_id){
-		mes .@id[0] + " " + .@id[1];
+		mes "<ITEM>"+ getitemname(.@id[0]) +"<INFO>"+ .@id[0] +"</INFO></ITEM> or <ITEM>"+ getitemname(.@id[1]) +"<INFO>"+ .@id[1] +"</INFO></ITEM>";
 		mes "Please make sure you have equipped the item.";
 		close;
 	}
@@ -7235,7 +7235,7 @@ sp_cor,246,97,3	script	Farm Worker#illusion_daily	1_M_03,{
 				mes "Ever since our elders passed, things have been a bit chaotic...";
 				next;
 				mes "[ Farm Worker ]";
-				mes "What happened?? Actually it' wasn't 'a bit' chaotic, it was a lot...";
+				mes "What happened? Actually it' wasn't 'a bit' chaotic, it was a lot...";
 				close;
 			}
 			mes "[ Farm Worker ]";
@@ -7276,7 +7276,7 @@ sp_cor,246,97,3	script	Farm Worker#illusion_daily	1_M_03,{
 				mes "Ever since our elders passed, things have been a bit chaotic...";
 				next;
 				mes "[ Farm Worker ]";
-				mes "What happened?? Actually it' wasn't 'a bit' chaotic, it was a lot...";
+				mes "What happened? Actually it' wasn't 'a bit' chaotic, it was a lot...";
 				close;
 			}
 			mes "[ Farm Worker ]";
@@ -7838,7 +7838,7 @@ sp_cor,70,263,5	script	Worker#cor_other_04	4_M_02,{
 			npctalk "Be careful here.","",bc_self;
 			next;
 			mes "[ Worker ]";
-			mes "Oh... did you come to pick up the materials? I have arranged it as best as I could, but I cann't classify it because I don't know what it is.";
+			mes "Oh... did you come to pick up the materials? I have arranged it as best as I could, but I can't classify it because I don't know what it is.";
 			next;
 			select("Can I have a look?");
 			mes "[ Worker ]";
@@ -7854,7 +7854,7 @@ sp_cor,70,263,5	script	Worker#cor_other_04	4_M_02,{
 			npctalk "I can't understand how people who are so smart can be so dirty and messy.";
 			next;
 			mes "[ Worker ]";
-			mes "How can they call themselves real people if they can't even throw their trash in proper places. Maybe there piles left behind in the mountains.";
+			mes "How can they call themselves real people if they can't even throw their trash in proper places. Maybe there are piles left behind in the mountains.";
 			next;
 			select("Do you also burn the contaminated materials?");
 			mes "[ Worker ]";
@@ -7958,14 +7958,14 @@ sp_cor,151,180,5	script	Worker#cor_other_12	4_M_RUSMAN2,{
 			next;
 			select("Are you familiar with Eva?");
 			mes "[ Marcus ]";
-			mes "No, who are you, really? How do you know Eva Mueller? Did Eva send you? How is she doing? Oh my god! Eva! How is Eva doing?";
+			mes "No, who are you, really? How do you know Eva Mueller? Did Eva send you? How is she doing? Oh my god! Eva! How is she?";
 			npctalk "Aaah... Eva, my dear Eva....","",bc_self;
 			next;
 			mes "[ Marcus ]";
 			mes "Eva, I want to see Eva again. Did she forget about me? I haven't been able to contact her for several years.";
 			npctalk "Ah, ahah.. I'm really a terrible person...","",bc_self;
 			next;
-			select("She worries because she hasn't been contacted.");
+			select("She worries since she hasn't been contacted.");
 			mes "[ Marcus ]";
 			mes "I couldn't send letters. I couldn't contact the outside either, and I can't get out of here. These are the rules of this place.";
 			next;
@@ -8243,14 +8243,14 @@ sp_cor,224,77,3	script	Researcher#cor_00	4_F_SCIENCE,{
 			mes "Well... in short, it was to feed the study animals, I was growing super vegetables that would sustain the animals for life.";
 			next;
 			mes "[ Researcher ]";
-			mes "Processing and refining the vegetables... with these... what were they trying to do?? Did they try solve the hunger problems?";
+			mes "Processing and refining the vegetables... with these... what were they trying to do? Did they try solve the hunger problems?";
 			mes "Actually, I don't know. Maybe you do.";
 			next;
 			mes "[ Researcher ]";
 			mes "The chief researchers here know all the details. I honestly didn't know they would just leave like that. I thought they were like a family to me...";
 			next;
 			mes "[ Researcher ]";
-			mes "The chief told me to pack my bags because there was a disturbance outside. I was hesitating because I had to take care of my crops, but then everyonen had already left.";
+			mes "The chief told me to pack my bags because there was a disturbance outside. I was hesitating because I had to take care of my crops, but then everyone had already left.";
 			npctalk "I feel discarded.","",bc_self;
 			next;
 			mes "[ Researcher ]";
@@ -8285,15 +8285,15 @@ end;
 }
 
 //= < Mob Spawn >
-sp_os,0,0	monster	Bellare	20355,110,5000
-sp_os,0,0	monster	Sanare	20357,110,5000
-sp_os,0,0	monster	Venenum	20357,5,5000
-sp_rudus,0,0	monster	Venenum	20363,38,5000
-sp_rudus,0,0	monster	Dolor	20361,59,5000
-sp_rudus,0,0	monster	Twin Caput	20365,43,5000
+sp_os,0,0	monster	Bellare	20355,112,5000
+sp_os,0,0	monster	Sanare	20357,108,5000
+sp_os,0,0	monster	Venenum	20363,5,5000
+sp_rudus,0,0	monster	Venenum	20363,4,5000
+sp_rudus,0,0	monster	Dolor	20361,5,5000
+sp_rudus,0,0	monster	Twin Caput	20365,4,5000
 sp_rudus2,0,0	monster	Greater Bellare	20356,40,5000
 sp_rudus2,0,0	monster	Greater Sanare	20358,37,5000
-sp_rudus2,0,0	monster	Mutant Plaga	20360,53,5000
+sp_rudus2,0,0	monster	Mutant Plaga	20360,58,5000
 sp_rudus2,0,0	monster	Mutant Dolor	20362,45,5000
 sp_rudus2,0,0	monster	R48-85-BESTIA	20381,1,21600000,600000,0
 sp_rudus3,0,0	monster	Mutant Dolor	20362,60,5000
