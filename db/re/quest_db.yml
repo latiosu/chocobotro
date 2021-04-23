@@ -8907,6 +8907,14 @@ Body:
     Title: Crack in the Wall
   - Id: 16205
     Title: The Empty Lava Tube
+  - Id: 16363
+    Title: Take Care of EL1_A17T
+    Targets:
+      - Mob: MD_EL_A17T
+        Count: 1
+  - Id: 16377
+    Title: Overpower EL1_A17T - Standby
+    TimeLimit: 23h59mn
   - Id: 17000
     Title: Meet with Father Bamph
   - Id: 17001

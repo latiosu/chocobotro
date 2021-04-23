@@ -7,7 +7,7 @@
 //================================================================|
 
 sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
-	if(ep_illusion < 47){
+	if(ep_illusion < 46){
 		mes "[ Rebellion ]";
 		mes "Oh, you're the adventurer? It's been a too long. Did you come to see me?";
 		next;
@@ -47,6 +47,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			close3;
 
 		case 2:
+			erasequest 16377;
 			break;
 	}
 	switch(checkquest(16376)){
@@ -55,7 +56,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "Oh, adventurer. I haven't seen you in a while! I wanted to ask you something. It's about Mina...";
 			unittalk getcharid(3),strcharinfo(0)+ " : Mina?",bc_self;
 			next;
-			cloakoffnpc(instance_npcname("Elyumina#os_merchant",getcharid(0)));
+			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "Here, I'll explain. My children who attacked you the last time you followed me...";
@@ -119,7 +120,7 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "It's time for Mina's children to wake up, adventurer!";
 			mes "Will they patiently wait this time around?";
 			next;
-			cloakoffnpc(instance_npcname("Elyumina#os_merchant",getcharid(0)));
+			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "... they're no longer on low power and the security devices are operational again.";
@@ -245,36 +246,43 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 				mes "You will need to make a ^0000FFparty of at least 1^000000 and come back to me.";
 				close3;
 			}
-			for(.@i = 0; .@i < 6; .@i++)
-				cloakoffnpc("Rebellion#cor_ms_" + .@i,getcharid(0));
-			cutin "162elena_01",2;
-			mes "[ Elena Bolkova ]";
-			mes "The blockade of the area is ready.";
-			mes "Let's start the mission!";
-			mes "It's not too late. Gentlemen, get ready!";
-			next;
-			mes "[ Elena Bolkova ]";
-			mes "Good, among the elite of the brave Rebellion, your goal will be to capture the researcher.";
-			npctalk "Elena Bolkova : She's the one who holds all the key information, we have to capture her.","",bc_self;
-			npctalk "I'm ready!","Rebellion#cor_ms_0",bc_self;
-			npctalk ".....","Rebellion#cor_ms_1",bc_self;
-			npctalk "I'm ready!","Rebellion#cor_ms_2",bc_self;
-			npctalk "I'm ready!","Rebellion#cor_ms_3",bc_self;
-			npctalk "I'm ready!","Rebellion#cor_ms_4",bc_self;
-			npctalk "I'm ready!","Rebellion#cor_ms_5",bc_self;
-			next;
-			cutin "162elena_02",2;
-			mes "[ Elena Bolkova ]";
-			mes "Adventurer, choose 'Create' and wait a moment when you want to go.";
-			mes "Choose 'Enter' after.";
-			npctalk "Elena Bolkova : Alright, ready? These bastards will face us.","",bc_self;
-			npctalk "If they don't mind...","Rebellion#cor_ms_0",bc_self;
-			npctalk ".....","Rebellion#cor_ms_1",bc_self;
-			npctalk "It won't be easy, will it?","Rebellion#cor_ms_2",bc_self;
-			npctalk "The time has come for us to show off!","Rebellion#cor_ms_3",bc_self;
-			npctalk "Time for us to go!","Rebellion#cor_ms_4",bc_self;
-			npctalk "Why are you smiling?","Rebellion#cor_ms_5",bc_self;
-			next;
+			if (instance_id(IM_PARTY)) {
+				for(.@i = 0; .@i < 6; .@i++)
+					cloakoffnpc("Rebellion#cor_ms_" + .@i,getcharid(0));
+				cutin "162elena_01",2;
+				mes "[ Elena Bolkova ]";
+				mes "The blockade of the area is ready.";
+				mes "Let's start the mission!";
+				mes "It's not too late. Gentlemen, get ready!";
+				next;
+				mes "[ Elena Bolkova ]";
+				mes "Good, among the elite of the brave Rebellion, your goal will be to capture the researcher.";
+				npctalk "Elena Bolkova : She's the one who holds all the key information, we have to capture her.","",bc_self;
+				npctalk "I'm ready!","Rebellion#cor_ms_0",bc_self;
+				npctalk ".....","Rebellion#cor_ms_1",bc_self;
+				npctalk "I'm ready!","Rebellion#cor_ms_2",bc_self;
+				npctalk "I'm ready!","Rebellion#cor_ms_3",bc_self;
+				npctalk "I'm ready!","Rebellion#cor_ms_4",bc_self;
+				npctalk "I'm ready!","Rebellion#cor_ms_5",bc_self;
+				next;
+				cutin "162elena_02",2;
+				mes "[ Elena Bolkova ]";
+				mes "Adventurer, choose 'Create' and wait a moment when you want to go.";
+				mes "Choose 'Enter' after.";
+				npctalk "Elena Bolkova : Alright, ready? These bastards will face us.","",bc_self;
+				npctalk "If they don't mind...","Rebellion#cor_ms_0",bc_self;
+				npctalk ".....","Rebellion#cor_ms_1",bc_self;
+				npctalk "It won't be easy, will it?","Rebellion#cor_ms_2",bc_self;
+				npctalk "The time has come for us to show off!","Rebellion#cor_ms_3",bc_self;
+				npctalk "Time for us to go!","Rebellion#cor_ms_4",bc_self;
+				npctalk "Why are you smiling?","Rebellion#cor_ms_5",bc_self;
+				next;
+			} else {
+				cutin "162elena_01",2;
+				mes "[ Elena Bolkova ]";
+				mes "Let me know when you're ready to organise the Operation.";
+				next;
+			}
 			switch(select("Create Operation.:Enter Operation.:Cancel")){
 				case 1:
 					switch(instance_create(.@md_name$)){
@@ -343,7 +351,7 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			mes "Elyumina was captured safely. Now that the attacks have stopped, this should be a safe place.";
 			next;
 			mes "[ Elena Bolkova ]";
-			mes "The Secret Wings and Lucky are ready to interrogate her.";
+			mes "The Secret Wings and Rookie are ready to interrogate her.";
 			mes "It looks like they're organizing a meeting place where we defeated the scrap metal machine.";
 			next;
 			mes "[ Elena Bolkova ]";
@@ -352,7 +360,7 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			next;
 			mes "[ Elena Bolkova ]";
 			mes "Join them on that <NAVI>[side]<INFO>sp_cor,136,210,0,000,0</INFO></NAVI>.";
-			mes "Lucky will be asking the questions.";
+			mes "Rookie will be asking the questions.";
 			ep_illusion = 44;
 			completequest 16357;
 			setquest 16358;
@@ -366,7 +374,7 @@ sp_cor,180,169,3	script	Elena Bolkova#cor_op	4_F_ELENA,{
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "Join them on that <NAVI>[side]<INFO>sp_cor,136,210,0,000,0</INFO></NAVI>.";
-			mes "Lucky will be asking the questions.";
+			mes "Rookie will be asking the questions.";
 			close3;
 
 		case 46:
@@ -495,6 +503,7 @@ OnEventStory02:
 	disablenpc(instance_npcname("Box#cor_s_box_1"));
 	mapannounce 'map$,"Elena Bolkova : Awesome, she came out! I've sent the signal, come to my location!",bc_yellow;
 	enablenpc(instance_npcname("Elena Bolkova#cor_s2"));
+	addrid(1,0);
 	viewpoint 1,172,223,5,0xFFFFFF;
 	viewpoint 2,160,119,2,0xFFFFFF;
 	viewpoint 2,140,79,1,0xFFFFFF;
@@ -1263,7 +1272,7 @@ end;
 		warp "sp_cor",176,169;
 		instance_destroy();
 	}
-	if(.@var == 7){
+	if('cor_mission == 7){
 		cutin "162elena_01",2;
 		mes "[ Elena Bolkova ]";
 		mes "Ah yes. It suffered this time. Perfect! How long did it take you to stop this scrap metal?";

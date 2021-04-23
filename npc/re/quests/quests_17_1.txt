@@ -722,7 +722,7 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			next;
 			mes "[ Elena Bolkova ]";
 			mes "Are you really sure about this place?";
-			mes "Lucky said it's just an abandoned smelting plant after a mine close.";
+			mes "Rookie said it's just an abandoned smelting plant after a mine close.";
 			next;
 			cutin "ep16_tes01",1;
 			mes "[ Tess ]";
@@ -3832,7 +3832,7 @@ sp_rudus,184,360,3	script	Elena Bolkova#171_rudus	4_F_ELENA,{
 			mes "My crew is working on securing the doorway first. If you open it, go check out the other side.";
 			next;
 			mes "[ Elena Bolkova ]";
-			mes "You remember Lucky? I brought him along, so go ahead and ask him about the progress.";
+			mes "You remember Rookie? I brought him along, so go ahead and ask him about the progress.";
 			ep_illusion = 4;
 			completequest 7851;
 			setquest 7852;
@@ -4064,7 +4064,7 @@ sp_rudus,122,286,3	script	Rebellion Crew#171_rudus01	4_M_REBELLION3,{
 			end;
 		}
 		mes "[ Rebellion Crew ]";
-		mes "I will learn everything I can about the watchtower! You can report back to Lucky!";
+		mes "I will learn everything I can about the watchtower! You can report back to Rookie!";
 		close;
 	}
 	npctalk "I'm going to have to take over this watchtower too...!","",bc_self;
@@ -4104,7 +4104,7 @@ sp_rudus,304,266,3	script	Rebellion Crew#171_rudus02	4_M_REBELLION3,{
 			next;
 			mes "[ Rebellion Crew ]";
 			mes "I'll have a closer look and join you later.";
-			mes "Please tell Lucky.";
+			mes "Please tell Rookie.";
 			setquest 7854;
 			illusion_barrier_check;
 			end;
@@ -4605,7 +4605,7 @@ function	script	171_worker_talk	{
 .@type = getarg(0);
 .@npc$ = getarg(1);
 	switch(.@type){
-		case 1: .@talk$ = "Oh wow! Aren't we lucky this morning!"; break;
+		case 1: .@talk$ = "Oh wow! Aren't we Rookie this morning!"; break;
 		case 2: .@talk$ = "Who's being so loud?"; break;
 		case 3: .@talk$ = "It looks like it's these guys."; break;
 		case 4: .@talk$ = "What a mess!"; break;
@@ -6790,13 +6790,13 @@ sp_cor,136,210,7	script	Gonie#sp_barracks	4_M_GONY,12,12,{
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "Here, that's the captive.";
-			mes "It's been a while since we've seen each other Lucky. I missed you!";
+			mes "It's been a while since we've seen each other Rookie. I missed you!";
 			next;
 			mes "[ Lazy ]";
-			mes "You know I have good taste, Lucky Lucky~ your eyes are great. Just like me, you're great~";
+			mes "You know I have good taste, Rookie Rookie~ your eyes are great. Just like me, you're great~";
 			emotion ET_BIGTHROB,getnpcid(0,"Lazy#sp_barracks");
 			npctalk "Lazy : I want to take you out for dinner. My heart is beating so fast.","Lazy#sp_barracks",bc_self;
-			npctalk "Lucky : ... let's listen to the whole story first. Let me do the talking.","Rookie#sp_barracks",bc_self;
+			npctalk "Rookie : ... let's listen to the whole story first. Let me do the talking.","Rookie#sp_barracks",bc_self;
 			next;
 			cutin "ep171_elyumina02",0;
 			mes "[ Elyumina ]";
@@ -6806,7 +6806,7 @@ sp_cor,136,210,7	script	Gonie#sp_barracks	4_M_GONY,12,12,{
 			next;
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
-			mes "Okay, excuse me then. Lucky, I'll let you do it.";
+			mes "Okay, excuse me then. Rookie, I'll let you do it.";
 			ep_illusion = 45;
 			completequest 16358;
 			setquest 16359;
@@ -6862,7 +6862,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			mes "[ Rookie ]";
 			mes "Your research, it's an illegal experiment.";
 			mes "Did you not think this day would come eventually?";
-			npctalk "Lucky : What, no we're not stealing anything.","",bc_self;
+			npctalk "Rookie : What, no we're not stealing anything.","",bc_self;
 			next;
 			mes "[ Rookie ]";
 			mes "Well, that's okay now. Is your research important to you?";
@@ -6890,7 +6890,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			mes "[ Rookie ]";
 			mes "... I haven't seen it.";
 			npctalk "Nothing?","Elena Bolkova#sp_barracks",bc_self;
-			npctalk "Nope, can't find it.","Lazy#sp_barracks",bc_self;
+			npctalk "Nope, never saw it.","Lazy#sp_barracks",bc_self;
 			next;
 			cutin "ep171_elyumina01",0;
 			mes "[ Elyumina ]";
@@ -6926,13 +6926,13 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			mes "[ Rookie ]";
 			mes "First. You keep sticking to your story.";
 			mes "You refuse to tell us whether or not your research was illegal, and you don't give us information about your friends.";
-			mes "The result of that would lead to... death penalty. That's not the future I was hoping for.";
+			mes "The result of that would lead to... the death penalty. That's not the future I was hoping for.";
 			npctalk "Elyumina : ....","Elyumina#sp_barracks",bc_self;
 			next;
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
 			mes "Second, you think about your future.";
-			mes "You give up information about your colleagues, and you get to continue your research to some extent.";
+			mes "In exchange for information about your colleagues, you get to continue your research to some extent.";
 			next;
 			cutin "16loo_03",2;
 			mes "[ Rookie ]";
@@ -6949,7 +6949,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			next;
 			mes "[ Elyumina ]";
 			mes "I... I don't really know what the others were doing.";
-			mes "... Is the deal still valid?";
+			mes "... Does the deal still stand?";
 			next;
 			cutin "16loo_02",2;
 			mes "[ Rookie ]";
@@ -6962,7 +6962,7 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			mes ".....";
 			cloakonnpc("Elyumina#sp_barracks",getcharid(0));
 			cloakoffnpc("Elyumina#sp_barracks2",getcharid(0));
-			npctalk "Lucky : ...so it's like that. I see...","",bc_self;
+			npctalk "Rookie : ...so it's like that. I see...","",bc_self;
 			next;
 			mes "[ Lazy ]";
 			mes "...";
@@ -6982,19 +6982,19 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "Ah... well. Okay.";
-			mes "Lucky is doing great. What do you think they're talking about now?";
-			npctalk "Lucky : ...good. So here it is...","",bc_self;
+			mes "Rookie is doing great. What do you think they're talking about now?";
+			npctalk "Rookie : ...good. So here it is...","",bc_self;
 			next;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Of course I wouldn't know. You didn't give me a chance to do the interrogation, did you?";
-			mes "But I know Lucky will do great.";
+			mes "But I know Rookie will do great.";
 			npctalk "Elyumina : ...okay? Keep your promise. So again...","Elyumina#sp_barracks2",bc_self;
 			next;
 			cutin "162elena_01",2;
 			mes "[ Elena Bolkova ]";
 			mes "Hmm...";
-			npctalk "Lucky : Alright, good work! Now we don't have to worry about eliminating you.","",bc_self;
+			npctalk "Rookie : Alright, good work! Now we don't have to worry about eliminating you.","",bc_self;
 			next;
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
@@ -7073,7 +7073,7 @@ sp_cor,141,211,1	script	Lazy#sp_barracks	4_M_LAZY,{
 	if(ep_illusion == 45){
 		cutin "16lei_03",2;
 		mes "[ Lazy ]";
-		mes "It's time for Lucky to show his skills. Hey, what are you expecting?";
+		mes "It's time for Rookie to show his skills. Hey, what are you expecting?";
 		close3;
 	}
 	end;
@@ -8387,6 +8387,17 @@ OnTouch:
 	}
 	warp "sp_cor",163,60;
 	end;
+}
+
+sp_cor,255,285,6	script	Notice Board#ep172_notice	4_BULLETIN_BOARD2,{
+	mes "[ Notice Board ]";
+	if (ep_illusion == 46) {
+		mes "To be continued in Episode 17.2 - Sage's Legacy";
+	} else {
+		mes "...";
+	}
+	close;
+end;
 }
 
 pub_cat,44,27,0	warp	pub_to_ein	1,1,einbroch,302,326

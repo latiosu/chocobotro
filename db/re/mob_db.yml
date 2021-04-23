@@ -86009,7 +86009,7 @@ Body:
 #    AegisName: BLAZZER_MJ
   - Id: 20340
     AegisName: MD_EL_A17T
-    Name: EL1_A17T#boss
+    Name: EL1_A17T
     Level: 118
     Hp: 16412000
     BaseExp: 5279658
@@ -86040,17 +86040,17 @@ Body:
     Drops:
     - Item: Old_Steel_Plate
       Rate: 3500
-    - Item: 25669
+    - Item: EP17_1_EVT02
       Rate: 2500
-    - Item: 25668
+    - Item: EP17_1_EVT01
       Rate: 100
-    - Item: 25723
+    - Item: EP17_1_EVT39
       Rate: 1000
     - Item: Crushed_Can_Iron_Plate
       Rate: 1500
     - Item: EL_A17T_Card
-    Rate: 1
-    StealProtected: true
+      Rate: 1
+      StealProtected: true
   - Id: 20341
     AegisName: MD_E_EA1L
     Name: E-EA1L
