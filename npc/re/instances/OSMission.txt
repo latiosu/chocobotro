@@ -11,10 +11,10 @@ sp_cor,163,56,0	script	#171_EV_OS_MS	HIDDEN_WARP_NPC,10,10,{
 
 OnTouch:
 	if(checkquest(12452) != 2){
-		cloakoffnpc("Erst#os_mission",getcharid(0));
+		cloakoffnpc "Erst#os_mission",getcharid(0);
 		npctalk "We have to move quickly while we have the advantage.","Erst#os_mission",bc_self;
 	} else if(checkquest(12452) == 2)
-		cloakoffnpc("Operation Officer#os_mission",getcharid(0));
+		cloakoffnpc "Operation Officer#os_mission",getcharid(0);
 end;
 }
 
@@ -66,15 +66,15 @@ sp_cor,163,56,3	script	Erst#os_mission	4_F_ESTLOVELOY,{
 					switch(instance_create(.@md_name$,IM_PARTY)){
 						case -1:
 							mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
-							mes "Unknown Error Has Occurred.";
+							mes "An unknown error has occurred.";
 							end;
 						case -2:
 							mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
-							mes "Party Is Non-Existent.";
+							mes "Party does not exist.";
 							end;
 						case -3:
 							mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed!";
-							mes "Player already have instance.";
+							mes "Player already has an instance reserved.";
 							end;
 
 						case -4:
@@ -84,7 +84,7 @@ sp_cor,163,56,3	script	Erst#os_mission	4_F_ESTLOVELOY,{
 
 						default:
 							mes "[ Erst ]";
-							mes "The last checks are in place, let me know when you're ready to enter.";
+							mes "The final checks are in place, let me know when you're ready to enter.";
 							close3;
 					}
 				case 2:
@@ -111,7 +111,7 @@ sp_cor,163,56,3	script	Erst#os_mission	4_F_ESTLOVELOY,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -132,7 +132,7 @@ sp_cor,160,55,5	script	Operation Officer#os_mission	4_M_ILYA,{
 	}
 	next;
 	mes "[ Operation Officer ]";
-	mes "Are you prepared?";
+	mes "Are you prepared already?";
 	next;
 	switch(checkquest(12455,PLAYTIME)){
 		case -1:
@@ -141,7 +141,8 @@ sp_cor,160,55,5	script	Operation Officer#os_mission	4_M_ILYA,{
 		case 0:
 		case 1:
 			mes "[ Operation Officer ]";
-			mes "I don't have time yet, let's take a break.";
+			mes "I need more time, let's take a break.";
+			mes "Come see me tomorrow.";
 			end;
 
 		case 2:
@@ -203,7 +204,7 @@ sp_cor,160,55,5	script	Operation Officer#os_mission	4_M_ILYA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -211,40 +212,39 @@ end;
 	end;
 
 OnTouch:
-	.@var = 'os_mission;
-	if(.@var == 0){
-		set 'os_mission,1;
-		donpcevent(strnpcinfo(0) + "::OnEvent01");
+	if('os_mission == 0){
+		'os_mission = 1;
+		doevent instance_npcname(strnpcinfo(0))+"::OnEvent01";
 	}
 end;
 
 OnInstanceInit:
 	.@type$ = instance_live_info(ILI_NAME);
 	if(.@type$ == "OS Mission 2"){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		end;
 	}
-	set 'map$,instance_mapname("1@os_a");
+	'map$ = instance_mapname("1@os_a");
 	setcell 'map$,48,327,48,345,CELL_WALKABLE,0;
 	setcell 'map$,48,327,48,345,CELL_SHOOTABLE,0;
 	setcell 'map$,46,356,46,363,CELL_WALKABLE,0;
 	setcell 'map$,46,356,46,363,CELL_SHOOTABLE,0;
 	for(.@i = 1; .@i < 26; .@i++)
-		disablenpc("#os_rebel_" + .@i);
-	disablenpc("Erst#os_mission_st");
-	enablenpc("#os_com_dev_2");
-	enablenpc("#os_mission_ev01");
-	enablenpc("#os_mission_ev02");
-	enablenpc("#os_mission_ev03");
-	enablenpc("#os_mission_miguel");
-	enablenpc("Erst#os_mission_exit");
+		cloakonnpc instance_npcname("#os_rebel_" + .@i);
+	cloakonnpc instance_npcname("Erst#os_mission_st");
+	disablenpc instance_npcname("#os_com_dev_2");
+	disablenpc instance_npcname("#os_mission_ev01");
+	disablenpc instance_npcname("#os_mission_ev02");
+	disablenpc instance_npcname("#os_mission_ev03");
+	disablenpc instance_npcname("#os_mission_miguel");
+	disablenpc instance_npcname("Erst#os_mission_exit");
 end;
 
 OnEvent01:
-	disablenpc("Erst#os_mission_st");
+	cloakoffnpc instance_npcname("Erst#os_mission_st");
 	for(.@i = 1; .@i < 26; .@i++)
-		disablenpc("#os_rebel_" + .@i);
-	donpcevent("Erst#os_mission_st::OnStart");
+		cloakoffnpc instance_npcname("#os_rebel_" + .@i);
+	doevent instance_npcname("Erst#os_mission_st")+"::OnStart";
 end;
 
 OnEvent02:
@@ -252,29 +252,28 @@ OnEvent02:
 	for(.@i = 0; .@i < getarraysize(.@id$); .@i++){
 		explode(.@T$,.@id$[.@i],",");
 		for(.@j = 0; .@j < getarraysize(.@T$); .@j++)
-			disablenpc("#os_rebel_" + .@T$[.@j]);
+			cloakonnpc instance_npcname("#os_rebel_" + .@T$[.@j]);
 		sleep2 500;
 	}
-	set 'os_mission,2;
-	donpcevent("#os_a_mob01::OnMobSpawn");
-	donpcevent("#os_com_dev_1::OnStart");
+	'os_mission = 2;
+	donpcevent instance_npcname("#os_a_mob01")+"::OnMobSpawn";
+	doevent instance_npcname("#os_com_dev_1")+"::OnStart";
 end;
 
 OnEvent03:
 	specialeffect EF_CLOUD4,AREA,instance_npcname("#os_com_dev_1");
 	for(.@i = 0; .@i < 10; .@i++)
-		enablenpc("#os_poison_" + .@i);
+		disablenpc instance_npcname("#os_poison_" + .@i);
 	setcell 'map$,48,327,48,345,CELL_WALKABLE,1;
 	setcell 'map$,48,327,48,345,CELL_SHOOTABLE,1;
 	setcell 'map$,46,356,46,363,CELL_WALKABLE,1;
 	setcell 'map$,46,356,46,363,CELL_SHOOTABLE,1;
-	enablenpc("#os_com_dev_2");
+	enablenpc instance_npcname("#os_com_dev_2");
 end;
 
 OnEvent04:
-	disablenpc("#os_com_dev_2");
-	enablenpc("#os_com_dev_2");
-	donpcevent("#os_a_mob02::OnMobSpawn");
+	disablenpc instance_npcname("#os_com_dev_2");
+	donpcevent instance_npcname("#os_a_mob02")+"::OnMobSpawn";
 end;
 }
 
@@ -305,20 +304,17 @@ OnStart:
 	sleep2 1500;
 	npctalk "Erst : it's time, let's move out. " + strcharinfo(0) + " team, wait here on standby, you're the support team.";
 	sleep2 1000;
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
-	donpcevent("#os_mission_control::OnEvent02");
+	disablenpc instance_npcname(strnpcinfo(0));
+	doevent instance_npcname("#os_mission_control")+"::OnEvent02";
 end;
 }
 
 1@os_a,29,360,3	script	#os_com_dev_1	4_SCR_AT_ROBOTS,{
-	.@var = 'os_mission;
-	.@var2 = 'os_dev;
-	if(.@var < 3 || .@var2 == 0){
+	if('os_mission < 3 || 'os_dev == 0){
 		mes "## ^FF0000No Communication Status^000000 ##";
 		close;
 	}
-	switch(.@var){
+	switch('os_mission){
 		case 3:
 			mes "## Send Message Input ##";
 			next;
@@ -328,7 +324,7 @@ end;
 				case 3: .@word$ = "No~! I want to go home!"; break;
 			}
 			close2;
-			set 'os_dev,0;
+			'os_dev = 0;
 			mapannounce 'map$,strcharinfo(0) + " : " + .@word$,bc_map,0xC081C0;
 			sleep2 4800;
 			mapannounce 'map$,"Erst : The Echo reception is not so good. Please send again.",bc_blue|bc_map;
@@ -343,8 +339,8 @@ end;
 			sleep2 4800;
 			mapannounce 'map$,"Erst : " + strcharinfo(0) + "! Check Alpha team's coordinates!",bc_blue|bc_map;
 			sleep2 1000;
-			set 'os_mission,4;
-			set 'os_dev,1;
+			'os_mission = 4;
+			'os_dev = 1;
 			specialeffect EF_BIG_PORTAL;
 			end;
 
@@ -357,7 +353,7 @@ end;
 				case 3: .@word$ = "Help me!"; break;
 			}
 			close2;
-			set 'os_dev,0;
+			'os_dev = 0;
 			mapannounce 'map$,strcharinfo(0) + " : " + .@word$,bc_map,0xC081C0;
 			sleep2 4800;
 			mapannounce 'map$,"?????? : This is Foxtrot. Ground support bombardment is ready.",bc_map,0x00FF00;
@@ -374,22 +370,22 @@ end;
 				killmonster 'map$,instance_npcname("#os_a_mob01")+"::OnMobKill";
 				sleep2 210;
 			}
-			set 'os_mission,5;
+			'os_mission = 5;
 			mapannounce 'map$,"?????? : Team Echo, the mutant disabling support is complete.",bc_map;
 			sleep2 3000;
 			mapannounce 'map$,"Erst : The engagement has ended on our end.",bc_blue|bc_map;
 			sleep2 3000;
 			mapannounce 'map$,"Erst : I will transmit Alpha team's approximate coordinates of their last contact point by radio.",bc_blue|bc_map;
-			donpcevent("#os_mission_control::OnEvent03");
-			set 'os_dev,1;
-			set 'poison,1;
+			donpcevent instance_npcname("#os_mission_control")+"::OnEvent03";
+			'os_dev = 1;
+			'poison = 1;
 			specialeffect EF_BIG_PORTAL;
 			end;
 
 		default:
 			mes "## Received Message ##";
 			mes "## Team Alpha's last communication was at Car Sierra 52 177 ##";
-			navigateto('map$,52,177);
+			navigateto("1@os_a",52,177);
 			end;
 	}
 
@@ -411,16 +407,15 @@ OnStart:
 	sleep2 4800;
 	mapannounce 'map$,"Erst : " + strcharinfo(0) + "!! What is your situation!!",bc_blue|bc_map;
 	sleep2 1000;
-	set 'os_mission,3;
-	set 'os_dev,1;
+	'os_mission = 3;
+	'os_dev = 1;
 	specialeffect EF_BIG_PORTAL;
 end;
 }
 
 1@os_a,52,177,3	script	#os_com_dev_2	4_SCR_AT_ROBOTS,5,5,{
-	.@var = 'os_mission;
-	if(.@var == 5){
-		set 'os_mission,6;
+	if('os_mission == 5){
+		'os_mission = 6;
 		mes "## Send Message Input ##";
 		next;
 		select("I can't find team Alpha's traces.");
@@ -433,15 +428,14 @@ end;
 		sleep2 1000;
 		mapannounce 'map$,"Erst : We'll be moving south. I'll transmit the new coordinates. Prepare yourselves for an engagement when you move out.",bc_blue|bc_map;
 		mes "## Received Coordinates ##";
-		navigateto('map$,84,256);
+		navigateto("1@os_a",84,256);
 		close2;
-		donpcevent("#os_mission_control::OnEvent04");
+		doevent instance_npcname("#os_mission_control")+"::OnEvent04";
 	}
 	end;
 
 OnTouch:
-	.@var = 'os_mission;
-	if(.@var)
+	if('os_mission)
 		npctalk "Erst : Can you hear me " + strcharinfo(0) + "? Answer me if possible.";
 end;
 }
@@ -450,11 +444,10 @@ end;
 	end;
 
 OnTouch:
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
+	disablenpc instance_npcname(strnpcinfo(0));
 	mapannounce 'map$,"Erst : " + strcharinfo(0) + ", can you hear me?",bc_blue|bc_map;
-	donpcevent("#os_a_mob03::OnMobSpawn");
-	navigateto('map$,163,266);
+	donpcevent instance_npcname("#os_a_mob03")+"::OnMobSpawn";
+	navigateto("1@os_a",163,266);
 	sleep2 1000;
 	mapannounce 'map$,"Erst : I transmitted the second search coordinates. Be careful not to lose them.",bc_blue|bc_map;
 	sleep2 2500;
@@ -470,10 +463,9 @@ end;
 	end;
 
 OnTouch:
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
-	navigateto('map$,138,174);
-	donpcevent("#os_a_mob04::OnMobSpawn");
+	disablenpc instance_npcname(strnpcinfo(0));
+	navigateto("1@os_a",138,174);
+	donpcevent instance_npcname("#os_a_mob04")+"::OnMobSpawn";
 	mapannounce 'map$,"Erst : " + strcharinfo(0) + ", are you still there?",bc_blue|bc_map;
 	sleep2 1000;
 	mapannounce 'map$,strcharinfo(0) + " : Team Echo is still moving towards to the southern point.",bc_map,0xC081C0;
@@ -486,10 +478,9 @@ end;
 	end;
 
 OnTouch:
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
-	navigateto('map$,161,179);
-	donpcevent("#os_a_mob05::OnMobSpawn");
+	disablenpc instance_npcname(strnpcinfo(0));
+	navigateto("1@os_a",161,179);
+	donpcevent instance_npcname("#os_a_mob05")+"::OnMobSpawn";
 	end;
 end;
 }
@@ -510,8 +501,7 @@ end;
 }
 
 1@os_a,165,176,3	script	Erst#os_mission_exit	4_F_ESTLOVELOY,{
-	.@var = 'os_mission;
-	if(.@var == 6){
+	if('os_mission == 6){
 		cutin "ep162_est01",2;
 		mes "[ Erst ]";
 		mes strcharinfo(0) + ", I didn't know if you'd make it. You're pretty good.";
@@ -588,7 +578,7 @@ end;
 		cutin "",255;
 		mes "[ Miguel ]";
 		mes "...";
-		set 'os_mission,7;
+		'os_mission = 7;
 		if(isbegin_quest(12452) == 1)
 			completequest 12452;
 		getitem 25668,1;
@@ -658,7 +648,7 @@ OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
 		mapannounce 'map$,"Secure of the intermediate base complete.",bc_map;
-		enablenpc("#os_mission_ev01");
+		enablenpc instance_npcname("#os_mission_ev01");
 	}
 end;
 }
@@ -688,7 +678,7 @@ OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
 		mapannounce 'map$,"Secure of the intermediate base complete.",bc_map;
-		enablenpc("#os_mission_ev02");
+		enablenpc instance_npcname("#os_mission_ev02");
 	}
 end;
 }
@@ -712,7 +702,7 @@ OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
 		mapannounce 'map$,"Secure of the intermediate base complete.",bc_map;
-		enablenpc("#os_mission_ev03");
+		enablenpc instance_npcname("#os_mission_ev03");
 	}
 end;
 }
@@ -729,8 +719,8 @@ OnMobSpawn:
 end;
 
 OnMobKill:
-	enablenpc("#os_mission_miguel");
-	enablenpc("Erst#os_mission_exit");
+	enablenpc instance_npcname("#os_mission_miguel");
+	enablenpc instance_npcname("Erst#os_mission_exit");
 end;
 }
 
@@ -815,23 +805,22 @@ end;
 OnTouch:
 	if(is_party_leader() == false)
 		end;
-	disablenpc(strnpcinfo(0));
-	enablenpc(strnpcinfo(0));
-	donpcevent("#os_d_mob01::OnSpawn");
+	disablenpc instance_npcname(strnpcinfo(0));
+	donpcevent instance_npcname("#os_d_mob01")+"::OnSpawn";
 end;
 
 OnInstanceInit:
 	.@type$ = instance_live_info(ILI_NAME);
 	if(.@type$ == "OS Mission"){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		end;
 	}
-	set 'map$,instance_mapname("1@os_a");
+	'map$ = instance_mapname("1@os_a");
 	setcell 'map$,248,110,258,110,CELL_SHOOTABLE,0;
 	setcell 'map$,248,110,258,110,CELL_WALKABLE,0;
 	setcell 'map$,198,110,204,110,CELL_SHOOTABLE,0;
 	setcell 'map$,198,110,204,110,CELL_WALKABLE,0;
-	enablenpc("Operation Officer#os_mission_d");
+	disablenpc instance_npcname("Operation Officer#os_mission_d");
 end;
 }
 
@@ -858,9 +847,9 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		mapannounce 'map$,"First base secured.",bc_map;
-		donpcevent("#os_d_mob02::OnSpawn");
+		donpcevent instance_npcname("#os_d_mob02")+"::OnSpawn";
 	}
 end;
 }
@@ -888,16 +877,16 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		mapannounce 'map$,"Second base secured.",bc_map;
 		setcell 'map$,248,110,258,110,CELL_SHOOTABLE,1;
 		setcell 'map$,248,110,258,110,CELL_WALKABLE,1;
 		setcell 'map$,198,110,204,110,CELL_SHOOTABLE,1;
 		setcell 'map$,198,110,204,110,CELL_WALKABLE,1;
 		for(.@i = 0; .@i < 4; .@i++)
-			enablenpc("#os_poison_d" + .@i);
-		set 'poison,1;
-		donpcevent("#os_d_mob03::OnSpawn");
+			disablenpc instance_npcname("#os_poison_d" + .@i);
+		'poison = 1;
+		donpcevent instance_npcname("#os_d_mob03")+"::OnSpawn";
 	}
 end;
 }
@@ -923,9 +912,9 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		mapannounce 'map$,"Third base secured.",bc_map;
-		donpcevent("#os_d_mob04::OnSpawn");
+		donpcevent instance_npcname("#os_d_mob04")+"::OnSpawn";
 	}
 end;
 }
@@ -951,9 +940,9 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		mapannounce 'map$,"Fourth base secured.",bc_map;
-		donpcevent("#os_d_mob05::OnSpawn");
+		donpcevent instance_npcname("#os_d_mob05")+"::OnSpawn";
 	}
 end;
 }
@@ -980,9 +969,9 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		enablenpc(strnpcinfo(0));
+		disablenpc instance_npcname(strnpcinfo(0));
 		mapannounce 'map$,"Fifth base secured.",bc_map;
-		donpcevent("#os_d_mob06::OnSpawn");
+		donpcevent instance_npcname("#os_d_mob06")+"::OnSpawn";
 	}
 end;
 }
@@ -996,8 +985,7 @@ OnSpawn:
 	sleep 2800;
 	mapannounce 'map$,"Operation Officer : A mutant with a high CP is hard to deal with, so be careful!",bc_blue|bc_map;
 	monster 'map$,205,188,"CP8 Miguel",20346,1,.@event$;
-	.@boss_id = $@mobid[0];
-	set 'boss_id,.@boss_id;
+	'boss_id = $@mobid[0];
 	freeloop(true);
 	while(unitexists(.@boss_id)){
 		if(unitexists(.@boss_id)){
@@ -1007,9 +995,9 @@ OnSpawn:
 			.@FIRST_SUMMON = (.@MAX_HP/10)*7;
 			.@SECOND_SUMMON = (.@MAX_HP/10)*3;
 			if(.@HP <= .@FIRST_SUMMON && 'first_summon == 0)
-				donpcevent(strnpcinfo(0) + "::OnFirstSummon");
+				donpcevent instance_npcname(strnpcinfo(0)+"::OnFirstSummon");
 			if(.@HP <= .@SECOND_SUMMON && 'second_summon == 0)
-				donpcevent(strnpcinfo(0) + "::OnSecondSummon");
+				donpcevent instance_npcname(strnpcinfo(0)+"::OnSecondSummon");
 		}
 		if('second_summon)
 			break;
@@ -1018,12 +1006,11 @@ OnSpawn:
 end;
 
 OnFirstSummon:
-	set 'first_summon,1;
-	.@boss_id = 'boss_id;
+	'first_summon = 1;
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnEnd";
 	freeloop(true);
-	while(unitexists(.@boss_id)){
-		getunitdata .@boss_id,.@xy;
+	while(unitexists('boss_id)){
+		getunitdata 'boss_id,.@xy;
 		if(.@xy[6] == 'boss_x && .@xy[7] == 'boss_y){
 			sleep 100;
 			continue;
@@ -1070,7 +1057,7 @@ end;
 
 OnSecondSummon:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnEnd";
-	set 'second_summon,1;
+	'second_summon = 1;
 	monster 'map$,'boss_x+5,'boss_y+5,"",20351,1,.@event$;
 	'summon[4] = $@mobid[0];
 	monster 'map$,'boss_x+5,'boss_y-5,"",20351,1,.@event$;
@@ -1084,9 +1071,9 @@ OnSecondSummon:
 end;
 
 OnMobKill:
-	set 'os_mission_d,1;
+	'os_mission_d = 1;
 	killmonsterall 'map$;
-	enablenpc("Operation Officer#os_mission_d");
+	enablenpc instance_npcname("Operation Officer#os_mission_d");
 	mapannounce 'map$,"Operation Officer : I think I arrived late!.",bc_blue|bc_map;
 end;
 
