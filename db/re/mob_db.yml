@@ -86270,16 +86270,178 @@ Body:
     - Item: Miguel_Card
       Rate: 1
       StealProtected: true
-#  - Id: 20347
-#    AegisName: MD_MIGUEL_G
-#  - Id: 20348
-#    AegisName: MD_A013_CAPUT
-#  - Id: 20349
-#    AegisName: MD_A013_DOLOR
-#  - Id: 20350
-#    AegisName: MD_A013_BELLARE
-#  - Id: 20351
-#    AegisName: MD_MANHOLE2
+  - Id: 20347
+    AegisName: MD_MIGUEL_G
+    Name: Miguel
+    Level: 115
+    Hp: 8600000
+    BaseExp: 0
+    JobExp: 0
+    Attack: 4350
+    Attack2: 2450
+    Defense: 216
+    MagicDefense: 95
+    Str: 192
+    Agi: 115
+    Vit: 28
+    Int: 66
+    Dex: 179
+    Luk: 85
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 250
+    AttackDelay: 1048
+    AttackMotion: 1044
+    DamageMotion: 432
+    Ai: 21
+    Class: Boss
+  - Id: 20348
+    AegisName: MD_A013_CAPUT
+    Name: Twin Caput
+    Level: 110
+    Hp: 31000
+    BaseExp: 520
+    JobExp: 500
+    Attack: 900
+    Attack2: 150
+    Defense: 79
+    MagicDefense: 40
+    Str: 115
+    Agi: 85
+    Vit: 81
+    Int: 92
+    Dex: 121
+    Luk: 47
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    Element: Dark
+    ElementLevel: 2
+    WalkSpeed: 200
+    AttackDelay: 1876
+    AttackMotion: 360
+    DamageMotion: 864
+    Ai: 13
+    Drops:
+    - Item: Rune_Of_Darkness
+      Rate: 1250
+    - Item: Piece_Of_Darkness
+      Rate: 1000
+    - Item: Tooth_Of_
+      Rate: 800
+    - Item: Tendon
+      Rate: 2000
+    - Item: EP17_1_EVT39
+      Rate: 3
+  - Id: 20349
+    AegisName: MD_A013_DOLOR
+    Name: Dolor
+    Level: 111
+    Hp: 31000
+    BaseExp: 5300
+    JobExp: 4800
+    Attack: 800
+    Attack2: 200
+    Defense: 42
+    MagicDefense: 65
+    Str: 105
+    Agi: 45
+    Vit: 42
+    Int: 88
+    Dex: 180
+    Luk: 65
+    AttackRange: 5
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    Element: Poison
+    ElementLevel: 3
+    WalkSpeed: 250
+    AttackDelay: 1889
+    AttackMotion: 672
+    DamageMotion: 480
+    Ai: 04
+    Drops:
+    - Item: Tough_Scalelike_Stem
+      Rate: 1250
+    - Item: Sticky_Poison
+      Rate: 1000
+    - Item: Wooden_Block
+      Rate: 1000
+    - Item: EP17_1_EVT39
+      Rate: 3
+    - Item: Bloody_Rune
+      Rate: 800
+  - Id: 20350
+    AegisName: MD_A013_BELLARE
+    Name: Bellare
+    Level: 112
+    Hp: 38000
+    BaseExp: 6500
+    JobExp: 6000
+    Attack: 1140
+    Attack2: 160
+    Defense: 76
+    MagicDefense: 15
+    Str: 107
+    Agi: 82
+    Vit: 44
+    Int: 29
+    Dex: 148
+    Luk: 62
+    AttackRange: 7
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    Element: Neutral
+    ElementLevel: 2
+    WalkSpeed: 200
+    AttackDelay: 385
+    AttackMotion: 384
+    DamageMotion: 288
+    Ai: 05
+    Drops:
+    - Item: Heart_Hunter_Seal
+      Rate: 1250
+    - Item: Elunium_Stone
+      Rate: 150
+    - Item: Elunium
+      Rate: 12
+    - Item: Crude_Ammo
+      Rate: 800
+    - Item: Explosive_Powder
+      Rate: 30
+    - Item: EP17_1_EVT02
+      Rate: 7
+  - Id: 20351
+    AegisName: MD_MANHOLE2
+    Name: Manhole
+    Level: 1
+    Hp: 1000
+    BaseExp: 0
+    JobExp: 0
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 1000
+    AttackDelay: 1
+    AttackMotion: 1
+    DamageMotion: 1
+    Ai: 06
+    Class: Boss
   - Id: 20352
     AegisName: MD_POMPOM
     Name: Fatal Pompom
@@ -86785,7 +86947,7 @@ Body:
       StealProtected: true
   - Id: 20365
     AegisName: EP17_1_TWIN_CAPUT1
-    Name: Twin Caputs
+    Name: Twin Caput
     Level: 125
     Hp: 41735
     BaseExp: 9274
