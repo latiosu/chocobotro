@@ -3935,7 +3935,6 @@ sp_rudus,193,284,0	script	Rookie#171_rudus	4_M_ROOKIE,{
 			mes "Other rebellion members are already looking for an entry point. If you don't mind, look for them adventurer.";
 			mes "Maybe you'll find something out.";
 			completequest 7852;
-			setquest 7853;
 			ep_illusion = 5;
 			next;
 			mes "[ Rookie ]";
@@ -4170,7 +4169,7 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 				case 2:
 					unittalk getcharid(3),strcharinfo(0) + " : Morning, have you been to other floors inside Rudus?",bc_self;
 					sleep2 2000;
-					npctalk "Morning : The adventurer said the other floors were scary. Mushroom...","",bc_self;
+					npctalk "Morning : The adventurers said the other floors were scary. Mushroom...","",bc_self;
 					sleep2 2000;
 					break;
 
@@ -4190,14 +4189,14 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 					break;
 
 				case 5:
-					unittalk getcharid(3),strcharinfo(0) + " : Morning, why do you stay in Rudus?",bc_self;
+					unittalk getcharid(3),strcharinfo(0) + " : Morning, why do you stay here in Rudus?",bc_self;
 					sleep2 2000;
 					npctalk "Morning : Everyone is quiet, except you adventurer.","",bc_self;
 					emotion ET_OHNO;
 					sleep2 2000;
 					break;
 			}
-			unittalk getcharid(3),strcharinfo(0) + " : It sounded like you're having a conversation with someone?",bc_self;
+			unittalk getcharid(3),strcharinfo(0) + " : It feels like I'm having a conversation with a person.",bc_self;
 			cutin "",255;
 			end;
 
@@ -4220,7 +4219,7 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 				sleep2 2000;
 				npctalk "First...","",bc_self;
 				sleep2 2000;
-				npctalk "This is what's left. I'll give it to you adventurer.","",bc_self;
+				npctalk "This is what's left. It's for you adventurer.","",bc_self;
 				setquest 5861;
 				erasequest atoi(.@temp$[0]);
 				if(checkquest(5856) == 1){
@@ -4238,7 +4237,7 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 	}
 	cutin "ep171_morning01",2;
 	setpcblock PCBLOCK_ALL,true;
-	unittalk getcharid(3),strcharinfo(0) + " : This kid seems to be Morning.",bc_self;
+	unittalk getcharid(3),strcharinfo(0) + " : This kid's name is Morning.",bc_self;
 	if(select("Find a meal for Morning.:Chat with Morning.") == 2){
 		setpcblock PCBLOCK_ALL,true;
 		cutin "ep171_morning02",2;
@@ -4252,6 +4251,7 @@ sp_rudus,130,200,4	script	Morning#171_quest	4_EP17_MORNING,{
 	if(.@UF){
 		npctalk "Is the adventurer back already?","",bc_self;
 		setpcblock PCBLOCK_ALL,false;
+		cutin "",255;
 		end;
 	}
 	unittalk getcharid(3),strcharinfo(0) + " : Ah, Morning! Would you mind? What do you want to eat today?",bc_self;
@@ -7201,7 +7201,7 @@ end;
 }
 
 sp_cor,246,97,3	script	Farm Worker#illusion_daily	1_M_03,{
-	if(ep_illusion < 47){
+	if(ep_illusion < 46){
 		mes "[ Farm Worker ]";
 		mes "I'm busy and I don't think people in the city would appreciate the smell of fertilizer. There are lot of people in the research facility, but let's go anyway.";
 		close;
