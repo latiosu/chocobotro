@@ -1996,22 +1996,22 @@ function	script	QWS_Iarray	{
 	setarray @pIYcoords[@Ii], 88;
 
 	QWS_Make_Instance_Menu 14;
-//----------------[110+] Cor Mission:
-	setarray @pImenuitems$[@Ii], "[110+] Cor Mission";
+//----------------[110+] Cor Operation:
+	setarray @pImenuitems$[@Ii], "[110+] Cor Operation";
 	setarray @pIprice[@Ii], $QW_IW_PRICE;
 
-	setarray @pImap$[@Ii], "alberta";
-	setarray @pIXcoords[@Ii], 32;
-	setarray @pIYcoords[@Ii], 240;
+	setarray @pImap$[@Ii], "sp_cor";
+	setarray @pIXcoords[@Ii], 111;
+	setarray @pIYcoords[@Ii], 124;
 
 	QWS_Make_Instance_Menu 15;
 //----------------[110+] OS Mission:
 	setarray @pImenuitems$[@Ii], "[110+] OS Mission";
 	setarray @pIprice[@Ii], $QW_IW_PRICE;
 
-	setarray @pImap$[@Ii], "alberta";
-	setarray @pIXcoords[@Ii], 32;
-	setarray @pIYcoords[@Ii], 240;
+	setarray @pImap$[@Ii], "sp_cor";
+	setarray @pIXcoords[@Ii], 162;
+	setarray @pIYcoords[@Ii], 60;
 
 	QWS_Make_Instance_Menu 16;
 //----------------[120+] Ghost Palace:
@@ -2474,8 +2474,8 @@ ein_fild04,288,332,4	script	Warpra#instance_11	113,{ callfunc "QWS_Instance_Warp
 cmd_fild07,57,274,5	script	Warpra#instance_12	113,{ callfunc "QWS_Instance_Warpra",12,"Infinite Space"; close; }
 prt_lib_q,85,87,6	script	Warpra#instance_13	113,{ callfunc "QWS_Instance_Warpra",13,"Room of Consciousness"; close; }
 slabw01,243,96,6	script	Warpra#instance_14	113,{ callfunc "QWS_Instance_Warpra",14,"Werner's Laboratory"; close; }
-// alberta,32,240,4	script	Warpra#instance_15	113,{ callfunc "QWS_Instance_Warpra",15,"Cor Mission"; close; } // TODO: Add Illusion EP
-// alberta,32,240,4	script	Warpra#instance_16	113,{ callfunc "QWS_Instance_Warpra",16,"OS Mission"; close; } // TODO: Add Illusion EP
+sp_cor,104,122,5	script	Warpra#instance_15	113,{ callfunc "QWS_Instance_Warpra",15,"Cor Operation"; close; }
+sp_cor,169,55,3	script	Warpra#instance_16	113,{ callfunc "QWS_Instance_Warpra",16,"OS Mission"; close; }
 dali02,46,135,4	script	Warpra#instance_17	113,{ callfunc "QWS_Instance_Warpra",17,"Ghost Palace"; close; }
 moc_para01,28,98,4	script	Warpra#instance_18	113,{ callfunc "QWS_Instance_Warpra",18,"Nightmarish Jitterbug"; close; }
 dali02,138,86,4	script	Warpra#instance_19	113,{ callfunc "QWS_Instance_Warpra",19,"Airship Assault"; close; }
@@ -2491,7 +2491,7 @@ xmas,239,301,4	script	Warpra#instance_28	113,{ callfunc "QWS_Instance_Warpra",28
 un_myst,156,41,4	script	Warpra#instance_29	113,{ callfunc "QWS_Instance_Warpra",29,"Last Room"; close; }
 mal_in01,166,34,6	script	Warpra#instance_30	113,{ callfunc "QWS_Instance_Warpra",30,"Malangdo Culvert"; close; }
 dali02,101,144,4	script	Warpra#instance_31	113,{ callfunc "QWS_Instance_Warpra",31,"Sarah and Fenrir"; close; }
-// alberta,32,240,4	script	Warpra#instance_32	113,{ callfunc "QWS_Instance_Warpra",32,"Sky Fortress"; close; } // TODO: Add instance
+// alberta,32,240,4	script	Warpra#instance_32	113,{ callfunc "QWS_Instance_Warpra",32,"Sky Fortress"; close; }
 lhz_dun04,148,269,4	script	Warpra#instance_33	113,{ callfunc "QWS_Instance_Warpra",33,"Wolfchev's Laboratory"; close; }
 moro_cav,48,71,6	script	Warpra#instance_34	113,{ callfunc "QWS_Instance_Warpra",34,"Flame Cave Instances"; close; }
 // alberta,32,240,4	script	Warpra#instance_35	113,{ callfunc "QWS_Instance_Warpra",35,"Bioresearch Laboratory"; close; } // TODO: Add EDDA EP
