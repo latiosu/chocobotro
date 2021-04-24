@@ -6346,7 +6346,6 @@ sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
 			mes "I deal with everything. What do you need?";
 			mes "Perhaps you need me? I'm replacing the weapon with modules.";
 			npctalk "Hey criminal, someone's looking for you!","",bc_self;
-			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			npctalk "Oh look at you! Give me a gun and I'll show you how to fight, not one of those bean bags!","Elyumina#os_merchant",bc_self;
 			next;
 			switch(select("I came to see Elyumina.:Request a weapon modification.:Request an armor modification.")){
@@ -6529,7 +6528,7 @@ sp_cor,111,130,3	script	Elyumina#os_merchant	4_EP17_ELYUMINA,{
 	function armor;
 	cutin "ep171_elyumina04",0;
 	mes "[ Elyumina ]";
-	mes "What's up? If you call a busy person, you have to at least talk to them, no?";
+	mes "What? If you interrupt a busy person, you have to at least talk to them, no?";
 	next;
 	if(select("Request OS Weapons.:Request Illusion Equipments.") == 1)
 		weapon();
@@ -6539,7 +6538,8 @@ sp_cor,111,130,3	script	Elyumina#os_merchant	4_EP17_ELYUMINA,{
 
 function	armor		{
 	mes "[ Elyumina ]";
-	mes "For Illusion Equipments, I will need 50 <ITEM>[Cor Cores]<INFO>25723</INFO></ITEM>.";
+	mes "For Illusion Equipments, I will need:";
+	mes "50 x <ITEM>[Cor Cores]<INFO>25723</INFO></ITEM>";
 	mes "Let's see... this should be good, which one do you want?";
 	next;
 	.@s = select("Illusion Armor:Illusion Engine Wing:Illusion Leg:Illusion Booster:Illusion Battle Chip") - 1;
@@ -6580,7 +6580,9 @@ function	armor		{
 function	weapon	{
 	cutin "ep171_elyumina04",0;
 	mes "[ Elyumina ]";
-	mes "OS weapons? I need 1 <ITEM>[Broken Weapon]<INFO>25668</INFO></ITEM> and 50 <ITEM>[Unknown Parts]<INFO>25669</INFO></ITEM>.";
+	mes "OS weapons? I will need:";
+	mes "1 x <ITEM>[Broken Weapon]<INFO>25668</INFO></ITEM>";
+	mes "50 x <ITEM>[Unknown Parts]<INFO>25669</INFO></ITEM>";
 	mes "This is easy for me, I'll fix any of these unfinished weapons.";
 	next;
 	if(select("Get OS Weapon.:Check all weapon list.") == 2){
@@ -6620,7 +6622,6 @@ OnInit:
 	"32207,32208",
 	"32209,32210";
 	setarray .weapon,1862,13493,16088,16089,18178,18179,18180,21047,26151,26164,28038,28136,28253,28755,28629,32019;
-	cloakonnpc(strnpcinfo(0));
 	end;
 }
 

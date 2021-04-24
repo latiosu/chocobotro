@@ -30,7 +30,6 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "Mina is feeling more relaxed.";
 			mes "Are Mina's lovely children resting?";
 			next;
-			classchange(4_EP17_ELYUMINA,"Elyumina#os_merchant",bc_self);
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "... the security devices that summon monsters are still at low power. Don't touch them, they can overheat.";
@@ -56,7 +55,6 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "Oh, adventurer. I haven't seen you in a while! I wanted to ask you something. It's about Mina...";
 			unittalk getcharid(3),strcharinfo(0)+ " : Mina?",bc_self;
 			next;
-			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "Here, I'll explain. My children who attacked you the last time you followed me...";
@@ -120,7 +118,6 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			mes "It's time for Mina's children to wake up, adventurer!";
 			mes "Will they patiently wait this time around?";
 			next;
-			cloakoffnpc("Elyumina#os_merchant",getcharid(0));
 			cutin "ep171_elyumina03",0;
 			mes "[ Elyumina ]";
 			mes "... they're no longer on low power and the security devices are operational again.";
