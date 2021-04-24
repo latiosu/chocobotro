@@ -11,7 +11,7 @@ prt_cas_q,29,28,0	script	#EP171_START	HIDDEN_WARP_NPC,2,3,{
 
 OnTouch:
 	if(terra_gloria_main >= 25 && ep_illusion == 0)
-		cloakoffnpc("Nyhill M. Heine#171_prtq",getcharid(0));
+		cloakoffnpc "Nyhill M. Heine#171_prtq",getcharid(0);
 end;
 }
 
@@ -56,14 +56,14 @@ prt_cas_q,21,39,3	script	Nyhill M. Heine#171_prtq	4_EP16_NIHIL,{
 		mes "Thank you again for all the help.";
 		mes "I have to go now.";
 		ep_illusion = 1;
-		cloakonnpc(strnpcinfo(0),getcharid(0));
+		cloakonnpc strnpcinfo(0),getcharid(0);
 		close2;
 		cutin "",255;
 	}
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -74,7 +74,7 @@ einbech,214,80,0	script	#171_EINB_EV	HIDDEN_WARP_NPC,12,12,{
 
 OnTouch:
 	if(ep_illusion == 1)
-		cloakoffnpc("Rebellion Crew#171_einb",getcharid(0));
+		cloakoffnpc "Rebellion Crew#171_einb",getcharid(0);
 end;
 }
 
@@ -102,7 +102,7 @@ einbech,219,80,3	script	Rebellion Crew#171_einb	4_M_REBELLION2,{
 	close;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 1");
 end;
 }
@@ -190,8 +190,8 @@ end;
 einbroch,42,208,3	script	Lazy#171_einbr	4_M_LAZY,{
 	switch(ep_illusion){
 		case 17:
-			cloakoffnpc("Kaya#171_einbr",getcharid(0));
-			cloakoffnpc("Ashley#171_einbr",getcharid(0));
+			cloakoffnpc "Kaya#171_einbr",getcharid(0);
+			cloakoffnpc "Ashley#171_einbr",getcharid(0);
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Here, come. Here it is, Come over here.";
@@ -444,7 +444,7 @@ einbroch,41,204,7	script	Kaya#171_einbr	4_EP17_KAYA,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -455,7 +455,7 @@ einbroch,39,205,7	script	Ashley#171_einbr	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -465,7 +465,7 @@ ein_fild01,95,146,0	script	#171_EV_EINF01	HIDDEN_WARP_NPC,15,15,{
 
 OnTouch:
 	if(ep_illusion == 27)
-		cloakoffnpc("Kaya#einf",getcharid(0));
+		cloakoffnpc "Kaya#einf",getcharid(0);
 end;
 }
 
@@ -493,8 +493,8 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 			mes "[ "+strcharinfo(0)+" ]";
 			mes "If you don't investigate with suspicions, you won't see any problems under the surface.";
 			next;
-			cloakoffnpc("Ashley#einf",getcharid(0));
-			cloakoffnpc("Lazy#einf",getcharid(0));
+			cloakoffnpc "Ashley#einf",getcharid(0);
+			cloakoffnpc "Lazy#einf",getcharid(0);
 			mes "[ Ashley ]";
 			mes "But that's so... distrusting...";
 			npctalk "But that's so... distrusting...","Ashley#einf",bc_self;
@@ -604,7 +604,7 @@ ein_fild01,95,146,5	script	Kaya#einf	4_EP17_KAYA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 27");
 end;
 }
@@ -617,7 +617,7 @@ ein_fild01,94,145,5	script	Ashley#einf	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -629,7 +629,7 @@ ein_fild01,97,144,1	script	Lazy#einf	4_M_LAZY,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -708,7 +708,7 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "Elena Bolkova is organizing an advance team for investigating the suspected areas.";
 			mes "I think it would greatly help if you joined her team too..";
 			next;
-			cloakoffnpc("Elena Bolkova#171_cat",getcharid(0));
+			cloakoffnpc "Elena Bolkova#171_cat",getcharid(0);
 			cutin "162elena_02",2;
 			mes "[ Elena Bolkova ]";
 			mes "Hey~ Tess!";
@@ -747,7 +747,7 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Elena Bolkova ]";
 			mes "I'm going alone now.";
 			next;
-			cloakonnpc("Elena Bolkova#171_cat",getcharid(0));
+			cloakonnpc "Elena Bolkova#171_cat",getcharid(0);
 			cutin "ep16_tes01",1;
 			mes "[ Tess ]";
 			mes "Why not join us and see the situation for yourself?";
@@ -869,7 +869,7 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Tess ]";
 			mes "So far, I believe it was a trick from the Enterprise, from those who sit back at the company.";
 			mes "Huh...";
-			cloakoffnpc("Kaya#171_cat3",getcharid(0));
+			cloakoffnpc "Kaya#171_cat3",getcharid(0);
 			next;
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
@@ -908,7 +908,7 @@ pub_cat,93,105,4	script	Philofontes#171_cat	4_M_PHILOFONTES,{
 			mes "[ Kaya ]";
 			mes "Please excuse me.";
 			next;
-			cloakonnpc("Kaya#171_cat3",getcharid(0));
+			cloakonnpc "Kaya#171_cat3",getcharid(0);
 			cutin "ep16_tes01",1;
 			mes "[ Tess ]";
 			mes "... then I'll keep you informed about the next operation.";
@@ -977,21 +977,21 @@ pub_cat,151,105,0	script	#EP171_EVT_CAT00	HIDDEN_WARP_NPC,3,2,{
 OnTouch:
 	switch(ep_illusion){
 		case 8:
-			cloakoffnpc("Philofontes#171_cat2",getcharid(0));
-			cloakoffnpc("Middle-Aged Man#171_cat",getcharid(0));
-			cloakoffnpc("Rekenber Senior Guard#171_cat",getcharid(0));
-			cloakoffnpc("Commander Erst#171_cat",getcharid(0));
+			cloakoffnpc "Philofontes#171_cat2",getcharid(0);
+			cloakoffnpc "Middle-Aged Man#171_cat",getcharid(0);
+			cloakoffnpc "Rekenber Senior Guard#171_cat",getcharid(0);
+			cloakoffnpc "Commander Erst#171_cat",getcharid(0);
 			sleep2 500;
 			npctalk "I will cooperate this one time only, okay?","Commander Erst#171_cat",bc_self;
 			break;
 
 		case 9:
-			cloakoffnpc("Philofontes#171_cat2",getcharid(0));
-			cloakoffnpc("Middle-Aged Man#171_cat",getcharid(0));
+			cloakoffnpc "Philofontes#171_cat2",getcharid(0);
+			cloakoffnpc "Middle-Aged Man#171_cat",getcharid(0);
 			break;
 
 		case 10:
-			cloakoffnpc("Middle-Aged Man#171_cat",getcharid(0));
+			cloakoffnpc "Middle-Aged Man#171_cat",getcharid(0);
 			break;
 
 		default:
@@ -1005,19 +1005,19 @@ pub_cat,105,66,0	script	#EP171_EVT_CAT01	HIDDEN_WARP_NPC,12,5,{
 
 OnTouch:
 	if(ep_illusion == 13){
-		cloakoffnpc("Lazy#171_cat",getcharid(0));
-		cloakoffnpc("Kaya#171_cat",getcharid(0));
-		cloakoffnpc("Ashley#171_cat",getcharid(0));
+		cloakoffnpc "Lazy#171_cat",getcharid(0);
+		cloakoffnpc "Kaya#171_cat",getcharid(0);
+		cloakoffnpc "Ashley#171_cat",getcharid(0);
 		end;
 	}
 	if(ep_illusion < 17){
-		cloakoffnpc("Lazy#171_cat2",getcharid(0));
-		cloakoffnpc("Kaya#171_cat",getcharid(0));
-		cloakoffnpc("Ashley#171_cat",getcharid(0));
+		cloakoffnpc "Lazy#171_cat2",getcharid(0);
+		cloakoffnpc "Kaya#171_cat",getcharid(0);
+		cloakoffnpc "Ashley#171_cat",getcharid(0);
 		end;
 	}
 	if(ep_illusion == 17)
-		cloakoffnpc("Lazy#171_cat2",getcharid(0));
+		cloakoffnpc "Lazy#171_cat2",getcharid(0);
 end;
 }
 
@@ -1197,8 +1197,8 @@ pub_cat,160,102,5	script	Philofontes#171_cat2	4_M_PHILOFONTES,{
 			mes "It all went so fast.";
 			mes "I wish we could talk more in-depth about this operation.";
 			ep_illusion = 9;
-			cloakonnpc("Rekenber Senior Guard#171_cat",getcharid(0));
-			cloakonnpc("Commander Erst#171_cat",getcharid(0));
+			cloakonnpc "Rekenber Senior Guard#171_cat",getcharid(0);
+			cloakonnpc "Commander Erst#171_cat",getcharid(0);
 			close3;
 
 		case 9:
@@ -1208,7 +1208,7 @@ pub_cat,160,102,5	script	Philofontes#171_cat2	4_M_PHILOFONTES,{
 
 OnInit:
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 8");
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -1301,7 +1301,7 @@ pub_cat,163,102,3	script	Middle-Aged Man#171_cat	4_EP17_KAYA,{
 			close2;
 			cutin "",255;
 			questinfo_refresh();
-			cloakonnpc("Philofontes#171_cat2",getcharid(0));
+			cloakonnpc "Philofontes#171_cat2",getcharid(0);
 			end;
 
 		case 10:
@@ -1315,7 +1315,7 @@ pub_cat,163,102,3	script	Middle-Aged Man#171_cat	4_EP17_KAYA,{
 
 OnInit:
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 9");
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -1329,7 +1329,7 @@ pub_cat,165,103,3	script	Rekenber Senior Guard#171_cat	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -1341,7 +1341,7 @@ pub_cat,166,100,3	script	Commander Erst#171_cat	4_F_ESTLOVELOY,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -1538,9 +1538,9 @@ pub_cat,106,69,7	script	Lazy#171_cat	4_M_LAZY,{
 		next;
 		mes "[ "+strcharinfo(0)+" ]";
 		mes "Eh? Lazy? Where are you going!";
-		cloakonnpc(strnpcinfo(0),getcharid(0));
+		cloakonnpc strnpcinfo(0),getcharid(0);
 		sleep2 1000;
-		cloakoffnpc("Lazy#171_cat2",getcharid(0));
+		cloakoffnpc "Lazy#171_cat2",getcharid(0);
 		ep_illusion = 14;
 		completequest 7864;
 		setquest 17000;
@@ -1549,7 +1549,7 @@ pub_cat,106,69,7	script	Lazy#171_cat	4_M_LAZY,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 13");
 	end;
 }
@@ -1702,8 +1702,8 @@ pub_cat,105,58,3	script	Lazy#171_cat2	4_M_LAZY,{
 			mes "If you asked the enterprise to cooperate with us, but what are you going to do if they refused?";
 			npctalk "I feel better already. Amazing~","",bc_self;
 			next;
-			cloakonnpc("Kaya#171_cat",getcharid(0));
-			cloakoffnpc("Kaya#171_cat2",getcharid(0));
+			cloakonnpc "Kaya#171_cat",getcharid(0);
+			cloakoffnpc "Kaya#171_cat2",getcharid(0);
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
 			mes "Hmm. Excuse me.";
@@ -1713,8 +1713,8 @@ pub_cat,105,58,3	script	Lazy#171_cat2	4_M_LAZY,{
 			mes "Have you thought about it?";
 			npctalk "Have you thought about it?","",bc_self;
 			next;
-			cloakonnpc("Ashley#171_cat",getcharid(0));
-			cloakoffnpc("Ashley#171_cat2",getcharid(0));
+			cloakonnpc "Ashley#171_cat",getcharid(0);
+			cloakoffnpc "Ashley#171_cat2",getcharid(0);
 			cutin "ep171_as02",1;
 			mes "[ Ashley ]";
 			mes "Please think it over, Vice President!";
@@ -1871,7 +1871,7 @@ pub_cat,105,58,3	script	Lazy#171_cat2	4_M_LAZY,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 14");
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 16");
 end;
@@ -1899,8 +1899,8 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 			mes "[ Kaya ]";
 			mes "I have no intention of debating this further with you, so I'll talk to the person in charge.";
 			next;
-			cloakonnpc("Lazy#171_cat2",getcharid(0));
-			cloakoffnpc("Lazy#171_cat",getcharid(0));
+			cloakonnpc "Lazy#171_cat2",getcharid(0);
+			cloakoffnpc "Lazy#171_cat",getcharid(0);
 			cutin "16lei_02",0;
 			mes "[ Lazy ]";
 			mes "Who's the responsible one?";
@@ -1934,8 +1934,8 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 			unittalk getcharid(3),strcharinfo(0)+ " : Just let me handle it!",bc_self;
 			next;
 			cutin "",255;
-			cloakonnpc("Lazy#171_cat",getcharid(0));
-			cloakoffnpc("Lazy#171_cat2",getcharid(0));
+			cloakonnpc "Lazy#171_cat",getcharid(0);
+			cloakoffnpc "Lazy#171_cat2",getcharid(0);
 			mes "[ "+strcharinfo(0)+" ]";
 			mes "As Lazy was saying... Even if you called Lazy by Shit, Lazy would still by Lazy.";
 			next;
@@ -1987,8 +1987,8 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 			mes "[ Kaya ]";
 			mes "That's valid argument. But do I need to go too? I would prefer talking to you.";
 			next;
-			cloakoffnpc("Lazy#171_cat",getcharid(0));
-			cloakonnpc("Lazy#171_cat2",getcharid(0));
+			cloakoffnpc "Lazy#171_cat",getcharid(0);
+			cloakonnpc "Lazy#171_cat2",getcharid(0);
 			cutin "16lei_02",0;
 			mes "[ Lazy ]";
 			mes "Can you believe what I've investigated so far? You still can't believe my findings, because you're assuming your documents are correct.";
@@ -2006,8 +2006,8 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 			mes "[ Lazy ]";
 			mes "I don't have much time to wait for this sillyness.";
 			next;
-			cloakonnpc("Lazy#171_cat",getcharid(0));
-			cloakoffnpc("Lazy#171_cat2",getcharid(0));
+			cloakonnpc "Lazy#171_cat",getcharid(0);
+			cloakoffnpc "Lazy#171_cat2",getcharid(0);
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "The results will be the same no matter how many times we check them. We have a lot of other work to do.";
@@ -2042,7 +2042,7 @@ pub_cat,109,71,3	script	Kaya#171_cat	4_EP17_KAYA,{
 	}
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 15");
 	end;
 }
@@ -2054,7 +2054,7 @@ pub_cat,102,62,5	script	Kaya#171_cat2	4_EP17_KAYA,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -2067,7 +2067,7 @@ pub_cat,112,72,3	script	Ashley#171_cat	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -2078,7 +2078,7 @@ pub_cat,104,63,3	script	Ashley#171_cat2	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -2095,9 +2095,9 @@ lighthalzen,56,270,3	script	Republic Guard#171_light	4_M_EIN_SOLDIER,{
 			mes "Don't worry I belong to the Secret Wing.";
 			mes "Ashley and Erst went to look around this area.";
 			next;
-			cloakoffnpc("Commander Erst#171_light",getcharid(0));
-			cloakoffnpc("Ashley#171_light",getcharid(0));
-			cloakoffnpc("Emily#171_light",getcharid(0));
+			cloakoffnpc "Commander Erst#171_light",getcharid(0);
+			cloakoffnpc "Ashley#171_light",getcharid(0);
+			cloakoffnpc "Emily#171_light",getcharid(0);
 			npctalk "Erst : Now we can enter.","Commander Erst#171_light",bc_self;
 			mes "[ Republic Guard ]";
 			mes "Oh, there they are.";
@@ -2140,8 +2140,8 @@ lighthalzen,56,270,3	script	Republic Guard#171_light	4_M_EIN_SOLDIER,{
 			ep_illusion = 11;
 			completequest 7861;
 			setquest 7862;
-			cloakonnpc("Commander Erst#171_light",getcharid(0));
-			cloakonnpc("Emily#171_light",getcharid(0));
+			cloakonnpc "Commander Erst#171_light",getcharid(0);
+			cloakonnpc "Emily#171_light",getcharid(0);
 			close3;
 
 		case 11:
@@ -2168,7 +2168,7 @@ lighthalzen,58,268,3	script	Ashley#171_light	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -2182,8 +2182,8 @@ lighthalzen,259,215,3	script	Lazy#lhz	4_M_LAZY,{
 			mes "[ Lazy ]";
 			mes "Please gather around~ we'll check our members! Kaya! Kaya?";
 			next;
-			cloakoffnpc("Kaya#lhz",getcharid(0));
-			cloakoffnpc("Ashley#lhz",getcharid(0));
+			cloakoffnpc "Kaya#lhz",getcharid(0);
+			cloakoffnpc "Ashley#lhz",getcharid(0);
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
 			mes ".....";
@@ -2300,14 +2300,14 @@ end;
 lighthalzen,336,266,3	script	Lazy#lhz2	4_M_LAZY,{
 	switch(ep_illusion){
 		case 19:
-			cloakoffnpc("Kaya#lhz2",getcharid(0));
-			cloakoffnpc("Ashley#lhz2",getcharid(0));
+			cloakoffnpc "Kaya#lhz2",getcharid(0);
+			cloakoffnpc "Ashley#lhz2",getcharid(0);
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "This is Pat's home. This is where Pat first got into contact with Rekenber and met a staff member.";
 			sleep2 2000;
-			cloakoffnpc("Pat#lhz",getcharid(0));
-			cloakoffnpc("Rekenber's Recruiter#lhz",getcharid(0));
+			cloakoffnpc "Pat#lhz",getcharid(0);
+			cloakoffnpc "Rekenber's Recruiter#lhz",getcharid(0);
 			specialeffect EF_BLUELIGHTBODY,AREA,"Pat#lhz";
 			specialeffect EF_BLUELIGHTBODY,AREA,"Rekenber's Recruiter#lhz";
 			sleep2 2000;
@@ -2325,16 +2325,16 @@ lighthalzen,336,266,3	script	Lazy#lhz2	4_M_LAZY,{
 			sleep2 2000;
 			npctalk "Thank you so much!","Pat#lhz",bc_self;
 			sleep2 2000;
-			cloakonnpc("Rekenber's Recruiter#lhz",getcharid(0));
+			cloakonnpc "Rekenber's Recruiter#lhz",getcharid(0);
 			sleep2 500;
-			cloakonnpc("Pat#lhz",getcharid(0));
+			cloakonnpc "Pat#lhz",getcharid(0);
 			next;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Heyo! There you are. Mom, Dad, how are you?";
 			next;
-			cloakoffnpc("Pat's Mother#lhz",getcharid(0));
-			cloakoffnpc("Pat's Father#lhz",getcharid(0));
+			cloakoffnpc "Pat's Mother#lhz",getcharid(0);
+			cloakoffnpc "Pat's Father#lhz",getcharid(0);
 			cutin "",255;
 			mes "[ Mother ]";
 			mes "Who...?";
@@ -2447,8 +2447,8 @@ lighthalzen,336,266,3	script	Lazy#lhz2	4_M_LAZY,{
 			cutin "",255;
 			mes "[ Father ]";
 			mes "Take care!";
-			cloakonnpc("Pat's Mother#lhz",getcharid(0));
-			cloakonnpc("Pat's Father#lhz",getcharid(0));
+			cloakonnpc "Pat's Mother#lhz",getcharid(0);
+			cloakonnpc "Pat's Father#lhz",getcharid(0);
 			sleep2 1800;
 			next;
 			cutin "16lei_02",2;
@@ -2556,8 +2556,8 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			mes "[ Lazy ]";
 			mes "Adventurer! You're here! Who else would it be?";
 			next;
-			cloakoffnpc("Kaya#lhz3",getcharid(0));
-			cloakoffnpc("Ashley#lhz3",getcharid(0));
+			cloakoffnpc "Kaya#lhz3",getcharid(0);
+			cloakoffnpc "Ashley#lhz3",getcharid(0);
 			cutin "16lei_02",2;
 			mes "[ Lazy ]";
 			mes "You're finally here. Am I too fast for you? Or do you think perhaps it's because the VIP's shoes are not suited for long distances?";
@@ -2568,7 +2568,7 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			mes "We're finally here at Rekenber.";
 			next;
 			specialeffect EF_BLUELIGHTBODY,AREA,"Pat#lhz2";
-			cloakoffnpc("Pat#lhz2",getcharid(0));
+			cloakoffnpc "Pat#lhz2",getcharid(0);
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "When Pat stood in front of the building, he was probably relieved.";
@@ -2579,8 +2579,8 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			mes "[ Protester ]";
 			mes "Rekenber, ^0000FFexplain!^000000";
 			next;
-			cloakonnpc("Pat#lhz2",getcharid(0));
-			cloakoffnpc("Protester#lhz",getcharid(0));
+			cloakonnpc "Pat#lhz2",getcharid(0);
+			cloakoffnpc "Protester#lhz",getcharid(0);
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
 			mes "Explanation?";
@@ -2661,7 +2661,7 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			mes "Am I a problem to you? Do you think I'll give up easily? I will keep coming until I find Marcus!";
 			npctalk "I will remember your face!! Don't think you'll be safe forever! Be careful at night!","Protester#lhz",bc_self;
 			next;
-			cloakonnpc("Protester#lhz",getcharid(0));
+			cloakonnpc "Protester#lhz",getcharid(0);
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "She said he saw the VIP...";
@@ -2827,8 +2827,8 @@ lighthalzen,108,163,3	script	Lazy#lhz_rek	4_M_LAZY,{
 			setquest 17007;
 			close2;
 			cutin "",255;
-			cloakonnpc("Kaya#lhz3",getcharid(0));
-			cloakonnpc("Ashley#lhz3",getcharid(0));
+			cloakonnpc "Kaya#lhz3",getcharid(0);
+			cloakonnpc "Ashley#lhz3",getcharid(0);
 			end;
 
 
@@ -2875,14 +2875,14 @@ lhz_in01,107,137,5	script	Staff#rek	4_F_01,{
 			mes "[ Staff ]";
 			mes "Hello, how may I help you?";
 			next;
-			cloakoffnpc("Kaya#rek",getcharid(0));
-			cloakoffnpc("Ashley#rek",getcharid(0));
-			cloakoffnpc("Lazy#rek",getcharid(0));
+			cloakoffnpc "Kaya#rek",getcharid(0);
+			cloakoffnpc "Ashley#rek",getcharid(0);
+			cloakoffnpc "Lazy#rek",getcharid(0);
 			mes "[ Lazy ]";
 			mes "We've finally enter the Rekenber's headquarters. I wonder if Pat was relieved when he first passed through this door. Where did he go next?";
 			sleep2 1000;
 			specialeffect EF_BLUELIGHTBODY,AREA,"Pat#rek";
-			cloakoffnpc("Pat#rek",getcharid(0));
+			cloakoffnpc "Pat#rek",getcharid(0);
 			sleep2 2000;
 			npctalk "I... I... I...","Pat#rek",bc_self;
 			sleep2 2000;
@@ -2902,7 +2902,7 @@ lhz_in01,107,137,5	script	Staff#rek	4_F_01,{
 			sleep2 2000;
 			npctalk "Thank you, Thank you!","Pat#rek",bc_self;
 			sleep2 2000;
-			cloakonnpc("Pat#rek",getcharid(0));
+			cloakonnpc "Pat#rek",getcharid(0);
 			next;
 			cutin "ep171_kaya01",0;
 			mes "[ Kaya ]";
@@ -2931,9 +2931,9 @@ lhz_in01,107,137,5	script	Staff#rek	4_F_01,{
 			setquest 17008;
 			close2;
 			cutin "",255;
-			cloakonnpc("Kaya#rek",getcharid(0));
-			cloakonnpc("Ashley#rek",getcharid(0));
-			cloakonnpc("Lazy#rek",getcharid(0));
+			cloakonnpc "Kaya#rek",getcharid(0);
+			cloakonnpc "Ashley#rek",getcharid(0);
+			cloakonnpc "Lazy#rek",getcharid(0);
 			questinfo_refresh();
 			end;
 
@@ -2953,16 +2953,16 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 		case 22:
 			setpcblock PCBLOCK_ALL, true;
 			specialeffect EF_BLUELIGHTBODY,AREA,"Staff#rek3";
-			cloakoffnpc("Staff#rek3",getcharid(0));
+			cloakoffnpc "Staff#rek3",getcharid(0);
 			npctalk "With this, we will have completed the pre-training for the employees.","Staff#rek3",bc_self;
 			sleep2 2000;
 			npctalk "If you're new around here, you can get directions from the person in charge of the assignments.","Staff#rek3",bc_self;
 			sleep2 2000;
 			npctalk "Facility maintenance department, come with me!","",bc_self;
 			sleep2 2000;
-			cloakonnpc("Staff#rek3",getcharid(0));
+			cloakonnpc "Staff#rek3",getcharid(0);
 			specialeffect EF_BLUELIGHTBODY,AREA,"Pat#rek2";
-			cloakoffnpc("Pat#rek2",getcharid(0));
+			cloakoffnpc "Pat#rek2",getcharid(0);
 			sleep2 2000;
 			npctalk "That's me!","Pat#rek2",bc_self;
 			sleep2 2000;
@@ -2974,10 +2974,10 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 			sleep2 2000;
 			npctalk "I like your response, we need more people like you!","",bc_self;
 			sleep2 2000;
-			cloakonnpc("Pat#rek2",getcharid(0));
-			cloakoffnpc("Lazy#rek2",getcharid(0));
-			cloakoffnpc("Kaya#rek2",getcharid(0));
-			cloakoffnpc("Ashley#rek2",getcharid(0));
+			cloakonnpc "Pat#rek2",getcharid(0);
+			cloakoffnpc "Lazy#rek2",getcharid(0);
+			cloakoffnpc "Kaya#rek2",getcharid(0);
+			cloakoffnpc "Ashley#rek2",getcharid(0);
 			setpcblock PCBLOCK_ALL, false;
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
@@ -3109,9 +3109,9 @@ lhz_in01,163,258,5	script	Staff#rek2	4_M_EINMAN,{
 			setquest 17009;
 			close2;
 			cutin "",255;
-			cloakonnpc("Lazy#rek2",getcharid(0));
-			cloakonnpc("Kaya#rek2",getcharid(0));
-			cloakonnpc("Ashley#rek2",getcharid(0));
+			cloakonnpc "Lazy#rek2",getcharid(0);
+			cloakonnpc "Kaya#rek2",getcharid(0);
+			cloakonnpc "Ashley#rek2",getcharid(0);
 			end;
 
 		case 23:
@@ -3138,9 +3138,9 @@ lhz_in01,80,210,5	script	Secretary#rek	4_M_RUSMAN1,{
 			mes "Hey, where are you going!";
 			next;
 			select("Are you talking to us?");
-			cloakoffnpc("Lazy#rek3",getcharid(0));
-			cloakoffnpc("Kaya#rek3",getcharid(0));
-			cloakoffnpc("Ashley#rek3",getcharid(0));
+			cloakoffnpc "Lazy#rek3",getcharid(0);
+			cloakoffnpc "Kaya#rek3",getcharid(0);
+			cloakoffnpc "Ashley#rek3",getcharid(0);
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Adventurer, let's go quickly? Let's go together.";
@@ -3252,9 +3252,9 @@ lhz_in01,80,210,5	script	Secretary#rek	4_M_RUSMAN1,{
 			setquest 17012;
 			close2;
 			cutin "",255;
-			cloakonnpc("Lazy#rek3",getcharid(0));
-			cloakonnpc("Kaya#rek3",getcharid(0));
-			cloakonnpc("Ashley#rek3",getcharid(0));
+			cloakonnpc "Lazy#rek3",getcharid(0);
+			cloakonnpc "Kaya#rek3",getcharid(0);
+			cloakonnpc "Ashley#rek3",getcharid(0);
 			questinfo_refresh();
 			end;
 
@@ -3280,9 +3280,9 @@ lhz_in01,32,264,5	script	Staff#rek4	4_M_HUMAN_02,{
 		mes "[ Staff ]";
 		mes "Hello, this is the document storage room.";
 		next;
-		cloakoffnpc("Lazy#rek4",getcharid(0));
-		cloakoffnpc("Kaya#rek4",getcharid(0));
-		cloakoffnpc("Ashley#rek4",getcharid(0));
+		cloakoffnpc "Lazy#rek4",getcharid(0);
+		cloakoffnpc "Kaya#rek4",getcharid(0);
+		cloakoffnpc "Ashley#rek4",getcharid(0);
 		mes "[ Staff ]";
 		mes "Ah! I see. You're looking for Patrick Kaufman's transfer logs?";
 		npctalk "It feels good to smell the books here. My dream was to be a librarian. I should do that from now on.";
@@ -3470,9 +3470,9 @@ lhz_in01,32,264,5	script	Staff#rek4	4_M_HUMAN_02,{
 		mes "[ Staff ]";
 		mes "Please have a look. If you need anything, let me know!";
 		close2;
-		cloakonnpc("Lazy#rek4",getcharid(0));
-		cloakonnpc("Kaya#rek4",getcharid(0));
-		cloakonnpc("Ashley#rek4",getcharid(0));
+		cloakonnpc "Lazy#rek4",getcharid(0);
+		cloakonnpc "Kaya#rek4",getcharid(0);
+		cloakonnpc "Ashley#rek4",getcharid(0);
 		end;
 	}
 	if(ep_illusion == 27){
@@ -3516,9 +3516,9 @@ rgsr_in,161,85,3	script	Laboratory Staff#rgsr_in	4_LGTSCIENCE,{
 			mes "[ Staff ]";
 			mes "This place is restricted from outsiders, please leave.";
 			next;
-			cloakoffnpc("Lazy#rgsr_in",getcharid(0));
-			cloakoffnpc("Kaya#rgsr_in",getcharid(0));
-			cloakoffnpc("Ashley#rgsr_in",getcharid(0));
+			cloakoffnpc "Lazy#rgsr_in",getcharid(0);
+			cloakoffnpc "Kaya#rgsr_in",getcharid(0);
+			cloakoffnpc "Ashley#rgsr_in",getcharid(0);
 			cutin "16lei_01",2;
 			mes "[ Lazy ]";
 			mes "Hello. Okay, you're busy so that you don't know when someone died? So what happened? Don't you think its a big deal?";
@@ -3575,9 +3575,9 @@ rgsr_in,161,85,3	script	Laboratory Staff#rgsr_in	4_LGTSCIENCE,{
 			setquest 17010;
 			close2;
 			cutin "",255;
-			cloakonnpc("Lazy#rgsr_in",getcharid(0));
-			cloakonnpc("Kaya#rgsr_in",getcharid(0));
-			cloakonnpc("Ashley#rgsr_in",getcharid(0));
+			cloakonnpc "Lazy#rgsr_in",getcharid(0);
+			cloakonnpc "Kaya#rgsr_in",getcharid(0);
+			cloakonnpc "Ashley#rgsr_in",getcharid(0);
 			questinfo_refresh();
 			end;
 
@@ -3603,9 +3603,9 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			mes "[ Staff ]";
 			mes "What are you doing here? You can't be here unless you have an apointment.";
 			next;
-			cloakoffnpc("Lazy#rgsr_in2",getcharid(0));
-			cloakoffnpc("Kaya#rgsr_in2",getcharid(0));
-			cloakoffnpc("Ashley#rgsr_in2",getcharid(0));
+			cloakoffnpc "Lazy#rgsr_in2",getcharid(0);
+			cloakoffnpc "Kaya#rgsr_in2",getcharid(0);
+			cloakoffnpc "Ashley#rgsr_in2",getcharid(0);
 			cutin "ep171_as01",0;
 			mes "[ Ashley ]";
 			mes "Hey, Sammy. Could I ask you a few questions?";
@@ -3661,8 +3661,8 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			mes "Pa... Patrick Kaufman... Patrick... Well... Ah! I remember!";
 			specialeffect EF_BLUELIGHTBODY,AREA,"Pat#rgsr_in";
 			specialeffect EF_BLUELIGHTBODY,AREA,"Laboratory Staff#rgsr_in2";
-			cloakoffnpc("Pat#rgsr_in",getcharid(0));
-			cloakoffnpc("Laboratory Staff#rgsr_in2",getcharid(0));
+			cloakoffnpc "Pat#rgsr_in",getcharid(0);
+			cloakoffnpc "Laboratory Staff#rgsr_in2",getcharid(0);
 			sleep2 2000;
 			npctalk "You'll be joining a new laboratory next week. Don't get too lonely when you move away.","",bc_self;
 			sleep2 2000;
@@ -3672,8 +3672,8 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			sleep2 2000;
 			npctalk "No, my body is strong.","Pat#rgsr_in",bc_self;
 			sleep2 2000;
-			cloakonnpc("Pat#rgsr_in",getcharid(0));
-			cloakonnpc("Laboratory Staff#rgsr_in2",getcharid(0));
+			cloakonnpc "Pat#rgsr_in",getcharid(0);
+			cloakonnpc "Laboratory Staff#rgsr_in2",getcharid(0);
 			next;
 			mes "[ Sammy ]";
 			mes "... and then he was sent to another laboratory.";
@@ -3780,9 +3780,9 @@ rgsr_in,12,46,7	script	Staff#rgsr	4_M_04,{
 			setquest 17011;
 			close2;
 			cutin "",255;
-			cloakonnpc("Lazy#rgsr_in2",getcharid(0));
-			cloakonnpc("Kaya#rgsr_in2",getcharid(0));
-			cloakonnpc("Ashley#rgsr_in2",getcharid(0));
+			cloakonnpc "Lazy#rgsr_in2",getcharid(0);
+			cloakonnpc "Kaya#rgsr_in2",getcharid(0);
+			cloakonnpc "Ashley#rgsr_in2",getcharid(0);
 			end;
 
 		case 25:
@@ -4360,7 +4360,7 @@ sp_rudus,15,280,5	script	#171_EV_RUDUS	HIDDEN_WARP_NPC,12,12,{
 
 OnTouch:
 	if(finding_patrick == 6)
-		cloakoffnpc("Discarded Person#171_Q_0",getcharid(0));
+		cloakoffnpc "Discarded Person#171_Q_0",getcharid(0);
 end;
 }
 
@@ -4494,7 +4494,7 @@ sp_rudus,15,280,5	script	Discarded Person#171_Q_0	4_F_MUT1,{
 
 OnInit:
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"finding_patrick == 6";
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -4729,17 +4729,17 @@ sp_cor,163,79,0	script	#171_OS_EV	HIDDEN_WARP_NPC,7,5,{
 
 OnTouch:
 	if(ep_illusion == 36 || ep_illusion == 37){
-		cloakoffnpc("Worker#os_poor",getcharid(0));
-		cloakoffnpc("Worker#os_moc",getcharid(0));
-		cloakoffnpc("Worker#os_cook",getcharid(0));
-		cloakoffnpc("Worker#os_man",getcharid(0));
-		cloakoffnpc("Tess#os_rb",getcharid(0));
-		cloakoffnpc("Kaya#os_rb",getcharid(0));
-		cloakoffnpc("Ashley#os_rb",getcharid(0));
-		cloakoffnpc("Magenta#os_rb",getcharid(0));
-		cloakoffnpc("Denny#os_rb",getcharid(0));
-		cloakoffnpc("Tommy#os_rb",getcharid(0));
-		cloakoffnpc("Gonie#os_rb",getcharid(0));
+		cloakoffnpc "Worker#os_poor",getcharid(0);
+		cloakoffnpc "Worker#os_moc",getcharid(0);
+		cloakoffnpc "Worker#os_cook",getcharid(0);
+		cloakoffnpc "Worker#os_man",getcharid(0);
+		cloakoffnpc "Tess#os_rb",getcharid(0);
+		cloakoffnpc "Kaya#os_rb",getcharid(0);
+		cloakoffnpc "Ashley#os_rb",getcharid(0);
+		cloakoffnpc "Magenta#os_rb",getcharid(0);
+		cloakoffnpc "Denny#os_rb",getcharid(0);
+		cloakoffnpc "Tommy#os_rb",getcharid(0);
+		cloakoffnpc "Gonie#os_rb",getcharid(0);
 	}
 end;
 }
@@ -4756,8 +4756,8 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "Show me the way out!";
 			171_worker_talk(1,.@old$);
 			next;
-			cloakoffnpc("Worker#os_poor",getcharid(0));
-			cloakoffnpc("Worker#os_moc",getcharid(0));
+			cloakoffnpc "Worker#os_poor",getcharid(0);
+			cloakoffnpc "Worker#os_moc",getcharid(0);
 			mes "[ Worker ]";
 			mes "So these gunmen think they can just come here and start a commotion!";
 			171_worker_talk(2,.@poor$);
@@ -4767,8 +4767,8 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "[ Advanced Team ]";
 			mes "Gentlemen, please don't do this. We didn't come here to harm you.";
 			next;
-			cloakoffnpc("Worker#os_cook",getcharid(0));
-			cloakoffnpc("Worker#os_man",getcharid(0));
+			cloakoffnpc "Worker#os_cook",getcharid(0);
+			cloakoffnpc "Worker#os_man",getcharid(0);
 			mes "[ Worker ]";
 			mes "Of course not. We're just getting attacked by rebellions.";
 			171_worker_talk(5,.@man$);
@@ -4912,13 +4912,13 @@ sp_cor,168,81,7	script	Advanced Team#171_cor	4_F_REBELLION3,{
 			mes "Should we charge in?";
 			171_worker_talk(39,.@moc$);
 			next;
-			cloakoffnpc("Tess#os_rb",getcharid(0));
-			cloakoffnpc("Kaya#os_rb",getcharid(0));
-			cloakoffnpc("Ashley#os_rb",getcharid(0));
-			cloakoffnpc("Magenta#os_rb",getcharid(0));
-			cloakoffnpc("Denny#os_rb",getcharid(0));
-			cloakoffnpc("Tommy#os_rb",getcharid(0));
-			cloakoffnpc("Gonie#os_rb",getcharid(0));
+			cloakoffnpc "Tess#os_rb",getcharid(0);
+			cloakoffnpc "Kaya#os_rb",getcharid(0);
+			cloakoffnpc "Ashley#os_rb",getcharid(0);
+			cloakoffnpc "Magenta#os_rb",getcharid(0);
+			cloakoffnpc "Denny#os_rb",getcharid(0);
+			cloakoffnpc "Tommy#os_rb",getcharid(0);
+			cloakoffnpc "Gonie#os_rb",getcharid(0);
 			cutin "ep16_tes01",2;
 			mes "[ Tess ]";
 			mes "Why would you charge in without orders?";
@@ -5215,7 +5215,7 @@ sp_cor,165,79,1	script	Kaya#os_rb	4_EP17_KAYA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 	questinfo(QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 36");
 end;
 }
@@ -5255,9 +5255,9 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			mes "That sounds like a good idea.";
 			171_worker_talk(85,.@old$);
 			next;
-			cloakoffnpc("Elyumina#os_rb",getcharid(0));
-			cloakoffnpc("Mercenary#os_rb_1",getcharid(0));
-			cloakoffnpc("Mercenary#os_rb_2",getcharid(0));
+			cloakoffnpc "Elyumina#os_rb",getcharid(0);
+			cloakoffnpc "Mercenary#os_rb_1",getcharid(0);
+			cloakoffnpc "Mercenary#os_rb_2",getcharid(0);
 			specialeffect EF_TELEPORTATION2,AREA,"Elyumina#os_rb";
 			specialeffect EF_TELEPORTATION2,AREA,"Mercenary#os_rb_1";
 			specialeffect EF_TELEPORTATION2,AREA,"Mercenary#os_rb_2";
@@ -5335,41 +5335,41 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			mes "Now! Stand behind me!";
 			171_worker_talk(101,.@old$);
 			sleep2 300;
-			cloakonnpc("Ashley#os_rb",getcharid(0));
+			cloakonnpc "Ashley#os_rb",getcharid(0);
 			sleep2 300;
-			cloakoffnpc("Ashley#os_rb_2",getcharid(0));
+			cloakoffnpc "Ashley#os_rb_2",getcharid(0);
 			sleep2 500;
 			171_worker_talk(102,.@man$);
 			171_worker_talk(103,.@cook$);
 			171_worker_talk(104,.@old$);
 			sleep2 300;
-			cloakonnpc("Kaya#os_rb",getcharid(0));
-			cloakonnpc("Tess#os_rb",getcharid(0));
-			cloakonnpc("Worker#171_old",getcharid(0));
-			cloakonnpc("Worker#os_cook",getcharid(0));
-			cloakonnpc("Worker#os_man",getcharid(0));
+			cloakonnpc "Kaya#os_rb",getcharid(0);
+			cloakonnpc "Tess#os_rb",getcharid(0);
+			cloakonnpc "Worker#171_old",getcharid(0);
+			cloakonnpc "Worker#os_cook",getcharid(0);
+			cloakonnpc "Worker#os_man",getcharid(0);
 			sleep2 300;
 			.@old$ = "Worker#171_old_2";
 			.@cook$ = "Worker#os_cook_2";
 			.@man$ = "Worker#os_man_2";
-			cloakoffnpc("Kaya#os_rb_2",getcharid(0));
-			cloakoffnpc("Tess#os_rb_2",getcharid(0));
-			cloakoffnpc("Worker#171_old_2",getcharid(0));
-			cloakoffnpc("Worker#os_cook_2",getcharid(0));
-			cloakoffnpc("Worker#os_man_2",getcharid(0));
+			cloakoffnpc "Kaya#os_rb_2",getcharid(0);
+			cloakoffnpc "Tess#os_rb_2",getcharid(0);
+			cloakoffnpc "Worker#171_old_2",getcharid(0);
+			cloakoffnpc "Worker#os_cook_2",getcharid(0);
+			cloakoffnpc "Worker#os_man_2",getcharid(0);
 			next;
 			cutin "",255;
 			mes "[ Advanced Team ]";
 			mes "Everyone, formation!";
-			cloakonnpc("Denny#os_rb",getcharid(0));
-			cloakonnpc("Magenta#os_rb",getcharid(0));
-			cloakonnpc("Tommy#os_rb",getcharid(0));
-			cloakonnpc("Gonie#os_rb",getcharid(0));
+			cloakonnpc "Denny#os_rb",getcharid(0);
+			cloakonnpc "Magenta#os_rb",getcharid(0);
+			cloakonnpc "Tommy#os_rb",getcharid(0);
+			cloakonnpc "Gonie#os_rb",getcharid(0);
 			sleep2 500;
-			cloakoffnpc("Denny#os_rb_2",getcharid(0));
-			cloakoffnpc("Magenta#os_rb_2",getcharid(0));
-			cloakoffnpc("Tommy#os_rb_2",getcharid(0));
-			cloakoffnpc("Gonie#os_rb_2",getcharid(0));
+			cloakoffnpc "Denny#os_rb_2",getcharid(0);
+			cloakoffnpc "Magenta#os_rb_2",getcharid(0);
+			cloakoffnpc "Tommy#os_rb_2",getcharid(0);
+			cloakoffnpc "Gonie#os_rb_2",getcharid(0);
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_1";
 			specialeffect EF_DESPERADO,AREA,"Mercenary#os_rb_2";
 			next;
@@ -5442,9 +5442,9 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			specialeffect EF_TELEPORTATION2,AREA,"Elyumina#os_rb";
 			specialeffect EF_TELEPORTATION2,AREA,"Mercenary#os_rb_1";
 			specialeffect EF_TELEPORTATION2,AREA,"Mercenary#os_rb_2";
-			cloakonnpc("Elyumina#os_rb",getcharid(0));
-			cloakonnpc("Mercenary#os_rb_1",getcharid(0));
-			cloakonnpc("Mercenary#os_rb_2",getcharid(0));
+			cloakonnpc "Elyumina#os_rb",getcharid(0);
+			cloakonnpc "Mercenary#os_rb_1",getcharid(0);
+			cloakonnpc "Mercenary#os_rb_2",getcharid(0);
 			cutin "ep171_as02",0;
 			mes "[ Ashley ]";
 			mes "Is everyone alright?";
@@ -5481,24 +5481,24 @@ sp_cor,166,81,7	script	Tess#os_rb	4_M_PHILOFONTES,{
 			setquest 17017;
 			close2;
 			cutin "",255;
-			cloakonnpc("Denny#os_rb_2",getcharid(0));
-			cloakonnpc("Magenta#os_rb_2",getcharid(0));
-			cloakonnpc("Tommy#os_rb_2",getcharid(0));
-			cloakonnpc("Gonie#os_rb_2",getcharid(0));
-			cloakonnpc("Kaya#os_rb_2",getcharid(0));
-			cloakonnpc("Tess#os_rb_2",getcharid(0));
-			cloakonnpc("Ashley#os_rb_2",getcharid(0));
-			cloakonnpc("Worker#171_old_2",getcharid(0));
-			cloakonnpc("Worker#os_cook_2",getcharid(0));
-			cloakonnpc("Worker#os_man_2",getcharid(0));
-			cloakonnpc("Worker#os_moc",getcharid(0));
-			cloakonnpc("Worker#os_poor",getcharid(0));
+			cloakonnpc "Denny#os_rb_2",getcharid(0);
+			cloakonnpc "Magenta#os_rb_2",getcharid(0);
+			cloakonnpc "Tommy#os_rb_2",getcharid(0);
+			cloakonnpc "Gonie#os_rb_2",getcharid(0);
+			cloakonnpc "Kaya#os_rb_2",getcharid(0);
+			cloakonnpc "Tess#os_rb_2",getcharid(0);
+			cloakonnpc "Ashley#os_rb_2",getcharid(0);
+			cloakonnpc "Worker#171_old_2",getcharid(0);
+			cloakonnpc "Worker#os_cook_2",getcharid(0);
+			cloakonnpc "Worker#os_man_2",getcharid(0);
+			cloakonnpc "Worker#os_moc",getcharid(0);
+			cloakonnpc "Worker#os_poor",getcharid(0);
 			questinfo_refresh();
 			end;
 	}
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5515,7 +5515,7 @@ sp_cor,164,77,1	script	Ashley#os_rb	4_EP17_AS,{
 	close3;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5532,7 +5532,7 @@ sp_cor,162,73,7	script	Denny#os_rb	4_M_REBELLION3,{
 	}
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5548,7 +5548,7 @@ sp_cor,165,74,1	script	Magenta#os_rb	4_M_GUNSLINGER2,{
 	}
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5574,7 +5574,7 @@ sp_cor,163,62,3	script	Tommy#os_rb	4_M_GUNSLINGER2,{
 	close;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5584,7 +5584,7 @@ sp_cor,168,75,7	script	Gonie#os_rb	4_M_GONY,{
 	close;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5594,7 +5594,7 @@ sp_cor,172,80,1	script	Worker#os_cook	4_M_CHNCOOK,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5604,7 +5604,7 @@ sp_cor,167,85,5	script	Worker#os_poor	4_M_LGTPOOR,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5614,7 +5614,7 @@ sp_cor,164,82,5	script	Worker#os_moc	4_M_DSTMAN,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5624,7 +5624,7 @@ sp_cor,161,80,5	script	Worker#os_man	4_M_03,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5687,11 +5687,11 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			mes "[ Worker ]";
 			mes "Of course not... They're killers.";
 			next;
-			cloakonnpc("Ashley#sp_cor",getcharid(0));
-			cloakonnpc("Kaya#sp_cor",getcharid(0));
+			cloakonnpc "Ashley#sp_cor",getcharid(0);
+			cloakonnpc "Kaya#sp_cor",getcharid(0);
 			sleep2 200;
-			cloakoffnpc("Ashley#sp_cor2",getcharid(0));
-			cloakoffnpc("Kaya#sp_cor2",getcharid(0));
+			cloakoffnpc "Ashley#sp_cor2",getcharid(0);
+			cloakoffnpc "Kaya#sp_cor2",getcharid(0);
 			cutin "ep171_as02",0;
 			mes "[ Ashley ]";
 			mes "Please stay here, I will check the surroundings.";
@@ -5702,9 +5702,9 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			mes "Let's check the condition of the wounded.";
 			npctalk "Let's check the condition of the wounded.","Kaya#sp_cor2",bc_self;
 			next;
-			cloakonnpc("Ashley#sp_cor2",getcharid(0));
+			cloakonnpc "Ashley#sp_cor2",getcharid(0);
 			sleep2 200;
-			cloakoffnpc("Ashley#sp_cor",getcharid(0));
+			cloakoffnpc "Ashley#sp_cor",getcharid(0);
 			cutin "ep171_as02",0;
 			mes "[ Ashley ]";
 			mes "Alright, please stay here though.";
@@ -5776,9 +5776,9 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			mes "Here, stand in line please. Make three rows. Please tell me your full name when your turn comes.";
 			npctalk "Let me do it first, I think I'll die soon.","Worker#os_stand",bc_self;
 			next;
-			cloakonnpc("Ashley#sp_cor",getcharid(0));
+			cloakonnpc "Ashley#sp_cor",getcharid(0);
 			sleep2 200;
-			cloakoffnpc("Ashley#sp_cor2",getcharid(0));
+			cloakoffnpc "Ashley#sp_cor2",getcharid(0);
 			cutin "ep171_as01",0;
 			mes "[ Ashley ]";
 			mes "Vice President, a moment please...";
@@ -5794,9 +5794,9 @@ sp_cor,122,141,5	script	Tess#sp_cor	4_M_PHILOFONTES,{
 			ep_illusion = 39;
 			completequest 17017;
 			setquest 17018;
-			cloakonnpc("Ashley#sp_cor2",getcharid(0));
+			cloakonnpc "Ashley#sp_cor2",getcharid(0);
 			sleep2 200;
-			cloakoffnpc("Ashley#sp_cor",getcharid(0));
+			cloakoffnpc "Ashley#sp_cor",getcharid(0);
 			close3;
 
 		case 39:
@@ -5952,7 +5952,7 @@ sp_cor,125,140,5	script	Kaya#sp_cor2	4_EP17_KAYA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -5963,9 +5963,9 @@ sp_cor,135,147,3	script	Ashley#sp_cor	4_EP17_AS,{
 			mes "[ Ashley ]";
 			mes "This way.";
 			next;
-			cloakonnpc("Kaya#sp_cor2",getcharid(0));
+			cloakonnpc "Kaya#sp_cor2",getcharid(0);
 			sleep2 200;
-			cloakoffnpc("Kaya#sp_cor",getcharid(0));
+			cloakoffnpc "Kaya#sp_cor",getcharid(0);
 			cutin "ep171_kaya01",2;
 			mes "[ Kaya ]";
 			mes "What's the status of the wounded?";
@@ -6321,7 +6321,7 @@ sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
 			mes "[ Rebellion ]";
 			mes "You've been called! The captains are meeting. Elena Bolkova has called you too adventurer.";
 			mes "I was just about to get her... but she just arrived.";
-			cloakoffnpc("Elena Bolkova#sp_cor_main",getcharid(0));
+			cloakoffnpc "Elena Bolkova#sp_cor_main",getcharid(0);
 			npctalk "Elena Bolkova : Ah, I was looking for you, adventurer.","Elena Bolkova#sp_cor_main",bc_self;
 			if(isbegin_quest(17019) == 1)
 				completequest 17019;
@@ -6334,7 +6334,7 @@ sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
 			mes "[ Rebellion ]";
 			mes "You've been called! The captains are meeting. Elena Bolkova has called you too adventurer.";
 			mes "I was just about to get her... but she just arrived.";
-			cloakoffnpc("Elena Bolkova#sp_cor_main",getcharid(0));
+			cloakoffnpc "Elena Bolkova#sp_cor_main",getcharid(0);
 			npctalk "Elena Bolkova : Ah, I was looking for you, adventurer.","Elena Bolkova#sp_cor_main",bc_self;
 			end;
 
@@ -6519,7 +6519,7 @@ sp_cor,110,130,3	script	Elena Bolkova#sp_cor_main	4_F_ELENA,{
 
 OnInit:
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 40 && isbegin_quest(16352) == 1";
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -6778,16 +6778,16 @@ sp_cor,136,210,7	script	Gonie#sp_barracks	4_M_GONY,12,12,{
 			mes "[ Gonie ]";
 			mes ".....";
 			next;
-			cloakoffnpc("Rookie#sp_barracks",getcharid(0));
-			cloakoffnpc("Elena Bolkova#sp_barracks",getcharid(0));
-			cloakoffnpc("Tess#sp_barracks",getcharid(0));
+			cloakoffnpc "Rookie#sp_barracks",getcharid(0);
+			cloakoffnpc "Elena Bolkova#sp_barracks",getcharid(0);
+			cloakoffnpc "Tess#sp_barracks",getcharid(0);
 			cutin "16loo_01",2;
 			mes "[ Rookie ]";
 			mes "Huh, you came here quickly, I heard you were taking a rest.";
 			mes "Lazy, please bring the captive.";
 			next;
-			cloakoffnpc("Lazy#sp_barracks",getcharid(0));
-			cloakoffnpc("Elyumina#sp_barracks",getcharid(0));
+			cloakoffnpc "Lazy#sp_barracks",getcharid(0);
+			cloakoffnpc "Elyumina#sp_barracks",getcharid(0);
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes "Here, that's the captive.";
@@ -6824,11 +6824,11 @@ sp_cor,136,210,7	script	Gonie#sp_barracks	4_M_GONY,12,12,{
 
 OnTouch:
 	if(ep_illusion == 45){
-		cloakoffnpc("Rookie#sp_barracks",getcharid(0));
-		cloakoffnpc("Elena Bolkova#sp_barracks",getcharid(0));
-		cloakoffnpc("Tess#sp_barracks",getcharid(0));
-		cloakoffnpc("Lazy#sp_barracks",getcharid(0));
-		cloakoffnpc("Elyumina#sp_barracks",getcharid(0));
+		cloakoffnpc "Rookie#sp_barracks",getcharid(0);
+		cloakoffnpc "Elena Bolkova#sp_barracks",getcharid(0);
+		cloakoffnpc "Tess#sp_barracks",getcharid(0);
+		cloakoffnpc "Lazy#sp_barracks",getcharid(0);
+		cloakoffnpc "Elyumina#sp_barracks",getcharid(0);
 	}
 end;
 
@@ -6961,8 +6961,8 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			cutin "16lei_03",2;
 			mes "[ Lazy ]";
 			mes ".....";
-			cloakonnpc("Elyumina#sp_barracks",getcharid(0));
-			cloakoffnpc("Elyumina#sp_barracks2",getcharid(0));
+			cloakonnpc "Elyumina#sp_barracks",getcharid(0);
+			cloakoffnpc "Elyumina#sp_barracks2",getcharid(0);
 			npctalk "Rookie : ...so it's like that. I see...","",bc_self;
 			next;
 			mes "[ Lazy ]";
@@ -7027,17 +7027,17 @@ sp_cor,135,216,5	script	Rookie#sp_barracks	4_M_ROOKIE,{
 			questinfo_refresh();
 			close2;
 			cutin "",255;
-			cloakonnpc("Rookie#sp_barracks",getcharid(0));
-			cloakonnpc("Elena Bolkova#sp_barracks",getcharid(0));
-			cloakonnpc("Tess#sp_barracks",getcharid(0));
-			cloakonnpc("Lazy#sp_barracks",getcharid(0));
-			cloakonnpc("Elyumina#sp_barracks2",getcharid(0));
+			cloakonnpc "Rookie#sp_barracks",getcharid(0);
+			cloakonnpc "Elena Bolkova#sp_barracks",getcharid(0);
+			cloakonnpc "Tess#sp_barracks",getcharid(0);
+			cloakonnpc "Lazy#sp_barracks",getcharid(0);
+			cloakonnpc "Elyumina#sp_barracks2",getcharid(0);
 	}
 	end;
 
 OnInit:
 	questinfo QTYPE_QUEST,QMARK_YELLOW,"ep_illusion == 45";
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -7051,7 +7051,7 @@ sp_cor,141,215,3	script	Elena Bolkova#sp_barracks	4_F_ELENA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -7066,7 +7066,7 @@ sp_cor,138,219,3	script	Tess#sp_barracks	4_M_PHILOFONTES,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -7080,7 +7080,7 @@ sp_cor,141,211,1	script	Lazy#sp_barracks	4_M_LAZY,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 
@@ -7098,7 +7098,7 @@ sp_cor,140,213,3	script	Elyumina#sp_barracks	4_EP17_ELYUMINA,{
 	end;
 
 OnInit:
-	cloakonnpc(strnpcinfo(0));
+	cloakonnpc strnpcinfo(0);
 end;
 }
 

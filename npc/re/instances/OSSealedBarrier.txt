@@ -175,83 +175,83 @@ end;
 1@os_b,1,1,0	script	#171_sealedos_control	-1,{
 OnInstanceInit:
 	'map$ = instance_mapname("1@os_b");
-	cloakonnpc(instance_npcname("Dien#s_os"));
-	cloakonnpc(instance_npcname("Cotnes#s_os"));
-	cloakonnpc(instance_npcname("Dien#s_os2"));
-	cloakonnpc(instance_npcname("Ridsh#s_os2"));
-	cloakonnpc(instance_npcname("Cotnes#s_os2"));
-	disablenpc(instance_npcname("Suspicious Device#s_os_trigger"));
-	disablenpc(instance_npcname("Thick Wire#os_lock_0"));
-	disablenpc(instance_npcname("Thick Wire#os_lock_1"));
-	disablenpc(instance_npcname("Thick Wire#os_lock_2"));
-	disablenpc(instance_npcname("Dien#s_os3"));
-	disablenpc(instance_npcname("Cotnes#s_os3"));
-	disablenpc(instance_npcname("Dien#s_os4"));
-	disablenpc(instance_npcname("Erst#s_os"));
-	disablenpc(instance_npcname("Cotnes#s_os4"));
-	disablenpc(instance_npcname("Dien#s_os5"));
-	disablenpc(instance_npcname("Ridsh#s_os3"));
-	disablenpc(instance_npcname("#s_os_dum01"));
-	disablenpc(instance_npcname("#s_os_dum02"));
-	disablenpc(instance_npcname("Ridsh#s_os4"));
-	disablenpc(instance_npcname("Erst#s_os2"));
-	disablenpc(instance_npcname("Cotnes#s_os5"));
-	disablenpc(instance_npcname("Dien#s_os6"));
+	cloakonnpc instance_npcname("Dien#s_os");
+	cloakonnpc instance_npcname("Cotnes#s_os");
+	cloakonnpc instance_npcname("Dien#s_os2");
+	cloakonnpc instance_npcname("Ridsh#s_os2");
+	cloakonnpc instance_npcname("Cotnes#s_os2");
+	disablenpc instance_npcname("Suspicious Device#s_os_trigger");
+	disablenpc instance_npcname("Thick Wire#os_lock_0");
+	disablenpc instance_npcname("Thick Wire#os_lock_1");
+	disablenpc instance_npcname("Thick Wire#os_lock_2");
+	disablenpc instance_npcname("Dien#s_os3");
+	disablenpc instance_npcname("Cotnes#s_os3");
+	disablenpc instance_npcname("Dien#s_os4");
+	disablenpc instance_npcname("Erst#s_os");
+	disablenpc instance_npcname("Cotnes#s_os4");
+	disablenpc instance_npcname("Dien#s_os5");
+	disablenpc instance_npcname("Ridsh#s_os3");
+	disablenpc instance_npcname("#s_os_dum01");
+	disablenpc instance_npcname("#s_os_dum02");
+	disablenpc instance_npcname("Ridsh#s_os4");
+	disablenpc instance_npcname("Erst#s_os2");
+	disablenpc instance_npcname("Cotnes#s_os5");
+	disablenpc instance_npcname("Dien#s_os6");
 end;
 
 OnEvent01:
-	disablenpc(instance_npcname("Ridsh#s_os"));
-	disablenpc(instance_npcname("Dien#s_os"));
-	disablenpc(instance_npcname("Cotnes#s_os"));
-	disablenpc(instance_npcname("#os_lock_01"));
-	disablenpc(instance_npcname("#os_lock_02"));
-	cloakoffnpc(instance_npcname("Dien#s_os2"));
-	cloakoffnpc(instance_npcname("Ridsh#s_os2"));
-	cloakoffnpc(instance_npcname("Cotnes#s_os2"));
-	donpcevent(instance_npcname("#sealedos_mob_1")+"::OnSpawn");
+	disablenpc instance_npcname("Ridsh#s_os");
+	disablenpc instance_npcname("Dien#s_os");
+	disablenpc instance_npcname("Cotnes#s_os");
+	disablenpc instance_npcname("#os_lock_01");
+	disablenpc instance_npcname("#os_lock_02");
+	cloakoffnpc instance_npcname("Dien#s_os2");
+	cloakoffnpc instance_npcname("Ridsh#s_os2");
+	cloakoffnpc instance_npcname("Cotnes#s_os2");
+	donpcevent instance_npcname("#sealedos_mob_1")+"::OnSpawn";
 end;
 
 OnEvent02:
 	for(.@i = 0; .@i < 6; .@i++){
-		disablenpc(instance_npcname("#s_os_dummy0"+.@i));
+		disablenpc instance_npcname("#s_os_dummy0"+.@i);
 	}
-	disablenpc(instance_npcname("Suspicious Device#s_os_trigger"));
-	disablenpc(instance_npcname("Dien#s_os2"));
-	disablenpc(instance_npcname("Ridsh#s_os2"));
-	disablenpc(instance_npcname("Cotnes#s_os2"));
-	disablenpc(instance_npcname("#os_lock_00"));
-	enablenpc(instance_npcname("Thick Wire#os_lock_0"));
-	enablenpc(instance_npcname("Thick Wire#os_lock_1"));
-	enablenpc(instance_npcname("Thick Wire#os_lock_2"));
-	enablenpc(instance_npcname("Dien#s_os3"));
+	disablenpc instance_npcname("Suspicious Device#s_os_trigger");
+	disablenpc instance_npcname("Dien#s_os2");
+	disablenpc instance_npcname("Ridsh#s_os2");
+	disablenpc instance_npcname("Cotnes#s_os2");
+	disablenpc instance_npcname("#os_lock_00");
+	enablenpc instance_npcname("Thick Wire#os_lock_0");
+	enablenpc instance_npcname("Thick Wire#os_lock_1");
+	enablenpc instance_npcname("Thick Wire#os_lock_2");
+	enablenpc instance_npcname("Dien#s_os3");
 end;
 
 OnEvent03:
-	disablenpc(instance_npcname("Dien#s_os3"));
-	enablenpc(instance_npcname("Cotnes#s_os3"));
-	enablenpc(instance_npcname("Dien#s_os4"));
-	enablenpc(instance_npcname("Ridsh#s_os3"));
+	disablenpc instance_npcname("Dien#s_os3");
+	enablenpc instance_npcname("Cotnes#s_os3");
+	enablenpc instance_npcname("Dien#s_os4");
+	enablenpc instance_npcname("Ridsh#s_os3");
 end;
 
 OnEvent04:
 	's_os = 8;
-	disablenpc(instance_npcname("#os_lock_03"));
-	enablenpc(instance_npcname("Ridsh#s_os3"));
-	enablenpc(instance_npcname("#s_os_dum01"));
-	enablenpc(instance_npcname("#s_os_dum02"));
+	disablenpc instance_npcname("#os_lock_03");
+	enablenpc instance_npcname("Ridsh#s_os3");
+	enablenpc instance_npcname("#s_os_dum01");
+	enablenpc instance_npcname("#s_os_dum02");
 end;
 
 OnEvent05:
 	's_os = 9;
-	disablenpc(instance_npcname("Ridsh#s_os3"));
-	disablenpc(instance_npcname("Erst#s_os"));
-	disablenpc(instance_npcname("Cotnes#s_os4"));
-	disablenpc(instance_npcname("Dien#s_os5"));
-	disablenpc(instance_npcname("#os_lock_05"));
-	enablenpc(instance_npcname("Ridsh#s_os4"));
-	enablenpc(instance_npcname("Erst#s_os2"));
-	enablenpc(instance_npcname("Cotnes#s_os5"));
-	enablenpc(instance_npcname("Dien#s_os6"));
+	disablenpc instance_npcname("Ridsh#s_os3");
+	disablenpc instance_npcname("Erst#s_os");
+	disablenpc instance_npcname("Cotnes#s_os4");
+	disablenpc instance_npcname("Dien#s_os5");
+	disablenpc instance_npcname("#os_lock_05");
+	enablenpc instance_npcname("Ridsh#s_os4");
+	enablenpc instance_npcname("Erst#s_os2");
+	enablenpc instance_npcname("Cotnes#s_os5");
+	enablenpc instance_npcname("Dien#s_os6");
 end;
 }
 
@@ -265,8 +265,8 @@ end;
 		mes "What are you doing here?";
 		npctalk "Ridsh : Oh? What are you doing here.";
 		next;
-		cloakoffnpc(.@dien$);
-		cloakoffnpc(.@cot$);
+		cloakoffnpc .@dien$;
+		cloakoffnpc .@cot$;
 		cutin "ep162_rds05",2;
 		mes "[ Ridsh ]";
 		mes "We're in trouble~~";
@@ -329,7 +329,7 @@ end;
 		close2;
 		cutin "",255;
 		's_os = 1;
-		donpcevent(instance_npcname("#171_sealedos_control")+"::OnEvent01");
+		donpcevent instance_npcname("#171_sealedos_control")+"::OnEvent01";
 	}
 	end;
 }
@@ -347,7 +347,7 @@ end;
 		close2;
 		's_os = 3;
 		mapannounce 'map$,"Ridsh : Alright! Let's move up along the railroad tracks!",bc_map,0xFF0000;
-		donpcevent(instance_npcname("#171_sealedos_control")+"::OnEvent02");
+		donpcevent instance_npcname("#171_sealedos_control")+"::OnEvent02";
 	}
 	end;
 }
@@ -392,14 +392,14 @@ end;
 1@os_b,137,107,0	script	Thick Wire#os_lock_0	4_ENERGY_BLUE,{
 	.@npc = atoi(replacestr(strnpcinfo(2),"os_lock_",""));
 	's_os = 's_os + 1;
-	disablenpc(instance_npcname(strnpcinfo(0)));
-	disablenpc(instance_npcname("Dangerous Device#s_os_" + .@npc));
+	disablenpc instance_npcname(strnpcinfo(0));
+	disablenpc instance_npcname("Dangerous Device#s_os_" + .@npc);
 	if(('s_os+1) < 6)
 		mapannounce 'map$,"Ridsh : The machine isn't off yet. Look above.",bc_map,0xFF0000;
 	else {
 		's_os = 7;
 		mapannounce 'map$,"Ridsh : That's it! Let's move along the railroad tracks!",bc_map,0xFF0000;
-		donpcevent(instance_npcname("#171_sealedos_control")+"::OnEvent03");
+		donpcevent instance_npcname("#171_sealedos_control")+"::OnEvent03";
 	}
 	end;
 }
@@ -415,7 +415,7 @@ OnTalk:
 	mes "Head to the right, I think you can get back on the railroad without having to break through this door.";
 	npctalk "Dien : Oh! Head to the right, I think you can get back on the railroad without having to break through this door";
 	if('s_os == 7)
-		donpcevent(instance_npcname("#171_sealedos_control")+"::OnEvent04");
+		donpcevent instance_npcname("#171_sealedos_control")+"::OnEvent04";
 	close3;
 }
 
@@ -427,7 +427,7 @@ OnTalk:
 		mes "It will take some time to break it.";
 		next;
 	}
-	donpcevent(instance_npcname("Dien")+"#s_os4::OnTalk");
+	donpcevent instance_npcname("Dien")+"#s_os4::OnTalk";
 	end;
 }
 
@@ -442,9 +442,9 @@ OnTalk:
 	next;
 	specialeffect EF_BLASTMINEBOMB,AREA,instance_npcname("#s_os_dum01");
 	specialeffect EF_BLASTMINEBOMB,AREA,instance_npcname("#s_os_dum02");
-	disablenpc(instance_npcname("#s_os_dum01"));
-	disablenpc(instance_npcname("#s_os_dum02"));
-	enablenpc(instance_npcname("Erst#s_os"));
+	disablenpc instance_npcname("#s_os_dum01");
+	disablenpc instance_npcname("#s_os_dum02");
+	enablenpc instance_npcname("Erst#s_os");
 	cutin "ep162_est01",2;
 	mes "[ Erst ]";
 	mes "Oh...";
@@ -480,16 +480,16 @@ OnTalk:
 	mes "Didn't you just now?";
 	mes "I don't think I heard that wrong, did I?";
 	next;
-	disablenpc(instance_npcname("Cotnes#s_os3"));
-	enablenpc(instance_npcname("Cotnes#s_os4"));
+	disablenpc instance_npcname("Cotnes#s_os3");
+	enablenpc instance_npcname("Cotnes#s_os4");
 	cutin "ep162_ctn01",2;
 	mes "[ Cotnes ]";
 	mes "You two really~";
 	mes "Quit it.";
 	npctalk "Cotnes : You two really~ Quit it.",.@cot$;
 	next;
-	disablenpc(instance_npcname("Dien#s_os4"));
-	enablenpc(instance_npcname("Dien#s_os5"));
+	disablenpc instance_npcname("Dien#s_os4");
+	enablenpc instance_npcname("Dien#s_os5");
 	cutin "ep162_dn03",2;
 	mes "[ Dien ]";
 	mes "Why do you always fight like that?";
@@ -513,7 +513,7 @@ OnTalk:
 	npctalk "Cotnes : Yeah~ I'm tired of fighting, let's go back to work. The road is open now.",.@cot$;
 	close2;
 	cutin "",255;
-	donpcevent(instance_npcname("#171_sealedos_control")+"::OnEvent05");
+	donpcevent instance_npcname("#171_sealedos_control")+"::OnEvent05";
 	end;
 }
 
@@ -664,9 +664,9 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		disablenpc(instance_npcname(strnpcinfo(0)));
+		disablenpc instance_npcname(strnpcinfo(0));
 		's_os = 2;
-		enablenpc(instance_npcname("Suspicious Device#s_os_trigger"));
+		enablenpc instance_npcname("Suspicious Device#s_os_trigger");
 		mapannounce 'map$,"Ridsh : While we're dealing with these guys, turn off the device at the bottom.",bc_map,0xFF0000;
 	}
 end;
@@ -696,7 +696,7 @@ end;
 OnMobKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnMobKill";
 	if(!mobcount('map$,.@event$)){
-		disablenpc(instance_npcname(strnpcinfo(0)));
+		disablenpc instance_npcname(strnpcinfo(0));
 	}
 end;
 }
