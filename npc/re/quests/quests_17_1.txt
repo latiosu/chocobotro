@@ -6338,7 +6338,7 @@ sp_cor,108,130,5	script	Rebellion#os_merchant	4_F_REBELLION3,{
 			npctalk "Elena Bolkova : Ah, I was looking for you, adventurer.","Elena Bolkova#sp_cor_main",bc_self;
 			end;
 
-		case 47:
+		case 46:
 			function weapon_mod; function armor_mod; function armor_rand; function weapon_rand;
 			mes "[ Rebellion ]";
 			mes "Did you bring a broken weapon?";
