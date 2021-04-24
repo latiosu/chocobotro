@@ -26,8 +26,8 @@ slabw01,236,91,3	script	Rookie#ep162_04	4_M_ROOKIE,{
 		mes "No wonder it looked like they had something to back them up.";
 		mes "Shall we use an explosive and blow it up?";
 		next;
-		cloakoffnpc( "Skia#ep162_06", getcharid(0) );
-		cloakoffnpc( "Scared researcher#ep162", getcharid(0) );
+		cloakoffnpc  "Skia#ep162_06", getcharid(0) ;
+		cloakoffnpc  "Scared researcher#ep162", getcharid(0) ;
 		npctalk "Wait!", "Skia#ep162_06", bc_self;
 		mes "[Skia]";
 		mes "Not in such a crude way!";
@@ -51,8 +51,8 @@ slabw01,236,91,3	script	Rookie#ep162_04	4_M_ROOKIE,{
 		mes "Really? Then I will bring this researcher to the squadron outside.";
 		mes "About the central room, " + strcharinfo(0) + " I am counting on you!";
 		next;
-		cloakonnpc( "Skia#ep162_06", getcharid(0) );
-		cloakonnpc( "Scared researcher#ep162", getcharid(0) );
+		cloakonnpc  "Skia#ep162_06", getcharid(0) ;
+		cloakonnpc  "Scared researcher#ep162", getcharid(0) ;
 		mes "[Rookie]";
 		mes "Haha, they let us open the gate of the central room!";
 		mes "Please speak to me again once you are ready to go in here.";
@@ -81,7 +81,7 @@ slabw01,236,91,3	script	Rookie#ep162_04	4_M_ROOKIE,{
 		mes "[Rookie]";
 		mes "Wow! This is it! I always learn things quickly!";
 		mes "Well, please go in now!";
-		cloakoffnpc( "Central_room#evt_gate01", getcharid(0) );
+		cloakoffnpc  "Central_room#evt_gate01", getcharid(0) ;
 		instance_create("Werner Laboratory central room#1");	// officially there is only one 'Werner Laboratory central room' instance
 		close;
 	}
@@ -129,7 +129,7 @@ slabw01,236,91,3	script	Rookie#ep162_04	4_M_ROOKIE,{
 		mes "[Rookie]";
 		mes "Wow! This is it! I always learn things quickly!";
 		mes "Well, please go in now!";
-		cloakoffnpc( "Central_room#evt_gate01", getcharid(0) );
+		cloakoffnpc  "Central_room#evt_gate01", getcharid(0) ;
 		instance_create("Werner Laboratory central room#2");
 		close;
 	case 2:
@@ -184,7 +184,7 @@ slabw01,246,88,3	script	Central_room#evt_gate01	PORTAL,{
 	end;
 
 OnInit:
-	cloakonnpc( strnpcinfo(0) );
+	cloakonnpc  strnpcinfo(0) ;
 	end;
 }
 
