@@ -2153,9 +2153,9 @@ function	script	QWS_Iarray	{
 	setarray @pImenuitems$[@Ii], "[145+] Sky Fortress";
 	setarray @pIprice[@Ii], $QW_IW_PRICE;
 
-	setarray @pImap$[@Ii], "alberta";
-	setarray @pIXcoords[@Ii], 32;
-	setarray @pIYcoords[@Ii], 240;
+	setarray @pImap$[@Ii], "prt_q";
+	setarray @pIXcoords[@Ii], 243;
+	setarray @pIYcoords[@Ii], 85;
 
 	QWS_Make_Instance_Menu 32;
 //----------------[150+] Wolfchev's Laboratory:
@@ -2491,7 +2491,7 @@ xmas,239,301,4	script	Warpra#instance_28	113,{ callfunc "QWS_Instance_Warpra",28
 un_myst,156,41,4	script	Warpra#instance_29	113,{ callfunc "QWS_Instance_Warpra",29,"Last Room"; close; }
 mal_in01,166,34,6	script	Warpra#instance_30	113,{ callfunc "QWS_Instance_Warpra",30,"Malangdo Culvert"; close; }
 dali02,101,144,4	script	Warpra#instance_31	113,{ callfunc "QWS_Instance_Warpra",31,"Sarah and Fenrir"; close; }
-// alberta,32,240,4	script	Warpra#instance_32	113,{ callfunc "QWS_Instance_Warpra",32,"Sky Fortress"; close; }
+prt_q,249,88,4	script	Warpra#instance_32	113,{ callfunc "QWS_Instance_Warpra",32,"Sky Fortress"; close; }
 lhz_dun04,148,269,4	script	Warpra#instance_33	113,{ callfunc "QWS_Instance_Warpra",33,"Wolfchev's Laboratory"; close; }
 moro_cav,48,71,6	script	Warpra#instance_34	113,{ callfunc "QWS_Instance_Warpra",34,"Flame Cave Instances"; close; }
 // alberta,32,240,4	script	Warpra#instance_35	113,{ callfunc "QWS_Instance_Warpra",35,"Bioresearch Laboratory"; close; } // TODO: Add EDDA EP
