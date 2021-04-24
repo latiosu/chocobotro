@@ -7458,6 +7458,13 @@ Body:
   - Id: 12411
     Title: Come Back Tomorrow
     TimeLimit: 4h
+  - Id: 12452
+    Title: Os Occupation
+  - Id: 12454
+    Title: Additional Search Mission
+  - Id: 12455
+    Title: Operation Pending
+    TimeLimit: 23h59mn
   - Id: 13000
     Title: RWC2011Card Gathering
   - Id: 13001
