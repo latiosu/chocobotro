@@ -1268,6 +1268,7 @@ end;
 		close2;
 		warp "sp_cor",176,169;
 		instance_destroy();
+		end;
 	}
 	if('cor_mission == 7){
 		cutin "162elena_01",2;
