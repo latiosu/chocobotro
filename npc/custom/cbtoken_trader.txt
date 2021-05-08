@@ -30,12 +30,11 @@ prontera,99,80,5	script	CB Token Trader#cbtoken_trader	4_DR_M_01,{
     end;
 
 Trade_In:
-    // Compute array of valid cbitems (max 10 and exclude duplicates)
     for (.@i=0; .@i<getarraysize(.cbitems); .@i++) {
         .@itemid = .cbitems[.@i];
         if (.@len >= 10) {
             break;
-        } else if (countitem2(.@itemid,1,0,0,0,0,0,0) > 0) {
+        } else if (countitem2(.@itemid,1,0,0,0,0,0,0) > 0 && !isequipped(.@itemid)) {
             .@options[.@len] = .@itemid;
             .@optionNames$ += (.@len == 0 ? "" : ":") + getitemname(.@itemid);
             .@len++;
@@ -51,7 +50,7 @@ Trade_In:
     next;
     .@choice = select(.@optionNames$);
     mes "[CB Token Trader]";
-    mes "So you'd like to trade in your ^FF0000"+.@optionNames$[.@choice-1]+"^000000?";
+    mes "So you'd like to trade in your ^FF0000"+getitemname(.@options[.@choice-1])+"^000000?";
     next;
     if (select("Yes", "Wait, I've changed my mind") == 2) {
         mes "[CB Token Trader]";
