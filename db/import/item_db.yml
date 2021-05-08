@@ -2713,7 +2713,7 @@ Body:
       NoDrop: true
       NoTrade: true
       TradePartner: true
-      NoSell: true
+      NoSell: false
       NoCart: true
       NoStorage: false
       NoGuildStorage: true

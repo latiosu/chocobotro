@@ -7,25 +7,26 @@
 //= 1.0 First version. [Latiosu]
 //============================================================
 
-prontera,101,79,5	script	Choco Bundle Token Trader#cbtoken_trader	4_DR_M_01,{
+prontera,99,80,5	script	CB Token Trader#cbtoken_trader	4_DR_M_01,{
     disable_items;
-    mes "[Choco Bundle Token Trader]";
+    mes "[CB Token Trader]";
     mes "Welcome!";
-    mes "Did you want to trade in Choco Bundle items you no longer need or buy new ones?";
+    mes "Did you want to trade in unwanted Choco Bundle items or buy new ones?";
     next;
-    if (select("Trade in items.", "Buy items.") == 1) {
-        mes "[Choco Bundle Token Trader]";
+    if (select("Buy items", "Trade in items") == 2) {
+        mes "[CB Token Trader]";
         mes "Fantastic choice! I'll give you ^0000FF4 Choco Bundle Tokens^000000 for each item.";
         mes "Note that I only accept uncarded and unrefined items.";
         next;
         callsub Trade_In;
         close;
     }
-    mes "[Choco Bundle Token Trader]";
+    mes "[CB Token Trader]";
     mes "Awesome! Each item costs ^0000FF10 Choco Bundle Tokens^000000.";
     mes "Which Choco Bundle did you want browse from?";
     .@bundle = select(.cbnames$);
-    callshop "cbtoken_shop_"+.@bundle,2; // TODO: Confirm if option 2 is usable, else 0
+    close2;
+    callshop "cbtoken_shop_"+.@bundle,2;
     end;
 
 Trade_In:
@@ -34,32 +35,31 @@ Trade_In:
         .@itemid = .cbitems[.@i];
         if (.@len >= 10) {
             break;
-        // TODO: Test if excludes carded/refined items, else use countitem2(.@itemid,1,0,0,0,0,0,0)
-        } else if (countitem(.@itemid) > 0) {
+        } else if (countitem2(.@itemid,1,0,0,0,0,0,0) > 0) {
             .@options[.@len] = .@itemid;
-            .@optionNames$[.@len] = getitemname(.@itemid);
+            .@optionNames$ += (.@len == 0 ? "" : ":") + getitemname(.@itemid);
             .@len++;
         }
     }
     if (getarraysize(.@options) == 0) {
-        mes "[Choco Bundle Token Trader]";
+        mes "[CB Token Trader]";
         mes "Hmm, you don't seem to have any matching items on you.";
         close;
     }
-    mes "[Choco Bundle Token Trader]";
+    mes "[CB Token Trader]";
     mes "Which item would you like to trade in?";
     next;
     .@choice = select(.@optionNames$);
-    mes "[Choco Bundle Token Trader]";
+    mes "[CB Token Trader]";
     mes "So you'd like to trade in your ^FF0000"+.@optionNames$[.@choice-1]+"^000000?";
     next;
-    if (select("Yes.", "Wait, I've changed my mind.") == 2) {
-        mes "[Choco Bundle Token Trader]";
+    if (select("Yes", "Wait, I've changed my mind") == 2) {
+        mes "[CB Token Trader]";
         mes "Is that so? Oh well...";
         mes "Come see me again when you've decided.";
         close;
     }
-    mes "[Choco Bundle Token Trader]";
+    mes "[CB Token Trader]";
     mes "Hooray! Here's your tokens.";
     mes "Please come again!";
     delitem .@options[.@choice-1],1;
@@ -67,11 +67,7 @@ Trade_In:
     close;
 
 OnInit:
-    setarray .cbnames$, "Choco Bundle I","Choco Bundle II","Choco Bundle III","Choco Bundle IV",
-                        "Choco Bundle V","Choco Bundle VI","Choco Bundle VII","Choco Bundle VIII",
-                        "Choco Bundle IX","Choco Bundle X","Choco Bundle XI","Choco Bundle XII",
-                        "Choco Bundle XIII","Choco Bundle XIV","Choco Bundle XV","Choco Bundle XVI",
-                        "Choco Bundle XVII","Choco Bundle XVIII","Choco Bundle XIX","Choco Bundle XX";
+    setarray .cbnames$, "Choco Bundle I:Choco Bundle II:Choco Bundle III:Choco Bundle IV:Choco Bundle V:Choco Bundle VI:Choco Bundle VII:Choco Bundle VIII:Choco Bundle IX:Choco Bundle X:Choco Bundle XI:Choco Bundle XII:Choco Bundle XIII:Choco Bundle XIV:Choco Bundle XV:Choco Bundle XVI:Choco Bundle XVII:Choco Bundle XVIII:Choco Bundle XIX:Choco Bundle XX";
     setarray .cbitems,  28411,28564,15205,20859,19102,5978,5973,19495,20837,1837,
                         28507,28394,28342,15249,23266,20952,18746,19082,2196,22189,
                         32242,32222,15419,23294,20932,19141,19116,5945,28951,16051,
