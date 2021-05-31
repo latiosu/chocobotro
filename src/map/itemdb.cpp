@@ -102,6 +102,8 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (constant == IT_DELAYCONSUME) { // Items that are consumed only after target confirmation
 			constant = IT_USABLE;
 			item->flag.delay_consume |= DELAYCONSUME_TEMP;
+		} else {
+			item->flag.delay_consume &= ~DELAYCONSUME_TEMP; // Remove delayed consumption flag if switching types
 		}
 
 		item->type = static_cast<item_types>(constant);
@@ -430,7 +432,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asUInt16(node, "WeaponLevel", lv))
 			return 0;
 
-		if (lv >= REFINE_TYPE_SHADOW) {
+		if (lv > MAX_WEAPON_LEVEL) {
 			this->invalidWarning(node["WeaponLevel"], "Invalid weapon level %d, defaulting to 0.\n", lv);
 			lv = REFINE_TYPE_ARMOR;
 		}
