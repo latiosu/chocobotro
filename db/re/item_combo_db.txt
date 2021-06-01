@@ -1070,7 +1070,7 @@
 19296:2544,{ .@r = getequiprefinerycnt(EQI_GARMENT); bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM",7*(.@r/2); }
 19296:2554,{ .@r = getequiprefinerycnt(EQI_GARMENT); bonus2 bSkillAtk,"RA_ARROWSTORM",12*(.@r/2); }
 19299:4463,{ .@type = getiteminfo(getequipid(EQI_COMPOUND_ON), II_VIEW); if (.@type == W_BOOK || .@type == W_STAFF || .@type == W_2HSTAFF) { bonus2 bMagicAddRace,RC_Player_Human, getequiprefinerycnt(EQI_HAND_R)*2; } }
-eadparam(bDex); bonus bMatk,10; bonus bVariableCastrate,-2; bonus2 bSubRace,RC_DemiHuman,2; bonus2 bSubRace,RC_Player_Human,2; if (.@a>=108) { bonus bMatk,20; bonus bVariableCastrate,-3; bonus2 bSubRace,RC_DemiHuman,2; bonus2 bSubRace,RC_Player_Human,2; } if (.@a>=120) { bonus bMatk,30; bonus bVariableCastrate,-5; bonus2 bSubRace,RC_DemiHuman,4; bonus2 bSubRace,RC_Player_Human,4; } }
+19299:5966,{ .@a = readparam(bDex); bonus bMatk,10; bonus bVariableCastrate,-2; bonus2 bSubRace,RC_DemiHuman,2; bonus2 bSubRace,RC_Player_Human,2; if (.@a>=108) { bonus bMatk,20; bonus bVariableCastrate,-3; bonus2 bSubRace,RC_DemiHuman,2; bonus2 bSubRace,RC_Player_Human,2; } if (.@a>=120) { bonus bMatk,30; bonus bVariableCastrate,-5; bonus2 bSubRace,RC_DemiHuman,4; bonus2 bSubRace,RC_Player_Human,4; } }
 19300:13138,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus2 bSkillAtk,"RL_FIREDANCE",6*(.@r/2); }
 19300:28000,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus bBaseAtk,20*(.@r/2); }
 19300:28101,{ .@r = getequiprefinerycnt(EQI_HAND_R); bonus2 bSkillAtk,"NC_AXETORNADO",15*(.@r/2); }
