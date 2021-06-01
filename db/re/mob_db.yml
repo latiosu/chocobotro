@@ -77016,8 +77016,8 @@ Body:
         Rate: 500
       - Item: Jitterbug's_Tooth
         Rate: 5000
-      - Item: Jitterbug's_Tooth
-        Rate: 1000
+      # - Item: Jitterbug's_Tooth
+      #   Rate: 1000
       - Item: JitterbugCard
         Rate: 1
         StealProtected: true
@@ -77060,8 +77060,8 @@ Body:
         Rate: 500
       - Item: Jitterbug's_Tooth
         Rate: 5000
-      - Item: Jitterbug's_Tooth
-        Rate: 1000
+      # - Item: Jitterbug's_Tooth
+      #   Rate: 1000
       - Item: JitterbugCard
         Rate: 1
         StealProtected: true
