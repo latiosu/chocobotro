@@ -184,6 +184,7 @@ Body:
     Drops:
       - Item: Unripe_Apple2
         Rate: 5
+# Doram progression equipment drops
   - Id: 2084
     AegisName: HORN_SCARABA2
     BaseExp: 5780
@@ -207,11 +208,20 @@ Body:
     Drops:
     - Item: Doram_High_Cape
       Rate: 100
+  - Id: 2754
+    AegisName: C1_METALLER
+    Drops:
+    - Item: Amazing_Foxtail
+      Rate: 150
+    - Item: Model_Foxtail
+      Rate: 150
+# Balanced for Gramps
   - Id: 2365
     AegisName: CENERE
     Drops:
     - Item: Yggdrasil_Dust
       Rate: 500
+# QoL improvements for OGH mobs
   - Id: 2465
     AegisName: MG_WRAITH
     BaseExp: 13998
@@ -350,6 +360,7 @@ Body:
     Drops:
     - Item: Coagulated_Spell
       Rate: 500
+# Overlook Water Dungeon mobs
   - Id: 2501
     AegisName: AGED_CORNUTUS
     Name: Aged Cornutus
@@ -1045,13 +1056,7 @@ Body:
     - Item: Vadon_Card
       Rate: 3
       StealProtected: true
-  - Id: 2754
-    AegisName: C1_METALLER
-    Drops:
-    - Item: Amazing_Foxtail
-      Rate: 150
-    - Item: Model_Foxtail
-      Rate: 150
+# QoL improvements for Nightmarish Jitterbug
   - Id: 3073
     AegisName: GRAND_PERE
     Drops:
@@ -1067,6 +1072,7 @@ Body:
     Drops:
     - Item: Jitterbug's_Tooth
       Rate: 5000
+# OGH Hard mobs
   - Id: 3139
     AegisName: MG_ZOMBIE_H
     Name: '[Hard] Corrupted Steward'
@@ -1694,6 +1700,7 @@ Body:
     - Item: CorruptionRootH_Card
       Rate: 1
       StealProtected: true
+# Infinite Space mobs
   - Id: 3384
     AegisName: MIN_PORING
     Name: Infinite Poring
@@ -4038,6 +4045,7 @@ Body:
     - Item: Min_Tao_Gunka_Card
       Rate: 1
       StealProtected: true
+# Magma Dungeon 3 (Nogg Road F3) mobs
   - Id: 20372
     AegisName: BLAZZER_H
     Name: Rigid Blazer
