@@ -78,6 +78,112 @@ Header:
   Version: 2
 
 Body:
+# Taming item drops with no official information for actual source
+  - Id: 1122
+    AegisName: GOBLIN_1
+    Drops:
+      - Item: Knife_Goblin_Ring
+        Rate: 5
+  - Id: 1123
+    AegisName: GOBLIN_2
+    Drops:
+      - Item: Flail_Goblin_Ring
+        Rate: 5
+  - Id: 1124
+    AegisName: GOBLIN_3
+    Drops:
+      - Item: Hammer_Goblin_Ring
+        Rate: 5
+  - Id: 1245
+    AegisName: GOBLINE_XMAS
+    Drops:
+      - Item: Sweet_Candy_Striper
+        Rate: 5
+  - Id: 1385
+    AegisName: DELETER_
+    Drops:
+      - Item: Holy_Marble
+        Rate: 5
+  - Id: 1382
+    AegisName: DIABOLIC
+    Drops:
+      - Item: Red_Burning_Stone
+        Rate: 5
+  - Id: 1208
+    AegisName: WANDER_MAN
+    Drops:
+      - Item: Skull_Of_Vagabond
+        Rate: 5
+  - Id: 1040
+    AegisName: GOLEM
+    Drops:
+      - Item: Magical_Lithography
+        Rate: 5
+  - Id: 1148
+    AegisName: MEDUSA
+    Drops:
+      - Item: Splendid_Mirror
+        Rate: 5
+  - Id: 1299
+    AegisName: GOBLIN_LEADER
+    Drops:
+      - Item: Staff_Of_Leader
+        Rate: 5
+  - Id: 1379
+    AegisName: NIGHTMARE_TERROR
+    Drops:
+      - Item: Hell_Contract
+        Rate: 5
+  - Id: 1401
+    AegisName: SHINOBI
+    Drops:
+      - Item: Kuloren
+        Rate: 5
+  - Id: 1404
+    AegisName: MIYABI_NINGYO
+    Drops:
+      - Item: Gril_Doll
+        Rate: 5
+  - Id: 1416
+    AegisName: WICKED_NYMPH
+    Drops:
+      - Item: Charming_Lotus
+        Rate: 5
+  - Id: 1495
+    AegisName: STONE_SHOOTER
+    Drops:
+      - Item: Oilpalm_Coconut
+        Rate: 5
+  - Id: 1504
+    AegisName: DULLAHAN
+    Drops:
+      - Item: Luxury_Whisky_Bottle
+        Rate: 5
+  - Id: 1505
+    AegisName: LOLI_RURI
+    Drops:
+      - Item: Very_Red_Juice
+        Rate: 5
+  - Id: 1513
+    AegisName: CIVIL_SERVANT
+    Drops:
+      - Item: Fan_Of_Wind
+        Rate: 5
+  - Id: 1630
+    AegisName: BACSOJIN_
+    Drops:
+      - Item: Shiny_Wing_Gown
+        Rate: 5
+  - Id: 1242
+    AegisName: MARIN
+    Drops:
+      - Item: Juicy_Fruit
+        Rate: 5
+  - Id: 2398
+    AegisName: LITTLE_PORING
+    Drops:
+      - Item: Unripe_Apple2
+        Rate: 5
   - Id: 2084
     AegisName: HORN_SCARABA2
     BaseExp: 5780
