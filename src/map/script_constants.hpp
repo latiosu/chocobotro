@@ -5247,6 +5247,9 @@
 	export_constant(IG_CHOCO_BUNDLE18);
 	export_constant(IG_CHOCO_BUNDLE19);
 	export_constant(IG_CHOCO_BUNDLE20);
+	export_constant(IG_XMAS_PACKAGE_14);
+	export_constant(IG_EASTER_EGG);
+	export_constant(IG_PITAPAT_BOX);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
