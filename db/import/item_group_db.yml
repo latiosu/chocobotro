@@ -1,0 +1,525 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Item Group Database
+###########################################################################
+#
+# Item Group Settings
+#
+###########################################################################
+# - Group                      Group name of the item.
+#   SubGroups:
+#     - SubGroup:              SubGroup number associated with the list of item. See doc/item_group.txt for more information.
+#       List:                  List of item(s) for the SubGroup.
+#        - Item                AegisName of item that will be obtained from this item group.
+#          Rate                Probability to get the item. See doc/item_group.txt for more information. (Default: 0)
+#          Amount              Amount of item that will be obtained. (Default: 1)
+#          Duration            Makes the item a rental item which will expire within the given amount in minutes. Not intended for use with stackable items. (Default: 0)
+#          Announced           If player obtains this item it will be broadcasted to the server. (Default: false)
+#          UniqueId            Makes the given item(s) have a Unique ID. (Default: UniqueId from item_db)
+#          Named               Inscribes the item with the obtainer's name. (Default: false)
+#          Bound               Binds the obtained item. (Default: None)
+#          Clear               Remove the given item. (Optional)
+#       Clear                  Remove the given SubGroup. (Optional)
+###########################################################################
+
+Header:
+  Type: ITEM_GROUP_DB
+  Version: 1
+
+Body:
+  - Group: CHOCO_BUNDLE1
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Emerald_Earring
+            Rate: 1
+          - Item: Valkyrie_Drop
+            Rate: 1
+          - Item: Holy_Coat
+            Rate: 1
+          - Item: Phreeoni_Wing
+            Rate: 1
+          - Item: Pale_Moon_Hat
+            Rate: 1
+          - Item: Toy_Syringe
+            Rate: 1
+          - Item: Ancient_Elven_Ear_J
+            Rate: 1
+          - Item: Diabolus_Wing
+            Rate: 1
+          - Item: Skin_Of_Gwiber
+            Rate: 1
+          - Item: Iron_nail
+            Rate: 1
+  - Group: CHOCO_BUNDLE2
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Glove_Of_Wizard
+            Rate: 1
+          - Item: King_of_Spirit_Ring
+            Rate: 1
+          - Item: Critical_Anklet
+            Rate: 1
+          - Item: Antonio_Coat
+            Rate: 1
+          - Item: Etran_Bundle_A
+            Rate: 1
+          - Item: Anony_As_Muffler
+            Rate: 1
+          - Item: Chilly_Breath
+            Rate: 1
+          - Item: Bio_Protector
+            Rate: 1
+          - Item: White_Gold_Shield
+            Rate: 1
+          - Item: Shoes_Of_Pilgrim
+            Rate: 1
+  - Group: CHOCO_BUNDLE3
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Old_DetachmentsRing_J
+            Rate: 1
+          - Item: Brooch_Of_Hero
+            Rate: 1
+          - Item: Armor_of_White_Thread
+            Rate: 1
+          - Item: Pororoca_Shoes_Bundle_A
+            Rate: 1
+          - Item: Old_Moc_Shawl
+            Rate: 1
+          - Item: Dolor_Thanatos_Mask
+            Rate: 1
+          - Item: Red_Baby_Dragon
+            Rate: 1
+          - Item: Well_Chewed_Pencil
+            Rate: 1
+          - Item: Nero_Shield
+            Rate: 1
+          - Item: Valkyrie_Hammer_
+            Rate: 1
+  - Group: CHOCO_BUNDLE4
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Light_Of_Cure
+            Rate: 1
+          - Item: Shinobi_Sash_H
+            Rate: 1
+          - Item: Scarf_Of_Rebellion
+            Rate: 1
+          - Item: Fallen_Angel_Wing
+            Rate: 1
+          - Item: Witchs_Hat
+            Rate: 1
+          - Item: Lunar_Rainbow
+            Rate: 1
+          - Item: Tree_Of_Sprout_JP
+            Rate: 1
+          - Item: DragonKnight_Eyepatch
+            Rate: 1
+          - Item: Fluffy_FishShoes_J
+            Rate: 1
+          - Item: Spartacus
+            Rate: 1
+  - Group: CHOCO_BUNDLE5
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Temporal_Ring
+            Rate: 1
+          - Item: EgirRing
+            Rate: 1
+          - Item: Fafnir_Scale_J
+            Rate: 1
+          - Item: Skin_Of_Lindwurm
+            Rate: 1
+          - Item: Skin_Of_Typhon
+            Rate: 1
+          - Item: Imperial_Feather
+            Rate: 1
+          - Item: Mechanical_Plant_Hat
+            Rate: 1
+          - Item: Book_of_Soyga
+            Rate: 1
+          - Item: Royalguard_Necklace
+            Rate: 1
+          - Item: Scutum
+            Rate: 1
+  - Group: CHOCO_BUNDLE6
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Luminous_Blue_Stone
+            Rate: 1
+          - Item: Accelerator_Chip
+            Rate: 1
+          - Item: Rite_Robe
+            Rate: 1
+          - Item: Wakwak_Manteau
+            Rate: 1
+          - Item: Icecream_Hat
+            Rate: 1
+          - Item: Gambler_Seal
+            Rate: 1
+          - Item: PureWhite_Marching_Hat
+            Rate: 1
+          - Item: Octopus_Hat_J
+            Rate: 1
+          - Item: Traveler_Shoes
+            Rate: 1
+          - Item: Book_of_the_Sun_God
+            Rate: 1
+  - Group: CHOCO_BUNDLE7
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Perverse_Demon_Mask
+            Rate: 1
+          - Item: Limnil_Glove
+            Rate: 1
+          - Item: Black_Shiba_Bundle_A
+            Rate: 1
+          - Item: Leviathan_muffler
+            Rate: 1
+          - Item: Phoenix_Muffler
+            Rate: 1
+          - Item: Zherlthsh_Doll
+            Rate: 1
+          - Item: Exa_Goat_Cap
+            Rate: 1
+          - Item: B_Dragon_Hat
+            Rate: 1
+          - Item: Circlet_Of_Phoenix
+            Rate: 1
+          - Item: Valkyrie_Knife
+            Rate: 1
+  - Group: CHOCO_BUNDLE8
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Emerald_Ring
+            Rate: 1
+          - Item: Fairy_Leaf_Powder
+            Rate: 1
+          - Item: Nature_Dress
+            Rate: 1
+          - Item: Elder_Spirit
+            Rate: 1
+          - Item: Feather_Of_Seraphim
+            Rate: 1
+          - Item: Chatty_Parrot
+            Rate: 1
+          - Item: Exosrcist_Glass
+            Rate: 1
+          - Item: Protect_Feathers
+            Rate: 1
+          - Item: Excelion_Shield
+            Rate: 1
+          - Item: TenguShoes
+            Rate: 1
+  - Group: CHOCO_BUNDLE9
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Archpriest_Ring
+            Rate: 1
+          - Item: Shadow_Ring
+            Rate: 1
+          - Item: Rose_Bundle_A
+            Rate: 1
+          - Item: Coak_of_Survival
+            Rate: 1
+          - Item: Survive_Circlet
+            Rate: 1
+          - Item: Strawberry_In_Mouth_
+            Rate: 1
+          - Item: Mask_of_Hero
+            Rate: 1
+          - Item: SurviveOrb
+            Rate: 1
+          - Item: Shoes_Of_Servival
+            Rate: 1
+          - Item: Ixion_Wing_S
+            Rate: 1
+  - Group: CHOCO_BUNDLE10
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Celine_Brooch
+            Rate: 1
+          - Item: Keraunos
+            Rate: 1
+          - Item: Matagi_Swordaxe
+            Rate: 1
+          - Item: Recovery_Ring
+            Rate: 1
+          - Item: MenblattWing
+            Rate: 1
+          - Item: Hat_of_Goggle
+            Rate: 1
+          - Item: SeraphimCoronet
+            Rate: 1
+          - Item: Sunglasses_
+            Rate: 1
+          - Item: Monster_Fish_Gill
+            Rate: 1
+          - Item: Solomon_Key
+            Rate: 1
+  - Group: CHOCO_BUNDLE11
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Magical_Ring
+            Rate: 1
+          - Item: Fallen_Monk_Rosary
+            Rate: 1
+          - Item: ChemicalGlove
+            Rate: 1
+          - Item: Elemental_Towel
+            Rate: 1
+          - Item: Angel_Of_Happiness_J
+            Rate: 1
+          - Item: Heart_Card_In_Mouth
+            Rate: 1
+          - Item: Cylinder_Hairband
+            Rate: 1
+          - Item: Glasses_
+            Rate: 1
+          - Item: Imuke_Upper_Shield
+            Rate: 1
+          - Item: Naught_Sieger_Bundle_A
+            Rate: 1
+  - Group: CHOCO_BUNDLE12
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Horn_Of_Kirin
+            Rate: 1
+          - Item: Gyges_Ring
+            Rate: 1
+          - Item: Armor_of_Rosary
+            Rate: 1
+          - Item: Rainbow_Scarf_Jp
+            Rate: 1
+          - Item: Bull_Hat
+            Rate: 1
+          - Item: FlyingGalapago
+            Rate: 1
+          - Item: Happy_Balloon_K
+            Rate: 1
+          - Item: Magical_Booster
+            Rate: 1
+          - Item: Gaia_Shield
+            Rate: 1
+          - Item: Piercing_Staff_
+            Rate: 1
+  - Group: CHOCO_BUNDLE13
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: RingofJupiter
+            Rate: 1
+          - Item: Verus_Core
+            Rate: 1
+          - Item: Temporal_Manteau
+            Rate: 1
+          - Item: Skin_Of_Ladon_J
+            Rate: 1
+          - Item: New_Wave_Sunglasses
+            Rate: 1
+          - Item: Necklace_Rosary
+            Rate: 1
+          - Item: DVAngelNurseCap
+            Rate: 1
+          - Item: Hankie_In_Mouth
+            Rate: 1
+          - Item: Shoes_Of_Punishment
+            Rate: 1
+          - Item: Quadrille_
+            Rate: 1
+  - Group: CHOCO_BUNDLE14
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Tip_Of_Thief_Vol1
+            Rate: 1
+          - Item: Arquien's_Necklace
+            Rate: 1
+          - Item: Abyss_Dress
+            Rate: 1
+          - Item: Hero_Cape
+            Rate: 1
+          - Item: Magician_Knithat
+            Rate: 1
+          - Item: Mini_Glasses_
+            Rate: 1
+          - Item: Black_Glasses_
+            Rate: 1
+          - Item: Eyes_Of_Illusion
+            Rate: 1
+          - Item: Black_Feather
+            Rate: 1
+          - Item: Nemesis_
+            Rate: 1
+  - Group: CHOCO_BUNDLE15
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: YinYang_Talisman
+            Rate: 1
+          - Item: ArchPriest_Glove
+            Rate: 1
+          - Item: Orleans_Bundle_A
+            Rate: 1
+          - Item: Assassin_Muffler
+            Rate: 1
+          - Item: Crown_Of_Saint_Jp
+            Rate: 1
+          - Item: King_Of_Spirit_Circlet
+            Rate: 1
+          - Item: Crow_Tengu_Mask
+            Rate: 1
+          - Item: Tengu_Scroll
+            Rate: 1
+          - Item: Anemos_Shield
+            Rate: 1
+          - Item: House_Auger_
+            Rate: 1
+  - Group: CHOCO_BUNDLE16
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Vesper_Core04_
+            Rate: 1
+          - Item: VesperGear2
+            Rate: 1
+          - Item: EvilDragon_Armor
+            Rate: 1
+          - Item: Enforcer_cape
+            Rate: 1
+          - Item: Moon_Eyepatch
+            Rate: 1
+          - Item: Faceworm_Egg_Shell
+            Rate: 1
+          - Item: Guardian_Processor
+            Rate: 1
+          - Item: Old_Pink_Poo_Hat
+            Rate: 1
+          - Item: Bunker_Shield
+            Rate: 1
+          - Item: Enforcer_Shoes
+            Rate: 1
+  - Group: CHOCO_BUNDLE17
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Immortal_Dog_Tag
+            Rate: 1
+          - Item: Supplement_Part_Chip
+            Rate: 1
+          - Item: Giant_Protection
+            Rate: 1
+          - Item: Skin_Of_Marraco
+            Rate: 1
+          - Item: CatharinaPawnBrad60
+            Rate: 1
+          - Item: Hand_Of_Devil
+            Rate: 1
+          - Item: Miracle_Blue_Rose
+            Rate: 1
+          - Item: Helmet_Of_Siegfried_J
+            Rate: 1
+          - Item: Baron_Evil_Eye
+            Rate: 1
+          - Item: Gray_Wing_Boots
+            Rate: 1
+  - Group: CHOCO_BUNDLE18
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: StormStone
+            Rate: 1
+          - Item: Imperial_Ring
+            Rate: 1
+          - Item: Imperial_Glove
+            Rate: 1
+          - Item: BattleSurcoat
+            Rate: 1
+          - Item: Love_Piece
+            Rate: 1
+          - Item: Long_Tongue
+            Rate: 1
+          - Item: Memories_Of_Lovers
+            Rate: 1
+          - Item: Shield_Of_Chaos
+            Rate: 1
+          - Item: Imperial_Boots
+            Rate: 1
+          - Item: Gelerdria_
+            Rate: 1
+  - Group: CHOCO_BUNDLE19
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Sapphire_Wrist
+            Rate: 1
+          - Item: Ball_Of_RasenHuuma
+            Rate: 1
+          - Item: Fenrir_Chain
+            Rate: 1
+          - Item: Kardui_Bundle_A
+            Rate: 1
+          - Item: Manteau_Of_Guardsman
+            Rate: 1
+          - Item: Aqua_Bunny_Band
+            Rate: 1
+          - Item: Black_Veil_J
+            Rate: 1
+          - Item: Sting_Silk_Ribbon
+            Rate: 1
+          - Item: Mob_Scarf
+            Rate: 1
+          - Item: Happy_Shield
+            Rate: 1
+  - Group: CHOCO_BUNDLE20
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Glove_Of_Smith
+            Rate: 1
+          - Item: Assassin_Acc
+            Rate: 1
+          - Item: Armor_of_Purple_Thread
+            Rate: 1
+          - Item: Elemental_Clothe
+            Rate: 1
+          - Item: Rainbow_Muffler_Jp
+            Rate: 1
+          - Item: Loyalists_Hood
+            Rate: 1
+          - Item: Flying_Helmet
+            Rate: 1
+          - Item: DragonKnight_Eyepatch
+            Rate: 1
+          - Item: CelestialWoman_Flower
+            Rate: 1
+          - Item: Work_Cap
+            Rate: 1
