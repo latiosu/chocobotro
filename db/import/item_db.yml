@@ -1667,33 +1667,6 @@ Body:
     Script: |
       bonus2 bAddRace,RC_DemiHuman,2;
       bonus2 bAddRace,RC_Player_Human,2;
-  - Id: 18791
-    AegisName: Shrine_Maiden_Hat
-    Name: Shrine Maiden Hat
-    Type: Armor
-    Weight: 200
-    Defense: 30
-    Slots: 1
-    Jobs:
-      Priest: true
-    Classes:
-      Third: true
-      Third_Upper: true
-      Third_Baby: true
-    Locations:
-      Head_Top: true
-    EquipLevelMin: 100
-    Refineable: true
-    View: 908
-    Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"PR_MAGNUS",30+(5*(.@r/2));
-      if (.@r>=7) {
-        bonus3 bAutoSpellWhenHit,"AL_HEAL",getskilllv("AL_HEAL"),50;
-      }
-      if(.@r>=9) {
-        bonus bFixedCastrate,-1;
-      }
   - Id: 18793
     AegisName: Magician_Night_Cap
     Name: Magician Night Cap

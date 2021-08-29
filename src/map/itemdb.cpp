@@ -65,7 +65,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "AegisName", name))
 			return 0;
 
-		item_data* id = itemdb_search_aegisname(name.c_str());
+		std::shared_ptr<item_data> id = item_db.search_aegisname( name.c_str() );
 
 		if (id != nullptr && id->nameid != nameid) {
 			this->invalidWarning(node["AegisName"], "Found duplicate item Aegis name for %s, skipping.\n", name.c_str());
@@ -98,13 +98,6 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!script_get_constant(type_constant.c_str(), &constant) || constant < IT_HEALING || constant >= IT_MAX) {
 			this->invalidWarning(node["Type"], "Invalid item type %s, defaulting to IT_ETC.\n", type.c_str());
 			constant = IT_ETC;
-		}
-
-		if (constant == IT_DELAYCONSUME) { // Items that are consumed only after target confirmation
-			constant = IT_USABLE;
-			item->flag.delay_consume |= DELAYCONSUME_TEMP;
-		} else {
-			item->flag.delay_consume &= ~DELAYCONSUME_TEMP; // Remove delayed consumption flag if switching types
 		}
 
 		item->type = static_cast<item_types>(constant);
@@ -146,8 +139,6 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			item->subtype = 0;
 	}
 
-	// When a particular price is not given, we should base it off the other one
-	// (it is important to make a distinction between 'no price' and 0z)
 	if (this->nodeExists(node, "Buy")) {
 		uint32 buy;
 
@@ -155,17 +146,10 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			return 0;
 
 		item->value_buy = buy;
+		item->value_sell = 0;
 	} else {
 		if (!exists) {
-			if (this->nodeExists(node, "Sell")) {
-				uint32 sell;
-
-				if (!this->asUInt32(node, "Sell", sell))
-					return 0;
-
-				item->value_buy = sell * 2;
-			} else
-				item->value_buy = 0;
+			item->value_buy = 0;
 		}
 	}
 
@@ -176,14 +160,11 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			return 0;
 
 		item->value_sell = sell;
+		item->value_buy = 0;
 	} else {
-		if (!exists)
-			item->value_sell = item->value_buy / 2;
-	}
-
-	if (item->value_buy / 124. < item->value_sell / 75.) {
-		this->invalidWarning(node, "Buying/Selling [%d/%d] price of %s (%hu) allows Zeny making exploit through buying/selling at discounted/overcharged prices! Defaulting Sell to 1 Zeny.\n", item->value_buy, item->value_sell, item->name.c_str(), nameid);
-		item->value_sell = 1;
+		if (!exists) {
+			item->value_sell = 0;
+		}
 	}
 
 	if (this->nodeExists(node, "Weight")) {
@@ -518,7 +499,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asString(node, "AliasName", view))
 			return 0;
 
-		item_data *view_data = itemdb_search_aegisname(view.c_str());
+		std::shared_ptr<item_data> view_data = item_db.search_aegisname( view.c_str() );
 
 		if (view_data == nullptr) {
 			this->invalidWarning(node["AliasName"], "Unable to change the alias because %s is an unknown item.\n", view.c_str());
@@ -1022,6 +1003,29 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 }
 
 void ItemDatabase::loadingFinished(){
+	for (auto &tmp_item : item_db) {
+		std::shared_ptr<item_data> item = tmp_item.second;
+
+		// Items that are consumed only after target confirmation
+		if (item->type == IT_DELAYCONSUME) {
+			item->type = IT_USABLE;
+			item->flag.delay_consume |= DELAYCONSUME_TEMP;
+		} else {
+			item->flag.delay_consume &= ~DELAYCONSUME_TEMP; // Remove delayed consumption flag if switching types
+		}
+
+		// When a particular price is not given, we should base it off the other one
+		if (item->value_buy == 0 && item->value_sell > 0)
+			item->value_buy = item->value_sell * 2;
+		else if (item->value_buy > 0 && item->value_sell == 0)
+			item->value_sell = item->value_buy / 2;
+
+		if (item->value_buy / 124. < item->value_sell / 75.) {
+			ShowWarning("Buying/Selling [%d/%d] price of %s (%u) allows Zeny making exploit through buying/selling at discounted/overcharged prices! Defaulting Sell to 1 Zeny.\n", item->value_buy, item->value_sell, item->name.c_str(), item->nameid);
+			item->value_sell = 1;
+		}
+	}
+
 	if( !this->exists( ITEMID_DUMMY ) ){
 		// Create dummy item
 		std::shared_ptr<item_data> dummy_item = std::make_shared<item_data>();
@@ -1035,6 +1039,27 @@ void ItemDatabase::loadingFinished(){
 		dummy_item->view_id = UNKNOWN_ITEM_ID;
 
 		item_db.put( ITEMID_DUMMY, dummy_item );
+	}
+
+	// Prepare the container size to not allocate often
+	this->nameToItemDataMap.reserve( this->size() );
+	this->aegisNameToItemDataMap.reserve( this->size() );
+
+	// Build the name lookup maps
+	for( const auto& entry : *this ){
+		// Create a copy
+		std::string ename = entry.second->ename;
+		// Convert it to lower
+		util::tolower( ename );
+
+		this->nameToItemDataMap[ename] = entry.second;
+
+		// Create a copy
+		std::string aegisname = entry.second->name;
+		// Convert it to lower
+		util::tolower( aegisname );
+
+		this->aegisNameToItemDataMap[aegisname] = entry.second;
 	}
 }
 
@@ -1068,6 +1093,30 @@ e_sex ItemDatabase::defaultGender( const YAML::Node &node, std::shared_ptr<item_
 	}
 
 	return static_cast<e_sex>( id->sex );
+}
+
+std::shared_ptr<item_data> ItemDatabase::searchname( const char* name ){
+	// Create a copy
+	std::string lowername = name;
+	// Convert it to lower
+	util::tolower( lowername );
+
+	return util::umap_find( this->aegisNameToItemDataMap, lowername );
+}
+
+std::shared_ptr<item_data> ItemDatabase::search_aegisname( const char *name ){
+	// Create a copy
+	std::string lowername = name;
+	// Convert it to lower
+	util::tolower( lowername );
+
+	std::shared_ptr<item_data> result = util::umap_find( this->aegisNameToItemDataMap, lowername );
+
+	if( result != nullptr ){
+		return result;
+	}
+
+	return util::umap_find( this->nameToItemDataMap, lowername );
 }
 
 ItemDatabase item_db;
@@ -1157,15 +1206,6 @@ static struct item_data* itemdb_searchname1(const char *str, bool aegis_only)
 	}
 
 	return nullptr;
-}
-
-struct item_data* itemdb_searchname(const char *str)
-{
-	return itemdb_searchname1(str, false);
-}
-
-struct item_data* itemdb_search_aegisname( const char *str ){
-	return itemdb_searchname1( str, true );
 }
 
 /*==========================================
@@ -1265,14 +1305,14 @@ static void itemdb_pc_get_itemgroup_sub(map_session_data *sd, bool identify, std
 
 	uint16 get_amt = 0;
 
-	if (itemdb_isstackable(data->nameid) && !data->GUID)
+	if (itemdb_isstackable(data->nameid) && data->isStacked)
 		get_amt = data->amount;
 	else
 		get_amt = 1;
 
 	tmp.amount = get_amt;
 
-	// Do loop for non-stackable item / stackable item with GUID
+	// Do loop for non-stackable item
 	for (uint16 i = 0; i < data->amount; i += get_amt) {
 		char flag = 0;
 		tmp.unique_id = data->GUID ? pc_generate_unique_id(sd) : 0; // Generate GUID
@@ -1551,8 +1591,11 @@ uint64 ItemGroupDatabase::parseBodyNode(const YAML::Node &node) {
 	std::string group_name_constant = "IG_" + group_name;
 	int64 constant;
 
-	if (!script_get_constant(group_name_constant.c_str(), &constant) || constant < IG_BLUEBOX || constant >= IG_MAX) {
-		this->invalidWarning(node["Group"], "Invalid group %s.\n", group_name.c_str());
+	if (!script_get_constant(group_name_constant.c_str(), &constant) || constant < IG_BLUEBOX) {
+		if (strncasecmp(group_name.c_str(), "IG_", 3) != 0)
+			this->invalidWarning(node["Group"], "Invalid group %s.\n", group_name.c_str());
+		else
+			this->invalidWarning(node["Group"], "Invalid group %s. Note that 'IG_' is automatically appended to the group name.\n", group_name.c_str());
 		return 0;
 	}
 
@@ -1611,7 +1654,7 @@ uint64 ItemGroupDatabase::parseBodyNode(const YAML::Node &node) {
 					if (!this->asString(listit, "Clear", item_name))
 						continue;
 
-					struct item_data *item = itemdb_search_aegisname(item_name.c_str());
+					std::shared_ptr<item_data> item = item_db.search_aegisname( item_name.c_str() );
 
 					if (item == nullptr) {
 						this->invalidWarning(listit["Clear"], "Unknown Item %s. Clear failed.\n", item_name.c_str());
@@ -1629,7 +1672,7 @@ uint64 ItemGroupDatabase::parseBodyNode(const YAML::Node &node) {
 				if (!this->asString(listit, "Item", item_name))
 					continue;
 
-				struct item_data *item = itemdb_search_aegisname(item_name.c_str());
+				std::shared_ptr<item_data> item = item_db.search_aegisname( item_name.c_str() );
 
 				if (item == nullptr) {
 					this->invalidWarning(listit["Item"], "Unknown Item %s.\n", item_name.c_str());
@@ -1713,6 +1756,18 @@ uint64 ItemGroupDatabase::parseBodyNode(const YAML::Node &node) {
 				} else {
 					if (!entry_exists)
 						entry->GUID = item->flag.guid;
+				}
+
+				if (this->nodeExists(listit, "Stacked")) {
+					bool isStacked;
+
+					if (!this->asBool(listit, "Stacked", isStacked))
+						continue;
+
+					entry->isStacked = isStacked;
+				} else {
+					if (!entry_exists)
+						entry->isStacked = true;
 				}
 
 				if (this->nodeExists(listit, "Named")) {
