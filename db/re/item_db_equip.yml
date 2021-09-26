@@ -80995,13 +80995,14 @@ Body:
     Locations:
       Costume_Head_Mid: true
     View: 1370
-  # - Id: 19291
-  #   AegisName: C_Shiba_Inu
-  #   Name: Costume Shiba Inu
-  #   Type: Armor
-  #   Locations:
-  #     Costume_Head_Mid: true
-  #   View: 1669
+  - Id: 19291
+    AegisName: C_Shiba_Inu
+    Name: Costume Shiba Inu
+    Type: Armor
+    Locations:
+      Costume_Head_Mid: true
+    EquipLevelMin: 1
+    View: 1669
   - Id: 19292
     AegisName: C_Wildcat_Knit_Cap
     Name: Costume Smokie Knit Cap

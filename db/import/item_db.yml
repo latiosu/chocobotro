@@ -1841,14 +1841,6 @@ Body:
         bonus bAspd,1;
       }
       if(.@r >= 11) bonus bCritAtkRate,15;
-  - Id: 19291
-    AegisName: Shiba_Inu
-    Name: Shiba Inu
-    Type: Armor
-    Locations:
-      Costume_Head_Mid: true
-    EquipLevelMin: 1
-    View: 1669
   - Id: 19296
     AegisName: Classical_Fhat
     Name: Fancy Feather Hat
@@ -2199,22 +2191,6 @@ Body:
       bonus bMdef,5;
       bonus bCritAtkRate,2*(.@r/3);
       if(readparam(bLuk)>=120) bonus bCritAtkRate,30;
-  - Id: 31437
-    AegisName: Baby_Penguin
-    Name: Baby Penguin
-    Type: Armor
-    Locations:
-      Costume_Head_Mid: true
-    EquipLevelMin: 1
-    View: 1705
-  - Id: 31452
-    AegisName: White_Cat
-    Name: White Cat
-    Type: Armor
-    Locations:
-      Costume_Head_Mid: true
-    EquipLevelMin: 1
-    View: 1715
   - Id: 40000
     AegisName: Choco_Point_Voucher
     Name: Choco Point Voucher
@@ -2226,14 +2202,6 @@ Body:
     Script: |
       set #CASHPOINTS, #CASHPOINTS+1000;
       dispbottom "You have received 1,000 Choco Points",0x00FFFF;
-  - Id: 100231
-    AegisName: Ref_T_Potion
-    Name: Golden X
-    Type: Healing
-    Buy: 10
-    Weight: 30
-    Script: |
-      sc_start SC_REF_T_POTION,30000,0;
   - Id: 2000000
     AegisName: Naught_Sieger_Bundle_A
     Name: Naught Sieger Bundle A
