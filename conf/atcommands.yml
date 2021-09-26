@@ -103,10 +103,12 @@ Body:
     Help: |
       Params: <item name|ID>
       Shows item info (type, price etc).
-  - Command: whodrops
-    Help: |
-      Params: <item name|ID>
-      Shows who drops an item (monster with highest drop rates).
+  # - Command: whodrops
+  #   Aliases:
+  #     - wd
+  #   Help: |
+  #     Params: <item name|ID>
+  #     Shows who drops an item (monster with highest drop rates).
   - Command: version
     Help: |
       Displays SVN version of the server.

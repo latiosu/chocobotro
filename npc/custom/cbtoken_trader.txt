@@ -1,0 +1,111 @@
+//===== rAthena Script =======================================
+//= Choco Bundle Token Trader
+//===== Description: =========================================
+//= Custom NPC for ChocobotRO that allows trading unwanted
+//= Choco Bundle items for Choco Bundle Tokens.
+//===== Changelogs: ==========================================
+//= 1.0 First version. [Latiosu]
+//============================================================
+
+prontera,99,80,5	script	CB Token Trader#cbtoken_trader	4_DR_M_01,{
+    disable_items;
+    mes "[CB Token Trader]";
+    mes "Welcome!";
+    mes "Did you want to trade in unwanted Choco Bundle items or buy new ones?";
+    next;
+    if (select("Buy items", "Trade in items") == 2) {
+        mes "[CB Token Trader]";
+        mes "Fantastic choice! I'll give you ^0000FF4 Choco Bundle Tokens^000000 for each item.";
+        mes "Note that I only accept uncarded and unrefined items.";
+        next;
+        callsub Trade_In;
+        close;
+    }
+    mes "[CB Token Trader]";
+    mes "Awesome! Each item costs ^0000FF10 Choco Bundle Tokens^000000.";
+    mes "Which Choco Bundle did you want browse from?";
+    .@bundle = select(.cbnames$);
+    close2;
+    callshop "cbtoken_shop_"+.@bundle,2;
+    end;
+
+Trade_In:
+    for (.@i=0; .@i<getarraysize(.cbitems); .@i++) {
+        .@itemid = .cbitems[.@i];
+        if (.@len >= 10) {
+            break;
+        } else if (countitem2(.@itemid,1,0,0,0,0,0,0) > 0 && !isequipped(.@itemid)) {
+            .@options[.@len] = .@itemid;
+            .@optionNames$ += (.@len == 0 ? "" : ":") + getitemname(.@itemid);
+            .@len++;
+        }
+    }
+    if (getarraysize(.@options) == 0) {
+        mes "[CB Token Trader]";
+        mes "Hmm, you don't seem to have any matching items on you.";
+        close;
+    }
+    mes "[CB Token Trader]";
+    mes "Which item would you like to trade in?";
+    next;
+    .@choice = select(.@optionNames$);
+    mes "[CB Token Trader]";
+    mes "So you'd like to trade in your ^FF0000"+getitemname(.@options[.@choice-1])+"^000000?";
+    next;
+    if (select("Yes", "Wait, I've changed my mind") == 2) {
+        mes "[CB Token Trader]";
+        mes "Is that so? Oh well...";
+        mes "Come see me again when you've decided.";
+        close;
+    }
+    mes "[CB Token Trader]";
+    mes "Hooray! Here's your tokens.";
+    mes "Please come again!";
+    delitem .@options[.@choice-1],1;
+    getitem 2000050,4;
+    close;
+
+OnInit:
+    setarray .cbnames$, "Choco Bundle I:Choco Bundle II:Choco Bundle III:Choco Bundle IV:Choco Bundle V:Choco Bundle VI:Choco Bundle VII:Choco Bundle VIII:Choco Bundle IX:Choco Bundle X:Choco Bundle XI:Choco Bundle XII:Choco Bundle XIII:Choco Bundle XIV:Choco Bundle XV:Choco Bundle XVI:Choco Bundle XVII:Choco Bundle XVIII:Choco Bundle XIX:Choco Bundle XX";
+    setarray .cbitems,  28411,28564,15205,20859,19102,5978,5973,19495,20837,1837,
+                        28507,28394,28342,15249,23266,20952,18746,19082,2196,22189,
+                        32242,32222,15419,23294,20932,19141,19116,5945,28951,16051,
+                        2864,28485,28484,2589,18543,19156,19299,5924,22210,1835,
+                        28594,28520,15405,20836,20962,18823,18933,19326,19246,28903,
+                        28433,32203,15384,20814,5500,5918,15165,5938,22198,28618,
+                        28565,2984,23253,20922,20941,5975,19387,5531,19343,28717,
+                        28573,28438,15352,20831,19327,5972,5916,19024,28941,22145,
+                        28430,28379,23251,20813,19020,19137,19083,19139,22170,18129,
+                        28513,28503,28491,2936,20863,19337,19138,2202,5921,2191,
+                        28377,28386,28533,20799,19269,19306,19125,2204,28910,2000000,
+                        28501,2985,15283,20931,19342,5967,19095,18720,28916,1665,
+                        32258,28575,20846,20949,18813,15166,5968,18670,22120,16024,
+                        28492,28429,15204,20783,19171,18591,18611,19391,19409,16022,
+                        28560,28437,23252,20714,19469,19426,5933,19112,28921,13017,
+                        28305,28353,15145,20800,5971,19081,19170,18959,2184,22134,
+                        32204,28598,28521,20845,19163,19329,5878,19285,18877,22172,
+                        28506,28372,28551,20860,18564,18616,18937,28918,22207,1449,
+                        28410,32262,32227,23255,20942,18887,19460,19114,28502,28929,
+                        28531,28320,15417,19048,20969,20730,5937,5924,19079,19407;
+}
+
+-	itemshop	cbtoken_shop_1	-1,2000050,28411:10,28564:10,15205:10,20859:10,19102:10,5978:10,5973:10,19495:10,20837:10,1837:10
+-	itemshop	cbtoken_shop_2	-1,2000050,28507:10,28394:10,28342:10,15249:10,23266:10,20952:10,18746:10,19082:10,2196:10,22189:10
+-	itemshop	cbtoken_shop_3	-1,2000050,32242:10,32222:10,15419:10,23294:10,20932:10,19141:10,19116:10,5945:10,28951:10,16051:10
+-	itemshop	cbtoken_shop_4	-1,2000050,2864:10,28485:10,28484:10,2589:10,18543:10,19156:10,19299:10,5924:10,22210:10,1835:10
+-	itemshop	cbtoken_shop_5	-1,2000050,28594:10,28520:10,15405:10,20836:10,20962:10,18823:10,18933:10,19326:10,19246:10,28903:10
+-	itemshop	cbtoken_shop_6	-1,2000050,28433:10,32203:10,15384:10,20814:10,5500:10,5918:10,15165:10,5938:10,22198:10,28618:10
+-	itemshop	cbtoken_shop_7	-1,2000050,28565:10,2984:10,23253:10,20922:10,20941:10,5975:10,19387:10,5531:10,19343:10,28717:10
+-	itemshop	cbtoken_shop_8	-1,2000050,28573:10,28438:10,15352:10,20831:10,19327:10,5972:10,5916:10,19024:10,28941:10,22145:10
+-	itemshop	cbtoken_shop_9	-1,2000050,28430:10,28379:10,23251:10,20813:10,19020:10,19137:10,19083:10,19139:10,22170:10,18129:10
+-	itemshop	cbtoken_shop_10	-1,2000050,28513:10,28503:10,28491:10,2936:10,20863:10,19337:10,19138:10,2202:10,5921:10,2191:10
+-	itemshop	cbtoken_shop_11	-1,2000050,28377:10,28386:10,28533:10,20799:10,19269:10,19306:10,19125:10,2204:10,28910:10,2000000:10
+-	itemshop	cbtoken_shop_12	-1,2000050,28501:10,2985:10,15283:10,20931:10,19342:10,5967:10,19095:10,18720:10,28916:10,1665:10
+-	itemshop	cbtoken_shop_13	-1,2000050,32258:10,28575:10,20846:10,20949:10,18813:10,15166:10,5968:10,18670:10,22120:10,16024:10
+-	itemshop	cbtoken_shop_14	-1,2000050,28492:10,28429:10,15204:10,20783:10,19171:10,18591:10,18611:10,19391:10,19409:10,16022:10
+-	itemshop	cbtoken_shop_15	-1,2000050,28560:10,28437:10,23252:10,20714:10,19469:10,19426:10,5933:10,19112:10,28921:10,13017:10
+-	itemshop	cbtoken_shop_16	-1,2000050,28305:10,28353:10,15145:10,20800:10,5971:10,19081:10,19170:10,18959:10,2184:10,22134:10
+-	itemshop	cbtoken_shop_17	-1,2000050,32204:10,28598:10,28521:10,20845:10,19163:10,19329:10,5878:10,19285:10,18877:10,22172:10
+-	itemshop	cbtoken_shop_18	-1,2000050,28506:10,28372:10,28551:10,20860:10,18564:10,18616:10,18937:10,28918:10,22207:10,1449:10
+-	itemshop	cbtoken_shop_19	-1,2000050,28410:10,32262:10,32227:10,23255:10,20942:10,18887:10,19460:10,19114:10,28502:10,28929:10
+-	itemshop	cbtoken_shop_20	-1,2000050,28531:10,28320:10,15417:10,19048:10,20969:10,20730:10,5937:10,5924:10,19079:10,19407:10
